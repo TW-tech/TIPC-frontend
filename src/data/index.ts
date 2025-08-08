@@ -106,26 +106,26 @@ export const videosData: VideoRecommendation[] = [
 export const cultureItemsData: CultureKnowledge[] = [
   {
     id: "traditional-arts",
-    title: "文化蛋糕圖",
-    image: "/images/culture/羽化黑熊.png",
+    title: "文化產業/文化品牌",
+    image: "/images/culture/文化品牌2.jpg",
     position: "top-left"
   },
   {
     id: "cultural-heritage",
-    title: "文化遺產",
-    image: "/images/culture/文化資產.png",
+    title: "文化記憶",
+    image: "/images/culture/文化記憶2.jpg",
     position: "top-right"
   },
   {
     id: "cultural-memory",
-    title: "文化記憶",
-    image: "/images/culture/文化記憶.JPG",
+    title: "文化資產/文化活動",
+    image: "/images/culture/文化活動.jpg",
     position: "bottom-left"
   },
   {
     id: "modern-culture",
-    title: "文化品牌",
-    image: "/images/culture/文化品牌.jpg",
+    title: "我們該怎麼做?",
+    image: "/images/culture/怎麼做.jpg",
     position: "bottom-right"
   }
 ];
