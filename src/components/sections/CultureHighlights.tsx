@@ -73,7 +73,7 @@ export default function CultureHighlights() {
 
   return (
     <section ref={sectionRef} className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-20 sm:px-20 lg:px-45">
         
         {/* 文化知識容器 - 長方形 2x2 排列 */}
         <div className="w-full">
