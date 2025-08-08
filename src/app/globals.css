@@ -43,6 +43,7 @@ body {
 /* 平滑滾動 */
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 /* 響應式設計增強 */
