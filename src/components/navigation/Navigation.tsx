@@ -10,9 +10,16 @@ interface NavigationProps {
 export default function Navigation({ variant = 'header', className = '' }: NavigationProps) {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('中文');
+  const [showPanel, setShowPanel] = useState(false);
 
   const navItems = [
     { href: '/', label: '首頁' },
+    { href: '/about', label: '關於我們' },
+    { href: '/culture', label: '文化探索' },
+    { href: '/gallery', label: '影像藝廊' },
+    { href: '/contact', label: '聯絡我們' },
+  ];
+  const navItems2 = [
     { href: '/about', label: '關於我們' },
     { href: '/culture', label: '文化探索' },
     { href: '/gallery', label: '影像藝廊' },
@@ -26,11 +33,56 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         {/* 左側三槓和語言切換 */}
         <div className="flex items-center space-x-2 sm:space-x-4">
           {/* 三槓按鈕 */}
-          <button className="flex flex-col justify-center items-center space-y-1 p-2 hover:bg-amber-900/20 rounded-lg transition-colors duration-200">
+          <button 
+            onClick={() => setShowPanel(!showPanel)}
+            className="flex flex-col justify-center items-center space-y-1 p-2 hover:bg-amber-900/20 rounded-lg transition-colors duration-200">
             <div className="w-5 h-0.5 sm:w-6 sm:h-0.5 bg-amber-900 rounded-full"></div>
             <div className="w-5 h-0.5 sm:w-6 sm:h-0.5 bg-amber-900 rounded-full"></div>
             <div className="w-5 h-0.5 sm:w-6 sm:h-0.5 bg-amber-900 rounded-full"></div>
           </button>
+
+          {showPanel && (
+            <div 
+              className="fixed inset-0 w-screen bg-[rgba(0,0,0,0.8)] flex items-center justify-center z-30"
+              onClick={() => setShowPanel(false)}
+            />
+          )}
+
+          {/* (三)側功能欄 */}
+          <div
+            className={`fixed inset-0 h-full w-[20%] bg-[#CC6915] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
+              showPanel ? 'translate-x-0' : '-translate-x-full'
+            }`}
+          >
+            {/* 關閉鍵 */}
+            <button
+              onClick={() => setShowPanel(false)}
+              className="absolute top-4 right-4 text-white-600 hover:text-blue-800"
+            >
+              ✕
+            </button>
+
+            {/* 頁面跳轉選項 */}
+            <div className="flex flex-col space-y-4 lg:space-y-6">
+            <button
+              onClick={() => setShowPanel(false)}
+              className="text-left text-white-900 hover:text-red-700 transition-colors duration-300 text-lg font-bold"
+            >
+              首頁   
+            </button>
+              {navItems2.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-white-900 hover:text-red-700 transition-colors duration-300 text-lg font-bold"
+              >
+                {item.label}
+              </Link>
+            ))}
+            </div>
+            
+            
+          </div>
           
           {/* 語言切換按鈕 - 地球圖標 */}
           <div className="relative">
@@ -101,17 +153,17 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
   // 一般頁面的簡化導航
   return (
     <nav className={`bg-white shadow-md ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-17">
+        <div className="absolute top-4 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 h-9">
           <Link href="/" className="text-xl font-bold text-[#833416]">
             文化記憶庫
           </Link>
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-4 lg:space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-[#833416] transition-colors duration-200 font-medium"
+                className="text-gray-700 hover:text-[#833416] transition-colors duration-200 text-sm font-bold"
               >
                 {item.label}
               </Link>
