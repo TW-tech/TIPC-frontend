@@ -40,7 +40,10 @@ export const videosData: VideoRecommendation[] = [
     description: "阿里山得獎咖啡結合高山地景、職人技藝與青農返鄉行動，帶動地方產業轉型與文化重塑，成為地方創生的重要實踐案例。",
     thumbnail: "/images/videorecommendations/阿里山咖啡園.jpg",
     duration: "25:30",
-    category: "紀錄片"
+    category: "紀錄片",
+    type: 'local',
+    src: '/videos/demo.mp4',
+    detail: "阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。"
   },
   {
     id: "traditional-arts-workshop1",
@@ -48,7 +51,10 @@ export const videosData: VideoRecommendation[] = [
     description: "結合魯凱傳統與環境倫理，運用竹鞘製作餐具，在河床野食中實踐無痕生活，展現原民生活智慧與自然共存的永續理念。",
     thumbnail: "/images/videorecommendations/原民生態智慧.jpg",
     duration: "18:45",
-    category: "教學"
+    category: "教學",
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    detail: ""
   },
   {
     id: "cultural-heritage-documentary2",
@@ -56,7 +62,10 @@ export const videosData: VideoRecommendation[] = [
     description: "菲律賓傳統螃蟹船，以其獨特的船舷支架聞名，最初為漁業和交通工具。如今，它搖身一變成為深度旅遊的利器，載著旅客探索島嶼，提供獨特的文化與自然體驗。",
     thumbnail: "/images/videorecommendations/漁船.JPG",
     duration: "17:33",
-    category: "紀錄片"
+    category: "紀錄片",
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    detail: ""
   },
   {
     id: "cultural-heritage-documentary3",
@@ -64,7 +73,10 @@ export const videosData: VideoRecommendation[] = [
     description: "當泰國傳統舞蹈遇疫情，舞者戴上防疫面具，展現文化彈性與應變。這不僅是視覺衝擊，更是藝術適應與傳承韌性的象徵。",
     thumbnail: "/images/videorecommendations/疫情泰國.jpg",
     duration: "38:45",
-    category: "紀錄片"
+    category: "紀錄片",
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    detail: ""
   },
   {
     id: "cultural-heritage-documentary4",
@@ -72,7 +84,10 @@ export const videosData: VideoRecommendation[] = [
     description: "奈及利亞傳統活動透過多元的文化舞蹈，不僅展現各族群獨特認同與生活智慧，更是傳承歷史、連結信仰的重要儀式與文化載體。",
     thumbnail: "/images/videorecommendations/奈及利亞.jpg",
     duration: "22:10",
-    category: "紀錄片"
+    category: "紀錄片",
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    detail: ""
   },
   {
     id: "traditional-arts-workshop2",
@@ -80,7 +95,10 @@ export const videosData: VideoRecommendation[] = [
     description: "澎湖海港文化體現在傳統漁獲保存的智慧與實踐中，是承載豐富歷史記憶與文化韌性的重要場域。",
     thumbnail: "/images/videorecommendations/澎湖傳統漁獲.JPG",
     duration: "13:45",
-    category: "教學"
+    category: "教學",
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    detail: ""
   }
 ];
 

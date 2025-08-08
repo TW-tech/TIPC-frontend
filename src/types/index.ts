@@ -49,6 +49,9 @@ export interface VideoRecommendation {
   thumbnail: string;
   duration: string;
   category: string;
+  type: 'youtube' | 'local';
+  src: string;
+  detail: string;
 }
 
 // API 響應類型
