@@ -63,8 +63,10 @@ export default function MainVisual() {
       const scaleY = height / baseHeight;
       const scale = Math.min(scaleX, scaleY); // 取較小值保持比例
       
-      // 1024-1920: 等比例縮小，1920以上: 等比例放大
-      if (width >= 1024) {
+      // 測試：當螢幕寬度 > 1080px 或高度 > 1200px 時，固定縮放為 1，不隨螢幕變化
+      if (width > 1080 || height > 1200) {
+        setScaleFactor(1); // 固定縮放比例為 1，動畫不會移動或縮放
+      } else if (width >= 1024) {
         setScaleFactor(scale);
       } else {
         // 小於1024的設備保持原有邏輯
@@ -369,14 +371,14 @@ export default function MainVisual() {
   const getResponsiveMountainConfigs = useMemo(() => {
     const mountainBackConfigs = {
       mobile: [
-        { x: "50vw", y: "20vh", endX: "55vw", endY: "55vh", scale: 10, delay: 0, zIndex: 12, xPercent: -50, yPercent: -50 },
-        { x: "40vw", y: "45vh", endX: "45vw", endY: "85vh", scale: 10, delay: 0, zIndex: 14, xPercent: -50, yPercent: -50 },
-        { x: "30vw", y: "70vh", endX: "35vw", endY: "120vh", scale: 10, delay: 0, zIndex: 16, xPercent: -50, yPercent: -50 }
+        { x: "50vw", y: "20vh", endX: "55vw", endY: "25vh", scale: 6, delay: 0, zIndex: 12, xPercent: -50, yPercent: -50 },
+        { x: "40vw", y: "45vh", endX: "45vw", endY: "45vh", scale: 6, delay: 0, zIndex: 14, xPercent: -50, yPercent: -50 },
+        { x: "30vw", y: "70vh", endX: "35vw", endY: "70vh", scale: 6, delay: 0, zIndex: 16, xPercent: -50, yPercent: -50 }
       ],
       tablet: [
-        { x: "2vw", y: "7vh", endX: "50vw", endY: "45vh", scale: 4, delay: 0, zIndex: 12, xPercent: -50, yPercent: -50 },
-        { x: "2vw", y: "28vh", endX: "40vw", endY: "80vh", scale: 4, delay: 0, zIndex: 14, xPercent: -50, yPercent: -50 },
-        { x: "2vw", y: "45vh", endX: "30vw", endY: "115vh", scale: 4, delay: 0, zIndex: 16, xPercent: -50, yPercent: -50 }
+        { x: "2vw", y: "7vh", endX: "30vw", endY: "20vh", scale: 3, delay: 0, zIndex: 12, xPercent: -50, yPercent: -50 },
+        { x: "2vw", y: "28vh", endX: "35vw", endY: "40vh", scale: 3, delay: 0, zIndex: 14, xPercent: -50, yPercent: -50 },
+        { x: "2vw", y: "45vh", endX: "30vw", endY: "60vh", scale: 3, delay: 0, zIndex: 16, xPercent: -50, yPercent: -50 }
       ],
       bigTablet: [
         { x: "15vw", y: "8vh", endX: "38vw", endY: "30vh", scale: 2.7, delay: 0, zIndex: 12, xPercent: -50, yPercent: -50 },
@@ -403,43 +405,36 @@ export default function MainVisual() {
     };
 
     return (breakpoint: 'mobile' | 'tablet' | 'bigTablet' | 'desktop') => {
-      // 為山脈設定最小縮放限制，避免在小螢幕上擠在一起
-      const mountainScaleFactor = Math.max(scaleFactor, 0.7); // 山脈最小縮放為0.7倍
+      // 測試：當螢幕寬度 > 1080px 或高度 > 1200px 時，山脈也固定縮放為 1
+      const currentWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+      const currentHeight = typeof window !== 'undefined' ? window.innerHeight : 966;
+      let mountainScaleFactor;
+      
+      if (currentWidth > 1080 || currentHeight > 1200) {
+        mountainScaleFactor = 1; // 固定為 1，不隨螢幕變化
+      } else {
+        // 山脈縮放邏輯：與其他元素保持一致，但有合理的上下限
+        mountainScaleFactor = Math.max(Math.min(scaleFactor, 1.5), 0.7); // 限制在 0.7x - 1.5x 之間
+      }
       
       return {
         mountainBackConfigs: mountainBackConfigs[breakpoint].map(config => ({
           ...config,
           scale: config.scale * mountainScaleFactor,
-          // 調整位置以響應縮放
-          x: typeof config.x === 'string' && config.x.includes('vw') 
-            ? `${parseFloat(config.x) * scaleFactor}vw`
-            : config.x,
-          endX: typeof config.endX === 'string' && config.endX.includes('vw')
-            ? `${parseFloat(config.endX) * scaleFactor}vw`
-            : config.endX,
-          y: typeof config.y === 'string' && config.y.includes('vh')
-            ? `${parseFloat(config.y) * scaleFactor}vh`
-            : config.y,
-          endY: typeof config.endY === 'string' && config.endY.includes('vh')
-            ? `${parseFloat(config.endY) * scaleFactor}vh`
-            : config.endY
+          // 位置保持原始 vw/vh 值，不再額外調整，讓山脈與其他元素行為一致
+          x: config.x,
+          endX: config.endX,
+          y: config.y,
+          endY: config.endY
         })),
         mountainConfigs: mountainConfigs[breakpoint].map(config => ({
           ...config,
           scale: config.scale * mountainScaleFactor,
-          // 調整位置以響應縮放
-          x: typeof config.x === 'string' && config.x.includes('vw')
-            ? `${parseFloat(config.x) * scaleFactor}vw`
-            : config.x,
-          endX: typeof config.endX === 'string' && config.endX.includes('vw')
-            ? `${parseFloat(config.endX) * scaleFactor}vw`
-            : config.endX,
-          y: typeof config.y === 'string' && config.y.includes('vh')
-            ? `${parseFloat(config.y) * scaleFactor}vh`
-            : config.y,
-          endY: typeof config.endY === 'string' && config.endY.includes('vh')
-            ? `${parseFloat(config.endY) * scaleFactor}vh`
-            : config.endY
+          // 位置保持原始 vw/vh 值，不再額外調整，讓山脈與其他元素行為一致
+          x: config.x,
+          endX: config.endX,
+          y: config.y,
+          endY: config.endY
         }))
       };
     };
