@@ -1,11 +1,11 @@
 import { 
-  MainVisual, 
+  MainVisual,
   ImageCarousel,
   Slogan,
   CultureHighlights,
   VideoRecommendations,
-  PartnerRecommendations, 
-  Footer 
+  PartnerRecommendations,
+  Footer
 } from '@/components';
 
 export default function Home() {
