@@ -78,7 +78,7 @@ export default function CultureHighlights() {
         
         {/* 文化知識容器 - 長方形 2x2 排列 */}
         <div className="w-full">
-          <div ref={gridRef} className="aspect-[3/2] sm:aspect-[2/1] grid grid-cols-2 grid-rows-2 gap-1 sm:gap-2 lg:gap-4 bg-[#FAF9EB] sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
+          <div ref={gridRef} className="aspect-[3/2] sm:aspect-[2/1] grid grid-cols-2 grid-rows-2 gap-1 sm:gap-2 lg:gap-4 bg-[#FAF9EB] rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
             {cultureItemsData.map((item) => (
               <div 
                 key={item.id}
