@@ -50,7 +50,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
           {/* (三)側功能欄 */}
           <div
-            className={`fixed inset-0 h-full w-[20%] bg-[#CC6915] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
+            className={`fixed inset-0 h-full w-[40%] lg:w-[20%] bg-[#CC6915] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
               showPanel ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
