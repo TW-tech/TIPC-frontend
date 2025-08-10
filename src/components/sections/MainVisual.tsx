@@ -240,7 +240,7 @@ export default function MainVisual() {
       { ref: elementRefs.leftTemple, src: "/animation/leftTemple.svg", alt: "left temple animation", mobileWidth: 100, mobileHeight: 100 },
       { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", mobileWidth: 110, mobileHeight: 110 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 130, mobileHeight: 130 },
-      { ref: elementRefs.boat, src: "/animation/boatWIthWaveAndFish.svg", alt: "boat animation", mobileWidth: 90, mobileHeight: 90 },
+      { ref: elementRefs.boat, src: "/animation/boatWithWaveAndFish.svg", alt: "boat animation", mobileWidth: 90, mobileHeight: 90 },
       { ref: elementRefs.red, src: "/animation/red.svg", alt: "red animation", mobileWidth: 60, mobileHeight: 60 },
       { ref: elementRefs.blue, src: "/animation/blue.svg", alt: "blue animation", mobileWidth: 60, mobileHeight: 60 },
     ];
@@ -251,7 +251,7 @@ export default function MainVisual() {
       { ref: elementRefs.leftTemple, src: "/animation/leftTemple.svg", alt: "left temple animation", mobileWidth: 120, mobileHeight: 120 },
       { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", mobileWidth: 130, mobileHeight: 130 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 150, mobileHeight: 150 },
-      { ref: elementRefs.boat, src: "/animation/boatWIthWaveAndFish.svg", alt: "boat animation", mobileWidth: 110, mobileHeight: 110 },
+      { ref: elementRefs.boat, src: "/animation/boatWithWaveAndFish.svg", alt: "boat animation", mobileWidth: 110, mobileHeight: 110 },
       { ref: elementRefs.red, src: "/animation/red.svg", alt: "red animation", mobileWidth: 75, mobileHeight: 75 },
       { ref: elementRefs.blue, src: "/animation/blue.svg", alt: "blue animation", mobileWidth: 75, mobileHeight: 75 },
     ];
@@ -264,7 +264,7 @@ export default function MainVisual() {
       { ref: elementRefs.leopard, src: "/animation/leopard.svg", alt: "leopard animation", mobileWidth: 80, mobileHeight: 80 },
       { ref: elementRefs.bear, src: "/animation/bear.svg", alt: "bear animation", mobileWidth: 60, mobileHeight: 60 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 130, mobileHeight: 130 },
-      { ref: elementRefs.boat, src: "/animation/boatWIthWaveAndFish.svg", alt: "boat animation", mobileWidth: 90, mobileHeight: 90 },
+      { ref: elementRefs.boat, src: "/animation/boatWithWaveAndFish.svg", alt: "boat animation", mobileWidth: 90, mobileHeight: 90 },
       { ref: elementRefs.noodle, src: "/animation/noodle.svg", alt: "noodle animation", mobileWidth: 80, mobileHeight: 80 },
       { ref: elementRefs.red, src: "/animation/red.svg", alt: "red animation", mobileWidth: 60, mobileHeight: 60 },
       { ref: elementRefs.blue, src: "/animation/blue.svg", alt: "blue animation", mobileWidth: 60, mobileHeight: 60 },
