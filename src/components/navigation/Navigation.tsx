@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation'
 
 interface NavigationProps {
   variant?: 'main' | 'header';
@@ -11,6 +12,8 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('中文');
   const [showPanel, setShowPanel] = useState(false);
+  const router = useRouter()
+  const pathname = usePathname();
 
   const navItems = [
     { href: '/', label: '首頁' },
@@ -20,8 +23,16 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
     { href: '/contact', label: '聯絡我們' },
   ];
 
-  // Navigation items without home page (for non-main variants)
-  const navItemsWithoutHome = navItems.slice(1);
+  const handleClick = (href: string) => {
+    if (pathname === href) {
+      // Already on this page
+      setShowPanel(false);
+      router.refresh(); // ✅ Reload page
+    } else {
+      setShowPanel(false);
+      router.push(href); // Navigate
+    }
+  };
 
   useEffect(() => {
         // 影片欄背景不可滑動 
@@ -60,7 +71,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
           {/* (三)側功能欄 */}
           <div
-            className={`fixed inset-0 h-full w-[40%] lg:w-[20%] bg-[#CC6915] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
+            className={`fixed inset-0 h-full w-[100%] lg:w-[20%] bg-[rgba(196,80,12,0.7)] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
               showPanel ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
@@ -74,20 +85,18 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
             {/* 頁面跳轉選項 */}
             <div className="flex flex-col space-y-4 lg:space-y-6">
-            <button
-              onClick={() => setShowPanel(false)}
-              className="text-left text-white-900 hover:text-red-700 transition-colors duration-300 text-lg font-bold"
-            >
-              首頁   
-            </button>
-              {navItemsWithoutHome.map((item) => (
-              <Link
+              {navItems.map((item) => (
+              <button
                 key={item.href}
-                href={item.href}
-                className="text-white-900 hover:text-red-700 transition-colors duration-300 text-lg font-bold"
+                onClick={() => handleClick(item.href)}
+                className={`text-center transition-colors duration-300 text-lg font-bold ${
+                  pathname === item.href
+                    ? 'text-[rgba(24,24,24,0.4)]'
+                    : 'text-white-900 hover:text-red-700'
+                }`}
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
             </div>
             
@@ -213,13 +222,17 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
               {/* 頁面跳轉選項 */}
               <div className="flex flex-col space-y-4 lg:space-y-6">
                 {navItems.map((item) => (
-                <Link
+                <button
                   key={item.href}
-                  href={item.href}
-                  className="text-white-900 hover:text-red-700 transition-colors duration-300 text-lg text-center font-bold"
+                  onClick={() => handleClick(item.href)}
+                  className={`text-center transition-colors duration-300 text-lg font-bold ${
+                    pathname === item.href
+                      ? 'text-[rgba(24,24,24,0.4)]'
+                      : 'text-white-900 hover:text-red-700'
+                  }`}
                 >
                   {item.label}
-                </Link>
+                </button>
               ))}
               </div>
               
