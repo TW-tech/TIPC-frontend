@@ -2,12 +2,24 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { videosData } from "@/data";
 import { VideoRecommendation } from "@/types";
 
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
 export default function VideoRecommendations() {
+  const [isClient, setIsClient] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const VideoRef = useRef<HTMLDivElement>(null);
+  
+  // Animation refs
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+  
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -17,7 +29,95 @@ export default function VideoRecommendations() {
   const [currentVideo, setCurrentVideo] = useState<VideoRecommendation | null>(null);
   const [initialRect, setInitialRect] = useState<DOMRect | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+
+  // Client-side detection
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const backgroundref = useRef<HTMLDivElement>(null);
+
+  // GSAP Animations
+  useEffect(() => {
+    if (!isClient) {
+      return;
+    }
+    
+    const ctx = gsap.context(() => {
+      // Title animation
+      if (titleRef.current) {
+        gsap.fromTo(titleRef.current, 
+          {
+            opacity: 0,
+            y: 30
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+
+      // Video cards animation
+      if (videoContainerRef.current) {
+        const cards = videoContainerRef.current.querySelectorAll('.video-card');
+        
+        gsap.fromTo(cards,
+          {
+            opacity: 0,
+            x: 80,
+            scale: 0.95
+          },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.7,
+            ease: "power3.out",
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: videoContainerRef.current,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+
+        // Animate navigation buttons
+        const navButtons = videoContainerRef.current.querySelectorAll('.nav-button');
+        gsap.fromTo(navButtons,
+          {
+            opacity: 0,
+            scale: 0.8
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "back.out(1.7)",
+            stagger: 0.1,
+            delay: 0.3,
+            scrollTrigger: {
+              trigger: videoContainerRef.current,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [isClient]);
 
   // 影片瀏覽箭頭顯示
   const checkScroll = () => {
@@ -120,22 +220,23 @@ export default function VideoRecommendations() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative py-8 sm:py-10 lg:py-12 bg-[#CC6915]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* 標題區塊 */}
-      <div className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10 text-black text-lg sm:text-xl lg:text-2xl font-semibold text-white">
+      <div ref={titleRef} className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10 text-black text-lg sm:text-xl lg:text-2xl font-semibold text-white">
         影音推薦
       </div>
-      <div className=" mx-auto px-0 sm:px-0 lg:px-0 relative">
+      <div ref={videoContainerRef} className=" mx-auto px-0 sm:px-0 lg:px-0 relative">
       {/* 漸層遮罩 */}
       <div className="absolute left-0 w-16 sm:w-12 lg:w-60 h-full bg-gradient-to-r from-[#CC6915] to-transparent pointer-events-none z-10"></div>
       <div className="absolute right-0 w-16 sm:w-12 lg:w-60 h-full bg-gradient-to-l from-[#CC6915] to-transparent pointer-events-none z-10"></div>
       {/* 箭頭 */}
       {isHovered && showLeft && (
         <button
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/0 rounded-full shadow hover:bg-white/10"
+          className="nav-button absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/0 rounded-full shadow hover:bg-white/10"
           onClick={() => scroll("left")}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,7 +246,7 @@ export default function VideoRecommendations() {
       )}
       {isHovered && showRight && (
         <button
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/0 rounded-full shadow hover:bg-white/10"
+          className="nav-button absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/0 rounded-full shadow hover:bg-white/10"
           onClick={() => scroll("right")}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,7 +264,7 @@ export default function VideoRecommendations() {
           <div
             key={video.id}
             ref={VideoRef}
-            className="group relative min-w-[280px] sm:min-w-[320px] lg:min-w-[400px] bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer overflow-hidden border border-gray-100 first:ml-30 last:mr-30"
+            className="video-card group relative min-w-[280px] sm:min-w-[320px] lg:min-w-[400px] bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer overflow-hidden border border-gray-100 first:ml-30 last:mr-30"
             onClick={(e) => openPanel(e, video)}
           >
             {/* 影片縮圖區域 */}
@@ -213,6 +314,7 @@ export default function VideoRecommendations() {
         ))}
       </div>
       </div>
+      
       {/* 影片播放欄 */}
       {isOpen && currentVideo && (
         

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useMemo, useState, useCallback } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Navigation from '@/components/navigation/Navigation';
 import LoadingScreen from '@/components/layout/LoadingScreen';
@@ -19,6 +20,30 @@ import {
 import { getDynamicMountainConfig, COMMON_IMAGE_STYLES } from './MainVisual/mountainConfigs';
 import { getCurrentBreakpoint, calculateDynamicScale } from './MainVisual/utils';
 
+interface AnimationConfig {
+  to: {
+    x: string;
+    y: string;
+    scale: number;
+    xPercent: number;
+    yPercent: number;
+  };
+}
+
+interface ConfigObject {
+  taiwan: AnimationConfig;
+  villiage: AnimationConfig;
+  red: AnimationConfig;
+  blue: AnimationConfig;
+  rightTemple?: AnimationConfig;
+  leftTemple?: AnimationConfig;
+  leopard?: AnimationConfig;
+  bear?: AnimationConfig;
+  boat?: AnimationConfig;
+  noodle?: AnimationConfig;
+  [key: string]: AnimationConfig | undefined;
+}
+
 export default function MainVisual() {
   // Loading 狀態管理
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +52,10 @@ export default function MainVisual() {
   const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>('desktop');
   const [isClient, setIsClient] = useState(false);
   const [scaleFactor, setScaleFactor] = useState(1);
+  
+  // 添加視窗大小變化追踪
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [shouldReplayAnimation, setShouldReplayAnimation] = useState(false);
 
   // Loading 完成處理函數
   const handleLoadingComplete = useCallback(() => {
@@ -68,10 +97,20 @@ export default function MainVisual() {
   // 客戶端檢測和響應式狀態管理
   useEffect(() => {
     setIsClient(true);
+    let resizeTimeout: NodeJS.Timeout;
     
     const updateBreakpoint = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
+      
+      // 檢查視窗大小是否有顯著變化
+      const previousWidth = windowSize.width;
+      const previousHeight = windowSize.height;
+      const widthChange = Math.abs(width - previousWidth);
+      const heightChange = Math.abs(height - previousHeight);
+      
+      // 更新視窗大小
+      setWindowSize({ width, height });
       
       // 計算基於標準尺寸的縮放比例
       const scaleX = width / SCALE_SETTINGS.BASE_WIDTH;
@@ -94,131 +133,142 @@ export default function MainVisual() {
         setCurrentBreakpoint('tablet');
       } else if (width < BREAKPOINTS.BIG_TABLET) {
         setCurrentBreakpoint('bigTablet');
-      } else {
+      } else if (width < BREAKPOINTS.BIGSCREEN) {
         setCurrentBreakpoint('desktop');
+      } else {
+        setCurrentBreakpoint('bigscreen');
+      }
+      
+      // 節流處理：如果視窗大小變化超過100px，且不在loading狀態，延遲觸發動畫重播
+      // 同時檢查斷點是否實際改變，避免相同斷點內的小幅調整
+      if ((widthChange > 100 || heightChange > 100) && previousWidth > 0 && !isLoading) {
+        // 清除之前的timeout
+        if (resizeTimeout) {
+          clearTimeout(resizeTimeout);
+        }
+        
+        // 延遲500ms執行，避免頻繁觸發
+        resizeTimeout = setTimeout(() => {
+          setShouldReplayAnimation(true);
+        }, 500);
       }
     };
 
     updateBreakpoint();
     window.addEventListener('resize', updateBreakpoint);
     
-    return () => window.removeEventListener('resize', updateBreakpoint);
-  }, []);
+    return () => {
+      window.removeEventListener('resize', updateBreakpoint);
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+    };
+  }, [windowSize.width, windowSize.height, isLoading]);
 
   // RWD Animation configurations - 根據螢幕尺寸調整
-  const getResponsiveAnimationConfigs = useMemo(() => {
-    return (breakpoint: Breakpoint) => {
-      console.log('Current breakpoint:', breakpoint); // Debug log
-      
-      // 使用動態配置來處理bigscreen的scale調整
-      const config = getDynamicAnimationConfig(breakpoint, calculateDynamicScale);
-      console.log('Config for', breakpoint, ':', config); // Debug log
-      
-      // 基礎動畫 - 根據裝置類型顯示不同元素
-      const baseAnimations = [];
-
-      // tablet、bigTablet 和 desktop 才顯示廟宇元素
-      if (breakpoint !== 'mobile') {
-        const fullConfig = config;
-        baseAnimations.push(
-          {
-            ref: elementRefs.rightTemple,
-            to: { ...fullConfig.rightTemple.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (fullConfig.rightTemple.to.scale || 1) * scaleFactor },
-            delay: ANIMATION_DELAYS.DESKTOP.RIGHT_TEMPLE
-          },
-          {
-            ref: elementRefs.leftTemple,
-            to: { ...fullConfig.leftTemple.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power1.out", scale: (fullConfig.leftTemple.to.scale || 1) * scaleFactor },
-            delay: ANIMATION_DELAYS.DESKTOP.LEFT_TEMPLE
-          }
-        );
-      }
-
-      // 所有裝置都顯示村莊元素
-      baseAnimations.push(
-        {
-          ref: elementRefs.villiage,
-          to: { ...config.villiage.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (config.villiage.to.scale || 1) * scaleFactor },
-          delay: breakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.VILLAGE : ANIMATION_DELAYS.DESKTOP.VILLAGE
-        }
-      );
-
-      // desktop 和 bigscreen 才顯示 leopard 和 bear 元素
-      if (breakpoint === 'desktop' || breakpoint === 'bigscreen') {
-        const fullConfig = config;
-        console.log('Leopard/Bear config check:', { breakpoint, hasLeopard: !!fullConfig?.leopard, hasBear: !!fullConfig?.bear }); // Debug log
-        
-        if (fullConfig?.leopard) {
-          baseAnimations.push({
-            ref: elementRefs.leopard,
-            to: { ...fullConfig.leopard.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power1.out", scale: (fullConfig.leopard.to.scale || 1) * scaleFactor },
-            delay: ANIMATION_DELAYS.DESKTOP.LEOPARD
-          });
-        }
-        
-        if (fullConfig?.bear) {
-          baseAnimations.push({
-            ref: elementRefs.bear,
-            to: { ...fullConfig.bear.to, opacity: 1, zIndex: 5, duration: 0.3, ease: "power1.out", scale: (fullConfig.bear.to.scale || 1) * scaleFactor },
-            delay: ANIMATION_DELAYS.DESKTOP.BEAR
-          });
-        }
-      }
-
-      // tablet、bigTablet 和 desktop 都顯示其他元素，包括 boat
-      if (breakpoint !== 'mobile') {
-        const fullConfig = config;
-        baseAnimations.push(
-          {
-            ref: elementRefs.boat,
-            to: { ...fullConfig.boat.to, opacity: 1, zIndex: 20, duration: 0.4, ease: "power2.out", scale: (fullConfig.boat.to.scale || 1) * scaleFactor },
-            delay: ANIMATION_DELAYS.DESKTOP.BOAT
-          }
-        );
-      }
-
-      // 只有 desktop 和 bigscreen 才顯示 noodle 元素
-      if (breakpoint === 'desktop' || breakpoint === 'bigscreen') {
-        const fullConfig = config;
-        if (fullConfig.noodle) {
-          baseAnimations.push(
-            {
-              ref: elementRefs.noodle,
-              to: { ...fullConfig.noodle.to, opacity: 1, zIndex: 30, duration: 0.35, ease: "power1.out", scale: (fullConfig.noodle.to.scale || 1) * scaleFactor },
-              delay: ANIMATION_DELAYS.DESKTOP.NOODLE
-            }
-          );
-        }
-      }
-
-      // Red, blue, taiwan 元素 - 所有裝置都顯示
-      baseAnimations.push(
-        {
-          ref: elementRefs.red,
-          to: { ...config.red.to, opacity: 1, zIndex: 30, duration: 0.3, ease: "power2.out", scale: (config.red.to.scale || 1) * scaleFactor },
-          delay: breakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.RED : ANIMATION_DELAYS.DESKTOP.RED
-        },
-        {
-          ref: elementRefs.blue,
-          to: { ...config.blue.to, opacity: 1, zIndex: 30, duration: 0.3, ease: "power2.out", scale: (config.blue.to.scale || 1) * scaleFactor },
-          delay: breakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.BLUE : ANIMATION_DELAYS.DESKTOP.BLUE
-        },
-        {
-          ref: elementRefs.taiwan,
-          to: { ...config.taiwan.to, opacity: 1, zIndex: 30, duration: 0.35, ease: "power2.out", scale: (config.taiwan.to.scale || 1) * scaleFactor },
-          delay: breakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.TAIWAN : ANIMATION_DELAYS.DESKTOP.TAIWAN
-        }
-      );
-
-      return baseAnimations;
-    };
-  }, [elementRefs, scaleFactor]);
-
-  // 動態取得當前螢幕對應的動畫配置
   const animationConfigs = useMemo(() => {
-    const breakpoint = getCurrentBreakpoint();
-    return getResponsiveAnimationConfigs(breakpoint);
-  }, [getResponsiveAnimationConfigs]);
+    console.log('Current breakpoint:', currentBreakpoint); // Debug log
+    
+    // 使用動態配置來處理bigscreen的scale調整
+    const config = getDynamicAnimationConfig(currentBreakpoint, calculateDynamicScale);
+    console.log('Config for', currentBreakpoint, ':', config); // Debug log
+    
+    // 基礎動畫 - 根據裝置類型顯示不同元素
+    const baseAnimations = [];
+
+    // tablet、bigTablet 和 desktop 才顯示廟宇元素
+    if (currentBreakpoint !== 'mobile') {
+      const fullConfig = config as ConfigObject;
+      if (fullConfig.rightTemple) {
+        baseAnimations.push({
+          ref: elementRefs.rightTemple,
+          to: { ...fullConfig.rightTemple.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (fullConfig.rightTemple.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.RIGHT_TEMPLE
+        });
+      }
+      if (fullConfig.leftTemple) {
+        baseAnimations.push({
+          ref: elementRefs.leftTemple,
+          to: { ...fullConfig.leftTemple.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power1.out", scale: (fullConfig.leftTemple.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.LEFT_TEMPLE
+        });
+      }
+    }
+
+    // 所有裝置都顯示村莊元素
+    baseAnimations.push({
+      ref: elementRefs.villiage,
+      to: { ...config.villiage.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (config.villiage.to.scale || 1) * scaleFactor },
+      delay: currentBreakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.VILLAGE : ANIMATION_DELAYS.DESKTOP.VILLAGE
+    });
+
+    // desktop、bigTablet 和 bigscreen 才顯示 leopard 和 bear 元素
+    if (currentBreakpoint === 'desktop' || currentBreakpoint === 'bigscreen' || currentBreakpoint === 'bigTablet') {
+      const fullConfig = config as ConfigObject;
+      console.log('Leopard/Bear config check:', { currentBreakpoint, hasLeopard: !!fullConfig?.leopard, hasBear: !!fullConfig?.bear }); // Debug log
+      
+      if (fullConfig?.leopard) {
+        baseAnimations.push({
+          ref: elementRefs.leopard,
+          to: { ...fullConfig.leopard.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power1.out", scale: (fullConfig.leopard.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.LEOPARD
+        });
+      }
+      
+      if (fullConfig?.bear) {
+        baseAnimations.push({
+          ref: elementRefs.bear,
+          to: { ...fullConfig.bear.to, opacity: 1, zIndex: 5, duration: 0.3, ease: "power1.out", scale: (fullConfig.bear.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.BEAR
+        });
+      }
+    }
+
+    // tablet、bigTablet 和 desktop 都顯示其他元素，包括 boat
+    if (currentBreakpoint !== 'mobile') {
+      const fullConfig = config as ConfigObject;
+      if (fullConfig.boat) {
+        baseAnimations.push({
+          ref: elementRefs.boat,
+          to: { ...fullConfig.boat.to, opacity: 1, zIndex: 20, duration: 0.4, ease: "power2.out", scale: (fullConfig.boat.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.BOAT
+        });
+      }
+    }
+
+    // 只有 desktop、bigTablet 和 bigscreen 才顯示 noodle 元素
+    if (currentBreakpoint === 'desktop' || currentBreakpoint === 'bigscreen' || currentBreakpoint === 'bigTablet') {
+      const fullConfig = config as ConfigObject;
+      if (fullConfig.noodle) {
+        baseAnimations.push({
+          ref: elementRefs.noodle,
+          to: { ...fullConfig.noodle.to, opacity: 1, zIndex: 30, duration: 0.35, ease: "power1.out", scale: (fullConfig.noodle.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.NOODLE
+        });
+      }
+    }
+
+    // Red, blue, taiwan 元素 - 所有裝置都顯示
+    baseAnimations.push(
+      {
+        ref: elementRefs.red,
+        to: { ...config.red.to, opacity: 1, zIndex: 30, duration: 0.3, ease: "power2.out", scale: (config.red.to.scale || 1) * scaleFactor },
+        delay: currentBreakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.RED : ANIMATION_DELAYS.DESKTOP.RED
+      },
+      {
+        ref: elementRefs.blue,
+        to: { ...config.blue.to, opacity: 1, zIndex: 30, duration: 0.3, ease: "power2.out", scale: (config.blue.to.scale || 1) * scaleFactor },
+        delay: currentBreakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.BLUE : ANIMATION_DELAYS.DESKTOP.BLUE
+      },
+      {
+        ref: elementRefs.taiwan,
+        to: { ...config.taiwan.to, opacity: 1, zIndex: 30, duration: 0.35, ease: "power2.out", scale: (config.taiwan.to.scale || 1) * scaleFactor },
+        delay: currentBreakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.TAIWAN : ANIMATION_DELAYS.DESKTOP.TAIWAN
+      }
+    );
+
+    return baseAnimations;
+  }, [currentBreakpoint, elementRefs, scaleFactor]);
 
   // SVG configurations - 根據裝置類型顯示不同元素 (SSR 安全)
   const getResponsiveSvgConfigs = useCallback(() => {
@@ -245,13 +295,16 @@ export default function MainVisual() {
       { ref: elementRefs.blue, src: "/animation/blue.svg", alt: "blue animation", mobileWidth: 60, mobileHeight: 60 },
     ];
     
-    // 大平板版本 (不包含 leopard, bear, 和 noodle，尺寸較大)
+    // 大平板版本 (包含所有元素，尺寸較大)
     const bigTabletConfigs = [
       { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 140, mobileHeight: 140 },
       { ref: elementRefs.leftTemple, src: "/animation/leftTemple.svg", alt: "left temple animation", mobileWidth: 120, mobileHeight: 120 },
       { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", mobileWidth: 130, mobileHeight: 130 },
+      { ref: elementRefs.leopard, src: "/animation/leopard.svg", alt: "leopard animation", mobileWidth: 85, mobileHeight: 85 },
+      { ref: elementRefs.bear, src: "/animation/bear.svg", alt: "bear animation", mobileWidth: 65, mobileHeight: 65 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 150, mobileHeight: 150 },
       { ref: elementRefs.boat, src: "/animation/boatWithWaveAndFish.svg", alt: "boat animation", mobileWidth: 110, mobileHeight: 110 },
+      { ref: elementRefs.noodle, src: "/animation/noodle.svg", alt: "noodle animation", mobileWidth: 85, mobileHeight: 85 },
       { ref: elementRefs.red, src: "/animation/red.svg", alt: "red animation", mobileWidth: 75, mobileHeight: 75 },
       { ref: elementRefs.blue, src: "/animation/blue.svg", alt: "blue animation", mobileWidth: 75, mobileHeight: 75 },
     ];
@@ -327,67 +380,74 @@ export default function MainVisual() {
   }, [getResponsiveMountainBackConfigs]);
 
   // Initialize animations - 只在loading完成後執行
-  useEffect(() => {
+  useGSAP(() => {
     // 如果還在loading，不執行動畫
     if (isLoading) {
       return;
     }
     
-    const ctx = gsap.context(() => {
-      // 設定 GSAP 效能優化 - 針對卡頓問題的改進，保持連貫性
-      gsap.config({ 
-        force3D: true,
-        nullTargetWarn: false,
-        autoSleep: 30,
-        units: { rotation: "rad", x: "px", y: "px" } // 統一單位提升效能
-      });
+    // 清除之前的動畫重播標記
+    if (shouldReplayAnimation) {
+      setShouldReplayAnimation(false);
+    }
+    
+    // 只清除 MainVisual 相關的動畫
+    const mainVisualElements = [
+      ...mountainBackRefs.current.filter(Boolean),
+      ...Object.values(elementRefs).map(ref => ref.current).filter(Boolean),
+      titleRef.current,
+      descriptionRef.current
+    ].filter(Boolean);
+    
+    // 只清除 MainVisual 元素的動畫
+    gsap.killTweensOf(mainVisualElements);
 
-      // 效能檢測 - 如果偵測到低效能設備，降低動畫複雜度
-      const isLowPerformance = () => {
-        // 簡單的效能檢測邏輯：基於CPU核心數
-        const { deviceMemory } = navigator as {deviceMemory?: number};
-        return navigator.hardwareConcurrency < 4 || 
-               (deviceMemory && deviceMemory < 4); // 記憶體小於4GB
-      };
+    // 效能檢測 - 如果偵測到低效能設備，降低動畫複雜度
+    const isLowPerformance = () => {
+      // 簡單的效能檢測邏輯：基於CPU核心數
+      const { deviceMemory } = navigator as {deviceMemory?: number};
+      return navigator.hardwareConcurrency < 4 || 
+             (deviceMemory && deviceMemory < 4); // 記憶體小於4GB
+    };
 
-      const lowPerf = isLowPerformance();
+    const lowPerf = isLowPerformance();
 
-      // 創建優化的動畫時間軸，保持連貫性但減少同時渲染的元素
-      const tlBatch1 = gsap.timeline({ 
-        defaults: { ease: "power2.out" },
-        paused: false,
-        autoRemoveChildren: true
-      });
-      
-      const tlBatch2 = gsap.timeline({ 
-        defaults: { ease: lowPerf ? "power1.out" : "power2.out" },
-        paused: false,
-        autoRemoveChildren: true,
-        delay: 0.5 // 更小的延遲以保持連貫性
-      });
+    // 創建優化的動畫時間軸，保持連貫性但減少同時渲染的元素
+    const tlBatch1 = gsap.timeline({ 
+      defaults: { ease: "power2.out" },
+      paused: false,
+      autoRemoveChildren: true
+    });
+    
+    const tlBatch2 = gsap.timeline({ 
+      defaults: { ease: lowPerf ? "power1.out" : "power2.out" },
+      paused: false,
+      autoRemoveChildren: true,
+      delay: 0.5 // 更小的延遲以保持連貫性
+    });
 
-      const tlText = gsap.timeline({ 
-        defaults: { ease: "power3.out" },
-        paused: false,
-        autoRemoveChildren: true
-      });
+    const tlText = gsap.timeline({ 
+      defaults: { ease: "power3.out" },
+      paused: false,
+      autoRemoveChildren: true
+    });
 
-      // 立即設置 mountain back 的初始狀態，避免閃現
-      gsap.set(mountainBackRefs.current.filter(Boolean), { 
-        opacity: 0,
-        visibility: "hidden" 
-      });
+    // 立即設置 mountain back 的初始狀態，避免閃現
+    gsap.set(mountainBackRefs.current.filter(Boolean), { 
+      opacity: 0,
+      visibility: "hidden" 
+    });
 
-      // 設置所有元素的初始狀態 - 優化渲染效能
-      const allElementRefs = [
-        ...mountainBackRefs.current.filter(Boolean),
-        ...Object.values(elementRefs).map(ref => ref.current).filter(Boolean)
-      ];
-      
-      // 設定初始狀態時就啟用硬體加速優化
-      gsap.set(allElementRefs, { 
-        opacity: 0,
-        force3D: true,
+    // 設置所有元素的初始狀態 - 優化渲染效能
+    const allElementRefs = [
+      ...mountainBackRefs.current.filter(Boolean),
+      ...Object.values(elementRefs).map(ref => ref.current).filter(Boolean)
+    ];
+    
+    // 設定初始狀態時就啟用硬體加速優化
+    gsap.set(allElementRefs, { 
+      opacity: 0,
+      force3D: true,
         backfaceVisibility: "hidden",
         willChange: "transform, opacity",
         transformStyle: "preserve-3d"
@@ -499,29 +559,29 @@ export default function MainVisual() {
         }
       }, textDelay + 0.2);
 
-    });
+  }, [isLoading, mountainBackConfigs, animationConfigs, elementRefs, shouldReplayAnimation]);
 
-    return () => ctx.revert();
-  }, [isLoading, mountainBackConfigs, animationConfigs, elementRefs]);
-
-  // 效能監控和清理 useEffect
+  // 效能監控和清理 useEffect - 只針對 MainVisual 元素
   useEffect(() => {
     let rafId: number;
     
     const optimizePerformance = () => {
-      // 檢查是否有動畫正在執行
-      const hasRunningAnimations = gsap.globalTimeline.getChildren().length > 0;
+      // 只檢查 MainVisual 相關的元素
+      const mainVisualElements = [
+        ...mountainBackRefs.current.filter(Boolean),
+        ...Object.values(elementRefs).map(ref => ref.current).filter(Boolean),
+        titleRef.current,
+        descriptionRef.current
+      ].filter(Boolean);
       
-      if (!hasRunningAnimations) {
-        // 所有動畫完成後，清理 willChange 屬性
-        const allElements = [
-          ...mountainBackRefs.current.filter(Boolean),
-          ...Object.values(elementRefs).map(ref => ref.current).filter(Boolean),
-          titleRef.current,
-          descriptionRef.current
-        ].filter(Boolean);
-        
-        allElements.forEach(element => {
+      // 檢查 MainVisual 元素是否還有動畫在執行
+      const hasMainVisualAnimations = mainVisualElements.some(element => 
+        gsap.isTweening(element)
+      );
+      
+      if (!hasMainVisualAnimations) {
+        // MainVisual 動畫完成後，清理 willChange 屬性
+        mainVisualElements.forEach(element => {
           if (element) {
             gsap.set(element, { willChange: "auto" });
           }

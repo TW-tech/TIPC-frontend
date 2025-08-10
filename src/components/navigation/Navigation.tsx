@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'
 
 interface NavigationProps {
   variant?: 'main' | 'header';
@@ -20,12 +19,9 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
     { href: '/gallery', label: '影像藝廊' },
     { href: '/contact', label: '聯絡我們' },
   ];
-  const navItems2 = [
-    { href: '/about', label: '關於我們' },
-    { href: '/culture', label: '文化探索' },
-    { href: '/gallery', label: '影像藝廊' },
-    { href: '/contact', label: '聯絡我們' },
-  ];
+
+  // Navigation items without home page (for non-main variants)
+  const navItemsWithoutHome = navItems.slice(1);
 
   useEffect(() => {
         // 影片欄背景不可滑動 
@@ -84,7 +80,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
             >
               首頁   
             </button>
-              {navItems2.map((item) => (
+              {navItemsWithoutHome.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
