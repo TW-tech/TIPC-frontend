@@ -14,6 +14,7 @@ export default function CultureHighlights() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  //const [currentBreakpoint, setCurrentBreakpoint] = useState<'mobile' | 'tablet' | 'bigTablet' | 'desktop'>('desktop')
 
   // GSAP Animations
   useEffect(() => {
@@ -73,7 +74,7 @@ export default function CultureHighlights() {
 
   return (
     <section ref={sectionRef} className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
-      <div className=" mx-auto px-20 sm:px-20 lg:px-45">
+      <div className=" mx-auto px-4 sm:px-22 lg:px-51">
         
         {/* 文化知識容器 - 長方形 2x2 排列 */}
         <div className="w-full">
