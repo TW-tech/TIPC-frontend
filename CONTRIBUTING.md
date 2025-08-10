@@ -25,12 +25,7 @@ npm run dev
 
 ### 3. 字體設置
 
-本專案使用特殊字體，請按照以下步驟設置：
-
-1. **隨峰體** (需手動下載)：
-   - 訪問：https://cjkfonts.io/blog/ThePeakFont
-   - 下載字體文件
-   - 放置到 `public/fonts/` 資料夾
+本專案使用系統預設字體和 Google Fonts，無需額外設置。
 
 詳細指南請參考 [FONTS.md](./FONTS.md)
 
