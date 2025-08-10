@@ -202,7 +202,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
             {/* (三)側功能欄 */}
             <div
-              className={`fixed  top-0 right-0 h-full w-[40%] lg:w-[20%] bg-[#CC6915] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
+              className={`fixed  top-0 right-0 h-full w-[100%] lg:w-[20%] bg-[rgba(196,80,12,0.7)] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
                 showPanel ? '-translate-x-0' : 'translate-x-full'
               }`}
             >
@@ -216,17 +216,11 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
               {/* 頁面跳轉選項 */}
               <div className="flex flex-col space-y-4 lg:space-y-6">
-              <button
-                onClick={() => setShowPanel(false)}
-                className="text-left text-white-900 hover:text-red-700 transition-colors duration-300 text-lg font-bold"
-              >
-                首頁   
-              </button>
-                {navItems2.map((item) => (
+                {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-white-900 hover:text-red-700 transition-colors duration-300 text-lg font-bold"
+                  className="text-white-900 hover:text-red-700 transition-colors duration-300 text-lg text-center font-bold"
                 >
                   {item.label}
                 </Link>
