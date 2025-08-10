@@ -1,6 +1,7 @@
 // Layout Components
 export { default as Footer } from './layout/Footer';
 export { default as PageLayout } from './layout/PageLayout';
+export { default as LoadingScreen } from './layout/LoadingScreen';
 
 // Navigation Components
 export { default as Navigation } from './navigation/Navigation';

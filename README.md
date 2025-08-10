@@ -76,10 +76,6 @@ Cultural-Website/
 │   │   └── utils.ts     # 實用工具函數
 │   └── types/           # TypeScript 類型定義
 ├── public/
-│   ├── fonts/           # 自定義字體檔案
-│   │   ├── ChenYuluoyan-2.0-Thin.ttf    # 辰宇落雁體
-│   │   ├── ChenYuluoyan-Thin-Monospaced.ttf
-│   │   └── ThePeakFontBeta_V0_102.ttf   # 隨峰體
 │   ├── images/          # 圖片資源 (分類整理)
 │   │   ├── culture/        # 文化相關圖片
 │   │   ├── mainvisual/     # 主視覺圖片
@@ -97,7 +93,6 @@ Cultural-Website/
 本專案使用台灣在地中文字型來增強文化真實感：
 
 - **辰宇落雁體（ChenYuluoyan）** - 主要標題和裝飾文字（`font-chenyuluoyan`）
-- **隨峰體（ThePeak）** - 內文和說明文字（`font-thepeak`）
 
 所有字型皆已針對網頁優化，支援完整的繁體中文字集。詳細字型設定請參考 [FONTS.md](./FONTS.md)
 
