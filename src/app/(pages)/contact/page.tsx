@@ -11,7 +11,7 @@ export default function ContactPage() {
     <PageLayout>
       <div className="min-h-screen bg-gray-50">
         {/* Header 區域 */}
-      <div className="bg-[#833416] text-white py-16">
+      <div className="bg-[#CC6915] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
             聯絡我們
@@ -23,7 +23,7 @@ export default function ContactPage() {
       </div>
 
       {/* 主要內容區域 */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto px-10 sm:px-10 lg:px-30 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* 聯絡表單 */}
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -104,7 +104,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">電子郵件</h3>
-                    <p className="text-gray-600">info@culturememory.tw</p>
+                    <p className="text-gray-600">garden91info@gmail.com</p>
                   </div>
                 </div>
 
@@ -114,7 +114,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">電話</h3>
-                    <p className="text-gray-600">+886-2-1234-5678</p>
+                    <p className="text-gray-600">02 2834 2637</p>
                   </div>
                 </div>
 
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">地址</h3>
-                    <p className="text-gray-600">台北市中正區重慶南路一段122號</p>
+                    <p className="text-gray-600">111台北市士林區仰德大道二段91號</p>
                   </div>
                 </div>
 
@@ -134,7 +134,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">服務時間</h3>
-                    <p className="text-gray-600">週一至週五 09:00-18:00</p>
+                    <p className="text-gray-600">星期日 休息</p>
+                    <p className="text-gray-600">星期一 休息</p>
+                    <p className="text-gray-600">星期二 10:30–13:30</p>
+                    <p className="text-gray-600">星期三 10:30–13:30, 14:00–17:00</p>
+                    <p className="text-gray-600">星期四 10:30–13:30, 14:00–17:00</p>
+                    <p className="text-gray-600">星期五 10:30–13:30, 14:00–16:00</p>
+                    <p className="text-gray-600">星期六 10:30–13:30, 14:00–17:00</p>
                   </div>
                 </div>
               </div>
