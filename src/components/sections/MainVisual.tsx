@@ -643,7 +643,7 @@ export default function MainVisual() {
           {/* Description */}
           <p 
             ref={descriptionRef}
-            className="font-body text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 [text-shadow:0px_0px_16px_rgba(0,0,0,0.8)] max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed text-slate-100 opacity-0 font-black"
+            className="font-body text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 sm:mb-12 [text-shadow:0px_0px_16px_rgba(0,0,0,0.8)] max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl mx-auto leading-relaxed text-slate-100 opacity-0 font-black"
           >
             透過對話與思辨，讓台灣文化影響力被看見
           </p>
