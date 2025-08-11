@@ -9,11 +9,11 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
               <Image
-                src="/icons/globe.svg"
+                src="/icons/logo1.png"
                 alt="台灣文化影響力平台標誌"
                 width={20}
                 height={20}
-                className="sm:w-6 sm:h-6 lg:w-8 lg:h-8 mr-2 sm:mr-3 filter invert"
+                className="sm:w-6 sm:h-6 lg:w-8 lg:h-8 mr-2 sm:mr-3 "
               />
               <h3 className="text-base sm:text-lg lg:text-xl font-bold">文化影響力平台</h3>
             </div>
