@@ -1,7 +1,24 @@
 # 台灣文化記憶庫 🏛️
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.4.4-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&## 🌟 專案狀態
+
+- ✅ **響應式設計** - 完成所有斷點適配
+- ✅ **核心組件** - 圖片輪播、影音推薦、合作夥伴展示  
+- ✅ **現代動畫系統** - GSAP + useGSAP Hook 整合完成
+- ✅ **主視覺動畫** - 完整的 SVG 動畫生態系統
+- ✅ **效能優化** - 依賴精簡化、動畫效能優化、圖片優化
+- ✅ **模組化架構** - 動畫配置分離、工具函數模組化
+- 🚧 **多語言支援** - 規劃中
+- 🚧 **內容管理系統** - 規劃中
+
+### 🎬 動畫系統特色
+
+- **主視覺動畫** - 12+ 個台灣文化元素 SVG 動畫
+- **響應式動畫** - 根據裝置類型（手機/平板/桌面）調整動畫複雜度  
+- **效能檢測** - 自動偵測裝置效能並調整動畫品質
+- **智能清理** - 動畫完成後自動釋放 GPU 資源
+- **無衝突設計** - 局部動畫管理，避免組件間動畫干擾r=black)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![GSAP](https://img.shields.io/badge/GSAP-3.13.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
@@ -12,13 +29,13 @@
 ## ✨ 特色功能
 
 - 🎨 **完全響應式設計** - 完美適配所有裝置（手機、平板、桌上型電腦）
+- 🌟 **主視覺動畫系統** - 使用 GSAP + useGSAP Hook 的專業級 SVG 動畫
 - 🖼️ **三圖片輪播展示** - 主圖片居中展示，左右預覽圖片
 - 🏛️ **文化展示區塊** - 博物館、文化遺址、文化資產展示
 - 🎭 **影音推薦** - 橫向滑動的影片推薦區塊
 - 🤝 **合作夥伴展示** - 三欄式合作夥伴推薦
-- 📱 **台灣字型** - 使用辰宇落雁體與隨峰體等在地文化特色中文字型
-- ⚡ **流暢動畫** - GSAP 動畫引擎提升使用者體驗
-- � **優化依賴** - 精簡的依賴包，更快的載入速度
+- ⚡ **流暢動畫** - GSAP 3.13.0 + @gsap/react 2.1.2 現代動畫系統
+- 🎯 **效能優化** - 精簡的依賴包，智能動畫管理，更快的載入速度
 
 ## 🛠️ 技術架構
 
@@ -26,9 +43,17 @@
 - **React 19.1.0** - 最新版本 React UI 程式庫
 - **TypeScript 5** - 型別安全開發
 - **Tailwind CSS 4** - 最新版實用優先的 CSS 框架
-- **GSAP 3.13.0** - 專業級動畫引擎
+- **GSAP 3.13.0 + @gsap/react 2.1.2** - 現代化動畫引擎與 React Hook 整合
 - **Sharp 0.34.3** - 高效能圖片優化
 - **Clsx & Tailwind-merge** - 動態 CSS 類別管理
+
+### 🎬 動畫系統架構
+
+- **useGSAP Hook** - React 19 相容的現代動畫管理
+- **模組化配置** - 動畫配置檔案分離（`animationConfigs.ts`、`mountainConfigs.ts`）
+- **響應式動畫** - 根據裝置類型智能調整動畫複雜度
+- **效能優化** - 局部動畫管理，避免全域動畫衝突
+- **SVG 動畫系統** - 文化元素 SVG 動畫（台灣、廟宇、熊、豹等）
 
 ## 🚀 快速開始
 
@@ -63,10 +88,17 @@ Cultural-Website/
 │   ├── components/       # React 組件
 │   │   ├── layout/      # 版面佈局組件
 │   │   │   └── Footer.tsx
+│   │   ├── navigation/  # 導航組件
+│   │   │   └── Navigation.tsx
 │   │   └── sections/    # 頁面區塊組件
-│   │       ├── ImageCarousel.tsx       # 三圖片輪播
-│   │       ├── Slogan.tsx             # 標語區塊
-│   │       ├── CultureHighlights.tsx  # 文化亮點
+│   │       ├── MainVisual/           # 主視覺動畫系統
+│   │       │   ├── animationConfigs.ts  # 動畫配置
+│   │       │   ├── mountainConfigs.ts   # 山脈動畫配置
+│   │       │   └── utils.ts            # 動畫工具函數
+│   │       ├── MainVisual.tsx        # 主視覺組件
+│   │       ├── ImageCarousel.tsx     # 三圖片輪播
+│   │       ├── Slogan.tsx           # 標語區塊（支援 GSAP 動畫）
+│   │       ├── CultureHighlights.tsx # 文化亮點
 │   │       ├── VideoRecommendations.tsx # 影音推薦
 │   │       └── PartnerRecommendations.tsx # 合作夥伴
 │   ├── data/            # 靜態數據與型別定義
@@ -76,6 +108,18 @@ Cultural-Website/
 │   │   └── utils.ts     # 實用工具函數
 │   └── types/           # TypeScript 類型定義
 ├── public/
+│   ├── animation/       # SVG 動畫資源
+│   │   ├── taiwan.svg      # 台灣地圖動畫
+│   │   ├── leftTemple.svg  # 左廟宇動畫
+│   │   ├── rightTemple.svg # 右廟宇動畫
+│   │   ├── bear.svg        # 熊動畫
+│   │   ├── leopard.svg     # 豹動畫
+│   │   ├── boatWithWaveAndFish.svg        # 船隻動畫
+│   │   ├── villiage.svg    # 村莊動畫
+│   │   ├── noodle.svg      # 麵條動畫
+│   │   ├── red.svg         # 紅龜粿動畫
+│   │   ├── blue.svg        # 藍染元素動畫
+│   │   └── mountainBack.svg # 背景山脈動畫
 │   ├── images/          # 圖片資源 (分類整理)
 │   │   ├── culture/        # 文化相關圖片
 │   │   ├── mainvisual/     # 主視覺圖片
@@ -87,14 +131,6 @@ Cultural-Website/
 ├── design/              # 設計文檔和規格
 └── .env.example         # 環境變數範例檔案
 ```
-
-## 🎨 字型系統
-
-本專案使用台灣在地中文字型來增強文化真實感：
-
-- **辰宇落雁體（ChenYuluoyan）** - 主要標題和裝飾文字（`font-chenyuluoyan`）
-
-所有字型皆已針對網頁優化，支援完整的繁體中文字集。詳細字型設定請參考 [FONTS.md](./FONTS.md)
 
 ## 📱 響應式設計重點
 
@@ -135,17 +171,26 @@ npm run lint:fix
 
 ## 🎯 專案優化重點
 
+### 現代動畫系統
+本專案採用最新的 GSAP + React 整合方案：
+- ✅ **useGSAP Hook** - 取代傳統 useEffect + gsap.context 模式
+- ✅ **模組化動畫配置** - 動畫邏輯分離至獨立配置檔案
+- ✅ **智能效能管理** - 局部動畫控制，避免全域動畫衝突
+- ✅ **響應式動畫** - 根據裝置效能自動調整動畫複雜度
+- ✅ **SVG 動畫生態系統** - 完整的台灣文化元素動畫集合
+
 ### 依賴精簡化
-本專案已優化依賴包結構，從原本的 17+ 個依賴精簡至 7 個核心依賴：
-- ✅ 移除 Framer Motion，改用輕量化 GSAP
+本專案已優化依賴包結構，維持在 8 個核心依賴：
+- ✅ 現代動畫系統：GSAP 3.13.0 + @gsap/react 2.1.2
+- ✅ 移除 Framer Motion，採用更專業的 GSAP 方案
 - ✅ 移除 Prisma（目前無需資料庫）
 - ✅ 移除 Radix UI 和 Zustand（簡化狀態管理）
-- ✅ 保留核心功能：Next.js、React、TypeScript、Tailwind CSS、GSAP
+- ✅ 保留核心功能：Next.js、React、TypeScript、Tailwind CSS
 
 ### 效能優化
 - **圖片優化**: 使用 Sharp 進行高效能圖片處理
-- **字型優化**: 自訂字型檔案經過網頁優化
-- **程式碼分割**: Next.js 自動程式碼分割
+- **動畫優化**: useGSAP 提供更好的 React 生命週期整合
+- **程式碼分割**: Next.js 自動程式碼分割 + Turbopack 支援
 - **CSS 優化**: Tailwind CSS 4 提供更小的打包體積
 
 ## 📱 響應式支援詳細說明
@@ -215,9 +260,9 @@ npm run lint:fix
 
 特別感謝：
 - 台灣各大博物館提供的文化資源和圖片
-- 辰宇落雁體與隨峰體字型設計師
 - Next.js、React 和 Tailwind CSS 開發團隊
-- GSAP 動畫引擎提供的強大功能
+- GSAP 動畫引擎與 @gsap/react 團隊提供的強大功能
+- 所有參與 SVG 動畫設計的藝術家和設計師
 
 ---
 
