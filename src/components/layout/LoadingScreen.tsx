@@ -79,13 +79,13 @@ export default function LoadingScreen({ onLoadingComplete, images }: LoadingScre
       {/* Logo 或品牌標識 */}
       <div className="mb-8">
         <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center shadow-lg">
-          <span className="text-white font-bold text-xl">草</span>
+          <span className="text-white font-bold text-xl">文化</span>
         </div>
       </div>
 
       {/* 主要文字 */}
       <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">
-        文化草山
+        文化影響力平台
       </h1>
       <p className="text-gray-600 mb-8 text-center max-w-sm">
         正在載入文化體驗...

@@ -94,7 +94,7 @@ export default function PartnerRecommendations() {
           {/* 標題區塊 */}
           <div ref={titleRef} className="text-center mb-2 sm:mb-2">
             <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 max-w-3xl mx-auto leading-relaxed">
-              合作夥伴推薦
+              影響力精選
             </p>
           </div>
           

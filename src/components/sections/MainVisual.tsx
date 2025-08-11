@@ -637,15 +637,15 @@ export default function MainVisual() {
             ref={titleRef}
             className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-shadow-lg leading-tight text-amber-100 opacity-0"
           >
-            文化記憶庫
+            探索記憶．洞見未來
           </h1>
           
           {/* Description */}
           <p 
             ref={descriptionRef}
-            className="font-body text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 text-shadow-md max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed text-slate-100 opacity-0"
+            className="font-body text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 text-shadow-md max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed text-slate-100 opacity-0 font-black"
           >
-            踏上一段穿越時空的文化旅程，發現各民族獨特的傳統、藝術與智慧
+            透過對話與思辨，讓台灣文化影響力被看見
           </p>
         </div>
         
