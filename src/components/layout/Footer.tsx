@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -7,7 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {/* Brand Section */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
-            <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
+            <Link 
+              href="/"
+              className="flex items-center mb-2 sm:mb-3 lg:mb-4">
               <Image
                 src="/icons/logo_w_text.png"
                 alt="Cultural Website Logo"
@@ -15,7 +18,7 @@ export default function Footer() {
                 height={20}
                 className="w-[300px] sm:w-[140px] lg:w-[300px] h-auto "
               />
-            </div>
+            </Link>
             <p className="text-xs sm:text-sm lg:text-base text-gray-400 mb-2 sm:mb-3 lg:mb-4 leading-relaxed">
               保存和分享世界文化多樣性，透過數位說故事和社群參與來傳承文化。
             </p>
@@ -56,9 +59,10 @@ export default function Footer() {
           <div className="col-span-1">
             <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 lg:mb-4">快速連結</h4>
             <ul className="space-y-1 sm:space-y-2">
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">專欄文章</a></li>
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">活動資訊</a></li>
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">關於我們</a></li>
+              <li><Link href="/about" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">關於我們</Link></li>
+              <li><Link href="/culture" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">專欄文章</Link></li>
+              <li><Link href="/gallery" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">影像藝廊</Link></li>
+              <li><Link href="/contact" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">聯絡我們</Link></li>
             </ul>
           </div>
         </div>
