@@ -221,12 +221,12 @@ export default function VideoRecommendations() {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-12 sm:pt-14 lg:pt-16 pb-8 sm:pb-10 lg:pb-12 bg-[#CC6915]"
+      className="relative pt-14 pb-8 sm:pt-18 sm:pb-10 lg:pt-22 lg:pb-12 bg-[#CC6915]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* 標題區塊 */}
-      <div ref={titleRef} className="absolute top-4 sm:top-5 lg:top-6 left-1/2 -translate-x-1/2 z-10 text-black text-lg sm:text-xl lg:text-2xl font-semibold text-white">
+      <div ref={titleRef} className="absolute top-4 sm:top-6 lg:top-8 left-1/2 -translate-x-1/2 z-10 text-black text-lg sm:text-2xl lg:text-3xl font-semibold text-white">
         影響力影音
       </div>
       <div ref={videoContainerRef} className=" mx-auto px-0 sm:px-0 lg:px-0 relative">

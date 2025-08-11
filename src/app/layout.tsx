@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "文化記憶庫",
-  description: "踏上一段穿越時空的文化旅程，發現各民族獨特的傳統、藝術與智慧",
+  title: "文化影響力平台",
+  description: "因為我們擁有共同的文化記憶，所以我們成為一家人。",
 };
 
 export default function RootLayout({

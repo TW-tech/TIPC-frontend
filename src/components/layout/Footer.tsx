@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className="bg-[#833416] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[40%_35%_25%] gap-4 sm:gap-6 lg:gap-8">
           {/* Brand Section */}
-          <div className="col-span-2 sm:col-span-2 lg:col-span-2">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <Link 
               href="/"
               className="flex items-center mb-2 sm:mb-3 lg:mb-4">
@@ -20,7 +20,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-xs sm:text-sm lg:text-base text-gray-400 mb-2 sm:mb-3 lg:mb-4 leading-relaxed">
-              保存和分享世界文化多樣性，透過數位說故事和社群參與來傳承文化。
+              因為我們擁有共同的文化記憶，所以我們成為一家人。
             </p>
             <div className="flex space-x-2 sm:space-x-3 lg:space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -50,15 +50,32 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Quick Links */}
-          <div className="col-span-1">
-            
+          {/* Partner Logos */}
+          <div className="col-span-1 text-center">
+            <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 lg:mb-4">合作夥伴</h4>
+            <div className="space-y-2 sm:space-y-3">
+              {/* 合作廠商 logo 預留區塊 */}
+              <div className="flex flex-col items-center space-y-2">
+                {/* Logo 1 */}
+                <div className="w-20 h-8 sm:w-24 sm:h-10 lg:w-28 lg:h-12 bg-white/10 rounded border border-white/20 flex items-center justify-center">
+                  <span className="text-xs text-gray-400">Logo 1</span>
+                </div>
+                {/* Logo 2 */}
+                <div className="w-20 h-8 sm:w-24 sm:h-10 lg:w-28 lg:h-12 bg-white/10 rounded border border-white/20 flex items-center justify-center">
+                  <span className="text-xs text-gray-400">Logo 2</span>
+                </div>
+                {/* Logo 3 */}
+                <div className="w-20 h-8 sm:w-24 sm:h-10 lg:w-28 lg:h-12 bg-white/10 rounded border border-white/20 flex items-center justify-center">
+                  <span className="text-xs text-gray-400">Logo 3</span>
+                </div>
+              </div>
+            </div>
           </div>
           
-          {/* Resources */}
-          <div className="col-span-1">
+          {/* Quick Links */}
+          <div className="col-span-1 text-center">
             <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 lg:mb-4">快速連結</h4>
-            <ul className="space-y-1 sm:space-y-2">
+            <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:flex-col sm:space-y-2 sm:justify-start">
               <li><Link href="/about" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">關於我們</Link></li>
               <li><Link href="/culture" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">專欄文章</Link></li>
               <li><Link href="/gallery" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">影像藝廊</Link></li>

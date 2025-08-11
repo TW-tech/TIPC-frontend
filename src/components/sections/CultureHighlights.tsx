@@ -152,8 +152,13 @@ export default function CultureHighlights() {
                 
                 {/* 遮罩和標題 - 直接顯示 */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 transition-opacity duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <h3 className="text-white font-bold text-xl sm:text-2xl lg:text-4xl text-shadow-lg text-center">
+                  <div className={`absolute p-4 ${
+                    item.position === 'top-left' ? 'bottom-0 right-0 text-right' :
+                    item.position === 'top-right' ? 'bottom-0 left-0 text-left' :
+                    item.position === 'bottom-left' ? 'top-0 right-0 text-right' :
+                    'top-0 left-0 text-left'  // bottom-right
+                  }`}>
+                    <h3 className="text-white font-bold text-xl sm:text-2xl lg:text-4xl text-shadow-lg">
                       {item.title}
                     </h3>
                   </div>

@@ -88,12 +88,12 @@ export default function PartnerRecommendations() {
   };
   
   return (
-    <section ref={sectionRef} className="pt-2 pb-2 sm:pt-2 sm:pb-3 lg:pt-2 lg:pb-4 bg-[#FAF9EB]">
+    <section ref={sectionRef} className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-[#FAF9EB]">
       <div className="w-full flex justify-center px-4 sm:px-6 lg:px-8">
         <div className="w-full sm:w-[82%]">
           {/* 標題區塊 */}
           <div ref={titleRef} className="text-center mb-2 sm:mb-2">
-            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-800 max-w-3xl mx-auto leading-relaxed">
               影響力精選
             </p>
           </div>

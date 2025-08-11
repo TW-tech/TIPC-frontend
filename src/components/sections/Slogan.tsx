@@ -91,7 +91,7 @@ export default function Slogan() {
             <div className="space-y-3 sm:space-y-4 lg:space-y-6 h-full pl-6 sm:pl-8 lg:pl-12 pr-4 sm:pr-8 lg:pr-16 w-full flex flex-col justify-center -translate-y-2">
               <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white leading-relaxed">
                 因為我們擁有共同的文化記憶，<br />
-                所以我們成為一家人。
+                <span className="block text-right pr-0">所以我們成為一家人。</span>
               </p>
               
             </div>

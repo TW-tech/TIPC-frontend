@@ -132,9 +132,9 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
       <button 
         onClick={() => setShowPanel(!showPanel)}
         className="right-0 flex flex-col justify-center items-center space-y-1 p-2 hover:bg-amber-900/20 rounded-lg transition-colors duration-200">
-        <div className="w-5 h-0.5 sm:w-6 sm:h-0.5 bg-white rounded-full"></div>
-        <div className="w-5 h-0.5 sm:w-6 sm:h-0.5 bg-white rounded-full"></div>
-        <div className="w-5 h-0.5 sm:w-6 sm:h-0.5 bg-white rounded-full"></div>
+        <div className="w-7 h-1 sm:w-8 sm:h-1 bg-white rounded-full"></div>
+        <div className="w-7 h-1 sm:w-8 sm:h-1 bg-white rounded-full"></div>
+        <div className="w-7 h-1 sm:w-8 sm:h-1 bg-white rounded-full"></div>
       </button>
 
       {showPanel && (
