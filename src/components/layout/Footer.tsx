@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
               <Image
-                src="/icons/logo1.png"
+                src="/icons/logo_w.png"
                 alt="台灣文化影響力平台標誌"
                 width={20}
                 height={20}

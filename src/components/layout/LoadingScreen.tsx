@@ -1,5 +1,6 @@
 "use client";
 
+import NextImage from "next/image";
 import { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
@@ -78,8 +79,14 @@ export default function LoadingScreen({ onLoadingComplete, images }: LoadingScre
     <div className="loading-screen fixed inset-0 bg-gradient-to-br from-amber-50 to-orange-100 flex flex-col items-center justify-center z-50">
       {/* Logo 或品牌標識 */}
       <div className="mb-8">
-        <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center shadow-lg">
-          <span className="text-white font-bold text-xl">文化</span>
+        <div className="w-40 h-40 flex items-center justify-center">
+          <NextImage
+            src="/icons/logo_b.png"
+            alt="台灣文化影響力平台標誌"
+            width={2048}
+            height={2048}
+            className="w-40 h-40 mr-2 sm:mr-3 "
+          />
         </div>
       </div>
 

@@ -63,7 +63,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
           className="flex items-cente p-1 hover:bg-amber-900/20 rounded-lg transition-colors duration-200"
         >
           <Image
-            src="/icons/logo1.png"
+            src="/icons/logo_w.png"
             alt="台灣文化影響力平台標誌"
             width={20}
             height={20}

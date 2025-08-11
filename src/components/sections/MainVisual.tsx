@@ -618,7 +618,7 @@ export default function MainVisual() {
         style={{ backgroundColor: '#F09F6F' }}
       >
       {/* Navigation */}
-      <Navigation variant="main" />
+      <Navigation/>
 
       {/* Background Layer */}
       <div 
@@ -632,10 +632,10 @@ export default function MainVisual() {
       {/* Content Layer */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-amber-50 px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
-          {/* Main Title */}
+          {/* Main Title ．*/}
           <h1 
             ref={titleRef}
-            className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-shadow-lg leading-tight text-amber-100 opacity-0"
+            className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 [text-shadow:8px_8px_6px_rgba(0,0,0,0.6)] leading-tight text-amber-100 opacity-0"
           >
             探索記憶．洞見未來
           </h1>
@@ -643,7 +643,7 @@ export default function MainVisual() {
           {/* Description */}
           <p 
             ref={descriptionRef}
-            className="font-body text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 text-shadow-md max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed text-slate-100 opacity-0 font-black"
+            className="font-body text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-12 [text-shadow:0px_0px_16px_rgba(0,0,0,0.8)] max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed text-slate-100 opacity-0 font-black"
           >
             透過對話與思辨，讓台灣文化影響力被看見
           </p>
