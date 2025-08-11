@@ -1,19 +1,53 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { carouselImagesData } from "@/data";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ImageCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Animation refs
+  const sectionRef = useRef<HTMLElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // 自動輪播
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
+    
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselImagesData.length);
     }, 4000); // 4秒切換一次
 
     return () => clearInterval(timer);
+  }, []);
+
+  // GSAP Animations
+  useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
+    const ctx = gsap.context(() => {
+      // Carousel animation
+      if (carouselRef.current) {
+        const slides = carouselRef.current.querySelectorAll('.carousel-slide');
+        const navDots = carouselRef.current.querySelectorAll('.nav-dot');
+        
+        console.log('Found slides:', slides.length, 'Found navDots:', navDots.length); // Debug
+        
+        // Simply make everything visible without complex animation for now
+        gsap.set(slides, { opacity: 1, scale: 1, y: 0 });
+        gsap.set(navDots, { opacity: 1, scale: 1, y: 0 });
+      }
+    }, sectionRef);    return () => ctx.revert();
   }, []);
 
   const nextSlide = () => {
@@ -29,15 +63,14 @@ export default function ImageCarousel() {
   };
 
   return (
-
-    <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
+    <section ref={sectionRef} className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
       {/* 滿寬輪播容器 */}
-      <div className="relative w-full group">
+      <div ref={carouselRef} className="relative w-full group">
         {/* 三圖輪播區域 - 寬扁比例 */}
         <div className="relative h-[14rem] sm:h-[18rem] lg:h-[26rem] xl:h-[30rem] 2xl:h-[44rem] flex items-center justify-center gap-4 lg:gap-8 px-4 sm:px-6 lg:px-8">
             
             {/* 左側預覽圖 */}
-            <div className="hidden sm:block relative w-[18%] h-[60%] lg:h-[70%] xl:h-[75%] 2xl:h-[80%] opacity-60 hover:opacity-80 transition-all duration-300 cursor-pointer transform hover:scale-105">
+            <div className="carousel-slide hidden sm:block relative w-[18%] h-[60%] lg:h-[70%] xl:h-[75%] 2xl:h-[80%] opacity-60 hover:opacity-80 transition-all duration-300 cursor-pointer transform hover:scale-105">
               <div className="relative w-full h-full rounded-xl shadow-lg overflow-hidden"
                    onClick={prevSlide}>
                 <Image
@@ -57,7 +90,7 @@ export default function ImageCarousel() {
             </div>
 
             {/* 中間主圖 */}
-            <div className="relative w-full sm:w-[64%] h-full rounded-2xl shadow-2xl overflow-hidden">
+            <div className="carousel-slide relative w-full sm:w-[64%] h-full rounded-2xl shadow-2xl overflow-hidden">
               <Image
                 src={carouselImagesData[currentSlide].src}
                 alt={carouselImagesData[currentSlide].alt}
@@ -79,7 +112,7 @@ export default function ImageCarousel() {
             </div>
 
             {/* 右側預覽圖 */}
-            <div className="hidden sm:block relative w-[18%] h-[60%] lg:h-[70%] xl:h-[75%] 2xl:h-[80%] opacity-60 hover:opacity-80 transition-all duration-300 cursor-pointer transform hover:scale-105">
+            <div className="carousel-slide hidden sm:block relative w-[18%] h-[60%] lg:h-[70%] xl:h-[75%] 2xl:h-[80%] opacity-60 hover:opacity-80 transition-all duration-300 cursor-pointer transform hover:scale-105">
               <div className="relative w-full h-full rounded-xl shadow-lg overflow-hidden"
                    onClick={nextSlide}>
                 <Image
@@ -126,7 +159,7 @@ export default function ImageCarousel() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`transition-all duration-300 ${
+                className={`nav-dot transition-all duration-300 ${
                   index === currentSlide
                     ? 'w-8 h-3 bg-orange-500 rounded-full'
                     : 'w-3 h-3 bg-gray-300 hover:bg-gray-400 rounded-full'

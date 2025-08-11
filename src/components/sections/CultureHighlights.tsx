@@ -18,58 +18,116 @@ export default function CultureHighlights() {
 
   // GSAP Animations
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Title animation
-      if (titleRef.current) {
-        gsap.fromTo(titleRef.current, 
-          {
-            opacity: 0,
-            y: 50
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: "top 85%",
-              end: "bottom 15%",
-              toggleActions: "play none none reverse"
+    // Add a small delay to ensure DOM is ready and page has settled
+    const timer = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        // Title animation
+        if (titleRef.current) {
+          gsap.fromTo(titleRef.current, 
+            {
+              opacity: 0,
+              y: 50
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: titleRef.current,
+                start: "top 95%", // 更早觸發
+                end: "bottom 5%",
+                toggleActions: "play none none reverse",
+                refreshPriority: -1,
+                invalidateOnRefresh: true,
+                immediateRender: false
+              }
             }
-          }
-        );
-      }
+          );
+        }
 
-      // Grid animation with stagger effect
-      if (gridRef.current) {
-        const items = gridRef.current.querySelectorAll('.culture-item');
+        // Grid animation with stagger effect
+        if (gridRef.current) {
+          const items = gridRef.current.querySelectorAll('.culture-item');
+          
+          gsap.fromTo(items,
+            {
+              opacity: 0,
+              scale: 0.8,
+              y: 60
+            },
+            {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power3.out",
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: gridRef.current,
+                start: "top 95%", // 更早觸發
+                end: "bottom 5%",
+                toggleActions: "play none none reverse",
+                refreshPriority: -1,
+                invalidateOnRefresh: true,
+                immediateRender: false
+              }
+            }
+          );
+        }
         
-        gsap.fromTo(items,
-          {
-            opacity: 0,
-            scale: 0.8,
-            y: 60
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: 0.2,
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: "top 85%",
-              end: "bottom 15%",
-              toggleActions: "play none none reverse"
+        // Force ScrollTrigger refresh after animations are set
+        ScrollTrigger.refresh();
+        
+        // Additional check: if elements are already in view, trigger animations
+        setTimeout(() => {
+          if (titleRef.current && gridRef.current) {
+            const titleRect = titleRef.current.getBoundingClientRect();
+            const gridRect = gridRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // If elements are already in view, force trigger animations
+            if (titleRect.top < windowHeight * 0.95 && titleRect.bottom > 0) {
+              gsap.set(titleRef.current, { opacity: 1, y: 0 });
+            }
+            
+            if (gridRect.top < windowHeight * 0.95 && gridRect.bottom > 0) {
+              const items = gridRef.current.querySelectorAll('.culture-item');
+              gsap.set(items, { opacity: 1, scale: 1, y: 0 });
             }
           }
-        );
-      }
-    }, sectionRef);
+        }, 300);
+      }, sectionRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Additional effect to handle navigation back to home
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      }
+    };
+    
+    const handleFocus = () => {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+    };
   }, []);
 
   return (

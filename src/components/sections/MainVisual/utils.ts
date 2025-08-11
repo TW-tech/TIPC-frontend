@@ -11,7 +11,7 @@ export const getCurrentBreakpoint = (): Breakpoint => {
   
   if (width < 768) return 'mobile';
   if (width < 1024) return 'tablet';
-  if (width < 1280) return 'bigTablet';
+  if (width < 1400) return 'bigTablet';  // 修正為與 MainVisual.tsx 一致
   if (width < 1920) return 'desktop';
   return 'bigscreen';
 };

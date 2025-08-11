@@ -79,7 +79,10 @@ export const RESPONSIVE_ANIMATION_CONFIGS = {
     rightTemple: { to: { x: "79vw", y: "46vh", scale: 1.9, xPercent: -50, yPercent: -50 } },
     leftTemple: { to: { x: "28vw", y: "46vh", scale: 1.8, xPercent: -50, yPercent: -50 } },
     villiage: { to: { x: "79vw", y: "70vh", scale: 2, xPercent: -50, yPercent: -50 } },
+    leopard: { to: { x: "10vw", y: "64vh", scale: 0.9, xPercent: -50, yPercent: -50 } },
+    bear: { to: { x: "87vw", y: "25vh", scale: 0.45, xPercent: -50, yPercent: -50 } },
     boat: { to: { x: "17vw", y: "78vh", scale: 2, xPercent: -50, yPercent: -50 } },
+    noodle: { to: { x: "88vw", y: "80vh", scale: 0.55, xPercent: -50, yPercent: -50 } },
     red: { to: { x: "85vw", y: "23vh", scale: 0.7, xPercent: -50, yPercent: -50 } },
     blue: { to: { x: "18vw", y: "28vh", scale: 0.9, xPercent: -50, yPercent: -50 } },
     taiwan: { to: { x: "51vw", y: "50vh", scale: 1.8, xPercent: -50, yPercent: -50 } }
@@ -122,7 +125,7 @@ export const getDynamicAnimationConfig = (breakpoint: Breakpoint, calculateDynam
   }
   
   // 創建動態調整後的配置
-  const dynamicConfig = {} as any;
+  const dynamicConfig: Record<string, { to: { x: string; y: string; scale: number; xPercent: number; yPercent: number } }> = {};
   
   Object.entries(baseConfig).forEach(([key, config]) => {
     if (config && config.to && typeof config.to.scale === 'number') {
