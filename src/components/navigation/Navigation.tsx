@@ -60,16 +60,22 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         {/* 網頁icon&title */}
         <Link 
           href="/"
-          className="flex items-cente p-1 hover:bg-amber-900/20 rounded-lg transition-colors duration-200"
+          className="flex items-center p-1 hover:bg-amber-900/20 rounded-lg transition-colors duration-200"
         >
-          <Image
-            src="/icons/logo_w.png"
-            alt="台灣文化影響力平台標誌"
-            width={20}
-            height={20}
-            className="sm:w-6 sm:h-6 lg:w-8 lg:h-8 mr-2 sm:mr-3 "
-          />
-          <h3 className="text-base sm:text-lg lg:text-xl font-bold">文化影響力平台</h3>
+          <div className="w-8 h-8 sm:w-6 sm:h-6 lg:w-8 lg:h-8 mr-2 sm:mr-3 relative flex-shrink-0">
+            <Image
+              src="/icons/logo_w.png"
+              alt="台灣文化影響力平台標誌"
+              fill
+              style={{ objectFit: "contain" }}
+              sizes="32px"
+            />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <h3 className="text-base sm:text-lg lg:text-xl font-bold">
+              文化影響力平台
+            </h3>
+          </div>
         </Link>
         
         {/* 語言切換按鈕 - 地球圖標 */}

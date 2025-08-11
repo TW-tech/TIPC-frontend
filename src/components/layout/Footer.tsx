@@ -9,13 +9,12 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-2 lg:col-span-2">
             <div className="flex items-center mb-2 sm:mb-3 lg:mb-4">
               <Image
-                src="/icons/logo_w.png"
-                alt="台灣文化影響力平台標誌"
-                width={20}
+                src="/icons/logo_w_text.png"
+                alt="Cultural Website Logo"
+                width={140}
                 height={20}
-                className="sm:w-6 sm:h-6 lg:w-8 lg:h-8 mr-2 sm:mr-3 "
+                className="w-[300px] sm:w-[140px] lg:w-[300px] h-auto "
               />
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold">文化影響力平台</h3>
             </div>
             <p className="text-xs sm:text-sm lg:text-base text-gray-400 mb-2 sm:mb-3 lg:mb-4 leading-relaxed">
               保存和分享世界文化多樣性，透過數位說故事和社群參與來傳承文化。
@@ -50,6 +49,11 @@ export default function Footer() {
           
           {/* Quick Links */}
           <div className="col-span-1">
+            
+          </div>
+          
+          {/* Resources */}
+          <div className="col-span-1">
             <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 lg:mb-4">快速連結</h4>
             <ul className="space-y-1 sm:space-y-2">
               <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">專欄文章</a></li>
@@ -57,20 +61,9 @@ export default function Footer() {
               <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">關於我們</a></li>
             </ul>
           </div>
-          
-          {/* Resources */}
-          <div className="col-span-1">
-            <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 lg:mb-4">資源中心</h4>
-            <ul className="space-y-1 sm:space-y-2">
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">部落格</a></li>
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">圖片庫</a></li>
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">聯絡我們</a></li>
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">客戶支援</a></li>
-            </ul>
-          </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-4 sm:mt-6 lg:mt-8 pt-4 sm:pt-6 lg:pt-8 text-center">
+        <div className="border-t border-white-800 mt-4 sm:mt-6 lg:mt-8 pt-4 sm:pt-6 lg:pt-8 text-center">
           <p className="text-xs sm:text-sm text-gray-400">
             © 2025 文化影響力平台. 版權所有.
           </p>
