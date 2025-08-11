@@ -158,7 +158,7 @@ export default function CultureHighlights() {
                     item.position === 'bottom-left' ? 'top-0 right-0 text-right' :
                     'top-0 left-0 text-left'  // bottom-right
                   }`}>
-                    <h3 className="text-white font-bold text-xl sm:text-2xl lg:text-4xl text-shadow-lg">
+                    <h3 className="text-white font-bold text-sm sm:text-lg lg:text-xl text-shadow-lg">
                       {item.title}
                     </h3>
                   </div>

@@ -53,6 +53,11 @@ export default function MainVisual() {
   const [isClient, setIsClient] = useState(false);
   const [scaleFactor, setScaleFactor] = useState(1);
   
+  // Windows效能優化狀態
+  const [performanceMode, setPerformanceMode] = useState<'high' | 'medium' | 'low'>('high');
+  const frameCountRef = useRef(0);
+  const lastTimeRef = useRef(performance.now());
+  
   // 添加視窗大小變化追踪
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [shouldReplayAnimation, setShouldReplayAnimation] = useState(false);
@@ -94,10 +99,58 @@ export default function MainVisual() {
     blue: blueRef,
   }), []);
 
-  // 客戶端檢測和響應式狀態管理
+  // 客戶端檢測和響應式狀態管理 + 僅Windows效能監控
   useEffect(() => {
     setIsClient(true);
     let resizeTimeout: NodeJS.Timeout;
+    
+    // 只對Windows用戶進行效能監控，Mac用戶跳過
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isWindows = userAgent.includes('windows');
+    const isMac = userAgent.includes('mac') || userAgent.includes('darwin');
+    
+    const monitorPerformance = () => {
+      // Mac用戶直接設為高效能模式，不需要監控
+      if (isMac) {
+        setPerformanceMode('high');
+        return;
+      }
+      
+      // 只有Windows用戶才需要效能監控
+      if (isWindows) {
+        const now = performance.now();
+        const elapsed = now - lastTimeRef.current;
+        frameCountRef.current++;
+        
+        // 每2秒檢查一次幀率
+        if (elapsed >= 2000) {
+          const fps = (frameCountRef.current / elapsed) * 1000;
+          
+          // 根據幀率調整效能模式
+          if (fps < 30) {
+            setPerformanceMode('low');
+          } else if (fps < 50) {
+            setPerformanceMode('medium');
+          } else {
+            setPerformanceMode('high');
+          }
+          
+          frameCountRef.current = 0;
+          lastTimeRef.current = now;
+        }
+        
+        if (!isLoading) {
+          requestAnimationFrame(monitorPerformance);
+        }
+      } else {
+        // 其他系統默認高效能
+        setPerformanceMode('high');
+      }
+    };
+    
+    if (!isLoading) {
+      requestAnimationFrame(monitorPerformance);
+    }
     
     const updateBreakpoint = () => {
       const width = window.innerWidth;
@@ -378,6 +431,60 @@ export default function MainVisual() {
     const breakpoint = getCurrentBreakpoint();
     return getResponsiveMountainBackConfigs(breakpoint);
   }, [getResponsiveMountainBackConfigs]);
+  
+  // Windows效能優化CSS樣式 - 避免SSR hydration mismatch
+  const optimizedStyles = useMemo(() => {
+    // 只在客戶端執行時才應用平台特定樣式，避免SSR mismatch
+    if (!isClient) {
+      return {
+        container: {},
+        animation: {}
+      };
+    }
+    
+    const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent.toLowerCase() : '';
+    const isWindows = userAgent.includes('windows');
+    const isMac = userAgent.includes('mac') || userAgent.includes('darwin');
+    
+    return {
+      container: {
+        // Mac用戶保持最佳效能設定
+        ...(isMac && {
+          backfaceVisibility: 'hidden' as const,
+          perspective: '1000px',
+          transformStyle: 'preserve-3d' as const,
+          willChange: 'transform',
+          transform: 'translateZ(0)',
+        }),
+        // Windows用戶才需要條件性優化
+        ...(isWindows && {
+          backfaceVisibility: 'hidden' as const,
+          perspective: '1000px',
+          transformStyle: 'preserve-3d' as const,
+          // 只在高效能模式下使用GPU加速
+          ...(performanceMode === 'high' && {
+            willChange: 'transform',
+            transform: 'translateZ(0)',
+          })
+        })
+      },
+      animation: {
+        // Mac用戶保持最佳動畫設定
+        ...(isMac && {
+          animationFillMode: 'forwards' as const,
+          animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          backfaceVisibility: 'hidden' as const,
+          willChange: 'transform, opacity',
+        }),
+        // Windows用戶才需要條件性優化
+        ...(isWindows && performanceMode !== 'high' && {
+          animationFillMode: 'forwards' as const,
+          animationTimingFunction: 'ease-out',
+          backfaceVisibility: 'hidden' as const,
+        })
+      }
+    };
+  }, [performanceMode, isClient]);
 
   // Initialize animations - 只在loading完成後執行
   useGSAP(() => {
@@ -402,32 +509,61 @@ export default function MainVisual() {
     // 只清除 MainVisual 元素的動畫
     gsap.killTweensOf(mainVisualElements);
 
-    // 效能檢測 - 如果偵測到低效能設備，降低動畫複雜度
+    // 增強的效能檢測 - 只針對Windows用戶優化，避免SSR mismatch
     const isLowPerformance = () => {
-      // 簡單的效能檢測邏輯：基於CPU核心數
+      // 只在客戶端執行時才進行檢測，避免SSR mismatch
+      if (!isClient) {
+        return false;
+      }
+      
+      // 用戶系統檢測
       const { deviceMemory } = navigator as {deviceMemory?: number};
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isWindows = userAgent.includes('windows');
+      const isMac = userAgent.includes('mac') || userAgent.includes('darwin');
+      
+      // Mac用戶永遠不被認為是低效能 - 保持原有的高品質動畫
+      if (isMac) {
+        return false;
+      }
+      
+      // 只對Windows用戶進行嚴格的效能檢測
+      if (isWindows) {
+        const baseThreshold = 6; // Windows用戶需要更多核心才算高效能
+        const memoryThreshold = 6; // Windows用戶需要更多記憶體
+        
+        // 結合即時效能監控結果（僅Windows）
+        const realTimePerformanceIssue = performanceMode === 'low';
+        
+        return navigator.hardwareConcurrency < baseThreshold || 
+               (deviceMemory && deviceMemory < memoryThreshold) ||
+               (!navigator.userAgent.toLowerCase().includes('chrome') && !navigator.userAgent.toLowerCase().includes('firefox')) || // 非主流瀏覽器在Windows上表現較差
+               realTimePerformanceIssue; // 即時效能監控結果
+      }
+      
+      // 其他系統使用原有的寬鬆檢測
       return navigator.hardwareConcurrency < 4 || 
-             (deviceMemory && deviceMemory < 4); // 記憶體小於4GB
+             (deviceMemory && deviceMemory < 4);
     };
 
     const lowPerf = isLowPerformance();
 
-    // 創建優化的動畫時間軸，保持連貫性但減少同時渲染的元素
+    // 創建優化的動畫時間軸，針對Windows用戶進行優化，避免SSR mismatch
     const tlBatch1 = gsap.timeline({ 
-      defaults: { ease: "power2.out" },
+      defaults: { ease: isClient && lowPerf ? "power1.out" : "power2.out" },
       paused: false,
       autoRemoveChildren: true
     });
     
     const tlBatch2 = gsap.timeline({ 
-      defaults: { ease: lowPerf ? "power1.out" : "power2.out" },
+      defaults: { ease: isClient && lowPerf ? "none" : "power2.out" }, // 只在客戶端應用優化
       paused: false,
       autoRemoveChildren: true,
-      delay: 0.5 // 更小的延遲以保持連貫性
+      delay: isClient && lowPerf ? 0.3 : 0.5 // 只在客戶端調整延遲
     });
 
     const tlText = gsap.timeline({ 
-      defaults: { ease: "power3.out" },
+      defaults: { ease: isClient && lowPerf ? "power1.out" : "power3.out" },
       paused: false,
       autoRemoveChildren: true
     });
@@ -444,23 +580,18 @@ export default function MainVisual() {
       ...Object.values(elementRefs).map(ref => ref.current).filter(Boolean)
     ];
     
-    // 設定初始狀態時就啟用硬體加速優化
+    // 設定初始狀態時就啟用硬體加速優化 - 針對Windows優化，避免SSR mismatch
     gsap.set(allElementRefs, { 
       opacity: 0,
-      force3D: true,
-        backfaceVisibility: "hidden",
-        willChange: "transform, opacity",
-        transformStyle: "preserve-3d"
-      });
-      gsap.set(allElementRefs, { 
-        opacity: 0,
-        force3D: false, // 避免過度的3D加速影響品質
-        backfaceVisibility: "hidden",
-        willChange: "transform, opacity", // 提前告知瀏覽器
-        transformStyle: "preserve-3d" // 優化3D變換
-      });
+      force3D: isClient ? !lowPerf : false, // 只在客戶端才應用平台特定設定
+      backfaceVisibility: "hidden",
+      willChange: isClient && !lowPerf ? "transform, opacity" : "auto", // 避免SSR時預先設定willChange
+      transformStyle: isClient && !lowPerf ? "preserve-3d" : "flat",
+      webkitBackfaceVisibility: "hidden", // 針對Webkit引擎優化
+      mozBackfaceVisibility: "hidden" // 針對Firefox優化
+    });
 
-      // part 1: 分階段執行山脈動畫 (避免同時執行太多) - 效能優化
+      // part 1: 分階段執行山脈動畫 - Windows效能優化
       const mountainTimeline = gsap.timeline({
         // 山脈動畫完成後清理資源
         onComplete: () => {
@@ -484,14 +615,14 @@ export default function MainVisual() {
             zIndex: config.zIndex,
             xPercent: config.xPercent,
             yPercent: config.yPercent,
-            duration: 0.5,
-            ease: "power2.out",
-            force3D: true, // 啟用硬體加速
+            duration: isClient && lowPerf ? 0.3 : 0.5, // 只在客戶端才應用效能調整
+            ease: isClient && lowPerf ? "power1.out" : "power2.out",
+            force3D: isClient ? !lowPerf : false, // 避免SSR mismatch
             transformOrigin: "center center",
             onComplete: () => {
               gsap.set(mountainElement, { willChange: "auto" });
             }
-          }, index * 0.1);
+            }, index * (isClient && lowPerf ? 0.05 : 0.1)); // 只在客戶端才調整交錯延遲
         }
       });
 
@@ -501,16 +632,17 @@ export default function MainVisual() {
           // 根據動畫複雜度和時間點分配timeline，配合緊湊時間
           const isComplexAnimation = config.to.scale !== undefined && config.to.scale > 1.5;
           const timeline = isComplexAnimation || config.delay > 2.0 ? tlBatch2 : tlBatch1;
-          const adjustedDelay = timeline === tlBatch2 ? config.delay - 0.5 : config.delay;
+          const adjustedDelay = timeline === tlBatch2 ? config.delay - (isClient && lowPerf ? 0.3 : 0.5) : config.delay;
           
           timeline.to(config.ref.current,
             { 
               ...config.to,
-              force3D: true,
+              force3D: isClient ? !lowPerf : false, // 避免SSR mismatch
               transformOrigin: "center center",
-              willChange: "transform, opacity",
-              // 針對卡頓優化：減少不必要的重繪
-              rotationZ: 0.01, // 強制使用transform3d
+              willChange: isClient && !lowPerf ? "transform, opacity" : "auto",
+              // 針對Windows卡頓優化：減少不必要的重繪
+              rotationZ: isClient && !lowPerf ? 0.01 : 0, // 避免SSR時設定rotationZ
+              duration: isClient && lowPerf ? (config.to.duration || 0.7) * 0.7 : config.to.duration, // 只在客戶端調整動畫時間
               onComplete: () => {
                 if (config.ref.current) {
                   gsap.set(config.ref.current, { willChange: "auto" });
@@ -521,25 +653,25 @@ export default function MainVisual() {
       });
 
 
-      // Set initial states for text elements - 效能優化
+      // Set initial states for text elements - Windows效能優化，避免SSR mismatch
       gsap.set([titleRef.current, descriptionRef.current], { 
         opacity: 0, 
-        y: 50, 
-        scale: 0.9,
-        force3D: false, // 文字也保持高品質
-        willChange: "transform, opacity",
+        y: isClient && lowPerf ? 30 : 50, // 只在客戶端調整移動距離
+        scale: isClient && lowPerf ? 0.95 : 0.9, // 只在客戶端調整縮放幅度
+        force3D: isClient ? !lowPerf : false, // 避免SSR mismatch
+        willChange: isClient && !lowPerf ? "transform, opacity" : "auto",
         transformOrigin: "center center"
       });
 
-      // Main text animation sequence - 配合更緊湊的動畫時間
+      // Main text animation sequence - 針對Windows用戶優化時間
       const textDelay = getCurrentBreakpoint() === 'mobile' ? 2.2 : ANIMATION_DELAYS.DESKTOP.TEXT;
       tlText.to(titleRef.current, {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.25,
-        ease: "power2.out",
-        delay: textDelay,  // 根據裝置調整文字出現時間
+        duration: isClient && lowPerf ? 0.15 : 0.25, // 只在客戶端調整動畫時間
+        ease: isClient && lowPerf ? "power1.out" : "power2.out",
+        delay: textDelay,
         onComplete: () => {
           if (titleRef.current) {
             gsap.set(titleRef.current, { willChange: "auto" });
@@ -550,14 +682,14 @@ export default function MainVisual() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.25,
-        ease: "power2.out",
+        duration: isClient && lowPerf ? 0.15 : 0.25, // 只在客戶端調整動畫時間
+        ease: isClient && lowPerf ? "power1.out" : "power2.out",
         onComplete: () => {
           if (descriptionRef.current) {
             gsap.set(descriptionRef.current, { willChange: "auto" });
           }
         }
-      }, textDelay + 0.2);
+      }, textDelay + (isClient && lowPerf ? 0.1 : 0.2)); // 只在客戶端調整間隔
 
   }, [isLoading, mountainBackConfigs, animationConfigs, elementRefs, shouldReplayAnimation]);
 
@@ -615,7 +747,10 @@ export default function MainVisual() {
       {/* Main Content */}
       <section 
         className="relative w-full h-screen overflow-hidden"
-        style={{ backgroundColor: '#F09F6F' }}
+        style={{ 
+          backgroundColor: '#F09F6F',
+          ...optimizedStyles.container
+        }}
       >
       {/* Navigation */}
       <Navigation/>
@@ -649,14 +784,14 @@ export default function MainVisual() {
           </p>
         </div>
         
-        {/* Animated Elements - 高效能優化，保持高畫質 */}
+        {/* Animated Elements - Windows效能優化，保持高畫質 */}
         {mountainBackConfigs.map((config, index) => {
           const isMobile = isClient && currentBreakpoint === 'mobile';
           const width = isMobile ? 200 : 700;
           const height = isMobile ? 240 : 833;
           
           return (
-            <img
+            <Image
               key={`mountainBack-${index}`}
               ref={(el) => {
                 mountainBackRefs.current[index] = el;
@@ -668,14 +803,16 @@ export default function MainVisual() {
               className="absolute inset-0 opacity-0"
               style={{ 
                 ...COMMON_IMAGE_STYLES,
+                ...optimizedStyles.animation,
                 contain: 'layout style paint', // 優化重排和重繪
               }}
-              loading={index < 2 ? "eager" : "lazy"}
+              priority={index < 2} // 前兩張圖片優先載入
+              unoptimized={true} // SVG不需要優化
             />
           );
         })}
         
-        {/* Single SVG Elements - 使用響應式配置，效能優化 */}
+        {/* Single SVG Elements - Windows效能優化，使用響應式配置 */}
         {svgConfigs.map((config, index) => {
           const isMobile = isClient && currentBreakpoint === 'mobile';
           const width = isMobile ? (config.mobileWidth || 300) : 400;
@@ -692,12 +829,14 @@ export default function MainVisual() {
               className="absolute inset-0 opacity-0"
               style={{
                 ...COMMON_IMAGE_STYLES,
+                ...optimizedStyles.animation,
                 contain: 'layout style paint',
               }}
               priority={index < 3} // 核心元素優先載入
-              quality={100}
+              quality={performanceMode === 'low' ? 75 : 100} // 只有低效能模式才降低品質(主要是Windows)
               loading={index < 3 ? "eager" : "lazy"}
               sizes={isMobile ? "(max-width: 768px) 50vw" : "(max-width: 1024px) 30vw, 25vw"}
+              unoptimized={true} // SVG不需要優化
             />
           );
         })}
