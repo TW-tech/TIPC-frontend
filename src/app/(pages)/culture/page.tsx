@@ -6,7 +6,7 @@ import { PageLayout } from '@/components';
 import { CultureExplorerData } from "@/data";
 
 /*export const metadata: Metadata = {
-  title: '文化探索 - 文化記憶庫',
+  title: '專欄文章 - 文化記憶庫',
   description: '深入探索台灣豐富的文化內涵，發現傳統藝術、民俗文化和歷史故事',
 };*/
 
@@ -23,7 +23,7 @@ export default function CulturePage() {
       <div className="bg-[#CC6915] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
-            文化探索
+            專欄文章
           </h1>
           <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
             踏上一段穿越時空的文化旅程，發現各民族獨特的傳統、藝術與智慧

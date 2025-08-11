@@ -84,3 +84,11 @@ img {
     transform: scale(1.02);
   }
 }
+
+@font-face {
+  font-family: 'TaipeiSansTCBetaBold';
+  src: url('/font/TaipeiSansTCBeta-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

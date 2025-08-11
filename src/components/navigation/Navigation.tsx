@@ -18,7 +18,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
   const navItems = [
     { href: '/about', label: '關於我們' },
-    { href: '/culture', label: '文化探索' },
+    { href: '/culture', label: '專欄文章' },
     { href: '/gallery', label: '影像藝廊' },
     { href: '/contact', label: '聯絡我們' },
   ];

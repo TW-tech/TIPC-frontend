@@ -52,7 +52,7 @@ export default function Footer() {
           <div className="col-span-1">
             <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 lg:mb-4">快速連結</h4>
             <ul className="space-y-1 sm:space-y-2">
-              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">文化探索</a></li>
+              <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">專欄文章</a></li>
               <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">活動資訊</a></li>
               <li><a href="#" className="text-xs sm:text-sm lg:text-base text-gray-400 hover:text-white transition-colors">關於我們</a></li>
             </ul>

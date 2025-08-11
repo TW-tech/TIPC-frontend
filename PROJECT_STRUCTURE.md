@@ -15,7 +15,7 @@
 - **描述**: 介紹網站使命與願景
 - **特色**: 包含核心價值說明
 
-#### 文化探索 (`/culture`)
+#### 專欄文章 (`/culture`)
 - **檔案位置**: `src/app/(pages)/culture/page.tsx`
 - **描述**: 文化分類與內容展示
 - **特色**: 傳統藝術、民俗文化、歷史故事分類
@@ -91,7 +91,7 @@ src/app/
 const navItems = [
   { href: '/', label: '首頁' },
   { href: '/about', label: '關於我們' },
-  { href: '/culture', label: '文化探索' },
+  { href: '/culture', label: '專欄文章' },
   { href: '/gallery', label: '影像藝廊' },
   { href: '/contact', label: '聯絡我們' },
 ];
