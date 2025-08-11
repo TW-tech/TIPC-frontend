@@ -90,11 +90,9 @@ export default function Slogan() {
           <div ref={textContainerRef} className="flex items-center h-full p-4 sm:p-6 bg-[#833416] relative order-2 lg:order-1">
             <div className="space-y-3 sm:space-y-4 lg:space-y-6 h-full pr-4 sm:pr-8 lg:pr-16 w-full flex flex-col justify-center">
               <p className="text-sm sm:text-base lg:text-lg text-white leading-relaxed">
-                文化是人類智慧的結晶，承載著歷史的記憶與文明的傳承。
+                因為我們擁有共同的文化記憶，所以我們成為一家人
               </p>
-              <p className="text-sm sm:text-base lg:text-lg text-white leading-relaxed">
-                透過現代科技與傳統文化的結合，我們能夠以全新的方式體驗和理解這些珍貴的文化遺產。
-              </p>
+              
               <div className="mt-6 lg:mt-8">
                 <p className="text-xl sm:text-2xl lg:text-4xl text-white leading-relaxed text-right font-chenyuluoyan">
                   文化記憶與我們

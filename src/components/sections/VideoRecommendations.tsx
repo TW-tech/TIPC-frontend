@@ -227,7 +227,7 @@ export default function VideoRecommendations() {
     >
       {/* 標題區塊 */}
       <div ref={titleRef} className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10 text-black text-lg sm:text-xl lg:text-2xl font-semibold text-white">
-        影音推薦
+        影響力影音
       </div>
       <div ref={videoContainerRef} className=" mx-auto px-0 sm:px-0 lg:px-0 relative">
       {/* 漸層遮罩 */}
