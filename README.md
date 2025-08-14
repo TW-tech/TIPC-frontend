@@ -1,7 +1,10 @@
 # 台灣文化記憶庫 🏛️
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.4.4-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&## 🌟 專案狀態
+[![Next.js](https://img.shields.io/badge/Next.js-15.4.4-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) [![GSAP](https://img.shields.io/badge/GSAP-3.13.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
+展示台灣豐富文化資產、博物館和文化遺址的現代化網站，使用 Next.js 建構。
+
+## 🌟 專案狀態
 
 - ✅ **響應式設計** - 完成所有斷點適配
 - ✅ **核心組件** - 圖片輪播、影音推薦、合作夥伴展示  
@@ -18,13 +21,7 @@
 - **響應式動畫** - 根據裝置類型（手機/平板/桌面）調整動畫複雜度  
 - **效能檢測** - 自動偵測裝置效能並調整動畫品質
 - **智能清理** - 動畫完成後自動釋放 GPU 資源
-- **無衝突設計** - 局部動畫管理，避免組件間動畫干擾r=black)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![GSAP](https://img.shields.io/badge/GSAP-3.13.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-
-展示台灣豐富文化資產、博物館和文化遺址的現代化網站，使用 Next.js 建構。
+- **無衝突設計** - 局部動畫管理，避免組件間動畫干擾
 
 ## ✨ 特色功能
 
