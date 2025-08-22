@@ -32,9 +32,10 @@ interface AnimationConfig {
 
 interface ConfigObject {
   taiwan: AnimationConfig;
-  villiage: AnimationConfig;
+  general: AnimationConfig;
   red: AnimationConfig;
   blue: AnimationConfig;
+  lion?: AnimationConfig;
   rightTemple?: AnimationConfig;
   leftTemple?: AnimationConfig;
   leopard?: AnimationConfig;
@@ -75,9 +76,10 @@ export default function MainVisual() {
   const mountainBackRefs = useRef<(HTMLImageElement | null)[]>([]);
   
   // Single elements refs - organized
+  const lionRef = useRef<HTMLImageElement>(null);
   const rightTempleRef = useRef<HTMLImageElement>(null);
   const leftTempleRef = useRef<HTMLImageElement>(null);
-  const villiageRef = useRef<HTMLImageElement>(null);
+  const generalRef = useRef<HTMLImageElement>(null);
   const leopardRef = useRef<HTMLImageElement>(null);
   const bearRef = useRef<HTMLImageElement>(null);
   const boatRef = useRef<HTMLImageElement>(null);
@@ -87,9 +89,10 @@ export default function MainVisual() {
   const blueRef = useRef<HTMLImageElement>(null);
 
   const elementRefs = useMemo(() => ({
+    lion: lionRef,
     rightTemple: rightTempleRef,
     leftTemple: leftTempleRef,
-    villiage: villiageRef,
+    general: generalRef,
     leopard: leopardRef,
     bear: bearRef,
     boat: boatRef,
@@ -232,10 +235,10 @@ export default function MainVisual() {
     // tablet、bigTablet 和 desktop 才顯示廟宇元素
     if (currentBreakpoint !== 'mobile') {
       const fullConfig = config as ConfigObject;
-      if (fullConfig.rightTemple) {
+      if (fullConfig.lion) {
         baseAnimations.push({
-          ref: elementRefs.rightTemple,
-          to: { ...fullConfig.rightTemple.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (fullConfig.rightTemple.to.scale || 1) * scaleFactor },
+          ref: elementRefs.lion,
+          to: { ...fullConfig.lion.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (fullConfig.lion.to.scale || 1) * scaleFactor },
           delay: ANIMATION_DELAYS.DESKTOP.RIGHT_TEMPLE
         });
       }
@@ -246,14 +249,27 @@ export default function MainVisual() {
           delay: ANIMATION_DELAYS.DESKTOP.LEFT_TEMPLE
         });
       }
+      if (fullConfig.rightTemple) {
+        baseAnimations.push({
+          ref: elementRefs.rightTemple,
+          to: { ...fullConfig.rightTemple.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power1.out", scale: (fullConfig.rightTemple.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.RIGHT_TEMPLE
+        });
+      }
     }
 
-    // 所有裝置都顯示村莊元素
-    baseAnimations.push({
-      ref: elementRefs.villiage,
-      to: { ...config.villiage.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (config.villiage.to.scale || 1) * scaleFactor },
-      delay: currentBreakpoint === 'mobile' ? ANIMATION_DELAYS.MOBILE.VILLAGE : ANIMATION_DELAYS.DESKTOP.VILLAGE
-    });
+    // 只有非手機裝置顯示村莊元素
+    if (currentBreakpoint !== 'mobile') {
+      // 其他裝置使用完整配置的 general
+      const fullConfig = config as ConfigObject;
+      if (fullConfig.general) {
+        baseAnimations.push({
+          ref: elementRefs.general,
+          to: { ...fullConfig.general.to, opacity: 1, zIndex: 17, duration: 0.3, ease: "power2.out", scale: (fullConfig.general.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.VILLAGE
+        });
+      }
+    }
 
     // desktop、bigTablet 和 bigscreen 才顯示 leopard 和 bear 元素
     if (currentBreakpoint === 'desktop' || currentBreakpoint === 'bigscreen' || currentBreakpoint === 'bigTablet') {
@@ -301,7 +317,7 @@ export default function MainVisual() {
       }
     }
 
-    // Red, blue, taiwan 元素 - 所有裝置都顯示
+    // Red, blue, taiwan, noodle 元素 - 根據裝置顯示
     baseAnimations.push(
       {
         ref: elementRefs.red,
@@ -320,6 +336,29 @@ export default function MainVisual() {
       }
     );
 
+    // Add noodle for mobile or desktop+ devices that have it
+    if (currentBreakpoint === 'mobile') {
+      // Mobile noodle - cast to extended config type
+      const mobileConfig = config as ConfigObject;
+      if (mobileConfig.noodle) {
+        baseAnimations.push({
+          ref: elementRefs.noodle,
+          to: { ...mobileConfig.noodle.to, opacity: 1, zIndex: 25, duration: 0.3, ease: "power2.out", scale: (mobileConfig.noodle.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.MOBILE.TAIWAN + 0.3
+        });
+      }
+    } else {
+      // Desktop+ noodle
+      const fullConfig = config as ConfigObject;
+      if (fullConfig.noodle) {
+        baseAnimations.push({
+          ref: elementRefs.noodle,
+          to: { ...fullConfig.noodle.to, opacity: 1, zIndex: 25, duration: 0.3, ease: "power2.out", scale: (fullConfig.noodle.to.scale || 1) * scaleFactor },
+          delay: ANIMATION_DELAYS.DESKTOP.NOODLE
+        });
+      }
+    }
+
     return baseAnimations;
   }, [currentBreakpoint, elementRefs, scaleFactor]);
 
@@ -329,19 +368,20 @@ export default function MainVisual() {
     const isTablet = isClient && currentBreakpoint === 'tablet';
     const isBigTablet = isClient && currentBreakpoint === 'bigTablet';
     
-    // 手機版本顯示台灣、村莊、魚、紅色、藍色元素
+    // 手機版本顯示台灣、麵條、紅色、藍色元素
     const mobileConfigs = [
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", width: 300, height: 300, mobileWidth: 300, mobileHeight: 300 },
-      { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", width: 110, height: 110, mobileWidth: 110, mobileHeight: 110 },
+      { ref: elementRefs.noodle, src: "/animation/noodle.svg", alt: "noodle animation", width: 80, height: 80, mobileWidth: 80, mobileHeight: 80 },
       { ref: elementRefs.red, src: "/animation/red.svg", alt: "red animation", width: 60, height: 60, mobileWidth: 60, mobileHeight: 60 },
       { ref: elementRefs.blue, src: "/animation/blue.svg", alt: "blue animation", width: 60, height: 60, mobileWidth: 60, mobileHeight: 60 },
     ];
     
     // 平板版本 (不包含 leopard, bear, 和 noodle)
     const tabletConfigs = [
-      { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 120, mobileHeight: 120 },
+      { ref: elementRefs.lion, src: "/animation/lion.svg", alt: "lion animation", mobileWidth: 120, mobileHeight: 120 },
+      { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 100, mobileHeight: 100 },
       { ref: elementRefs.leftTemple, src: "/animation/leftTemple.svg", alt: "left temple animation", mobileWidth: 100, mobileHeight: 100 },
-      { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", mobileWidth: 110, mobileHeight: 110 },
+      { ref: elementRefs.general, src: "/animation/general.svg", alt: "general animation", mobileWidth: 110, mobileHeight: 110 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 130, mobileHeight: 130 },
       { ref: elementRefs.boat, src: "/animation/boatWithWaveAndFish.svg", alt: "boat animation", mobileWidth: 90, mobileHeight: 90 },
       { ref: elementRefs.red, src: "/animation/red.svg", alt: "red animation", mobileWidth: 60, mobileHeight: 60 },
@@ -350,9 +390,10 @@ export default function MainVisual() {
     
     // 大平板版本 (包含所有元素，尺寸較大)
     const bigTabletConfigs = [
-      { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 140, mobileHeight: 140 },
+      { ref: elementRefs.lion, src: "/animation/lion.svg", alt: "lion animation", mobileWidth: 140, mobileHeight: 140 },
+      { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 120, mobileHeight: 120 },
       { ref: elementRefs.leftTemple, src: "/animation/leftTemple.svg", alt: "left temple animation", mobileWidth: 120, mobileHeight: 120 },
-      { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", mobileWidth: 130, mobileHeight: 130 },
+      { ref: elementRefs.general, src: "/animation/general.svg", alt: "general animation", mobileWidth: 130, mobileHeight: 130 },
       { ref: elementRefs.leopard, src: "/animation/leopard.svg", alt: "leopard animation", mobileWidth: 85, mobileHeight: 85 },
       { ref: elementRefs.bear, src: "/animation/bear.svg", alt: "bear animation", mobileWidth: 65, mobileHeight: 65 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 150, mobileHeight: 150 },
@@ -364,9 +405,10 @@ export default function MainVisual() {
     
     // 桌面版本 (包含所有元素)
     const desktopConfigs = [
-      { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 120, mobileHeight: 120 },
+      { ref: elementRefs.lion, src: "/animation/lion.svg", alt: "lion animation", mobileWidth: 120, mobileHeight: 120 },
+      { ref: elementRefs.rightTemple, src: "/animation/rightTemple.svg", alt: "right temple animation", mobileWidth: 100, mobileHeight: 100 },
       { ref: elementRefs.leftTemple, src: "/animation/leftTemple.svg", alt: "left temple animation", mobileWidth: 100, mobileHeight: 100 },
-      { ref: elementRefs.villiage, src: "/animation/villiage.svg", alt: "villiage animation", mobileWidth: 110, mobileHeight: 110 },
+      { ref: elementRefs.general, src: "/animation/general.svg", alt: "general animation", mobileWidth: 110, mobileHeight: 110 },
       { ref: elementRefs.leopard, src: "/animation/leopard.svg", alt: "leopard animation", mobileWidth: 80, mobileHeight: 80 },
       { ref: elementRefs.bear, src: "/animation/bear.svg", alt: "bear animation", mobileWidth: 60, mobileHeight: 60 },
       { ref: elementRefs.taiwan, src: "/animation/taiwan.svg", alt: "Taiwan animation", mobileWidth: 130, mobileHeight: 130 },
@@ -805,8 +847,11 @@ export default function MainVisual() {
                 ...COMMON_IMAGE_STYLES,
                 ...optimizedStyles.animation,
                 contain: 'layout style paint', // 優化重排和重繪
+                // 提高SVG渲染品質但不改變尺寸
+                filter: 'contrast(1.05) saturate(1.1)', // 輕微提升對比度和飽和度
               }}
               priority={index < 2} // 前兩張圖片優先載入
+              quality={100} // 強制使用最高品質
               unoptimized={true} // SVG不需要優化
             />
           );
@@ -831,9 +876,11 @@ export default function MainVisual() {
                 ...COMMON_IMAGE_STYLES,
                 ...optimizedStyles.animation,
                 contain: 'layout style paint',
+                // 針對SVG的高品質渲染設定但不改變尺寸
+                filter: 'contrast(1.05) saturate(1.1)', // 輕微提升對比度和飽和度
               }}
               priority={index < 3} // 核心元素優先載入
-              quality={performanceMode === 'low' ? 75 : 100} // 只有低效能模式才降低品質(主要是Windows)
+              quality={100} // 強制使用最高品質
               loading={index < 3 ? "eager" : "lazy"}
               sizes={isMobile ? "(max-width: 768px) 50vw" : "(max-width: 1024px) 30vw, 25vw"}
               unoptimized={true} // SVG不需要優化

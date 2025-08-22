@@ -42,7 +42,7 @@ export const getDynamicMountainConfig = (breakpoint: string, calculateDynamicSca
 
 // 共用樣式配置
 export const COMMON_IMAGE_STYLES = {
-  imageRendering: 'auto' as const,
+  imageRendering: 'crisp-edges' as const, // 使用支援的CSS屬性值
   backfaceVisibility: 'hidden' as const,
   transform: 'translate3d(0,0,0)',
   willChange: 'transform, opacity' as const,
