@@ -11,7 +11,7 @@ import { PageLayout } from '@/components';
 };*/
 
 // 影像資料（local）
-const imageCount = 28;
+const imageCount = 0;
 
 const allImages = Array.from({ length: imageCount }, (_, index) => ({
   id: index + 1,
@@ -38,7 +38,7 @@ export default function GalleryPage() {
               影像藝廊
             </h1>
             <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-              透過珍貴的影像資料，重現文化的美好時光與歷史瞬間
+              text
             </p>
           </div>
         </div>
@@ -48,19 +48,19 @@ export default function GalleryPage() {
           {/* 分類篩選 */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <button className="bg-[#833416] text-white px-6 py-2 rounded-full hover:bg-[#a0471f] transition-colors">
-              全部
+              g1
             </button>
             <button className="bg-white text-[#833416] border border-[#833416] px-6 py-2 rounded-full hover:bg-[#833416] hover:text-white transition-colors">
-              歷史照片
+              g2
             </button>
             <button className="bg-white text-[#833416] border border-[#833416] px-6 py-2 rounded-full hover:bg-[#833416] hover:text-white transition-colors">
-              藝術作品
+              g3
             </button>
             <button className="bg-white text-[#833416] border border-[#833416] px-6 py-2 rounded-full hover:bg-[#833416] hover:text-white transition-colors">
-              文物紀錄
+              g4
             </button>
             <button className="bg-white text-[#833416] border border-[#833416] px-6 py-2 rounded-full hover:bg-[#833416] hover:text-white transition-colors">
-              民俗活動
+              g5
             </button>
           </div>
 

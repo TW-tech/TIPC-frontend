@@ -162,29 +162,29 @@ export const carouselImagesData: CarouselImage[] = [
   }
 ];
 
-//
+//專欄文章
 export const CultureExplorerData: CultureItem[] = [
   {
     id: "1",
-    title: "傳統藝術",
-    description: "探索台灣豐富的傳統藝術形式，包括書法、繪畫、雕刻等傳統技藝",
-    image: "/images/videorecommendations/疫情泰國.jpg",
+    title: "",
+    description: "",
+    image: "/images/videorecommendations/.jpg",
     category: "",
     date: ""
   },
   {
     id: "2",
-    title: "民俗文化",
-    description: "深入了解台灣各地的民俗節慶、傳統習俗和宗教文化",
-    image: "/images/videorecommendations/原民生態智慧.jpg",
+    title: "",
+    description: "",
+    image: "/images/videorecommendations/.jpg",
     category: "",
     date: ""
   },
   {
     id: "3",
-    title: "歷史故事",
-    description: "聆聽台灣歷史的精彩故事，了解這片土地的文化發展軌跡",
-    image: "/images/culture/文化記憶2.jpg",
+    title: "",
+    description: "",
+    image: "/images/culture/.jpg",
     category: "",
     date: ""
   }

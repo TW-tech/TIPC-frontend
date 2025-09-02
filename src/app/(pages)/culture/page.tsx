@@ -26,7 +26,7 @@ export default function CulturePage() {
             專欄文章
           </h1>
           <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-            踏上一段穿越時空的文化旅程，發現各民族獨特的傳統、藝術與智慧
+            text
           </p>
         </div>
       </div>
@@ -85,15 +85,15 @@ export default function CulturePage() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">互動式體驗</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">text</h3>
               <p className="text-gray-600 leading-relaxed">
-                透過現代科技打造沉浸式的文化體驗，讓您能夠更深入地理解和感受傳統文化的魅力。
+                text
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">專家導覽</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">text</h3>
               <p className="text-gray-600 leading-relaxed">
-                由文化專家和學者提供深度解說，帶您探索文化背後的深層意義和歷史脈絡。
+                text
               </p>
             </div>
           </div>
