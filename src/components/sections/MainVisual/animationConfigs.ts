@@ -98,10 +98,10 @@ export const RESPONSIVE_ANIMATION_CONFIGS = {
     leopard: { to: { x: "12vw", y: "64vh", scale: 0.8, xPercent: -50, yPercent: -50 } },
     bear: { to: { x: "75vw", y: "25vh", scale: 0.4, xPercent: -50, yPercent: -50 } },
     boat: { to: { x: "30vw", y: "80vh", scale: 1.3, xPercent: -50, yPercent: -50 } },
-    noodle: { to: { x: "90vw", y: "20vh", scale: 0.5, xPercent: -50, yPercent: -50 } },
+    noodle: { to: { x: "87vw", y: "30vh", scale: 0.5, xPercent: -50, yPercent: -50 } },
     red: { to: { x: "42vw", y: "24vh", scale: 0.45, xPercent: -50, yPercent: -50 } },
     blue: { to: { x: "16vw", y: "25vh", scale: 0.6, xPercent: -50, yPercent: -50 } },
-    taiwan: { to: { x: "53vw", y: "51vh", scale: 1.1, xPercent: -50, yPercent: -50 } }
+    taiwan: { to: { x: "49vw", y: "51vh", scale: 1.1, xPercent: -50, yPercent: -50 } }
   },
   bigscreen: {
     lion: { to: { x: "72vw", y: "41vh", scale: 1.2, xPercent: -50, yPercent: -50 } },
