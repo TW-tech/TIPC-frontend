@@ -34,19 +34,8 @@ export default function ArchivePage() {
     };
 
     return (
-        <PageLayout>
-            {/* Header 區域 */}
-            <div className="bg-[#CC6915] text-white py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
-                        典藏索引
-                    </h1>
-                    <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-                        探索文化記憶庫的典藏索引，發現豐富的文化資產與歷史資料
-                    </p>
-                </div>
-            </div>
-
+         <PageLayout title="典藏索引" subtitle="Web Collection">
+            
             <div className="flex justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6"> 
                 <ArchiveFilter 
                     onFilterChange={handleFilterChange}

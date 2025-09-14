@@ -22,7 +22,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
     { href: '/story/all', label: '光影故事' },
     { href: '/gallery/all', label: 'TIPC影音' },
     { href: '/book', label: 'TIPC選書' },
-    
+    { href: '/archive', label: '典藏索引' },
     { href: '/event', label: '活動探索' },
     { href: '/partner', label: '合作夥伴' },
     { href: '/contact', label: '聯絡我們' },
