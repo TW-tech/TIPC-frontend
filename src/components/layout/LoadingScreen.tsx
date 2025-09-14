@@ -70,7 +70,6 @@ export default function LoadingScreen({ onLoadingComplete, images }: LoadingScre
           onComplete: onLoadingComplete
         });
       }, 500); // 額外等待 500ms 確保一切準備就緒
-
       return () => clearTimeout(timer);
     }
   }, [isGsapReady, progress, onLoadingComplete]);

@@ -9,19 +9,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     
-    <PageLayout>
+    <PageLayout title="關於我們" subtitle="About Us">
       <div className="min-h-screen bg-gray-50">
-        {/* Header 區域 */}
-      <div className="bg-[#CC6915] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
-            關於我們
-          </h1>
-          <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
-            探索文化記憶庫的故事，了解我們如何致力於保存和傳承珍貴的文化遺產
-          </p>
-        </div>
-      </div>
 
       {/* 主要內容區域 */}
       <div className=" mx-auto px-10 sm:px-10 lg:px-30 py-16">

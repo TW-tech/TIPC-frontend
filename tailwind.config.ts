@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        testcolor: '#123456',
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         amber: {
@@ -46,6 +47,10 @@ const config: Config = {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+      },
+      screens: {
+        '3xl': '1920px',
+        '4xl': '2560px',
       },
     },
   },

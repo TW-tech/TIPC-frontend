@@ -18,8 +18,13 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
 
   const navItems = [
     { href: '/about', label: '關於我們' },
-    { href: '/culture', label: '專欄文章' },
-    { href: '/archive', label: '典藏索引' },
+    { href: '/article/all', label: '觀點文章' },
+    { href: '/story/all', label: '光影故事' },
+    { href: '/gallery/all', label: 'TIPC影音' },
+    { href: '/book', label: 'TIPC選書' },
+    
+    { href: '/event', label: '活動探索' },
+    { href: '/partner', label: '合作夥伴' },
     { href: '/contact', label: '聯絡我們' },
   ];
 
@@ -64,11 +69,11 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         >
           <div className="relative flex-shrink-0">
             <Image
-              src="/icons/logo_text_w.png"
+              src="/icons/logo_text_BN.png"
               alt="Cultural Website Logo"
               width={2605}
               height={506}
-              className="w-[160px] sm:w-[140px] lg:w-[200px] h-auto filter"
+              className="w-[160px] sm:w-[140px] lg:w-[220px] h-auto filter"
             />
           </div>
         </Link>
@@ -80,7 +85,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
             onClick={() => setIsLanguageOpen(!isLanguageOpen)}
             className="px-3 py-2 hover:bg-amber-900/20 rounded-lg flex items-center space-x-1">
             <svg
-              className="w-7 h-7 text-white"
+              className="w-7 h-7 text-[#833416]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -89,7 +94,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
               <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" strokeWidth={1.5} />
               <path d="M2 12h20" strokeWidth={1.5} />
             </svg>
-            <span className="text-white font-bold text-sm leading-none">{currentLanguage}</span>
+            <span className="text-[#833416] font-bold text-lg leading-none">{currentLanguage}</span>
           </button>
           
           {/* 下拉選單 */}
@@ -131,9 +136,9 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
       <button 
         onClick={() => setShowPanel(!showPanel)}
         className="right-0 flex flex-col justify-center items-center space-y-1 p-2 hover:bg-amber-900/20 rounded-lg transition-colors duration-200">
-        <div className="w-7 h-1 sm:w-8 sm:h-1 bg-white rounded-full"></div>
-        <div className="w-7 h-1 sm:w-8 sm:h-1 bg-white rounded-full"></div>
-        <div className="w-7 h-1 sm:w-8 sm:h-1 bg-white rounded-full"></div>
+        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
+        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
+        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
       </button>
 
       {showPanel && (
@@ -156,14 +161,16 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         >
           ✕
         </button>
-
+<div className="bg-blue-500 text-base 3xl:text-xl 4xl:text-[100px]">
+  Hello World
+</div>
         {/* 頁面跳轉選項 */}
-        <div className="flex flex-col space-y-4 lg:space-y-6">
+        <div className="flex flex-col mt-10 space-y-10 sm:space-y-12 lg:space-y-6">
           {navItems.map((item) => (
           <button
             key={item.href}
             onClick={() => handleClick(item.href)}
-            className={`text-center transition-colors duration-300 text-lg font-bold ${
+            className={`text-center transition-colors duration-300 text-3xl sm:text-[42px] lg:text-3xl 3xl:text-[100px] 4xl:text-[100px] font-bold ${
               pathname === item.href
                 ? 'text-[rgba(24,24,24,0.4)]'
                 : 'text-white-900 hover:text-red-700'
@@ -174,6 +181,17 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         ))}
         </div>
         
+        <button
+          onClick={() => handleClick("/")}
+          className="absolute bottom-0 right-0">
+          <Image
+            src="/icons/logo_w3.png"
+            alt="Cultural Website Logo"
+            width={1467}
+            height={1651}
+            className="w-[160px] sm:w-[250px] lg:w-[150px] h-auto filter opacity-70 hover:brightness-0"
+          />
+        </button>
         
       </div>
         

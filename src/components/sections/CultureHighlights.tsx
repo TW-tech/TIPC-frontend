@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -138,8 +139,9 @@ export default function CultureHighlights() {
         <div className="w-full">
           <div ref={gridRef} className="aspect-[3/2] sm:aspect-[2/1] grid grid-cols-2 grid-rows-2 gap-1 sm:gap-2 lg:gap-4 bg-[#FAF9EB] rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
             {cultureItemsData.map((item) => (
-              <div 
+              <Link 
                 key={item.id}
+                href={`/mediaselect/${item.id}`}
                 className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg"
               >
                 {/* 圖片 */}
@@ -149,7 +151,6 @@ export default function CultureHighlights() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                
                 {/* 遮罩和標題 - 直接顯示 */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 transition-opacity duration-300">
                   <div className={`absolute p-4 ${
@@ -166,7 +167,7 @@ export default function CultureHighlights() {
 
                 {/* 懸停效果邊框 - 只在桌面顯示 */}
                 <div className="absolute inset-0 border-2 border-transparent md:group-hover:border-blue-500/50 transition-colors duration-300"></div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

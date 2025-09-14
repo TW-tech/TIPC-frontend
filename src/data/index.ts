@@ -105,25 +105,25 @@ export const videosData: VideoRecommendation[] = [
 // 文化知識數據
 export const cultureItemsData: CultureKnowledge[] = [
   {
-    id: "traditional-arts",
+    id: "cultural-sustainability",
     title: "文化永續",
     image: "/images/culture/怎麼做.jpg",
     position: "top-left"
   },
   {
-    id: "cultural-heritage",
+    id: "cultural-memory",
     title: "文化記憶",
     image: "/images/culture/文化記憶2.jpg",
     position: "top-right"
   },
   {
-    id: "cultural-memory",
+    id: "cultural-property_Event",
     title: "文化資產/文化活動",
     image: "/images/culture/文化活動.jpg",
     position: "bottom-left"
   },
   {
-    id: "modern-culture",
+    id: "cultural-industry_branding",
     title: "文化產業/文化品牌",
     image: "/images/culture/文化品牌2.jpg",
     position: "bottom-right"
