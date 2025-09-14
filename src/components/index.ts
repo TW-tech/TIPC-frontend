@@ -13,3 +13,5 @@ export { default as Slogan } from './sections/Slogan';
 export { default as CultureHighlights } from './sections/CultureHighlights';
 export { default as VideoRecommendations } from './sections/VideoRecommendations';
 export { default as PartnerRecommendations } from './sections/PartnerRecommendations';
+export { default as ArchiveCard } from './sections/ArchiveCard';
+export { default as ArchiveFilter } from './sections/ArchiveFilter';

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
+    
     <PageLayout>
       <div className="min-h-screen bg-gray-50">
         {/* Header 區域 */}
