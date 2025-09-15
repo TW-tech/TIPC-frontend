@@ -13,7 +13,7 @@ const partners = [
 
 export default function PartnersPage() {
   return (
-    <PageLayout title="合作夥伴" subtitle="Partners" headerpic="/images/header/合作夥伴_頭.png">
+    <PageLayout title="合作夥伴" subtitle="Partners" headerpic="/images/header/合作夥伴_頭.jpg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

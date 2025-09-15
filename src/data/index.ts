@@ -41,8 +41,8 @@ export const videosData: VideoRecommendation[] = [
     thumbnail: "/images/videorecommendations/阿里山咖啡園.jpg",
     duration: "25:30",
     category: "紀錄片",
-    type: 'local',
-    src: '/videos/demo.mp4',
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/Fjln6HlIpo8?si=82UxfNaeb92Sy4Wl',
     detail: "阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。阿里山得獎咖啡展現了地方創生的典範力量。結合阿里山壯麗的高山地景、堅持品質的職人精神，以及一群願意返鄉投入家鄉發展的青農，這片土地不僅種出世界級的精品咖啡，也孕育出地方產業的新生命力。透過導入現代化農業管理、品牌行銷與文化故事包裝，阿里山咖啡成功轉型為具國際競爭力的地方特色產業。同時，咖啡產業也帶動觀光、餐飲與手作體驗的發展，讓更多人深入了解當地文化與自然資源。阿里山咖啡不只是飲品，更是一場結合土地、人與文化的深度創生旅程。"
   },
   {
@@ -53,7 +53,7 @@ export const videosData: VideoRecommendation[] = [
     duration: "18:45",
     category: "教學",
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    src: 'https://www.youtube.com/embed/Fjln6HlIpo8?si=82UxfNaeb92Sy4Wl',
     detail: ""
   },
   {
@@ -64,7 +64,7 @@ export const videosData: VideoRecommendation[] = [
     duration: "17:33",
     category: "紀錄片",
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    src: 'https://www.youtube.com/embed/Fjln6HlIpo8?si=82UxfNaeb92Sy4Wl',
     detail: ""
   },
   {
@@ -75,7 +75,7 @@ export const videosData: VideoRecommendation[] = [
     duration: "38:45",
     category: "紀錄片",
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    src: 'https://www.youtube.com/embed/Fjln6HlIpo8?si=82UxfNaeb92Sy4Wl',
     detail: ""
   },
   {
@@ -86,7 +86,7 @@ export const videosData: VideoRecommendation[] = [
     duration: "22:10",
     category: "紀錄片",
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    src: 'https://www.youtube.com/embed/Fjln6HlIpo8?si=82UxfNaeb92Sy4Wl',
     detail: ""
   },
   {
@@ -97,7 +97,7 @@ export const videosData: VideoRecommendation[] = [
     duration: "13:45",
     category: "教學",
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    src: 'https://www.youtube.com/embed/Fjln6HlIpo8?si=82UxfNaeb92Sy4Wl',
     detail: ""
   }
 ];

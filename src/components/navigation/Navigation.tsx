@@ -161,8 +161,8 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         >
           ✕
         </button>
-<div className="bg-blue-500 text-base 3xl:text-xl 4xl:text-[100px]">
-  Hello World
+<div className="bg-orange-400 lg:bg-green-500 3xl:bg-yellow-500  text-base lg:text-sm 2xl:text-[10px]">
+  Hello World!
 </div>
         {/* 頁面跳轉選項 */}
         <div className="flex flex-col mt-10 space-y-10 sm:space-y-12 lg:space-y-6">

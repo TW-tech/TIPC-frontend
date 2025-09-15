@@ -54,7 +54,7 @@ export default function MediaSelectPage() {
 
                           {/* 黑色漸層 + 文字 */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-center justify-center">
-                            <h3 className="text-white font-bold text-center text-xl sm:text-2xl lg:text-3xl text-shadow-lg [writing-mode:vertical-rl]">
+                            <h3 className="text-white font-bold text-center text-xl sm:text-4xl lg:text-7xl text-shadow-lg [writing-mode:vertical-rl]">
                               {mediatype.text}
                             </h3>
                           </div>
