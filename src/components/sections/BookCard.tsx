@@ -4,13 +4,28 @@ import {
   CardHeader,
   CardBody,
   Typography,
-  Button,
 } from "@material-tailwind/react";
 import { BookData } from "@/types";
 
 export default function BookCard({ book }: { book: BookData }) {
   return (
-  <Card className="w-full max-w-[48rem] flex flex-col sm:flex-row items-stretch border-b-2 border-gray-200">
+    <Card className="w-full max-w-[64rem] flex flex-col sm:flex-row items-stretch border-b-2 border-gray-200 relative">
+      {/* 多個 label tag：桌面右上，手機右下 */}
+      {/* 桌面版 */}
+      {book.tags && book.tags.length > 0 && (
+        <>
+          <div className="hidden sm:flex absolute top-4 right-4 flex-wrap gap-2 z-10">
+            {book.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="bg-[#CC6915]/10 text-[#CC6915] rounded-lg px-4 py-2 text-base font-bold shadow-md"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </>
+      )}
       <CardHeader
         shadow={false}
         floated={false}
@@ -22,7 +37,7 @@ export default function BookCard({ book }: { book: BookData }) {
           className="object-cover w-40 h-40 sm:w-full sm:h-full"
         />
       </CardHeader>
-      <CardBody className="w-full">
+  <CardBody className="w-full flex flex-col">
         <Typography variant="h4" color="gray" className="mb-4 uppercase">
           {book.bookName}
         </Typography>
@@ -44,25 +59,19 @@ export default function BookCard({ book }: { book: BookData }) {
         <Typography color="gray" className="mb-8 font-normal">
             {book.description}
         </Typography>
-        {/* <a href="#" className="inline-block">
-          <Button variant="text" className="flex items-center gap-2">
-            Learn More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="h-4 w-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Button>
-        </a> */}
+        {/* 手機版 label 右下角 */}
+        {book.tags && book.tags.length > 0 && (
+          <div className="flex sm:hidden w-full justify-end mt-2 gap-2">
+            {book.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="bg-[#CC6915]/10 text-[#CC6915] rounded-lg px-4 py-2 text-base font-bold shadow-md"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </CardBody>
     </Card>
   );

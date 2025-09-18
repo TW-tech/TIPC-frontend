@@ -163,6 +163,35 @@ export const carouselImagesData: CarouselImage[] = [
 ];
 
 //專欄文章
+export const CultureExplorerData: CultureItem[] = [
+  {
+    id: "1",
+    title: "",
+    description: "",
+    image: "/images/videorecommendations/.jpg",
+    category: "",
+    date: ""
+  },
+  {
+    id: "2",
+    title: "",
+    description: "",
+    image: "/images/videorecommendations/.jpg",
+    category: "",
+    date: ""
+  },
+  {
+    id: "3",
+    title: "",
+    description: "",
+    image: "/images/culture/.jpg",
+    category: "",
+    date: ""
+  }
+];
+
+
+ //專欄文章
 export const bookCardData: BookData[] = [
   {
     id: "1",

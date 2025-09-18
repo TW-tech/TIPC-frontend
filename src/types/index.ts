@@ -9,6 +9,15 @@ export interface Partner {
   category?: string;
 }
 
+export interface CultureItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  category?: string;
+  date?: string;
+}
+
 export interface BookData {
   id: string;
   bookName: string;
