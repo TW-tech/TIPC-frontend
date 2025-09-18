@@ -1,10 +1,6 @@
 "use client";
 
-import { Metadata } from 'next';
-import Image from "next/image";
 import { PageLayout, PartnerCard } from '@/components';
-import Link from "next/link";
-import { link } from 'fs';
 
 const partners = [
   { id: 1, name: "Apple", logo: "/logos/apple.png", link: '', picture: 'https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80', description: 'erewrwerwerwerwe' },
