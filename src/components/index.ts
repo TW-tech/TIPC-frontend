@@ -16,3 +16,5 @@ export { default as VideoRecommendations } from './sections/VideoRecommendations
 export { default as PartnerRecommendations } from './sections/PartnerRecommendations';
 export { default as ArchiveCard } from './sections/ArchiveCard';
 export { default as ArchiveFilter } from './sections/ArchiveFilter';
+export { default as PartnerCard } from './sections/PartnerCard';
+export { default as BookCard } from './sections/BookCard';

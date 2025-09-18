@@ -18,6 +18,21 @@ export interface CultureItem {
   date?: string;
 }
 
+export interface BookData {
+  id: string;
+  bookName: string;
+  author: string[];
+  image: string;
+  category?: string;
+  publicDate?: string;
+  publisher?: string;
+  description?: string;
+  tags?: string[];
+  pages?: number;
+  isbn?: string;
+  eisbn?: string;
+}
+
 export interface VideoItem {
   id: string;
   title: string;

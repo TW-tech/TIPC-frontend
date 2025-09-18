@@ -1,4 +1,4 @@
-import type { Partner, CarouselImage, CultureKnowledge, VideoRecommendation, CultureItem } from "@/types";
+import type { Partner, CarouselImage, CultureKnowledge, VideoRecommendation, CultureItem, BookData } from "@/types";
 
 // 合作夥伴數據
 
@@ -260,16 +260,35 @@ export const CultureExplorerData: CultureItem[] = [
   }
 ];
 
-export const navItems = [
-    { href: '/about', label: '關於我們' },
-    { href: '/article/all', label: '觀點文章' },
-    { href: '/story/all', label: '光影故事' },
-    { href: '/gallery/all', label: 'TIPC影音' },
-    { href: '/book', label: 'TIPC選書' },
-    { href: '/archive', label: '典藏索引' },
-    { href: '/event', label: '活動探索' },
-    { href: '/partner', label: '合作夥伴' },
-    { href: '/contact', label: '聯絡我們' },
-  ];
 
-
+ //專欄文章
+export const bookCardData: BookData[] = [
+  {
+    id: "1",
+    bookName: "地方創生可以不一樣",
+    author: ["李智仁", "陳德齡","嚴昱如"],
+    image: "/images/book1.png",
+    category: "文化資產",
+    publicDate: "2025/06/30(1版1刷)",
+    publisher: "五南",
+    description: "地方創生近年來備受討論，也經歷了許多實踐歷程，成果令人敬佩。在各地的案例不斷累積之餘，如何透過系統化的整理，將政府與民間的角色清楚地說明與釐清，是本書的初衷；而如何從中找到關鍵的議題進行分析比較，進而找到臺灣可行的軌跡，是本書的內容。",
+    tags: ["中文", "政策面"],
+    pages: 224,
+    isbn: "9978-626-423-539-6",
+    eisbn: "9786264235365"
+  },
+  {
+    id: "2",
+    bookName: "地方創生可以不一樣",
+    author: ["李智仁", "陳德齡","嚴昱如"],
+    image: "/images/book1.png",
+    category: "文化資產",
+    publicDate: "2025/06/30(1版1刷)",
+    publisher: "五南",
+    description: "地方創生近年來備受討論，也經歷了許多實踐歷程，成果令人敬佩。在各地的案例不斷累積之餘，如何透過系統化的整理，將政府與民間的角色清楚地說明與釐清，是本書的初衷；而如何從中找到關鍵的議題進行分析比較，進而找到臺灣可行的軌跡，是本書的內容。",
+    tags: ["中文", "政策面"],
+    pages: 224,
+    isbn: "9978-626-423-539-6",
+    eisbn: "9786264235365"
+  },
+];
