@@ -6,7 +6,7 @@ import { bookCardData } from "@/data";
 
 export default function BookPage() {
   return (
-    <PageLayout title="TIPC選書" subtitle="Book">
+    <PageLayout title="TIPC選書" subtitle="Book" headerpic="/images/header/出版_頭.png">
       <div className="min-h-screen bg-gray-50">
 
         {/* 主要內容區域 */}

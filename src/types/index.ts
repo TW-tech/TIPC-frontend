@@ -42,6 +42,12 @@ export interface VideoItem {
   duration?: string;
 }
 
+export interface GalleryImage {
+  id: number;
+  title: string;
+  src: string;
+};
+
 export interface CarouselImage {
   id: string;
   src: string;

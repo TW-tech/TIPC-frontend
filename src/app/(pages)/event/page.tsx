@@ -12,7 +12,7 @@ export default function EventPage() {
   };
 
   return (
-    <PageLayout title="活動探索" subtitle="Events">
+    <PageLayout title="活動探索" subtitle="Events" headerpic="/images/header/所有活動_頭.png">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

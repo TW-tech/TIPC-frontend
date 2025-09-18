@@ -22,3 +22,4 @@ out/
 # Ignore video folder
 public/videos
 /src/generated/prisma
+public/images/gallery

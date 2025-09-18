@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation'
+import { navItems } from "@/data";
 
 interface NavigationProps {
   variant?: 'main' | 'header' | 'simplified';
@@ -16,7 +17,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
   const router = useRouter()
   const pathname = usePathname();
 
-  const navItems = [
+  /*const navItems = [
     { href: '/about', label: '關於我們' },
     { href: '/article/all', label: '觀點文章' },
     { href: '/story/all', label: '光影故事' },
@@ -26,7 +27,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
     { href: '/event', label: '活動探索' },
     { href: '/partner', label: '合作夥伴' },
     { href: '/contact', label: '聯絡我們' },
-  ];
+  ];*/
 
   const handleClick = (href: string) => {
     if (pathname === href) {
@@ -59,7 +60,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
   
   //完整導航
   return (
-    <nav className={`absolute top-4 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 ${className}`}>
+    <nav className={`absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 ${className}`}>
       {/* 網頁header-left */}
       <div className="flex items-center space-x-2 sm:space-x-4">
         {/* 網頁icon&title */}
@@ -161,9 +162,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         >
           ✕
         </button>
-<div className="bg-blue-500 text-base 3xl:text-xl 4xl:text-[100px]">
-  Hello World
-</div>
+
         {/* 頁面跳轉選項 */}
         <div className="flex flex-col mt-10 space-y-10 sm:space-y-12 lg:space-y-6">
           {navItems.map((item) => (

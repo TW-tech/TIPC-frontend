@@ -34,7 +34,7 @@ export default function ArchivePage() {
     };
 
     return (
-         <PageLayout title="典藏索引" subtitle="Web Collection">
+         <PageLayout title="典藏索引" subtitle="Archive Index" headerpic="/images/header/典藏索引_頭.png">
             
             <div className="flex justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6"> 
                 <ArchiveFilter 
