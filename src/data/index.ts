@@ -130,38 +130,6 @@ export const cultureItemsData: CultureKnowledge[] = [
   }
 ];
 
-// 輪播圖片數據
-export const carouselImagesData: CarouselImage[] = [
-  {
-    id: "1",
-    src: "/images/museums/故宮_浮世之美.jpg",
-    alt: "故宮浮世之美",
-    title: "故宮浮世之美",
-    description: "故宮博物院經典展覽，展現東方藝術之美"
-  },
-  {
-    id: "2",
-    src: "/images/museums/奇美博物館.jpg",
-    alt: "奇美博物館",
-    title: "奇美博物館",
-    description: "台南奇美博物館的精彩展覽與文物收藏"
-  },
-  {
-    id: "3",
-    src: "/images/museums/田中.jpg",
-    alt: "田中",
-    title: "中正紀念堂",
-    description: "田中達也特展-大師眼中的微型組合"
-  },
-  {
-    id: "4",
-    src: "/images/museums/世界攝影展.jpg",
-    alt: "世界新聞攝影展",
-    title: "世界新聞攝影展",
-    description: "世界新聞攝影展 -財團法人玉溪有容教育基金"
-  }
-];
-
 //專欄文章
 export const CultureArticleData: CultureItem[] = [
   {
@@ -261,7 +229,7 @@ export const CultureExplorerData: CultureItem[] = [
 ];
 
 
- //專欄文章
+ //TIPC選書
 export const bookCardData: BookData[] = [
   {
     id: "1",
@@ -296,7 +264,7 @@ export const bookCardData: BookData[] = [
 //活動
 export const eventData: Event[] = [
   {
-    id: "5",
+    id: "1",
     title: "地方創生可以不一樣新書發表會",
     date: "2025-08-16",
     mainImage: "/images/gallery/bookmain.jpg",
@@ -304,9 +272,10 @@ export const eventData: Event[] = [
     subTitle: "Impromptu142, 臺北市萬華區長沙街二段142號",
     relatedImages: ["/images/gallery/book1.jpg", "/images/gallery/book2.jpg","/images/gallery/book3.jpg","/images/gallery/book4.jpg","/images/gallery/book5.jpg"],
     type: "past",
+    alt: "地方創生可以不一樣新書發表會",
   },
   {
-    id: "1",
+    id: "2",
     title: "故宮浮世之美",
     date: "2025-09-20",
     mainImage: "/images/museums/故宮_浮世之美.jpg",
@@ -314,9 +283,10 @@ export const eventData: Event[] = [
     subTitle: "故宮博物院經典展覽，展現東方藝術之美",
     relatedImages: ["/images/gallery/2.jpg", "/images/gallery/3.jpg", "/images/museums/故宮_浮世之美.jpg"],
     type: "current",
+    alt: "故宮浮世之美",
   },
   {
-    id: "2",
+    id: "3",
     title: "奇美博物館展覽",
     date: "2025-09-21",
     mainImage: "/images/museums/奇美博物館.jpg",
@@ -324,9 +294,10 @@ export const eventData: Event[] = [
     subTitle: "台南奇美博物館的精彩展覽與文物收藏",
     relatedImages: ["/images/gallery/5.jpg", "/images/gallery/15.jpg", "/images/gallery/4.jpg", "/images/gallery/5.jpg", "/images/gallery/4.jpg", "/images/gallery/5.jpg"],
     type: "current",
+    alt: "奇美博物館展覽",
   },
   {
-    id: "3",
+    id: "4",
     title: "田中達也特展",
     date: "2025-03-15 ~ 2025-04-01",
     mainImage: "/images/museums/田中.jpg",
@@ -334,9 +305,10 @@ export const eventData: Event[] = [
     subTitle: "田中達也特展-大師眼中的微型組合",
     relatedImages: ["/images/gallery/6.jpg"],
     type: "past",
+    alt: "田中達也特展",
   },
   {
-    id: "4",
+    id: "5",
     title: "世界新聞攝影展",
     date: "2025-03-15 ~ 2025-04-01",
     mainImage: "/images/museums/世界攝影展.jpg",
@@ -344,6 +316,7 @@ export const eventData: Event[] = [
     description: "世界新聞攝影展 -財團法人玉溪有容教育基金",
     subTitle: "世界新聞攝影展 -財團法人玉溪有容教育基金",
     type: "past",
+    alt: "世界新聞攝影展",
   },
   
 ];

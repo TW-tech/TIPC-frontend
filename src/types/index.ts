@@ -65,6 +65,7 @@ export interface Event {
   description: string;
   relatedImages: string[];
   type: "current" | "past"; // column grouping
+  alt: string;
 }
 
 export interface CultureKnowledge {

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { carouselImagesData } from "@/data";
+import { eventData } from "@/data";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +23,7 @@ export default function ImageCarousel() {
     if (typeof window === 'undefined') return;
     
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselImagesData.length);
+      setCurrentSlide((prev) => (prev + 1) % eventData.length);
     }, 4000); // 4秒切換一次
 
     return () => clearInterval(timer);
@@ -51,11 +52,11 @@ export default function ImageCarousel() {
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % carouselImagesData.length);
+    setCurrentSlide((prev) => (prev + 1) % eventData.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + carouselImagesData.length) % carouselImagesData.length);
+    setCurrentSlide((prev) => (prev - 1 + eventData.length) % eventData.length);
   };
 
   const goToSlide = (index: number) => {
@@ -74,8 +75,8 @@ export default function ImageCarousel() {
               <div className="relative w-full h-full rounded-xl shadow-lg overflow-hidden"
                    onClick={prevSlide}>
                 <Image
-                  src={carouselImagesData[(currentSlide - 1 + carouselImagesData.length) % carouselImagesData.length].src}
-                  alt={carouselImagesData[(currentSlide - 1 + carouselImagesData.length) % carouselImagesData.length].alt}
+                  src={eventData[(currentSlide - 1 + eventData.length) % eventData.length].mainImage}
+                  alt={eventData[(currentSlide - 1 + eventData.length) % eventData.length].alt || `Event ${(currentSlide - 1 + eventData.length) % eventData.length + 1}`}
                   fill
                   className="object-cover"
                   sizes="18vw"
@@ -90,25 +91,27 @@ export default function ImageCarousel() {
             </div>
 
             {/* 中間主圖 */}
-            <div className="carousel-slide relative w-full sm:w-[64%] h-full rounded-2xl shadow-2xl overflow-hidden">
-              <Image
-                src={carouselImagesData[currentSlide].src}
-                alt={carouselImagesData[currentSlide].alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 64vw"
-                priority
-              />
-              
-              {/* 主圖標題和描述 */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">
-                  {carouselImagesData[currentSlide].title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
-                  {carouselImagesData[currentSlide].description}
-                </p>
-              </div>
+            <div className="carousel-slide relative w-full sm:w-[64%] h-full">
+              <Link href={`/event/${eventData[currentSlide].id}`} className="block relative w-full h-full rounded-2xl shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <Image
+                  src={eventData[currentSlide].mainImage}
+                  alt={eventData[currentSlide].alt || `Event ${currentSlide + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 64vw"
+                  priority
+                />
+                
+                {/* 主圖標題和描述 */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2">
+                    {eventData[currentSlide].title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+                    {eventData[currentSlide].subTitle}
+                  </p>
+                </div>
+              </Link>
             </div>
 
             {/* 右側預覽圖 */}
@@ -116,8 +119,8 @@ export default function ImageCarousel() {
               <div className="relative w-full h-full rounded-xl shadow-lg overflow-hidden"
                    onClick={nextSlide}>
                 <Image
-                  src={carouselImagesData[(currentSlide + 1) % carouselImagesData.length].src}
-                  alt={carouselImagesData[(currentSlide + 1) % carouselImagesData.length].alt}
+                  src={eventData[(currentSlide + 1) % eventData.length].mainImage}
+                  alt={eventData[(currentSlide + 1) % eventData.length].alt || `Event ${((currentSlide + 1) % eventData.length) + 1}`}
                   fill
                   className="object-cover"
                   sizes="18vw"
@@ -155,7 +158,7 @@ export default function ImageCarousel() {
 
           {/* 輪播指示器 */}
           <div className="flex justify-center mt-6 sm:mt-8 space-x-3">
-            {carouselImagesData.map((_, index) => (
+            {eventData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
