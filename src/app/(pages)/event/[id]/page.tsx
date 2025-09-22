@@ -27,7 +27,7 @@ export default function EventContentPage() {
   };
   
   return (
-    <PageLayout title={Eventitem.title} subtitle="Article">
+    <PageLayout title="活動探索" subtitle="Event">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
