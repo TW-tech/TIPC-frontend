@@ -1,4 +1,4 @@
-import type { Partner, CarouselImage, CultureKnowledge, VideoRecommendation, CultureItem, BookData, Event } from "@/types";
+import type { Partner, CarouselImage, CultureKnowledge, VideoRecommendation, CultureItem, BookData, Event, GalleryImage } from "@/types";
 
 // 合作夥伴數據
 
@@ -134,7 +134,7 @@ export const cultureItemsData: CultureKnowledge[] = [
 export const CultureArticleData: CultureItem[] = [
   {
     id: "1",
-    title: "article1",
+    title: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數",
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/1.jpg",
     category: "",
@@ -199,6 +199,13 @@ export const CultureArticleData: CultureItem[] = [
   
   
 ];
+
+//圖片庫
+export const allImages: GalleryImage[] = Array.from({ length: 28 }, (_, index) => ({
+  id: index + 1,
+  title: `文化影像 ${index + 1}`,
+  src: `/images/gallery/${index + 1}.jpg`
+}));
 
 //
 export const CultureExplorerData: CultureItem[] = [

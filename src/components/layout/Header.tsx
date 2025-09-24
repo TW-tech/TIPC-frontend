@@ -22,10 +22,10 @@ const [scrolled, setScrolled] = useState(false);
   }, []);
 
   return (
-    <div className={`sticky top-0 z-10 transition-all duration-500 bg-bottom bg-cover flex flex-col justify-center text-white ${
+    <div className={`sticky top-0 z-10 transition-all duration-500 bg-center bg-cover flex flex-col justify-center text-white bg-[rgba(196,80,12,0.5)] bg-blend-multiply ${
         scrolled ? "h-50 sm:h-30" : "h-[30vh]"
       }`}
-      style={{ backgroundImage: `url(${headerpic})` }} >
+      style={{ backgroundImage: `url(${headerpic})`}} >
       
       <Navigation variant="header" />
 

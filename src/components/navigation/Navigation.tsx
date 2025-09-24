@@ -74,7 +74,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
               alt="Cultural Website Logo"
               width={2605}
               height={506}
-              className="w-[160px] sm:w-[140px] lg:w-[220px] h-auto filter"
+              className="w-[160px] sm:w-[140px] lg:w-[220px] h-auto filter "
             />
           </div>
         </Link>
@@ -169,7 +169,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
           <button
             key={item.href}
             onClick={() => handleClick(item.href)}
-            className={`text-center transition-colors duration-300 text-3xl sm:text-[42px] lg:text-3xl 3xl:text-[100px] 4xl:text-[100px] font-bold ${
+            className={`text-center transition-colors duration-300 text-3xl sm:text-[42px] lg:text-[25px]  font-bold ${
               pathname === item.href
                 ? 'text-[rgba(24,24,24,0.4)]'
                 : 'text-white-900 hover:text-red-700'
@@ -188,7 +188,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
             alt="Cultural Website Logo"
             width={1467}
             height={1651}
-            className="w-[160px] sm:w-[250px] lg:w-[150px] h-auto filter opacity-70 hover:brightness-0"
+            className="w-[150px] sm:w-[250px] lg:w-[110px] h-auto filter opacity-70 hover:brightness-0"
           />
         </button>
         
