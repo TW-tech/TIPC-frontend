@@ -19,7 +19,7 @@ export default function ArticleContentPage() {
   }
   
   return (
-    <PageLayout title={Articleitem.title} subtitle="Article">
+    <PageLayout title={Articleitem.title} subtitle="Article" headerpic="/images/header/article.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
@@ -65,6 +65,84 @@ export default function ArticleContentPage() {
             />
             <figcaption className="text-sm text-gray-500 mt-2 text-center">
               社區中的文化活動
+            </figcaption>
+          </figure>
+
+          <p className="text-gray-500">
+            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。
+          </p>
+          {/* Inline Image */}
+          <figure className="my-8">
+            <Image
+              src="/images/gallery/2.jpg"
+              alt="Example Image"
+              width={800}
+              height={500}
+              className="rounded-lg object-contain mx-auto"
+            />
+            <figcaption className="text-sm text-gray-500 mt-2 text-center">
+              社區中的文化活動
+            </figcaption>
+          </figure>
+
+          <p className="text-gray-500">
+            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。
+          </p>
+          {/* Inline Image */}
+          <figure className="my-8">
+            <Image
+              src="/images/gallery/2.jpg"
+              alt="Example Image"
+              width={800}
+              height={500}
+              className="rounded-lg object-contain mx-auto"
+            />
+            <figcaption className="text-sm text-gray-500 mt-2 text-center">
+              社區中的文化活動
+            </figcaption>
+          </figure>
+
+          <p className="text-gray-500">
+            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
+            否則政策可能流於形式，無法真正影響居民生活。
+          </p>
+          {/* Inline Image */}
+          <figure className="my-8">
+            <Image
+              src="https://drive.google.com/uc?export=view&id=1Xhz1qnxfjQQeP83pT-cWGTjgVp1dhdfQ"
+              alt="Example Image"
+              width={800}
+              height={500}
+              className="rounded-lg object-contain mx-auto"
+            />
+            <figcaption className="text-sm text-gray-500 mt-2 text-center">
+              Google Drive image test
             </figcaption>
           </figure>
 

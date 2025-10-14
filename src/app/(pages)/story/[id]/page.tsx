@@ -8,7 +8,7 @@ import { allImages } from "@/data";
 export default function StoryPage() {
   
   return (
-    <PageLayout title="光影故事" subtitle="Stories">
+    <PageLayout title="光影故事" subtitle="Stories" headerpic="/images/header/story.jpeg">
       <div className="min-h-screen bg-gray-50">
 
         {/* 主要內容區域 */}

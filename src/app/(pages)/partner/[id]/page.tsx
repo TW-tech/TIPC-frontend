@@ -32,7 +32,7 @@ export default function PartnerDetailPage() {
   }
 
   return (
-    <PageLayout title={partner.name} subtitle="合作夥伴詳情">
+    <PageLayout title={partner.name} subtitle="合作夥伴詳情" headerpic="/images/header/partner.jpeg">
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-4xl mx-auto py-10 text-center">
             <img

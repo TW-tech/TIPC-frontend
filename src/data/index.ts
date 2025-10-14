@@ -134,7 +134,7 @@ export const cultureItemsData: CultureKnowledge[] = [
 export const CultureArticleData: CultureItem[] = [
   {
     id: "1",
-    title: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數",
+    title: "article1",
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/1.jpg",
     category: "",
@@ -142,7 +142,7 @@ export const CultureArticleData: CultureItem[] = [
   },
   {
     id: "2",
-    title: "article2",
+    title: "文章2",
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/2.jpg",
     category: "",

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     
-    <PageLayout title="關於我們" subtitle="About Us">
+    <PageLayout title="關於我們" subtitle="About Us"  headerpic="/images/header/about.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
