@@ -8,11 +8,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { cultureItemsData, CultureArticleData, allImages, videosData } from "@/data";
 
-const mediaTypes = [
-  { id: "article", label: "觀點文章",text: "文章" , logo: "/images/culture/article.png" },
-  { id: "story", label: "光影故事" ,text: "照片", logo: "/images/culture/photo.png" },
-  { id: "gallery", label: "TIPC影音" ,text: "影音", logo: "/images/culture/video.png" },
-];
 
 type SpotlightListProps<T> = {
   items: T[];
