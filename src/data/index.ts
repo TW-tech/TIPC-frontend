@@ -1,4 +1,4 @@
-import type { Partner, CarouselImage, CultureKnowledge, VideoRecommendation, CultureItem, BookData, Event, GalleryImage } from "@/types";
+import type { Partner, CultureKnowledge, VideoRecommendation, CultureItem, BookData, Event, GalleryImage } from "@/types";
 
 // 合作夥伴數據
 
@@ -277,7 +277,13 @@ export const eventData: Event[] = [
     title: "地方創生可以不一樣新書發表會",
     date: "2025-08-16",
     mainImage: "/images/gallery/bookmain.jpg",
-    description: "脫下鞋子 奔跑<br><br>我原本不知<br><br>最終目的在何方<br><br>直到我遇見心中燃起的光<br><br>才發現<br><br>目的地就在<br><br>往完美的方向",
+  description: `脫下鞋子 奔跑
+    我原本不知
+    最終目的在何方
+    直到我遇見心中燃起的光
+    才發現
+    目的地就在
+    往完美的方向`,
     subTitle: "Impromptu142, 臺北市萬華區長沙街二段142號",
     relatedImages: [
     { id: 1, title: "book1", src: "/images/gallery/book1.jpg" },

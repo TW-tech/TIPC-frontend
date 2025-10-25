@@ -15,8 +15,11 @@ export default function EventContentPage() {
     return <p className="text-center mt-10">Articledata not found.</p>;
   }
 
-  // Convert newline characters to <br> so author-entered line breaks render correctly
-  const descriptionHtml = (Eventitem.description || '').replace(/\n/g, '<br />');
+  // Split description into paragraphs on newline(s) so each line becomes a separate paragraph
+  const descriptionParagraphs = (Eventitem.description || '')
+    .split(/\n+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   // masonry breakpoints are configured inline where used
   
@@ -46,10 +49,14 @@ export default function EventContentPage() {
 
         {/* Article Content */}
         <section className="prose prose-lg max-w-none">
-          <p
-            className="text-gray-500"
-            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-          />
+          {/* Description rendered as paragraphs with spacing and bottom padding */}
+          <div className="space-y-4 pb-6">
+            {descriptionParagraphs.map((paragraph, idx) => (
+              <p key={idx} className="text-gray-700 text-lg leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
           {/* Inline Image */}
           <MasonryGallery
