@@ -23,7 +23,7 @@ export default function ArticleContentPage() {
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Title + Meta */}
         <header className="mb-8">
           <h1 className="text-3xl sm:text-4xl text-gray-700 font-bold mb-4">
@@ -43,13 +43,13 @@ export default function ArticleContentPage() {
         </div>
 
         {/* Article Content */}
-        <section className="prose prose-lg max-w-none">
-          <p className="text-gray-500">
+        <section className="prose prose-xl max-w-none">
+          <p className="text-gray-700 text-xl leading-relaxed">
             在現代社會中，文化的永續發展面臨著許多挑戰。我們不僅要維護傳統價值，
             還要能夠適應快速變遷的環境，並與科技與經濟結合。
           </p>
 
-          <p className="text-gray-500">
+          <p className="py-3 text-gray-700 text-xl leading-relaxed">
             例如，數位媒體的興起讓年輕世代接觸文化的方式有了根本轉變，
             這要求我們在傳統與現代之間取得平衡。
           </p>
@@ -68,7 +68,7 @@ export default function ArticleContentPage() {
             </figcaption>
           </figure>
 
-          <p className="text-gray-500">
+          <p className="text-gray-700 text-xl leading-relaxed">
             此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
@@ -94,7 +94,7 @@ export default function ArticleContentPage() {
             </figcaption>
           </figure>
 
-          <p className="text-gray-500">
+          <p className="text-gray-700 text-xl leading-relaxed">
             此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
@@ -120,7 +120,7 @@ export default function ArticleContentPage() {
             </figcaption>
           </figure>
 
-          <p className="text-gray-500">
+          <p className="text-gray-700 text-xl leading-relaxed">
             此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
@@ -146,7 +146,7 @@ export default function ArticleContentPage() {
             </figcaption>
           </figure>
 
-          <p className="text-gray-500">
+          <p className="text-gray-700 text-xl leading-relaxed">
             此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
             否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
