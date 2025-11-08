@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PageLayout, ArchiveCard, ArchiveFilter } from '@/components';
+import archivesData from '@/data/archive.json';
 
 type Archive = {
     id: number;
@@ -11,18 +12,9 @@ type Archive = {
 };
 
 export default function ArchivePage() {
-    const [archives, setArchives] = useState<Archive[]>([]);
-    const [loading, setLoading] = useState(true);
+    const archives: Archive[] = archivesData as Archive[];
+    const loading = false;
     const [activeFilter, setActiveFilter] = useState<string | null>(null);
-
-    useEffect(() => {
-        fetch("/api/archive")
-            .then((res) => res.json())
-            .then((data) => {
-                setArchives(data);
-                setLoading(false);
-            });
-    }, []);
 
     // 篩選資料
     const filteredArchives = activeFilter 

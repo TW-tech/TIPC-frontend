@@ -1,0 +1,576 @@
+[
+  {
+    "id": 1,
+    "Class": "照片",
+    "WebName": "中央研究院社會學研究所—臺灣外省人生命記憶與敘事資料庫",
+    "OrgName": "中研院社會所",
+    "OrgWebLink": "https://ndweb.iis.sinica.edu.tw/TWM/Public/content/story/collectable.jsp?pk=212"
+  },
+  {
+    "id": 2,
+    "Class": "照片",
+    "WebName": "中央研究院近代史研究所—檔案館館藏檢索系統",
+    "OrgName": "中研院近史所",
+    "OrgWebLink": "https://archivesonline.mh.sinica.edu.tw/"
+  },
+  {
+    "id": 3,
+    "Class": "照片",
+    "WebName": "中研院人文社會科學研究中心—地圖數位典藏整合查詢系統",
+    "OrgName": "中研院人文社會科學中心",
+    "OrgWebLink": "https://map.rchss.sinica.edu.tw/cgi-bin/gs32/gsweb.cgi/login?o=dwebmge&cache=1449016770552"
+  },
+  {
+    "id": 4,
+    "Class": "照片",
+    "WebName": "文化部—國家文化資料庫",
+    "OrgName": "文化部",
+    "OrgWebLink": "https://nrch.culture.tw/"
+  },
+  {
+    "id": 5,
+    "Class": "照片",
+    "WebName": "客家委員會客家文化發展中心—淡新檔案客家研究數位分析系統",
+    "OrgName": "客家委員會以及台大人文中心",
+    "OrgWebLink": "https://dash.thcdc.hakka.gov.tw//"
+  },
+  {
+    "id": 6,
+    "Class": "照片",
+    "WebName": "財政部—財政史料陳列室",
+    "OrgName": "財政部",
+    "OrgWebLink": "https://museum.mof.gov.tw//"
+  },
+  {
+    "id": 7,
+    "Class": "照片",
+    "WebName": "國史館—檔案史料文物查詢系統",
+    "OrgName": "國史館",
+    "OrgWebLink": "https://ahonline.drnh.gov.tw/index.php?act=Archive"
+  },
+  {
+    "id": 8,
+    "Class": "照片",
+    "WebName": "國家人權博物館—臺灣轉型正義資料庫",
+    "OrgName": "國家人權博物館（人權館）",
+    "OrgWebLink": "https://twtjcdb.nhrm.gov.tw/"
+  },
+  {
+    "id": 9,
+    "Class": "照片",
+    "WebName": "國家圖書館—臺灣記憶—日治時期臺灣圖像寫真",
+    "OrgName": "國家圖書館特藏文獻組與書目管理組",
+    "OrgWebLink": "https://tm.ncl.edu.tw/overview_index?amp;lang=chn&collection=C_JPPostCard&special_search=overview_index&page=1&page_limit=10"
+  },
+  {
+    "id": 10,
+    "Class": "照片",
+    "WebName": "國家電影及視聽文化中心—臺灣電影資料數位典藏中心",
+    "OrgName": "國家電影及視聽文化中心",
+    "OrgWebLink": "http://search.tfai.org.tw/TFDBSearch/index.php"
+  },
+  {
+    "id": 11,
+    "Class": "照片",
+    "WebName": "國立科學工藝博物館—台灣工業文化資產網—文物",
+    "OrgName": "國立科學工藝博物館",
+    "OrgWebLink": "https://iht.nstm.gov.tw/index.asp"
+  },
+  {
+    "id": 12,
+    "Class": "照片",
+    "WebName": "國立臺灣博物館—典藏查詢資訊系統",
+    "OrgName": "文化部",
+    "OrgWebLink": "https://collections.culture.tw/ntm_collectionsweb/"
+  },
+  {
+    "id": 13,
+    "Class": "照片",
+    "WebName": "國立臺灣圖書館—日治時期臺灣地圖資料庫",
+    "OrgName": "國立臺灣圖書館",
+    "OrgWebLink": "https://stfj.ntl.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=UophhJ/main?db=webmge&menuid=index"
+  },
+  {
+    "id": 14,
+    "Class": "照片",
+    "WebName": "國立臺灣圖書館—臺灣政經資料庫",
+    "OrgName": "行政院文化部轄下的國立臺灣圖書館負責營運與管理",
+    "OrgWebLink": "http://tped.ntl.edu.tw/cgi-bin/gs32/gsweb.cgi/login?o=dwebmge&cache=1558063673393"
+  },
+  {
+    "id": 15,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—伊能嘉矩手稿",
+    "OrgName": "國立台灣大學",
+    "OrgWebLink": "https://dl.lib.ntu.edu.tw/s/ino/page/Home"
+  },
+  {
+    "id": 16,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—歌仔冊",
+    "OrgName": "國立台灣大學圖書館",
+    "OrgWebLink": "https://dl.lib.ntu.edu.tw/s/kua-a-tsheh/page/home"
+  },
+  {
+    "id": 17,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—法律影像資料庫",
+    "OrgName": "國立台灣大學",
+    "OrgWebLink": "https://tadels.law.ntu.edu.tw/tadels_imageview/"
+  },
+  {
+    "id": 18,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—田代文庫",
+    "OrgName": "台大圖書館",
+    "OrgWebLink": "https://dl.lib.ntu.edu.tw/s/Tashiro/page/home"
+  },
+  {
+    "id": 19,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—臺灣舊照片資料庫",
+    "OrgName": "台大圖書館",
+    "OrgWebLink": "https://dl.lib.ntu.edu.tw/s/photo/page/Home"
+  },
+  {
+    "id": 20,
+    "Class": "照片",
+    "WebName": "國立臺灣師範大學—數位校史館校史文物資料庫",
+    "OrgName": "國立臺灣師範大學",
+    "OrgWebLink": "http://archives.lib.ntnu.edu.tw/hw/browse.jsp"
+  },
+  {
+    "id": 21,
+    "Class": "照片",
+    "WebName": "國立臺灣歷史博物館—國家文化記憶庫—作品文物類",
+    "OrgName": "文化部",
+    "OrgWebLink": "https://memory.culture.tw/"
+  },
+  {
+    "id": 22,
+    "Class": "照片",
+    "WebName": "淡江大學資訊與圖書館學系—臺灣棒球數位文物館",
+    "OrgName": "淡江大學資圖系",
+    "OrgWebLink": "http://museum.dils.tku.edu.tw/introduction.php"
+  },
+  {
+    "id": 23,
+    "Class": "照片",
+    "WebName": "臺北市立圖書館—數位典藏系統",
+    "OrgName": "台北市政府",
+    "OrgWebLink": "https://archive.tpml.edu.tw/TaipeiLib/wSite/mp?mp=3"
+  },
+  {
+    "id": 24,
+    "Class": "照片",
+    "WebName": "中央研究院臺灣史研究所─臺灣史檔案資源系統",
+    "OrgName": "中研院台史所",
+    "OrgWebLink": "https://tais.ith.sinica.edu.tw/"
+  },
+  {
+    "id": 25,
+    "Class": "照片",
+    "WebName": "中央銀行—中央銀行券幣數位博物館",
+    "OrgName": "中央銀行",
+    "OrgWebLink": "https://museum.cbc.gov.tw/web/zh-tw"
+  },
+  {
+    "id": 26,
+    "Class": "照片",
+    "WebName": "日本國立公文書館亞洲歷史資料中心—亞洲歷史資料數據庫",
+    "OrgName": "JACAR（亞洲歷史資料中心）",
+    "OrgWebLink": "https://www.jacar.archives.go.jp/aj/meta/default"
+  },
+  {
+    "id": 27,
+    "Class": "照片",
+    "WebName": "財團法人婦女新知基金會—婦女新知基金會運動史料資料庫",
+    "OrgName": "婦女新知基金會與淡江大學 覺生紀念圖書館",
+    "OrgWebLink": "https://awakening.lib.tku.edu.tw/"
+  },
+  {
+    "id": 28,
+    "Class": "照片",
+    "WebName": "國史館—二二八事件檔案資料庫",
+    "OrgName": "國史館",
+    "OrgWebLink": "https://228.drnh.gov.tw/index.php"
+  },
+  {
+    "id": 29,
+    "Class": "照片",
+    "WebName": "國史館—蔣經國總統資料庫",
+    "OrgName": "國史館",
+    "OrgWebLink": "https://presidentialcck.drnh.gov.tw/index.php?act=Archive"
+  },
+  {
+    "id": 30,
+    "Class": "照片",
+    "WebName": "國家圖書館—臺灣記憶",
+    "OrgName": "國家圖書館",
+    "OrgWebLink": "https://tm.ncl.edu.tw/datasets?lang=chn"
+  },
+  {
+    "id": 31,
+    "Class": "照片",
+    "WebName": "國家寶藏基金會—國家寶藏",
+    "OrgName": "Taiwan National Treasure Foundation",
+    "OrgWebLink": "https://www.nationaltreasure.tw/"
+  },
+  {
+    "id": 32,
+    "Class": "照片",
+    "WebName": "國立清華大學—數位化館藏-校史＆特藏資料",
+    "OrgName": "國立清華大學",
+    "OrgWebLink": "https://nthu.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=886UST_NTHU:886UST_NTHU"
+  },
+  {
+    "id": 33,
+    "Class": "照片",
+    "WebName": "國立科學工藝博物館—台灣工業文化資產網—照片",
+    "OrgName": "國立科學工藝博物館",
+    "OrgWebLink": "https://iht.nstm.gov.tw/index.asp"
+  },
+  {
+    "id": 34,
+    "Class": "照片",
+    "WebName": "國立臺灣圖書館—日治時期期刊影像系統",
+    "OrgName": "國立臺灣圖書館",
+    "OrgWebLink": "https://stfj.ntl.edu.tw/cgi-bin/gs32/gsweb.cgi/login?o=dwebmge&cache=1753625117682"
+  },
+  {
+    "id": 35,
+    "Class": "照片",
+    "WebName": "國立臺灣圖書館—臺灣寫真帖資料庫",
+    "OrgName": "國立臺灣圖書館",
+    "OrgWebLink": "https://stfj.ntl.edu.tw/cgi-bin/gs32/gsweb.cgi/login?o=dwebmge&cache=1753625761017"
+  },
+  {
+    "id": 36,
+    "Class": "照片",
+    "WebName": "國立臺灣圖書館—臺灣資料剪報系統",
+    "OrgName": "國立臺灣圖書館",
+    "OrgWebLink": "http://192.192.13.206/cgi-bin/gs/pgsweb.cgi?o=dclip"
+  },
+  {
+    "id": 37,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—林文月教授手稿",
+    "OrgName": "國立台灣大學",
+    "OrgWebLink": "https://dl.lib.ntu.edu.tw/s/mf0002/page/home"
+  },
+  {
+    "id": 38,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—法律動態影像視聽檔案資料庫",
+    "OrgName": "國立台灣大學",
+    "OrgWebLink": "https://tadels.law.ntu.edu.tw/tadels_audioview/"
+  },
+  {
+    "id": 39,
+    "Class": "照片",
+    "WebName": "國立臺灣大學—法律文件資料庫",
+    "OrgName": "國立台灣大學",
+    "OrgWebLink": "https://itdels.digital.ntu.edu.tw/index.php"
+  },
+  {
+    "id": 40,
+    "Class": "照片",
+    "WebName": "國立臺灣歷史博物館—國家文化記憶庫—人物資料庫",
+    "OrgName": "文化部",
+    "OrgWebLink": "https://memory.culture.tw/"
+  },
+  {
+    "id": 41,
+    "Class": "照片",
+    "WebName": "國立臺灣歷史博物館—國家文化記憶庫—活動事件類",
+    "OrgName": "文化部",
+    "OrgWebLink": "https://memory.culture.tw/"
+  },
+  {
+    "id": 42,
+    "Class": "地圖",
+    "WebName": "臺灣歷史文化地圖系統",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://thcts.sinica.edu.tw/view.php"
+  },
+  {
+    "id": 43,
+    "Class": "地圖",
+    "WebName": "地理資訊數位典藏整合查詢系統",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://map.rchss.sinica.edu.tw/cgi-bin/gs32/gsweb.cgi/ccd=NO.jqq/login?o=dwebmge"
+  },
+  {
+    "id": 44,
+    "Class": "地圖",
+    "WebName": "臺灣百年歷史地圖",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://gissrv4.sinica.edu.tw/gis/twhgis/"
+  },
+  {
+    "id": 45,
+    "Class": "地圖",
+    "WebName": "數位方輿",
+    "OrgName": "中央研究院數位文化中心",
+    "OrgWebLink": "https://digitalatlas.asdc.sinica.edu.tw//index.jsp"
+  },
+  {
+    "id": 46,
+    "Class": "地圖",
+    "WebName": "臺北市歷史圖資展示系統",
+    "OrgName": "臺北市政府都市發展局",
+    "OrgWebLink": "https://www.historygis.udd.gov.taipei/urban/"
+  },
+  {
+    "id": 47,
+    "Class": "地圖",
+    "WebName": "中華文明之時空基礎架構(CCTS)",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://ccts.sinica.edu.tw/"
+  },
+  {
+    "id": 48,
+    "Class": "地圖",
+    "WebName": "三維地理資訊系統(SinicaView)",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://earth.rchss.sinica.edu.tw/"
+  },
+  {
+    "id": 49,
+    "Class": "地圖",
+    "WebName": "開放博物館",
+    "OrgName": "中央研究院歷史語言研究所數位文化中心",
+    "OrgWebLink": "https://ascdc.sinica.edu.tw/databases"
+  },
+  {
+    "id": 50,
+    "Class": "地圖",
+    "WebName": "中央研究院數位典藏-地圖與遙測主題",
+    "OrgName": "中央研究院歷史語言研究所數位文化中心",
+    "OrgWebLink": "https://sinica.digitalarchives.tw/collection.php?type=3672"
+  },
+  {
+    "id": 51,
+    "Class": "地圖",
+    "WebName": "臺灣宗教地景地理資訊系統",
+    "OrgName": "中央研究院歷史語言研究所數位文化中心",
+    "OrgWebLink": "https://gisrl.ascdc.sinica.edu.tw/religiontw/"
+  },
+  {
+    "id": 52,
+    "Class": "地圖",
+    "WebName": "中國歷史地名查詢系統",
+    "OrgName": "中央研究院歷史語言研究所數位文化中心",
+    "OrgWebLink": "https://newarchive.ihp.sinica.edu.tw/hplname/placename/basic/"
+  },
+  {
+    "id": 53,
+    "Class": "地圖",
+    "WebName": "臺灣考古遺址地理資訊系統",
+    "OrgName": "中央研究院歷史語言研究所數位文化中心",
+    "OrgWebLink": "https://archaeogis.ihp.sinica.edu.tw/map/#/gis"
+  },
+  {
+    "id": 54,
+    "Class": "地圖",
+    "WebName": "臺灣近海區域貝類資料庫",
+    "OrgName": "中央研究院歷史語言研究所數位文化中心",
+    "OrgWebLink": "https://archaeoshell.ihp.sinica.edu.tw/"
+  },
+  {
+    "id": 55,
+    "Class": "地圖",
+    "WebName": "農業復員委員會資源地圖",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://archwebs.mh.sinica.edu.tw/sourcemap/"
+  },
+  {
+    "id": 56,
+    "Class": "地圖",
+    "WebName": "美國國家檔案館典藏臺灣舊航空照片",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://gissrv4.sinica.edu.tw/gis/fpmtw.aspx"
+  },
+  {
+    "id": 57,
+    "Class": "地圖",
+    "WebName": "文化資源地理資訊系統",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "http://crgis.rchss.sinica.edu.tw"
+  },
+  {
+    "id": 58,
+    "Class": "地圖",
+    "WebName": "地圖數位典藏整合查詢系統",
+    "OrgName": "中央研究院人文社會科學研究中心地理資訊科學研究專題中心",
+    "OrgWebLink": "https://map.rchss.sinica.edu.tw"
+  },
+  {
+    "id": 59,
+    "Class": "影音",
+    "WebName": "國家電影及視聽文化中心",
+    "OrgName": "國家電影及視聽文化中心",
+    "OrgWebLink": "https://www.tfai.org.tw/collection/index"
+  },
+  {
+    "id": 60,
+    "Class": "影音",
+    "WebName": "數位影音服務系統",
+    "OrgName": "國家圖書館",
+    "OrgWebLink": "https://dava.ncl.edu.tw/"
+  },
+  {
+    "id": 61,
+    "Class": "影音",
+    "WebName": "法律動態影像視聽檔案資料庫",
+    "OrgName": "國立臺灣大學-臺灣法實證研究資料庫",
+    "OrgWebLink": "https://tadels.law.ntu.edu.tw/tadels_audioview/"
+  },
+  {
+    "id": 62,
+    "Class": "影音",
+    "WebName": "台影新聞片開放資料庫",
+    "OrgName": "國家電影及視聽文化中心",
+    "OrgWebLink": "https://tfai.openmuseum.tw/newsreel"
+  },
+  {
+    "id": 63,
+    "Class": "影音",
+    "WebName": "台灣國際紀錄片影展TIDF",
+    "OrgName": "國家電影及視聽文化中心",
+    "OrgWebLink": "https://www.tidf.org.tw/zh-hant/film-database"
+  },
+  {
+    "id": 64,
+    "Class": "影音",
+    "WebName": "TaiwanDocs台灣紀錄片資料庫",
+    "OrgName": "國家電影及視聽文化中心",
+    "OrgWebLink": "https://docs.tfai.org.tw/"
+  },
+  {
+    "id": 65,
+    "Class": "影音",
+    "WebName": "台灣現代戲劇暨表演影音資料庫",
+    "OrgName": "國立中央大學英美語文學系",
+    "OrgWebLink": "https://www.eti-tw.com/"
+  },
+  {
+    "id": 66,
+    "Class": "影音",
+    "WebName": "國立臺南藝術大學 音像資料保存及展示中心",
+    "OrgName": "國立臺南藝術大學 音像資料保存及展示中心",
+    "OrgWebLink": "https://filmarchives.tnnua.edu.tw/"
+  },
+  {
+    "id": 67,
+    "Class": "影音",
+    "WebName": "臺南研究資料庫影音多媒體",
+    "OrgName": "臺南市政府文化局",
+    "OrgWebLink": "https://trd.culture.tw/home/zh-tw/video?offset=0&limit=12&query=%7B%7D&sort=openStart&order=desc"
+  },
+  {
+    "id": 68,
+    "Class": "影音",
+    "WebName": "國立臺灣歷史博物館影音資料庫",
+    "OrgName": "國立臺灣歷史博物館",
+    "OrgWebLink": "https://film.nmth.gov.tw/"
+  },
+  {
+    "id": 69,
+    "Class": "影音",
+    "WebName": "技藝記憶-傳統藝術藝人口述歷史影像紀錄資料庫",
+    "OrgName": "國立傳統藝術中心",
+    "OrgWebLink": "https://oralhistory.ncfta.gov.tw/home/zh-tw"
+  },
+  {
+    "id": 70,
+    "Class": "影音",
+    "WebName": "屏東縣政府影音與出版品",
+    "OrgName": "屏東縣政府文化處",
+    "OrgWebLink": "https://www.cultural.pthg.gov.tw/Video.aspx?n=0DCD43F170051CBE&sms=062BBC953415D0E9"
+  },
+  {
+    "id": 71,
+    "Class": "影音",
+    "WebName": "觀光多媒體開放資料",
+    "OrgName": "交通部觀光署",
+    "OrgWebLink": "https://media.taiwan.net.tw/zh-tw/portal"
+  },
+  {
+    "id": 72,
+    "Class": "影音",
+    "WebName": "桃園市客家歌曲影音資料庫",
+    "OrgName": "桃園市政府客家事務局",
+    "OrgWebLink": "https://www.hakka.tycg.gov.tw/News_Content.aspx?n=11372&s=1316740"
+  },
+  {
+    "id": 73,
+    "Class": "影音",
+    "WebName": "臺灣客家文化館_影音專區",
+    "OrgName": "客家委員會客家文化發展中心",
+    "OrgWebLink": "https://thcdc.hakka.gov.tw/1240/1310/92193/"
+  },
+  {
+    "id": 74,
+    "Class": "影音",
+    "WebName": "臺中學資料庫-影音紀錄",
+    "OrgName": "文化部",
+    "OrgWebLink": "https://taichung.culture.tw/taichung/zh-tw/taichungvideo?offset=0&limit=12&query=%7B%7D&sort=openStart&order=desc"
+  },
+  {
+    "id": 75,
+    "Class": "影音",
+    "WebName": "太平洋聲音資料庫",
+    "OrgName": "花蓮縣文化局",
+    "OrgWebLink": "https://www.hccc.gov.tw/zh-tw/PacificOcean/Voices"
+  },
+  {
+    "id": 76,
+    "Class": "影音",
+    "WebName": "臺灣音樂群像資料庫",
+    "OrgName": "國立傳統藝術中心 臺灣音樂館",
+    "OrgWebLink": "https://musiciantw.ncfta.gov.tw/"
+  },
+  {
+    "id": 77,
+    "Class": "影音",
+    "WebName": "臺灣音聲一百年",
+    "OrgName": "國立臺灣歷史博物館",
+    "OrgWebLink": "https://audio.nmth.gov.tw/audio"
+  },
+  {
+    "id": 78,
+    "Class": "影音",
+    "WebName": "台灣現代響聲文化資料庫",
+    "OrgName": "立方計劃空間",
+    "OrgWebLink": "https://soundtraces.tw/"
+  },
+  {
+    "id": 79,
+    "Class": "影音",
+    "WebName": "南方影音資料庫",
+    "OrgName": "高雄市政府文化局",
+    "OrgWebLink": "https://khcc.kcg.gov.tw/rwd_home03.aspx?ID=$M204&IDK=2&EXEC=L&AP=$M204_SK-21"
+  },
+  {
+    "id": 80,
+    "Class": "影音",
+    "WebName": "宜蘭縣史館田野影音資料庫",
+    "OrgName": "宜蘭縣史館",
+    "OrgWebLink": "https://digital.yihistory.e-land.gov.tw/multimedia/index.php?act=Archive/mediamain/"
+  },
+  {
+    "id": 81,
+    "Class": "影音",
+    "WebName": "國家文化資產網-影音",
+    "OrgName": "文化部文化資產局",
+    "OrgWebLink": "https://nchdb.boch.gov.tw/resource/media"
+  },
+  {
+    "id": 82,
+    "Class": "影音",
+    "WebName": "從未消失：平埔族群影像資料庫",
+    "OrgName": "國立臺南藝術大學音像紀錄研究所",
+    "OrgWebLink": "https://pingpu.culture.tw/home/zh-tw"
+  }
+]
