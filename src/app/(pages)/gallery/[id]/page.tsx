@@ -1,3 +1,4 @@
+// 影像藝廊
 'use client';
 
 import { useRef, useState, useEffect } from "react";

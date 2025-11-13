@@ -46,6 +46,11 @@ export interface GalleryImage {
   id: number;
   title: string;
   src: string;
+  description?: string;
+  author?: string;
+  date?: string;
+  category?: string;
+  subID?: string;
 };
 
 export interface CarouselImage {

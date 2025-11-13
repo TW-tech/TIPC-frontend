@@ -1,3 +1,4 @@
+// 光影故事 圖片點擊後的視窗
 "use client";
 
 import { useRef, useEffect } from "react";
@@ -85,37 +86,89 @@ export default function ImageLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={handleClose}
     >
       <div ref={backgroundRef} className="fixed inset-0 bg-black/80" />
       <div
         ref={panelRef}
-        className="p-6 rounded-lg relative [&::-webkit-scrollbar]:hidden scrollbar-hide"
+        className="bg-white rounded-lg relative max-w-6xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
-          className="absolute top-2 right-2 text-xl font-bold text-gray-300 hover:text-white rounded-full shadow hover:bg-white/10"
+          className="absolute top-4 right-4 z-10 text-2xl font-bold text-gray-600 hover:text-gray-900 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors"
           onClick={handleClose}
         >
           ✕
         </button>
 
-        {/* Image */}
-        <div className="flex items-center justify-center">
+        {/* Left side - Image */}
+        <div className="flex-1 flex items-center justify-center bg-gray-100 p-6 md:p-8">
           <Image
             src={image.src}
             alt={image.title}
-            width={1200}
-            height={800}
-            className="max-h-[80vh] object-contain"
+            width={800}
+            height={600}
+            className="max-h-[40vh] md:max-h-[80vh] w-auto object-contain"
           />
         </div>
 
-        {/* Caption */}
-        {image.title && (
-          <div className="text-center text-white mt-4">{image.title}</div>
-        )}
+        {/* Right side - Details */}
+        <div className="flex-1 p-6 md:p-8 overflow-y-auto bg-white">
+          <div className="space-y-6">
+            {/* Title */}
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                {image.title}
+              </h2>
+            </div>
+
+            {/* Author */}
+            {image.author && (
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                  作者 Author
+                </h3>
+                <p className="text-lg text-gray-800">{image.author}</p>
+              </div>
+            )}
+
+            {/* Date */}
+            {image.date && (
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                  日期 Date
+                </h3>
+                <p className="text-lg text-gray-800">{image.date}</p>
+              </div>
+            )}
+
+            {/* Category */}
+            {image.category && (
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                  分類 Category
+                </h3>
+                <p className="text-lg text-gray-800">{image.category}</p>
+              </div>
+            )}
+
+            {/* Description */}
+            {image.description && (
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                  描述 Description
+                </h3>
+                <p className="text-base text-gray-700 leading-relaxed">
+                  {image.description}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+
       </div>
     </div>
   );
