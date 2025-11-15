@@ -1,6 +1,6 @@
 "use client";
 
-import { BookCard, PageLayout ,MasonryGallery} from '@/components';
+import { PageLayout ,MasonryGallery} from '@/components';
 import { bookCardData } from "@/data";
 import type { GalleryImage } from "@/types";
 

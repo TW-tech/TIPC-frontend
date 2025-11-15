@@ -5,8 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
-import type { GalleryImage, BookData } from "@/types";
-import { ImageLightbox, BookCard } from '@/components';
+import type { GalleryImage } from "@/types";
+import { ImageLightbox } from '@/components';
 import { bookCardData } from "@/data";
 import BookLightbox from "../sections/BookCard";
 
