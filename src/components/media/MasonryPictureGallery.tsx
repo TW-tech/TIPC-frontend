@@ -58,6 +58,10 @@ export default function MasonryGallery({
     setIsOpen(true);
   };
 
+  const handleImageChange = (image: GalleryImage) => {
+    setCurrentImage(image);
+  };
+
   const handleLoadMore = () => {
     if (loadMoreConfig?.mode === "append") {
       const batchSize = loadMoreConfig.batchSize || 6;
@@ -72,13 +76,14 @@ export default function MasonryGallery({
       {/* Masonry Grid */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
-        className={`flex gap-${(gap)? gap : 6}`}
-        columnClassName="flex flex-col gap-6"
+        className="flex"
+        columnClassName="flex flex-col"
+        style={{ gap: gap ? `${gap}px` : '24px' }}
       >
         {visibleImages.map((image) => (
           <div
             key={image.id}
-            className="overflow-hidden rounded-xl shadow-lg cursor-pointer"
+            className="overflow-hidden rounded-xl shadow-lg cursor-pointer mb-6"
             onClick={(e) => openPanel(e, image)}
           >
             <Image
@@ -134,6 +139,8 @@ export default function MasonryGallery({
               isOpen={isOpen}
               onClose={() => setIsOpen(false)}
               initialRect={initialRect}
+              allImages={images}
+              onImageChange={handleImageChange}
             />
           )}
         </div>
@@ -141,34 +148,3 @@ export default function MasonryGallery({
     </div>
   );
 }
-
-
-/*import MasonryGallery from "@/components/MasonryGallery";
-import type { GalleryImage } from "@/types";
-
-const sampleImages: GalleryImage[] = [
-  { id: 1, title: "Pic 1", src: "/images/gallery/1.jpg" },
-  { id: 2, title: "Pic 2", src: "/images/gallery/2.jpg" },
-  { id: 3, title: "Pic 3", src: "/images/gallery/3.jpg" },
-];
-
-const breakpoints = {
-  default: 4,
-  1280: 4,
-  1024: 3,
-  768: 2,
-  500: 1,
-};
-
-export default function GalleryPage() {
-  return (
-    <div className="p-10">
-      <MasonryGallery images={sampleImages} breakpointColumnsObj={breakpoints} />
-    </div>
-  );
-}
-
-
-
-
-*/ 

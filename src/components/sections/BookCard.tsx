@@ -97,11 +97,11 @@ export default function BookLightbox({
       <div ref={backgroundRef} className="fixed inset-0 bg-black/80" />
       <div
         ref={panelRef}
-        className="p-6 rounded-lg relative [&::-webkit-scrollbar]:hidden scrollbar-hide"
+        className="p-6 rounded-lg relative max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-hide"
       >
         {/* Close button */}
         <button
-          className="absolute top-2 right-2 text-xl font-bold text-gray-300 hover:text-white rounded-full shadow hover:bg-white/10"
+          className="absolute top-2 right-2 text-xl font-bold text-gray-300 hover:text-white rounded-full shadow hover:bg-white/10 z-20"
           onClick={handleClose}
         >
           ✕

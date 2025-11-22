@@ -10,6 +10,8 @@ type ImageLightboxProps = {
   isOpen: boolean;
   onClose: () => void;
   initialRect: DOMRect | null;
+  allImages?: GalleryImage[];
+  onImageChange?: (image: GalleryImage) => void;
 };
 
 export default function ImageLightbox({
@@ -17,9 +19,18 @@ export default function ImageLightbox({
   isOpen,
   onClose,
   initialRect,
+  allImages = [],
+  onImageChange,
 }: ImageLightboxProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
+
+  // Handle related image click
+  const handleRelatedImageClick = (relatedImg: GalleryImage) => {
+    if (onImageChange) {
+      onImageChange(relatedImg);
+    }
+  };
 
   // zoom animation helper
   const zoom = () => {
@@ -165,6 +176,41 @@ export default function ImageLightbox({
                 </p>
               </div>
             )}
+
+            {/* Related Images from Same Author */}
+            {image.author && allImages.length > 0 && (() => {
+              const relatedImages = allImages.filter(
+                (img) => img.author === image.author && img.id !== image.id
+              );
+              return relatedImages.length > 0 ? (
+                <div className="border-t pt-6">
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+                    相關圖片 Related Images
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {relatedImages.map((relatedImg) => (
+                      <div
+                        key={relatedImg.id}
+                        className="relative aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity group"
+                        onClick={() => handleRelatedImageClick(relatedImg)}
+                      >
+                        <Image
+                          src={relatedImg.src}
+                          alt={relatedImg.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                          <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-semibold">
+                            {relatedImg.title}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null;
+            })()}
           </div>
         </div>
 
