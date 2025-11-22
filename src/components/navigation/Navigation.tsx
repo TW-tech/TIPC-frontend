@@ -10,12 +10,15 @@ interface NavigationProps {
   className?: string;
 }
 
-export default function Navigation({ variant = 'header', className = '' }: NavigationProps) {
+export default function Navigation({ variant = 'main', className = '' }: NavigationProps) {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('中文');
   const [showPanel, setShowPanel] = useState(false);
   const router = useRouter()
   const pathname = usePathname();
+  const logoPath = (variant === 'header') 
+    ? "/icons/logo_text_w.png" 
+    : "/icons/logo_text_BN.png";
 
   /*const navItems = [
     { href: '/about', label: '關於我們' },
@@ -67,7 +70,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
         >
           <div className="relative flex-shrink-0">
             <Image
-              src="/icons/logo_text_BN.png"
+              src={logoPath}
               alt="Cultural Website Logo"
               width={2605}
               height={506}
@@ -83,7 +86,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
             onClick={() => setIsLanguageOpen(!isLanguageOpen)}
             className="px-3 py-2 hover:bg-amber-900/20 rounded-lg flex items-center space-x-1">
             <svg
-              className="w-7 h-7 text-[#833416]"
+              className={`w-7 h-7 ${(variant === 'header')? `text-white` : `text-[#833416]`} `}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -92,7 +95,7 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
               <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" strokeWidth={1.5} />
               <path d="M2 12h20" strokeWidth={1.5} />
             </svg>
-            <span className="text-[#833416] font-bold text-lg leading-none">{currentLanguage}</span>
+            <span className={`${(variant === 'header')? `text-white` : `text-[#833416]`} font-bold text-lg leading-none`}>{currentLanguage}</span>
           </button>
           
           {/* 下拉選單 */}
@@ -134,9 +137,9 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
       <button 
         onClick={() => setShowPanel(!showPanel)}
         className="right-0 flex flex-col justify-center items-center space-y-1 p-2 hover:bg-amber-900/20 rounded-lg transition-colors duration-200">
-        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
-        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
-        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
+        <div className={`w-7 h-1 sm:w-12 sm:h-2 ${(variant === 'header')? `bg-white` : `bg-[#833416]`} rounded-full`}></div>
+        <div className={`w-7 h-1 sm:w-12 sm:h-2 ${(variant === 'header')? `bg-white` : `bg-[#833416]`} rounded-full`}></div>
+        <div className={`w-7 h-1 sm:w-12 sm:h-2 ${(variant === 'header')? `bg-white` : `bg-[#833416]`} rounded-full`}></div>
       </button>
 
       {showPanel && (
