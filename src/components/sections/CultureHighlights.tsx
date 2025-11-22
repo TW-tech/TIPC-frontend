@@ -1,175 +1,139 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cultureItemsData } from "@/data";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CultureHighlights() {
-  // Animation refs
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  //const [currentBreakpoint, setCurrentBreakpoint] = useState<'mobile' | 'tablet' | 'bigTablet' | 'desktop'>('desktop')
+  const containerRef = useRef<HTMLDivElement>(null);
+  const orangeLayerRef = useRef<HTMLDivElement>(null);
+  const greenLayerRef = useRef<HTMLDivElement>(null);
+  const blueLayerRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
 
-  // GSAP Animations
   useEffect(() => {
-    // Add a small delay to ensure DOM is ready and page has settled
-    const timer = setTimeout(() => {
-      const ctx = gsap.context(() => {
-        // Title animation
-        if (titleRef.current) {
-          gsap.fromTo(titleRef.current, 
-            {
-              opacity: 0,
-              y: 50
-            },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: titleRef.current,
-                start: "top 95%", // 更早觸發
-                end: "bottom 5%",
-                toggleActions: "play none none reverse",
-                refreshPriority: -1,
-                invalidateOnRefresh: true,
-                immediateRender: false
-              }
-            }
-          );
+    if (!sectionRef.current || !containerRef.current || !orangeLayerRef.current || !greenLayerRef.current || !blueLayerRef.current || !arrowRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=3000",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
         }
+      });
 
-        // Grid animation with stagger effect
-        if (gridRef.current) {
-          const items = gridRef.current.querySelectorAll('.culture-item');
-          
-          gsap.fromTo(items,
-            {
-              opacity: 0,
-              scale: 0.8,
-              y: 60
-            },
-            {
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out",
-              stagger: 0.2,
-              scrollTrigger: {
-                trigger: gridRef.current,
-                start: "top 95%", // 更早觸發
-                end: "bottom 5%",
-                toggleActions: "play none none reverse",
-                refreshPriority: -1,
-                invalidateOnRefresh: true,
-                immediateRender: false
-              }
-            }
-          );
-        }
-        
-        // Force ScrollTrigger refresh after animations are set
-        ScrollTrigger.refresh();
-        
-        // Additional check: if elements are already in view, trigger animations
-        setTimeout(() => {
-          if (titleRef.current && gridRef.current) {
-            const titleRect = titleRef.current.getBoundingClientRect();
-            const gridRect = gridRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            
-            // If elements are already in view, force trigger animations
-            if (titleRect.top < windowHeight * 0.95 && titleRect.bottom > 0) {
-              gsap.set(titleRef.current, { opacity: 1, y: 0 });
-            }
-            
-            if (gridRect.top < windowHeight * 0.95 && gridRect.bottom > 0) {
-              const items = gridRef.current.querySelectorAll('.culture-item');
-              gsap.set(items, { opacity: 1, scale: 1, y: 0 });
-            }
-          }
-        }, 300);
-      }, sectionRef);
+      // Initial state: all layers and arrow hidden
+      gsap.set(orangeLayerRef.current, { opacity: 0, y: 100 });
+      gsap.set(greenLayerRef.current, { opacity: 0, y: 100 });
+      gsap.set(blueLayerRef.current, { opacity: 0, y: 100 });
+      gsap.set(arrowRef.current, { opacity: 0, x: -100 });
 
-      return () => ctx.revert();
-    }, 200);
+      // Step 1: Orange layer (bottom) appears first
+      tl.to(orangeLayerRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out"
+      })
+      
+      // Step 2: Green layer (middle) appears
+      .to(greenLayerRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out"
+      }, "+=0.3")
+      
+      // Step 3: Blue layer (top) appears
+      .to(blueLayerRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out"
+      }, "+=0.3")
+      
+      // Step 4: Red arrow (地方創生) appears last
+      .to(arrowRef.current, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out"
+      }, "+=0.3");
 
-    return () => clearTimeout(timer);
-  }, []);
+    }, sectionRef);
 
-  // Additional effect to handle navigation back to home
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        setTimeout(() => {
-          ScrollTrigger.refresh();
-        }, 100);
-      }
-    };
-    
-    const handleFocus = () => {
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 100);
-    };
-    
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    window.addEventListener('focus', handleFocus);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('focus', handleFocus);
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
-      <div className=" mx-auto px-4 sm:px-22 lg:px-51">
+    <section ref={sectionRef} className="relative min-h-screen bg-[#FAF9EB] flex items-center justify-center overflow-visible py-8 sm:py-12">
+      <div ref={containerRef} className="relative w-full max-w-6xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
         
-        {/* 文化知識容器 - 長方形 2x2 排列 */}
-        <div className="w-full">
-          <div ref={gridRef} className="aspect-[3/2] sm:aspect-[2/1] grid grid-cols-2 grid-rows-2 gap-1 sm:gap-2 lg:gap-4 bg-[#FAF9EB] rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
-            {cultureItemsData.map((item) => (
-              <Link 
-                key={item.id}
-                href={`/mediaselect/${item.id}`}
-                className="group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg"
-              >
-                {/* 圖片 */}
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                {/* 遮罩和標題 - 直接顯示 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 transition-opacity duration-300">
-                  <div className={`absolute p-4 ${
-                    item.position === 'top-left' ? 'bottom-0 right-0 text-right' :
-                    item.position === 'top-right' ? 'bottom-0 left-0 text-left' :
-                    item.position === 'bottom-left' ? 'top-0 right-0 text-right' :
-                    'top-0 left-0 text-left'  // bottom-right
-                  }`}>
-                    <h3 className="text-white font-bold text-sm sm:text-lg lg:text-2xl text-shadow-lg">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* 懸停效果邊框 - 只在桌面顯示 */}
-                <div className="absolute inset-0 border-2 border-transparent md:group-hover:border-blue-500/50 transition-colors duration-300"></div>
-              </Link>
-            ))}
+        {/* Layered Cake Container */}
+        <div className="relative flex flex-col items-center gap-0 scale-90 sm:scale-100 md:scale-110 lg:scale-125 xl:scale-150">
+          
+          {/* Red Arrow - Left Side (Vertical pointing down) - positioned relative to layers */}
+          <div 
+            ref={arrowRef}
+            className="absolute left-2 sm:left-4 md:left-6 lg:left-0 top-0 bottom-0 -translate-x-[70%] sm:-translate-x-[80%] lg:-translate-x-[100%] ml-0 lg:-ml-10 xl:-ml-12 flex flex-col items-center z-50"
+          >
+            {/* Arrow body (rectangle) - height matches the 3 layers */}
+            <div className="flex-1 bg-red-600 rounded-t-lg px-3 sm:px-4 md:px-8 lg:px-10 xl:px-12 flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl [writing-mode:vertical-rl] tracking-wide sm:tracking-wider">
+                地方創生
+              </span>
+            </div>
+            {/* Arrow head (triangle pointing down) */}
+            <div className="w-0 h-0 border-t-[20px] sm:border-t-[25px] md:border-t-[35px] lg:border-t-[40px] xl:border-t-[45px] border-l-[18px] sm:border-l-[20px] md:border-l-[40px] lg:border-l-[50px] xl:border-l-[62px] border-r-[18px] sm:border-r-[20px] md:border-r-[40px] lg:border-r-[50px] xl:border-r-[62px] border-t-red-600 border-l-transparent border-r-transparent"></div>
           </div>
+          
+          {/* Blue Layer (Top - Narrowest) */}
+          <div 
+            ref={blueLayerRef}
+            className="w-[65%] sm:w-[60%] md:w-[62%] lg:w-[65%] py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 bg-blue-500 rounded-2xl sm:rounded-3xl shadow-lg flex items-center justify-center relative z-30 cursor-pointer group"
+            style={{ transition: 'transform 0.3s ease' }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <span className="text-white font-bold text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-center px-3 sm:px-4">
+              產業 / 品牌
+            </span>
+          </div>
+
+          {/* Green Layer (Middle) */}
+          <div 
+            ref={greenLayerRef}
+            className="w-[82%] sm:w-[78%] md:w-[80%] lg:w-[82%] py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 bg-green-500 rounded-2xl sm:rounded-3xl shadow-lg flex items-center justify-center relative z-20 -mt-2 sm:-mt-3 cursor-pointer group"
+            style={{ transition: 'transform 0.3s ease' }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <span className="text-white font-bold text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-center px-3 sm:px-4">
+              文化資產 + 文化活動
+            </span>
+          </div>
+
+          {/* Orange Layer (Bottom - Widest) */}
+          <div 
+            ref={orangeLayerRef}
+            className="w-full py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 bg-orange-500 rounded-2xl sm:rounded-3xl shadow-lg flex items-center justify-center relative z-10 -mt-2 sm:-mt-3 cursor-pointer group"
+            style={{ transition: 'transform 0.3s ease' }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <span className="text-white font-bold text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-center px-3 sm:px-4">
+              共享（文化記憶）
+            </span>
+          </div>
+
         </div>
       </div>
     </section>
