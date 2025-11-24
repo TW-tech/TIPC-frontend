@@ -22,5 +22,3 @@ export { default as ArchiveCard } from './sections/ArchiveCard';
 export { default as ArchiveFilter } from './sections/ArchiveFilter';
 export { default as PartnerCard } from './sections/PartnerCard';
 export { default as BookCard } from './sections/BookCard';
-export { default as StoryFilter } from './sections/StoryFilter';
-export { default as ArticleFilter} from './sections/ArticleFilter';

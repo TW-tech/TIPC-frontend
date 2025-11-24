@@ -6,7 +6,6 @@ import { PageLayout } from '@/components';
 import { CultureArticleData } from "@/data";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-import ArticleFilter from "@/components/sections/ArticleFilter";
 
 export default function ArticlePage() {
 
@@ -14,26 +13,17 @@ export default function ArticlePage() {
   const id = params?.id as string;
 
   const [visibleCount, setVisibleCount] = useState(3); // 初始顯示數量
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  // 篩選資料並按日期排序（新的在前）
-  const filteredArchives = (activeFilter 
-      ? CultureArticleData.filter(article => article.category === activeFilter)
-      : CultureArticleData)
-      .sort((a, b) => {
-        // 將日期字串轉換為 Date 物件進行比較
-        if (!a.date || !b.date) return 0;
-        const dateA = new Date(a.date.replace(/\//g, '-'));
-        const dateB = new Date(b.date.replace(/\//g, '-'));
-        return dateB.getTime() - dateA.getTime(); // 降序排列（新的在前）
-      });
+  // 按日期排序（新的在前）
+  const sortedArticles = CultureArticleData.sort((a, b) => {
+    // 將日期字串轉換為 Date 物件進行比較
+    if (!a.date || !b.date) return 0;
+    const dateA = new Date(a.date.replace(/\//g, '-'));
+    const dateB = new Date(b.date.replace(/\//g, '-'));
+    return dateB.getTime() - dateA.getTime(); // 降序排列（新的在前）
+  });
 
-  const articleToShow = filteredArchives.slice(0, visibleCount);
-
-  const handleFilterChange = (filter: string | null) => {
-      setActiveFilter(filter);
-      setVisibleCount(3); // Reset visible count when filter changes
-  };
+  const articleToShow = sortedArticles.slice(0, visibleCount);
 
   const loadMore = () => {
     setVisibleCount((prev) => prev + 3);
@@ -41,12 +31,6 @@ export default function ArticlePage() {
 
   return (
     <PageLayout title="觀點文章" subtitle="Articles" headerpic="/images/header/article.jpeg">
-      <div className="flex justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6"> 
-        <ArticleFilter 
-              onFilterChange={handleFilterChange}
-              activeFilter={activeFilter}
-          />
-      </div>
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
@@ -111,7 +95,7 @@ export default function ArticlePage() {
         </div>
         
         {/* 載入更多按鈕 */}
-        {visibleCount < filteredArchives.length && (
+        {visibleCount < sortedArticles.length && (
           <div className="text-center mt-12">
             <button
               onClick={loadMore}
