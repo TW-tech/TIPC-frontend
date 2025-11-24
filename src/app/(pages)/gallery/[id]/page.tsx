@@ -109,7 +109,7 @@ export default function GalleryPage() {
         <div className="mx-auto px-10 sm:px-10 lg:px-30 py-16">
 
           {/* 影像展示區域 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-6">
             {videosToShow.map((video) => (
               <div
                 key={video.id}

@@ -140,7 +140,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/1.jpg",
     category: "食",
-    date: "2025/09/10"
+    date: "2025/09/10",
+    tags: ["文化傳承", "飲食文化"]
   },
   {
     id: "2",
@@ -148,7 +149,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/2.jpg",
     category: "衣",
-    date: "2025/09/01"
+    date: "2025/09/01",
+    tags: ["傳統工藝", "服飾文化", "文化資產"]
   },
   {
     id: "3",
@@ -156,7 +158,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/3.jpg",
     category: "住",
-    date: "2025/08/15"
+    date: "2025/08/15",
+    tags: ["建築文化", "地方創生"]
   },
   {
     id: "4",
@@ -164,7 +167,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/4.jpg",
     category: "行",
-    date: "2025/07/10"
+    date: "2025/07/10",
+    tags: ["交通文化"]
   },
   {
     id: "5",
@@ -172,7 +176,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/5.jpg",
     category: "育",
-    date: "2025/06/10"
+    date: "2025/06/10",
+    tags: ["教育推廣", "文化教育", "傳統藝術"]
   },
   {
     id: "6",
@@ -180,7 +185,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/6.jpg",
     category: "樂",
-    date: "2025/09/10"
+    date: "2025/09/10",
+    tags: ["音樂文化", "表演藝術"]
   },
   {
     id: "7",
@@ -188,7 +194,8 @@ export const CultureArticleData: CultureItem[] = [
     description: "內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格，如此處示範：「西元 2000 年」，標點符號請用全形。內文請用微軟正黑體，10pt，行距單行，內文請控制於 1500 字內。阿拉伯數字前後請空格",
     image: "/images/gallery/7.jpg",
     category: "重要事件",
-    date: "2025/09/10"
+    date: "2025/09/10",
+    tags: ["文化活動", "社區營造", "地方創生"]
   },
   {
     id: "8",

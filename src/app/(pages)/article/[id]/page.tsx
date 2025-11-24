@@ -69,6 +69,13 @@ export default function ArticlePage() {
               fill
               className="object-cover"
             />
+            
+            {/* Category Badge */}
+            {Article.category && (
+              <div className="absolute bottom-0 left-0 bg-white text-black px-4 py-2 font-bold text-base">
+                文化影響力平台
+              </div>
+            )}
           </div>
 
           {/* Content */}
@@ -80,6 +87,20 @@ export default function ArticlePage() {
             <p className="text-gray-700 text-sm sm:text-base mb-4 line-clamp-3">
               {Article.description}
             </p>
+
+            {/* Tags */}
+            {Article.tags && Article.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {Article.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="inline-block bg-white text-black text-xs sm:text-base font-semibold px-3 py-1 rounded-full border border-gray-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
 
             <div className="absolute bottom-2 left-3">
               <p className="text-xs text-gray-500">{Article.date}</p>

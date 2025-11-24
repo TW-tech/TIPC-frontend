@@ -44,10 +44,4 @@ export default function BookPage() {
        
     </PageLayout>
   );
-
-  /*<div className="grid grid-cols-1 gap-6 place-items-center">
-          {bookCardData.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
-        </div>*/
 }

@@ -16,6 +16,7 @@ export interface CultureItem {
   image: string;
   category?: string;
   date?: string;
+  tags?: string[];
 }
 
 export interface BookData {

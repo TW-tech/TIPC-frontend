@@ -116,7 +116,6 @@ export default function BookLightbox({
 }
 
 
-///
 function BookCard({ book  }: { book: BookData }) {
   return (
     <Card className="w-full max-w-[64rem] flex flex-col sm:flex-row items-stretch border-b-0 border-gray-200 relative overflow-hidden">

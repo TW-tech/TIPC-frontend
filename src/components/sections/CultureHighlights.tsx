@@ -1,11 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from "react";
 
 export default function CultureHighlights() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,64 +9,6 @@ export default function CultureHighlights() {
   const greenLayerRef = useRef<HTMLDivElement>(null);
   const blueLayerRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current || !containerRef.current || !orangeLayerRef.current || !greenLayerRef.current || !blueLayerRef.current || !arrowRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=3000",
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        }
-      });
-
-      // Initial state: all layers and arrow hidden
-      gsap.set(orangeLayerRef.current, { opacity: 0, y: 100 });
-      gsap.set(greenLayerRef.current, { opacity: 0, y: 100 });
-      gsap.set(blueLayerRef.current, { opacity: 0, y: 100 });
-      gsap.set(arrowRef.current, { opacity: 0, x: -100 });
-
-      // Step 1: Orange layer (bottom) appears first
-      tl.to(orangeLayerRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out"
-      })
-      
-      // Step 2: Green layer (middle) appears
-      .to(greenLayerRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out"
-      }, "+=0.3")
-      
-      // Step 3: Blue layer (top) appears
-      .to(blueLayerRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out"
-      }, "+=0.3")
-      
-      // Step 4: Red arrow (地方創生) appears last
-      .to(arrowRef.current, {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power2.out"
-      }, "+=0.3");
-
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-[#FAF9EB] flex items-center justify-center overflow-visible py-8 sm:py-12">

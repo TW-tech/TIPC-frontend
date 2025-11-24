@@ -126,7 +126,6 @@ export default function MasonryGallery({
           {lightboxMode.mode === "Book" ? (
             <div className="grid grid-cols-1 gap-6 place-items-center">
               <BookLightbox 
-                
                 book={bookCardData[currentImage.id]} 
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
