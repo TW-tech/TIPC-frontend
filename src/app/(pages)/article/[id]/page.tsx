@@ -56,7 +56,7 @@ export default function ArticlePage() {
             
             {/* Category Badge */}
             {Article.category && (
-              <div className="absolute bottom-0 left-0 bg-white text-black px-4 py-2 font-bold text-base">
+              <div className="absolute bottom-0 left-0 bg-orange-600 text-white px-4 py-2 font-bold text-base w-1/2 text-center">
                 文化影響力平台
               </div>
             )}
