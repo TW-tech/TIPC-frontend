@@ -318,7 +318,7 @@ export const eventData: Event[] = [
     id: "1",
     title: "地方創生可以不一樣新書發表會",
     date: "2025-08-16",
-    mainImage: "/images/gallery/bookmain.jpg",
+    mainImage: "/images/event/past/Book/bookmain.jpg",
   description: `脫下鞋子 奔跑
     我原本不知
     最終目的在何方
@@ -328,11 +328,11 @@ export const eventData: Event[] = [
     往完美的方向`,
     subTitle: "Impromptu142, 臺北市萬華區長沙街二段142號",
     relatedImages: [
-    { id: 1, title: "book1", src: "/images/gallery/book1.jpg" },
-    { id: 2, title: "book2", src: "/images/gallery/book2.jpg" },
-    { id: 3, title: "book3", src: "/images/gallery/book3.jpg" },
-    { id: 4, title: "book4", src: "/images/gallery/book4.jpg" },
-    { id: 5, title: "book5", src: "/images/gallery/book5.jpg" },
+    { id: 1, title: "book1", src: "/images/event/past/Book/book1.jpg" },
+    { id: 2, title: "book2", src: "/images/event/past/Book/book2.jpg" },
+    { id: 3, title: "book3", src: "/images/event/past/Book/book3.jpg" },
+    { id: 4, title: "book4", src: "/images/event/past/Book/book4.jpg" },
+    { id: 5, title: "book5", src: "/images/event/past/Book/book5.jpg" },
   ],
     type: "past",
     alt: "地方創生可以不一樣新書發表會",
