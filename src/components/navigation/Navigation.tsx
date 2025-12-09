@@ -10,16 +10,18 @@ interface NavigationProps {
   className?: string;
 }
 
-export default function Navigation({ variant = 'header', className = '' }: NavigationProps) {
+export default function Navigation({ variant = 'main', className = '' }: NavigationProps) {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('中文');
   const [showPanel, setShowPanel] = useState(false);
   const router = useRouter()
   const pathname = usePathname();
-  
-  // Determine if we're on the main page
-  const isMainPage = pathname === '/';
-  const logoSrc = isMainPage ? '/icons/logo_text_BN.png' : '/icons/logo_text_w.png';
+
+
+  const logoPath = (variant === 'header') 
+    ? "/icons/logo_text_w.png" 
+    : "/icons/logo_text_BN.png";
+
 
   /*const navItems = [
     { href: '/about', label: '關於我們' },
@@ -138,9 +140,9 @@ export default function Navigation({ variant = 'header', className = '' }: Navig
       <button 
         onClick={() => setShowPanel(!showPanel)}
         className="right-0 flex flex-col justify-center items-center space-y-1 p-2 hover:bg-amber-900/20 rounded-lg transition-colors duration-200">
-        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
-        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
-        <div className="w-7 h-1 sm:w-12 sm:h-2 bg-[#833416] rounded-full"></div>
+        <div className={`w-7 h-1 sm:w-12 sm:h-2 ${(variant === 'header')? `bg-white` : `bg-[#833416]`} rounded-full`}></div>
+        <div className={`w-7 h-1 sm:w-12 sm:h-2 ${(variant === 'header')? `bg-white` : `bg-[#833416]`} rounded-full`}></div>
+        <div className={`w-7 h-1 sm:w-12 sm:h-2 ${(variant === 'header')? `bg-white` : `bg-[#833416]`} rounded-full`}></div>
       </button>
 
       {showPanel && (
