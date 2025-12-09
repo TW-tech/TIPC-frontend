@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { 
   MainVisual,
   ImageCarousel,
-  Slogan,
   CultureHighlights,
   VideoRecommendations,
   PartnerRecommendations,

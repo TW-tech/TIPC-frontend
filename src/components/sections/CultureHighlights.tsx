@@ -1,12 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function CultureHighlights() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [hoveredLayer, setHoveredLayer] = useState<string | null>(null);
   const router = useRouter();
 
   const layers = [

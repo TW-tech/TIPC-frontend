@@ -1,7 +1,6 @@
-import type { Partner, CultureKnowledge, VideoRecommendation, CultureItem, BookData, Event } from "@/types";
+import type { Partner, VideoRecommendation, CultureItem, BookData, Event } from "@/types";
 
 // 合作夥伴數據
-
 export const partnersData: Partner[] = [
   {
     id: "cultural-museum",
@@ -103,35 +102,6 @@ export const videosData: VideoRecommendation[] = [
 ];
 
 
-
-// 文化知識數據
-export const cultureItemsData: CultureKnowledge[] = [
-  {
-    id: "cultural-sustainability",
-    title: "文化永續",
-    image: "/images/culture/怎麼做.jpg",
-    position: "top-left"
-  },
-  {
-    id: "cultural-memory",
-    title: "文化記憶",
-    image: "/images/culture/文化記憶2.jpg",
-    position: "top-right"
-  },
-  {
-    id: "cultural-property_Event",
-    title: "文化資產/文化活動",
-    image: "/images/culture/文化活動.jpg",
-    position: "bottom-left"
-  },
-  {
-    id: "cultural-industry_branding",
-    title: "文化產業/文化品牌",
-    image: "/images/culture/文化品牌2.jpg",
-    position: "bottom-right"
-  }
-];
-
 //專欄文章
 export const CultureArticleData: CultureItem[] = [
   {
@@ -207,34 +177,6 @@ export const CultureArticleData: CultureItem[] = [
   }
   
   
-];
-
-
-export const CultureExplorerData: CultureItem[] = [
-  {
-    id: "1",
-    title: "",
-    description: "",
-    image: "/images/videorecommendations/.jpg",
-    category: "",
-    date: ""
-  },
-  {
-    id: "2",
-    title: "",
-    description: "",
-    image: "/images/videorecommendations/.jpg",
-    category: "",
-    date: ""
-  },
-  {
-    id: "3",
-    title: "",
-    description: "",
-    image: "/images/culture/.jpg",
-    category: "",
-    date: ""
-  }
 ];
 
 
@@ -442,4 +384,4 @@ export const navItems = [
     { href: '/event', label: '活動探索' },
     { href: '/partner', label: '合作夥伴' },
     { href: '/contact', label: '聯絡我們' },
-  ];
+];
