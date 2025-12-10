@@ -3,7 +3,6 @@ import Image from "next/image";
 import { PageLayout } from '@/components';
 import { useParams } from "next/navigation";
 import { CultureArticleData } from "@/data";
-import { notoSerifTC, notoSansTC } from "@/lib/fonts";
 
 export default function ArticleContentPage() {
   const params = useParams();
@@ -24,7 +23,7 @@ export default function ArticleContentPage() {
         <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Title + Meta */}
         <header className="mb-8">
-          <h1 className={`text-3xl sm:text-4xl text-gray-700 font-bold mb-4 ${notoSerifTC.className}`}>
+          <h1 className="text-3xl sm:text-4xl text-gray-700 font-bold mb-4">
             文化永續發展與挑戰
           </h1>
           <p className="text-gray-500 text-sm">2025-09-13 · by Richard Huang</p>
@@ -41,7 +40,7 @@ export default function ArticleContentPage() {
         </div>
 
         {/* Article Content */}
-        <section className={`prose prose-xl max-w-none ${notoSansTC.className}`}>
+        <section className="prose prose-xl max-w-none">
           <p className="text-gray-700 text-xl leading-relaxed">
             在現代社會中，文化的永續發展面臨著許多挑戰。我們不僅要維護傳統價值，
             還要能夠適應快速變遷的環境，並與科技與經濟結合。

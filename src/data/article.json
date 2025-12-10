@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "公廟",
+        "author": "小美",
+        "description":"這是一個關於公廟的範例文章描述。",
+        "cakeCategory": ["文化記憶","文化資產","產業","地方創生"],
+        "keyWords": ["範例1","範例2","範例3"],
+        "nineBlocks":["食","衣","住","行","育","樂"],
+        "uploadDate": "2025/09/10",
+        "relatedArticlesIDs": [
+
+        ],
+        "imageMain":"",
+        "contentImages":[
+
+        ],
+        "paragraphs": [
+
+        ],
+        "videos": [
+
+        ],
+        "podcasts": [
+
+        ]
+
+    }
+]
