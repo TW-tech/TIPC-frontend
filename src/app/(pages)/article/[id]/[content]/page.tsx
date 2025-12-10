@@ -2,159 +2,81 @@
 import Image from "next/image";
 import { PageLayout } from '@/components';
 import { useParams } from "next/navigation";
-import { CultureArticleData } from "@/data";
+import { articlesData } from "@/data";
 
 export default function ArticleContentPage() {
   const params = useParams();
   const content = params?.content as string;
 
   if (!content) return null;
-  const Articleitem = CultureArticleData.find((item) => item.id === content);
+  
+  const articleId = parseInt(content);
+  const article = articlesData.find((item) => item.id === articleId);
 
-  if (!Articleitem) {
-    return <p className="text-center mt-10">Articledata not found.</p>;
+  if (!article) {
+    return <p className="text-center mt-10">Article not found.</p>;
   }
   
   return (
-    <PageLayout title={Articleitem.title} subtitle="Article" headerpic="/images/header/article.jpeg">
+    <PageLayout title={article.title} subtitle="Article" headerpic="/images/header/article.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
         <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Title + Meta */}
         <header className="mb-8">
-          <h1 className="text-3xl sm:text-4xl text-gray-700 font-bold mb-4">
-            文化永續發展與挑戰
-          </h1>
-          <p className="text-gray-500 text-sm">2025-09-13 · by Richard Huang</p>
+          <blockquote className="text-4xl sm:text-6xl font-bold text-[#833416] border-l-4 border-[#833416] pl-4 mb-4">
+            <h1 className="article-title">{article.title}</h1>
+          </blockquote>
+          <div className="flex items-center space-x-2 flex-wrap gap-2">
+            <p className="text-gray-700 text-lg">作者:{article.author}</p>
+            {article.keyWords.map((keyword, index) => (
+              <div key={index} className="
+                px-2 py-0.5          /* Horizontal and vertical padding */
+                rounded-full         /* Full rounded corners */
+                border-2 border-gray-700 /* Outline color */
+                text-gray-700         /* Text color */
+                text-sm              /* Small text size */
+                font-medium          /* Medium font weight */
+              ">
+                {keyword}
+              </div>
+            ))}
+          </div>
         </header>
 
         {/* Cover Image */}
-        <div className="relative w-full h-80 mb-8 rounded-xl overflow-hidden shadow">
-          <Image
-            src="/images/gallery/1.jpg"
-            alt="cover"
-            fill
-            className="object-cover"
-          />
-        </div>
+        {article.imageMain && (
+          <div className="relative w-full h-80 mb-8 rounded-xl overflow-hidden shadow">
+            <Image
+              src={article.imageMain}
+              alt={article.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
 
         {/* Article Content */}
         <section className="prose prose-xl max-w-none">
-          <p className="text-gray-700 text-xl leading-relaxed">
-            在現代社會中，文化的永續發展面臨著許多挑戰。我們不僅要維護傳統價值，
-            還要能夠適應快速變遷的環境，並與科技與經濟結合。
-          </p>
+          {article.paragraphs.map((paragraph, index) => (
+            <p key={index} className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-relaxed mb-4">
+              {paragraph}
+            </p>
+          ))}
 
-          <p className="py-3 text-gray-700 text-xl leading-relaxed">
-            例如，數位媒體的興起讓年輕世代接觸文化的方式有了根本轉變，
-            這要求我們在傳統與現代之間取得平衡。
-          </p>
-
-          {/* Inline Image */}
-          <figure className="my-8">
-            <Image
-              src="/images/gallery/2.jpg"
-              alt="Example Image"
-              width={800}
-              height={500}
-              className="rounded-lg object-contain mx-auto"
-            />
-            <figcaption className="text-sm text-gray-500 mt-2 text-center">
-              社區中的文化活動
-            </figcaption>
-          </figure>
-
-          <p className="text-gray-700 text-xl leading-relaxed">
-            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。
-          </p>
-          {/* Inline Image */}
-          <figure className="my-8">
-            <Image
-              src="/images/gallery/2.jpg"
-              alt="Example Image"
-              width={800}
-              height={500}
-              className="rounded-lg object-contain mx-auto"
-            />
-            <figcaption className="text-sm text-gray-500 mt-2 text-center">
-              社區中的文化活動
-            </figcaption>
-          </figure>
-
-          <p className="text-gray-700 text-xl leading-relaxed">
-            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。
-          </p>
-          {/* Inline Image */}
-          <figure className="my-8">
-            <Image
-              src="/images/gallery/2.jpg"
-              alt="Example Image"
-              width={800}
-              height={500}
-              className="rounded-lg object-contain mx-auto"
-            />
-            <figcaption className="text-sm text-gray-500 mt-2 text-center">
-              社區中的文化活動
-            </figcaption>
-          </figure>
-
-          <p className="text-gray-700 text-xl leading-relaxed">
-            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。
-          </p>
-          {/* Inline Image */}
-          <figure className="my-8">
-            <Image
-              src="https://drive.google.com/uc?export=view&id=1Xhz1qnxfjQQeP83pT-cWGTjgVp1dhdfQ"
-              alt="Example Image"
-              width={800}
-              height={500}
-              className="rounded-lg object-contain mx-auto"
-            />
-            <figcaption className="text-sm text-gray-500 mt-2 text-center">
-              Google Drive image test
-            </figcaption>
-          </figure>
-
-          <p className="text-gray-700 text-xl leading-relaxed">
-            此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。此外，地方文化政策的推動能促進文化資產保存，但也需要社區參與，
-            否則政策可能流於形式，無法真正影響居民生活。
-          </p>
+          {/* Content Images */}
+          {article.contentImages.map((imageSrc, index) => (
+            <figure key={index} className="my-8">
+              <Image
+                src={imageSrc}
+                alt={`${article.title} - Image ${index + 1}`}
+                width={800}
+                height={500}
+                className="rounded-lg object-contain mx-auto"
+              />
+            </figure>
+          ))}
         </section>
       </article>
     </div>

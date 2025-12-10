@@ -1,4 +1,7 @@
-import type { Partner, VideoRecommendation, CultureItem, BookData, Event } from "@/types";
+import type { Partner, VideoRecommendation, CultureItem, BookData, Event, Article } from "@/types";
+import articleData from './article.json';
+
+export const articlesData: Article[] = articleData as Article[];
 
 // 合作夥伴數據
 export const partnersData: Partner[] = [

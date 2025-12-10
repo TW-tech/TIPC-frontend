@@ -28,10 +28,10 @@ const [scrolled, setScrolled] = useState(false);
       <Navigation variant="header" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6">
           {title}
         </h1>
-        <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-center text-white/90 max-w-3xl mx-auto">
           {subtitle}
         </p>
       </div>

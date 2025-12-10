@@ -93,6 +93,23 @@ export interface VideoRecommendation {
   detail: string;
 }
 
+export interface Article {
+  id: number;
+  title: string;
+  author: string;
+  description: string;
+  cakeCategory: string[];
+  keyWords: string[];
+  nineBlocks: string[];
+  uploadDate: string;
+  relatedArticlesIDs: number[];
+  imageMain: string;
+  contentImages: string[];
+  paragraphs: string[];
+  videos: string[];
+  podcasts: string[];
+}
+
 // API 響應類型
 export interface ApiResponse<T> {
   data: T;
