@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { PageLayout } from '@/components';
 import MediaGallery from '@/components/sections/MediaGallery';
 import { GalleryItem } from '@/types';
@@ -22,7 +22,7 @@ const categoryMap: { [key: string]: string } = {
   industry: '指標產業',
 };
 
-export default function CategoryFilterPage() {
+function CategoryContent() {
   const searchParams = useSearchParams();
   const categoryId = searchParams.get('id') || '';
   const categoryName = categoryMap[categoryId] || categoryId;
@@ -111,5 +111,17 @@ export default function CategoryFilterPage() {
         </div>
       </div>
     </PageLayout>
+  );
+}
+
+export default function CategoryFilterPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-xl text-gray-600">載入中...</p>
+      </div>
+    }>
+      <CategoryContent />
+    </Suspense>
   );
 }
