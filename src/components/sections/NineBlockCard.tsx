@@ -38,7 +38,7 @@ const NineBlockCard = ({ number, title, subtitle, color, iconSrc, categoryId, on
   );
 };
 
-// Example usage
+
 const BlockData = () => {
   const router = useRouter();
 

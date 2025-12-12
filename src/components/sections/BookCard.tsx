@@ -97,7 +97,7 @@ export default function BookLightbox({
       >
         {/* Close button */}
         <button
-          className="absolute top-2 right-2 text-xl font-bold text-gray-300 hover:text-white rounded-full shadow hover:bg-white/10 z-20"
+          className="absolute top-2 right-2 w-10 h-10 flex items-center justify-center text-2xl font-bold text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors z-20"
           onClick={handleClose}
         >
           ✕

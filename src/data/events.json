@@ -44,28 +44,13 @@
   },
   {
     "id": "4",
-    "title": "田中達也特展",
-    "date": "2025-03-15 ~ 2025-04-01",
-    "mainImage": "/images/museums/田中.jpg",
-    "description": "田中達也特展-大師眼中的微型組合",
-    "subTitle": "田中達也特展-大師眼中的微型組合",
-    "relatedImages": [
-      { "id": 1, "title": "田中達也特展", "src": "/images/gallery/6.jpg" },
-      { "id": 2, "title": "田中達也特展", "src": "/images/gallery/7.jpg" },
-      { "id": 3, "title": "田中達也特展", "src": "/images/gallery/8.jpg" }
-    ],
-    "type": "past",
-    "alt": "田中達也特展"
-  },
-  {
-    "id": "5",
     "title": "世界新聞攝影展",
     "date": "2025-03-15 ~ 2025-04-01",
     "mainImage": "/images/museums/世界攝影展.jpg",
     "relatedImages": [
-      { "id": 1, "title": "世界攝影展", "src": "/images/gallery/9.jpg" },
-      { "id": 2, "title": "世界攝影展", "src": "/images/gallery/10.jpg" },
-      { "id": 3, "title": "世界攝影展", "src": "/images/gallery/11.jpg" }
+      { "id": 1, "title": "世界攝影展", "src": "/images/event/past/2025Photo/1.png" },
+      { "id": 2, "title": "世界攝影展", "src": "/images/event/past/2025Photo/2.png" },
+      { "id": 3, "title": "世界攝影展", "src": "/images/event/past/2025Photo/3.png" }
     ],
     "description": "世界新聞攝影展 -財團法人玉溪有容教育基金",
     "subTitle": "世界新聞攝影展 -財團法人玉溪有容教育基金",
@@ -73,7 +58,7 @@
     "alt": "世界新聞攝影展"
   },
   {
-    "id": "6",
+    "id": "5",
     "title": "彰化地方創生活動",
     "date": "2025-10-14",
     "mainImage": "/images/event/past/Changhua/Changhua_01.jpg",

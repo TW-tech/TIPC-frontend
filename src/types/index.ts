@@ -96,6 +96,12 @@ export interface GalleryItem {
   title?: string;
   tag?: string;
   linkHref?: string;
+  author?: string;
+  photoDate?: string;
+  description?: string;
+  keywords?: string[];
+  duration?: string;
+  cakeCategory?: string[];
 }
 
 export interface MediaGalleryProps {

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { PageLayout, MasonryGallery } from '@/components';
 import { useParams } from "next/navigation";
-import { eventData } from "@/data";
+import  eventData  from "@/data/events.json";
 
 export default function EventContentPage() {
   const params = useParams();
