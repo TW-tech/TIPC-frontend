@@ -43,15 +43,15 @@ const BlockData = () => {
   const router = useRouter();
 
   const blocks = [
-    { number: 1, title: '食', subtitle: 'Food', color: '#94b749', iconSrc: '/icons/nineBlock/food.png', categoryId: 'food' },
-    { number: 2, title: '衣', subtitle: 'Clothing', color: '#e5ab40', iconSrc: '/icons/nineBlock/clothing.png', categoryId: 'clothing' },
-    { number: 3, title: '住', subtitle: 'Housing', color: '#5fb1c0', iconSrc: '/icons/nineBlock/housing.png', categoryId: 'housing' },
-    { number: 4, title: '行', subtitle: 'Transportation', color: '#968cdf', iconSrc: '/icons/nineBlock/transportation.png', categoryId: 'transportation' },
-    { number: 5, title: '育', subtitle: 'Education', color: '#F06A24', iconSrc: '/icons/nineBlock/education.png', categoryId: 'education' },
-    { number: 6, title: '樂', subtitle: 'Entertainment', color: '#A13A3B', iconSrc: '/icons/nineBlock/entertainment.png', categoryId: 'entertainment' },
+    { number: 1, title: '食', subtitle: 'Food', color: '#94b749', iconSrc: '/icons/nineBlock/Food.png', categoryId: 'food' },
+    { number: 2, title: '衣', subtitle: 'Clothing', color: '#e5ab40', iconSrc: '/icons/nineBlock/Clothing.png', categoryId: 'clothing' },
+    { number: 3, title: '住', subtitle: 'Housing', color: '#5fb1c0', iconSrc: '/icons/nineBlock/Housing.png', categoryId: 'housing' },
+    { number: 4, title: '行', subtitle: 'Transportation', color: '#968cdf', iconSrc: '/icons/nineBlock/Transportation.png', categoryId: 'transportation' },
+    { number: 5, title: '育', subtitle: 'Education', color: '#F06A24', iconSrc: '/icons/nineBlock/Education.png', categoryId: 'education' },
+    { number: 6, title: '樂', subtitle: 'Entertainment', color: '#A13A3B', iconSrc: '/icons/nineBlock/Entertainment.png', categoryId: 'entertainment' },
     { number: 7, title: '重要事件', subtitle: 'Event', color: '#9D005D', iconSrc: '/icons/nineBlock/event.png', categoryId: 'event' },
-    { number: 8, title: '經典節慶', subtitle: 'Festival', color: '#006837', iconSrc: '/icons/nineBlock/festival.png', categoryId: 'festival' },
-    { number: 9, title: '指標產業', subtitle: 'Industry', color: '#662D90', iconSrc: '/icons/nineBlock/industry.png', categoryId: 'industry' },
+    { number: 8, title: '經典節慶', subtitle: 'Festival', color: '#006837', iconSrc: '/icons/nineBlock/Festival.png', categoryId: 'festival' },
+    { number: 9, title: '指標產業', subtitle: 'Industry', color: '#662D90', iconSrc: '/icons/nineBlock/Industry.png', categoryId: 'industry' },
   ];
 
   const handleBlockClick = (categoryId: string) => {
