@@ -12,36 +12,71 @@ export default function CakeDiagram() {
   const layers = [
     {
       id: 'layer1',
-      svgPath: '/cakeDiagram/產業品牌.svg',
+      svgPath: '/cakeDiagram/產業.svg',
       link: '/industry-brand',
-      position: { top: '50%', left: '51%' },
-      clickArea: { top: '50%', left: '51%', width: '24%', height: '12%' },
-      scale: 1
+      position: { top: '45%', left: '52%' },
+      clickArea: { top: '45%', left: '52%', width: '24%', height: '12%' },
+      scale: 0.7
     },
     {
       id: 'layer2',
-      svgPath: '/cakeDiagram/資產活動.svg',
+      svgPath: '/cakeDiagram/文化活動.svg',
       link: '/cultural-heritage',
-      position: { top: '61%', left: '52%' },
-      clickArea: { top: '61%', left: '52%', width: '34%', height: '14%' },
-      scale: 1
+      position: { top: '63%', left: '52%' },
+      clickArea: { top: '63%', left: '52%', width: '34%', height: '14%' },
+      scale: 1.2
     },
     {
       id: 'layer3',
-      svgPath: '/cakeDiagram/文化記憶.svg',
+      svgPath: '/cakeDiagram/共享.svg',
       link: '/shared-memory',
-      position: { top: '72%', left: '50%' },
-      clickArea: { top: '72%', left: '50%', width: '10%', height: '5%' },
-      scale: 1
+      position: { top: '84%', left: '52%' },
+      clickArea: { top: '84%', left: '52%', width: '10%', height: '5%' },
+      scale: 1.5
+    }
+  ];
+
+  const textLabels = [
+    {
+      // 科技賦能+數位轉型
+      id: 'tech-digital-left',
+      svgPath: '/cakeDiagram/科技數位.svg',
+      position: { top: '55%', left: '13%' },
+      clickable: false,
+      link: '',
+      scale: 0.45
+    },
+    {
+      // 地方創生
+      id: 'local-revitalization',
+      svgPath: '/cakeDiagram/地方創生.svg',
+      position: { top: '54%', left: '20.5%' },
+      clickable: true,
+      link: '/local-revitalization',
+      scale: 0.45
+    },
+    {
+      //科技賦能
+      id: 'tech-enable-right',
+      svgPath: '/cakeDiagram/科技.svg', 
+      position: { top: '48%', right: '9%' },
+      clickable: false,
+      link: '',
+      scale: 0.4
+    },
+    {
+      // 行銷+教育
+      id: 'marketing-education',
+      svgPath: '/cakeDiagram/行銷.svg',
+      position: { top: '52%', right: '16.5%' },
+      clickable: false,
+      link: '',
+      scale: 0.45
     }
   ];
 
   const handleLayerClick = (link: string) => {
     router.push(link);
-  };
-
-  const handleLocalRevitalizationClick = () => {
-    router.push('/local-revitalization');
   };
 
   return (
@@ -93,105 +128,30 @@ export default function CakeDiagram() {
                 </div>
               ))}
 
-              {/* Left Arrow Text Labels - No Outline */}
-              <div 
-                className="absolute pointer-events-none"
-                style={{ 
-                  top: '35%', 
-                  left: '12.5%', 
-                  zIndex: 20
-                }}
-              >
-                <div 
-                  className="font-bold text-center leading-tight text-white"
-                  style={{ 
-                    fontSize: 'clamp(8px, 2.8vw, 40px)',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
-                  }}
-                >
-                  <div>科</div>
-                  <div>技</div>
-                  <div>賦</div>
-                  <div>能</div>
-                  <div>+</div>
-                  <div>數</div>
-                  <div>位</div>
-                  <div>轉</div>
-                  <div>型</div>
-                </div>
-              </div>
-
-              {/* 地方創生 - CLICKABLE */}
-              <div 
-                className="absolute pointer-events-auto cursor-pointer hover:scale-105 transition-transform duration-200"
-                style={{ 
-                  top: '42%', 
-                  left: '20%', 
-                  zIndex: 20
-                }}
-                onClick={handleLocalRevitalizationClick}
-                title="點擊前往地方創生頁面"
-              >
-                <div 
-                  className="font-bold text-center text-white"
-                  style={{ 
-                    fontSize: 'clamp(9px, 2.8vw, 40px)',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
-                  }}
-                >
-                  <div>地</div>
-                  <div>方</div>
-                  <div>創</div>
-                  <div>生</div>
-                </div>
-              </div>
-
-              {/* Right Arrow Text Label - No Outline */}
-              <div 
-                className="absolute pointer-events-none"
-                style={{ 
-                  top: '35%', 
-                  right: '18.5%', 
-                  zIndex: 20
-                }}
-              >
-                <div 
-                  className="font-bold text-center leading-tight text-white"
-                  style={{ 
-                    fontSize: 'clamp(8px, 2.8vw, 40px)',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
-                  }}
-                >
-                  <div>科</div>
-                  <div>技</div>
-                  <div>賦</div>
-                  <div>能</div>
-                </div>
-              </div>
-
-              {/* Right Side Text Box - No Outline */}
-              <div 
-                className="absolute pointer-events-none"
-                style={{ 
-                  top: '37%', 
-                  right: '25.5%', 
-                  zIndex: 20
-                }}
-              >
-                <div 
-                  className="font-bold text-center text-white"
-                  style={{ 
-                    fontSize: 'clamp(9px, 3vw, 42px)',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
-                  }}
-                >
-                  <div>行</div>
-                  <div>銷</div>
-                  <div>+</div>
-                  <div>教</div>
-                  <div>育</div>
-                </div>
-              </div>
+              {/* Text Labels */}
+              {textLabels.map((label) => (
+                label.svgPath && (
+                  <div
+                    key={label.id}
+                    className={`absolute ${label.clickable ? 'pointer-events-auto cursor-pointer hover:scale-105 transition-transform duration-200' : 'pointer-events-none'}`}
+                    style={{
+                      top: label.position.top,
+                      left: label.position.left,
+                      right: label.position.right,
+                      transform: `translate(-50%, -50%) scale(${label.scale})`,
+                      zIndex: 20
+                    }}
+                    onClick={label.clickable ? () => handleLayerClick(label.link) : undefined}
+                  >
+                    <Image
+                      src={label.svgPath}
+                      alt={label.id}
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+                )
+              ))}
 
             </div>
           </div>

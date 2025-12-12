@@ -57,6 +57,8 @@ const BlockData = () => {
   const handleBlockClick = (categoryId: string) => {
     // Navigate to filtered page with category ID as query parameter
     router.push(`/shared-memory/category?id=${categoryId}`);
+    // Scroll to top after navigation
+    setTimeout(() => window.scrollTo(0, 0), 100);
   };
 
   return (

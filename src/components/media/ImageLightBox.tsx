@@ -1,7 +1,7 @@
 // 光影故事 圖片點擊後的視窗
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import type { storyImage } from "@/types";
 import { ImageLightboxProps } from "@/types";
@@ -16,6 +16,7 @@ export default function ImageLightbox({
 }: ImageLightboxProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
+  const [isImageEnlarged, setIsImageEnlarged] = useState(false);
 
   // Handle related image click
   const handleRelatedImageClick = (relatedImg: storyImage) => {
@@ -107,14 +108,29 @@ export default function ImageLightbox({
         </button>
 
         {/* Left side - Image */}
-        <div className="flex-1 flex items-center justify-center bg-gray-100 p-6 md:p-8">
-          <Image
-            src={image.src}
-            alt={image.title}
-            width={800}
-            height={600}
-            className="max-h-[40vh] md:max-h-[80vh] w-auto object-contain"
-          />
+        <div className="flex-1 flex items-center justify-center bg-gray-100 p-6 md:p-8 relative">
+          <div 
+            className="relative group cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsImageEnlarged(true);
+            }}
+            title="點擊查看大圖"
+          >
+            <Image
+              src={image.src}
+              alt={image.title}
+              width={800}
+              height={600}
+              className="max-h-[40vh] md:max-h-[80vh] w-auto object-contain hover:opacity-90 transition-opacity"
+            />
+            {/* Enlarge Icon */}
+            <div className="absolute bottom-2 right-2 bg-black/60 text-white p-2 rounded-full opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </div>
+          </div>
         </div>
 
         {/* Right side - Details */}
@@ -208,6 +224,30 @@ export default function ImageLightbox({
 
 
       </div>
+
+      {/* Enlarged Image Modal */}
+      {isImageEnlarged && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4"
+          onClick={() => setIsImageEnlarged(false)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10"
+            onClick={() => setIsImageEnlarged(false)}
+          >
+            ✕
+          </button>
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Image
+              src={image.src}
+              alt={image.title}
+              fill
+              className="object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
