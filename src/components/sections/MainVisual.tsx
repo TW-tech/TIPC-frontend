@@ -1,3 +1,4 @@
+// 主視覺圖
 "use client";
 
 import Navigation from '@/components/navigation/Navigation';

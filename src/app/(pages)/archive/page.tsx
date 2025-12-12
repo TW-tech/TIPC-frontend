@@ -2,14 +2,7 @@
 import { useState } from "react";
 import { PageLayout, ArchiveCard, ArchiveFilter } from '@/components';
 import archivesData from '@/data/archive.json';
-
-type Archive = {
-    id: number;
-    Class: string;
-    WebName: string;
-    OrgName: string;
-    OrgWebLink: string;
-};
+import { Archive } from '@/types';
 
 export default function ArchivePage() {
     const archives: Archive[] = archivesData as Archive[];

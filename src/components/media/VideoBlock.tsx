@@ -1,15 +1,8 @@
+// 影片pop up screen
 "use client";
 
 import Image from "next/image";
-import { VideoRecommendation } from "@/types";
-
-interface VideoBlockProps {
-  video: VideoRecommendation;
-  onClick: (e: React.MouseEvent) => void;
-  showTextAlways?: boolean;
-  className?: string;
-}
-
+import {VideoBlockProps} from '@/types'
 export default function VideoBlock({ 
   video, 
   onClick, 

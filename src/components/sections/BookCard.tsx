@@ -1,3 +1,4 @@
+// TIPC選書方格
 "use client";
 import {
   Card,
@@ -8,14 +9,8 @@ import {
 import Image from "next/image";
 import { BookData } from "@/types";
 import { useRef, useEffect } from "react";
+import {BookCardProps} from '@/types'
 
-type BookCardProps = {
-  
-  book: BookData;
-  isOpen: boolean;
-  onClose: () => void;
-  initialRect: DOMRect | null;
-};
 
 export default function BookLightbox({
   book,
@@ -91,13 +86,14 @@ export default function BookLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={handleClose}
     >
       <div ref={backgroundRef} className="fixed inset-0 bg-black/80" />
       <div
         ref={panelRef}
-        className="p-6 rounded-lg relative max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-hide"
+        className="relative max-h-[95vh] max-w-[90rem] w-full overflow-y-auto bg-white rounded-lg p-6 [&::-webkit-scrollbar]:hidden scrollbar-hide"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
@@ -118,7 +114,7 @@ export default function BookLightbox({
 
 function BookCard({ book  }: { book: BookData }) {
   return (
-    <Card className="w-full max-w-[64rem] flex flex-col sm:flex-row items-stretch border-b-0 border-gray-200 relative overflow-hidden">
+    <Card className="w-full max-w-[90rem] flex flex-col sm:flex-row items-stretch border-b-0 border-gray-200 relative overflow-hidden">
       {/* 多個 label tag：桌面右上，手機右下 */}
       {/* 桌面版 */}
       {book.tags && book.tags.length > 0 && (
@@ -127,7 +123,7 @@ function BookCard({ book  }: { book: BookData }) {
             {book.tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="bg-[#CC6915]/10 text-[#CC6915] rounded-lg px-4 py-2 text-base font-bold shadow-md "
+                className="bg-[#CC6915]/10 text-[#CC6915] rounded-lg px-6 py-3 text-xl md:text-2xl font-bold shadow-md "
               >
                 {tag}
               </span>
@@ -149,40 +145,23 @@ function BookCard({ book  }: { book: BookData }) {
         />
       </CardHeader>
   <CardBody className="w-full flex flex-col">
-        <Typography variant="h4" color="gray" className="mb-4 uppercase">
+        <Typography variant="h2" color="gray" className="mb-6 uppercase text-2xl md:text-5xl font-bold">
           {book.bookName}
         </Typography>
-        <Typography variant="h6" color="blue-gray" className="mb-2">
+        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
           作者：{book.author.join(", ")}
         </Typography>
-         <Typography variant="h6" color="blue-gray" className="mb-2">
+         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
           出版社：{book.publisher}
         </Typography>
-         <Typography variant="h6" color="blue-gray" className="mb-2">
-          出版日期：{book.publicDate}
-        </Typography>
-         <Typography variant="h6" color="blue-gray" className="mb-2">
+
+         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
           ISBN:{book.isbn}
         </Typography>
-         <Typography variant="h6" color="blue-gray" className="mb-2">
-          EISBN：{book.eisbn}
+        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
+          推薦人:{book.referencePerson}
         </Typography>
-        <Typography color="gray" className="mb-8 font-normal">
-            {book.description}
-        </Typography>
-        {/* 手機版 label 右下角 */}
-        {book.tags && book.tags.length > 0 && (
-          <div className="flex sm:hidden w-full justify-end mt-2 gap-2">
-            {book.tags.map((tag, idx) => (
-              <span
-                key={idx}
-                className="bg-[#CC6915]/10 text-[#CC6915] rounded-lg px-4 py-2 text-base font-bold shadow-md"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+
       </CardBody>
     </Card>
   );

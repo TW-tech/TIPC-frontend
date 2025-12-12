@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PageLayout } from '@/components';
 import { useParams } from "next/navigation";
 import articlesData  from  '@/data/article.json';
+import { notoSerifTC } from '@/lib/fonts';
 
 export default function ArticleContentPage() {
   const params = useParams();
@@ -26,7 +27,7 @@ export default function ArticleContentPage() {
         {/* Title + Meta */}
         <header className="mb-8">
           <blockquote className="text-4xl sm:text-6xl font-bold text-[#833416] border-l-4 border-[#833416] pl-4 mb-4">
-            <h1 className="article-title">{article.title}</h1>
+            <h1 className={`article-title ${notoSerifTC.className}`}>{article.title}</h1>
           </blockquote>
           <div className="flex items-center space-x-2 flex-wrap gap-2">
             <p className="text-gray-700 text-xl sm:text-2xl">作者:{article.author}</p>

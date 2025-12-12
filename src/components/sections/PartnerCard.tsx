@@ -1,3 +1,4 @@
+// 合作夥伴
 "use client";
 import {
   Card,
@@ -5,14 +6,9 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import Image from "next/image";
+import { PartnerCardProps } from "@/types";
 
-export type PartnerCardProps = {
-  id: number;
-  link: string;
-  picture: string;
-  description: string;
-  name: string;
-};
+
 export default function PartnerCard({ id, link, picture, description, name }: PartnerCardProps) {
   return (
     <Card key={id} className="mt-6 w-full max-w-xs mx-auto">

@@ -1,22 +1,14 @@
+// 九宮格的格子
 "use client";
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
-interface NineBlockCardProps {
-  number: number;
-  title: string;
-  subtitle: string;
-  color: string;
-  iconSrc: string;
-  categoryId: string;
-  onClick: (categoryId: string) => void;
-}
+import { NineBlockCardProps } from '@/types';
 
 const NineBlockCard = ({ number, title, subtitle, color, iconSrc, categoryId, onClick }: NineBlockCardProps) => {
   return (
     <div 
-      className="flex items-center justify-between px-10 py-8 rounded-lg shadow-md w-full cursor-pointer hover:opacity-90 transition-opacity"
+      className="flex flex-col items-center justify-center px-10 py-8 rounded-lg shadow-md w-full cursor-pointer hover:opacity-90 transition-opacity gap-4"
       style={{ backgroundColor: color }}
       onClick={() => onClick(categoryId)}
     >
@@ -68,7 +60,7 @@ const BlockData = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-6 p-4 w-full max-w-5xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 w-full max-w-7xl mx-auto">
       {blocks.map((block) => (
         <NineBlockCard key={block.number} {...block} onClick={handleBlockClick} />
       ))}

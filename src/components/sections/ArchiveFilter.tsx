@@ -1,11 +1,8 @@
+// 典藏索引filter
 "use client";
 
 import { Button } from "@material-tailwind/react";
-
-export type ArchiveFilterProps = {
-  onFilterChange: (filter: string | null) => void;
-  activeFilter: string | null;
-};
+import { ArchiveFilterProps } from "@/types";
 
 export default function ArchiveFilter({ onFilterChange, activeFilter }: ArchiveFilterProps) {
   const filters = [

@@ -4,11 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation'
 import { navItems } from "@/data";
-
-interface NavigationProps {
-  variant?: 'main' | 'header' | 'simplified';
-  className?: string;
-}
+import { NavigationProps } from '@/types';
 
 export default function Navigation({ variant = 'main', className = '' }: NavigationProps) {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);

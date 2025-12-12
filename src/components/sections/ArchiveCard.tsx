@@ -1,3 +1,4 @@
+// 典藏索引方格
 "use client";
 import {
   Card,
@@ -6,14 +7,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
- 
-export type ArchiveCardProps = {
-  id: number;
-  webName: string;
-  tag: string;
-  orgName: string;
-  orgWebLink: string;
-};
+import { ArchiveCardProps } from "@/types";
 
 function getclassColor(tag: string) {
   switch (tag.toLowerCase()) {

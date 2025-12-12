@@ -9,7 +9,8 @@
     "cakeCategory": ["文化記憶"],
     "nineBlocks": ["育"],
     "subID": "",
-    "size": "wide"
+    "size": "wide",
+    "uploadDate": "2025/12/10"
   },{
     "id": 2,
     "src": "/images/story/2.jpg",
@@ -20,7 +21,8 @@
     "cakeCategory": ["文化記憶"],
     "nineBlocks": ["育"],
     "subID": "",
-    "size": "wide"
+    "size": "wide",
+    "uploadDate": "2025/12/10"
   },{
     "id": 3,
     "src": "/images/story/3.jpg",
@@ -31,7 +33,8 @@
     "cakeCategory": ["文化記憶"],
     "nineBlocks": ["育"],
     "subID": "",
-    "size": "wide"
+    "size": "wide",
+    "uploadDate": "2025/12/10"
   },{
     "id": 4,
     "src": "/images/story/4.jpg",
@@ -42,6 +45,7 @@
     "cakeCategory": ["文化記憶"],
     "nineBlocks": ["育"],
     "subID": "",
-    "size": "wide"
+    "size": "wide",
+    "uploadDate": "2025/12/10"
   }
 ]

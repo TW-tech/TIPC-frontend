@@ -2,10 +2,7 @@
 
 import NextImage from "next/image";
 import { useEffect, useState } from 'react';
-
-interface LoadingScreenProps {
-  onLoadingComplete: () => void;
-}
+import { LoadingScreenProps } from '@/types'; // Assuming you have a types file with the necessary type definitions
 
 export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);

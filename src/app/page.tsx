@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { 
   MainVisual,
   ImageCarousel,
-  CultureHighlights,
+  CakeDiagram,
   VideoRecommendations,
-  PartnerRecommendations,
+  EditorPick,
   Footer,
   LoadingScreen
 } from '@/components';
@@ -28,14 +28,14 @@ export default function Home() {
         <ImageCarousel />
       
         
-        {/* 文化知識區塊  <CultureHighlights />*/}
-        <CultureHighlights />
+        {/* 蛋糕圖區塊  <CakeDiagram />*/}
+        <CakeDiagram />
         
         {/* 影音推薦區塊  <VideoRecommendations /> */}
        <VideoRecommendations />
         
-        {/* 合作夥伴推薦區塊 <PartnerRecommendations /> */}
-        <PartnerRecommendations />
+        {/* 編輯精選區塊 <EditorPick /> */}
+        <EditorPick />
 
         {/* 頁尾區塊   <Footer />*/}
         <Footer />

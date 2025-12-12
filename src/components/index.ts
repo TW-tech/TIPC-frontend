@@ -15,9 +15,9 @@ export { default as VideoBlock } from './media/VideoBlock';
 // Section Components
 export { default as MainVisual } from './sections/MainVisual';
 export { default as ImageCarousel } from './sections/ImageCarousel';
-export { default as CultureHighlights } from './sections/CultureHighlights';
+export { default as CakeDiagram } from './sections/CakeDiagram';
 export { default as VideoRecommendations } from './sections/VideoRecommendations';
-export { default as PartnerRecommendations } from './sections/PartnerRecommendations';
+export { default as EditorPick } from './sections/EditorPick';
 export { default as ArchiveCard } from './sections/ArchiveCard';
 export { default as ArchiveFilter } from './sections/ArchiveFilter';
 export { default as PartnerCard } from './sections/PartnerCard';

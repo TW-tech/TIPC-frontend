@@ -7,36 +7,9 @@ import Masonry from "react-masonry-css";
 import Link from "next/link";
 import type { storyImage } from "@/types";
 import { ImageLightbox } from '@/components';
-import { bookCardData } from "@/data";
+import bookData from '@/data/book.json';
 import BookLightbox from "../sections/BookCard";
-
-type LoadMoreConfig =
-  | {
-      mode: "append";
-      batchSize?: number; // how many per click
-      buttonText?: string;
-    }
-  | {
-      mode: "link";
-      href: string;
-      buttonText?: string;
-    };
-
-type lightboxMode =
-  | {
-      mode: "Image";
-    }
-  | {
-      mode: "Book";
-    };
-
-type MasonryGalleryProps = {
-  images: storyImage[];
-  breakpointColumnsObj: Record<string, number>;
-  loadMoreConfig?: LoadMoreConfig;
-  lightboxMode?: lightboxMode;
-  gap?: number;
-};
+import type { LoadMoreConfig, LightboxMode, MasonryGalleryProps } from '@/types';
 
 export default function MasonryGallery({
   images,
@@ -126,7 +99,7 @@ export default function MasonryGallery({
           {lightboxMode.mode === "Book" ? (
             <div className="grid grid-cols-1 gap-6 place-items-center">
               <BookLightbox 
-                book={bookCardData[currentImage.id]} 
+                book={bookData[currentImage.id]} 
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
                 initialRect={initialRect}

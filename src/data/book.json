@@ -1,0 +1,12 @@
+[
+    {
+        "id": "1",
+        "bookName": "地方創生可以不一樣",
+        "author": ["李智仁", "陳德齡","嚴昱如"],
+        "image": "/images/books/book1.png",
+        "uploadDate": "2025/12/10",
+        "publisher": "五南",
+        "isbn": "9978-626-423-539-6",
+        "referencePerson": ["李智仁"]
+    }
+]

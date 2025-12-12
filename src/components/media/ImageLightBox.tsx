@@ -4,15 +4,7 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import type { storyImage } from "@/types";
-
-type ImageLightboxProps = {
-  image: storyImage | null;
-  isOpen: boolean;
-  onClose: () => void;
-  initialRect: DOMRect | null;
-  allImages?: storyImage[];
-  onImageChange?: (image: storyImage) => void;
-};
+import { ImageLightboxProps } from "@/types";
 
 export default function ImageLightbox({
   image,

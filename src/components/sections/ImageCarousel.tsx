@@ -1,3 +1,4 @@
+// 活動跑馬燈
 "use client";
 
 import Image from "next/image";
@@ -5,7 +6,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { eventData } from "@/data";
+import eventData from "@/data/events.json";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);

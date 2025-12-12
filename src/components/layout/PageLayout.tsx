@@ -1,14 +1,5 @@
-import { ReactNode } from 'react';
 import { Header, Footer } from '@/components';
-
-interface PageLayoutProps {
-  title?: string;      
-  subtitle?: string;
-  headerpic?: string;
-  children: ReactNode;
-  showHeader?: boolean;
-  showFooter?: boolean;
-}
+import {PageLayoutProps}  from '@/types';
 
 export default function PageLayout({ 
   children, 

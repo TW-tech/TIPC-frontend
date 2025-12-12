@@ -1,25 +1,8 @@
-import React from 'react';
+// TIPC影音
 import Link from 'next/link';
 import Image from 'next/image';
+import { MediaGalleryProps, GalleryItem } from '@/types';
 
-// --- Types ---
-type MediaType = 'video' | 'image' | 'article';
-type SizeModifier = 'wide' | 'tall' | 'normal';
-
-export interface GalleryItem {
-  id: string;
-  type: MediaType;
-  size?: SizeModifier;
-  imageUrl: string;
-  altText: string;
-  title?: string;
-  tag?: string;
-  linkHref?: string;
-}
-
-export interface MediaGalleryProps {
-  items?: GalleryItem[];
-}
 
 const MediaGallery = ({ items = [] }: MediaGalleryProps) => {
   return (
