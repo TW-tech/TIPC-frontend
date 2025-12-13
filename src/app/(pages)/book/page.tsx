@@ -13,7 +13,7 @@ export default function BookPage() {
   }));
 
   return (
-    <PageLayout title="TIPC選書" subtitle="Book" headerpic="/images/header/book.jpeg">
+    <PageLayout title="TIPC選書" subtitle="Books We Love" headerpic="/images/header/book.jpeg">
       <div className="min-h-screen bg-gray-50">
         {/* 主要內容區域 */}
         <div className="max-w-7xl mx-auto p-6">

@@ -8,7 +8,7 @@ import type { storyImage } from '@/types';
 export default function StoryPage() {
   
   return (
-    <PageLayout title="光影故事" subtitle="Stories" headerpic="/images/header/story.jpeg">
+    <PageLayout title="光影故事" subtitle="TIPC Photographs" headerpic="/images/header/story.jpeg">
       <div className="min-h-screen bg-gray-50">
 
         {/* 主要內容區域 */}

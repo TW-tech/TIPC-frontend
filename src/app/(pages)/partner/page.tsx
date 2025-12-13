@@ -7,7 +7,7 @@ import partnerData from '@/data/partner.json';
 
 export default function PartnersPage() {
   return (
-    <PageLayout title="合作夥伴" subtitle="Partners" headerpic="/images/header/partner.jpeg">
+    <PageLayout title="合作夥伴" subtitle="Our Partners" headerpic="/images/header/partner.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <PageLayout title="聯絡我們" subtitle="Contact" headerpic="/images/header/contact.jpeg">
+    <PageLayout title="聯絡我們" subtitle="Contact Us" headerpic="/images/header/contact.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

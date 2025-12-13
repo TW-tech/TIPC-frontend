@@ -72,7 +72,7 @@ export default function LocalRevitalizationPage() {
   return (
     <PageLayout 
       title="地方創生" 
-      subtitle="Local Revitalization"
+      subtitle="Regional Revitalization"
       headerpic="/images/header/NineBlock.jpg"
     >
       <div className="min-h-screen bg-gray-50">

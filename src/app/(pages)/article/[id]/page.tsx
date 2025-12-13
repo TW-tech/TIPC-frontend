@@ -21,7 +21,7 @@ export default function ArticlePage() {
   });
 
   return (
-    <PageLayout title="觀點文章" subtitle="Articles" headerpic="/images/header/article.jpeg">
+    <PageLayout title="觀點文章" subtitle="TIPC Articles" headerpic="/images/header/article.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

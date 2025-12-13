@@ -72,7 +72,7 @@ export default function IndustryBrandPage() {
   return (
     <PageLayout 
       title="產業/品牌" 
-      subtitle="Industry & Brand"
+      subtitle="Cultural Industries/Cultural Brandsd"
       headerpic="/images/header/NineBlock.jpg"
     >
       <div className="min-h-screen bg-gray-50">
