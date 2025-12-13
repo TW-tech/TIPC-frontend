@@ -93,7 +93,7 @@ export default function GalleryPage() {
     };
 
   return (
-    <PageLayout title="影像藝廊" subtitle="Gallery" headerpic="/images/header/gallery.jpeg">
+    <PageLayout title="影像藝廊" subtitle="TIPC Videos" headerpic="/images/header/gallery.jpeg">
       <div className="min-h-screen bg-gray-50">
 
         {/* 主要內容區域 */}

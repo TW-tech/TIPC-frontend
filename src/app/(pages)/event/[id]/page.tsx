@@ -24,7 +24,7 @@ export default function EventContentPage() {
   // masonry breakpoints are configured inline where used
   
   return (
-    <PageLayout title="活動探索" subtitle="Event" headerpic="/images/header/event.jpeg">
+    <PageLayout title="活動探索" subtitle="Events" headerpic="/images/header/event.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

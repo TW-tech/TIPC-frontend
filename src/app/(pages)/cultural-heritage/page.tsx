@@ -72,7 +72,7 @@ export default function CulturalHeritagePage() {
   return (
     <PageLayout 
       title="文化資產與文化活動" 
-      subtitle="Cultural Heritage & Activities"
+      subtitle="Cultural Assets/Cultural Activities "
       headerpic="/images/header/NineBlock.jpg"
     >
       <div className="min-h-screen bg-gray-50">
