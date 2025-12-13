@@ -23,10 +23,18 @@ const [scrolled, setScrolled] = useState(false);
       <Navigation variant="header" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-center mb-6">
+        <h1 className={`font-bold text-center transition-all duration-500 ${
+          scrolled 
+            ? "text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-1" 
+            : "text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl mb-6"
+        }`}>
           {title}
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-4xl text-center text-white/90 max-w-3xl mx-auto">
+        <p className={`text-center text-white/90 max-w-3xl mx-auto transition-all duration-500 ${
+          scrolled 
+            ? "text-xs sm:text-sm md:text-base lg:text-lg" 
+            : "text-lg sm:text-xl md:text-2xl lg:text-4xl"
+        }`}>
           {subtitle}
         </p>
       </div>

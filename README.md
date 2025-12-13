@@ -30,6 +30,7 @@
 - 🏛️ **文化展示區塊** - 博物館、文化遺址、文化資產展示
 - 🎭 **影音推薦** - 橫向滑動的影片推薦區塊
 - 🤝 **合作夥伴展示** - 三欄式合作夥伴推薦
+- 📅 **智能活動管理** - 自動根據日期判定活動狀態（進行中/已結束）
 - ⚡ **流暢動畫** - GSAP 3.13.0 + @gsap/react 2.1.2 現代動畫系統
 - 🎯 **效能優化** - 精簡的依賴包，智能動畫管理，更快的載入速度
 
@@ -101,7 +102,8 @@ Cultural-Website/
 │   ├── hooks/           # 自定義 React Hooks
 │   ├── lib/             # 工具函數和配置
 │   │   ├── fonts.ts     # 字型設定
-│   │   └── utils.ts     # 實用工具函數
+│   │   ├── utils.ts     # 實用工具函數
+│   │   └── eventUtils.ts # 活動類型自動判定工具
 │   └── types/           # TypeScript 類型定義
 ├── public/
 │   ├── animation/       # SVG 動畫資源
@@ -188,6 +190,43 @@ npm run lint:fix
 - **動畫優化**: useGSAP 提供更好的 React 生命週期整合
 - **程式碼分割**: Next.js 自動程式碼分割 + Turbopack 支援
 - **CSS 優化**: Tailwind CSS 4 提供更小的打包體積
+- **智能活動管理**: 自動根據日期判定活動狀態，無需手動維護 JSON 檔案中的 type 欄位
+
+## 🎯 智能活動管理系統
+
+本專案實現了自動活動狀態管理功能：
+
+### 工作原理
+- **自動判定**: 根據活動日期自動判定為「進行中」或「已結束」
+- **日期格式支援**: 
+  - 單一日期: `"2025-08-16"`
+  - 日期範圍: `"2025-03-15 ~ 2025-04-01"`
+- **即時更新**: 每次頁面載入時重新計算活動狀態
+- **零維護**: 無需手動更新 JSON 檔案中的 `type` 欄位
+
+### 使用方式
+在 `events.json` 中，您可以省略 `type` 欄位：
+```json
+{
+  "id": "1",
+  "title": "地方創生可以不一樣新書發表會",
+  "date": "2025-08-16",
+  "mainImage": "/images/event/past/Book/bookmain.jpg",
+  "description": "活動描述...",
+  ...
+}
+```
+
+系統會自動：
+1. 讀取活動日期
+2. 與當前日期比較
+3. 自動設定 `type: 'current'` 或 `type: 'past'`
+
+### 相關檔案
+- `/src/lib/eventUtils.ts` - 活動類型判定邏輯
+- `/src/app/(pages)/event/page.tsx` - 活動列表頁面
+- `/src/app/(pages)/event/[id]/page.tsx` - 活動詳情頁面
+- `/src/components/sections/ImageCarousel.tsx` - 活動輪播組件
 
 ## 📱 響應式支援詳細說明
 

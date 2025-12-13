@@ -5,7 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageLayout, MasonryGallery } from '@/components';
 import type { Event } from "@/types";
-import eventData from "@/data/events.json";
+import eventDataRaw from "@/data/events.json";
+import { processEvents, type EventRaw } from "@/lib/eventUtils";
+
+// Automatically update event types based on dates
+const eventData = processEvents(eventDataRaw as EventRaw[]);
 
 
 function EventCard({ event }: { event: Event }) {
