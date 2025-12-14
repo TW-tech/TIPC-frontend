@@ -1,9 +1,11 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import { PageLayout, MasonryGallery } from '@/components';
 import { useParams } from "next/navigation";
 import eventDataRaw from "@/data/events.json";
 import { processEvents, type EventRaw } from "@/lib/eventUtils";
+import { notoSerifTC, notoSansTC } from '@/lib/fonts';
 
 // Automatically update event types based on dates
 const eventData = processEvents(eventDataRaw as EventRaw[]);
@@ -11,6 +13,10 @@ const eventData = processEvents(eventDataRaw as EventRaw[]);
 export default function EventContentPage() {
   const params = useParams();
   const id = params?.id as string;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!id) return null;
   const Eventitem = eventData.find((item) => item.id === id);
@@ -32,17 +38,17 @@ export default function EventContentPage() {
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Title + Meta */}
         <header className="mb-8">
-          <h1 className="text-3xl sm:text-4xl text-gray-700 font-bold mb-4">
-            {Eventitem.title}
-          </h1>
-          <p className="text-gray-500 text-sm">{Eventitem.date}</p>
+          <blockquote className="text-4xl sm:text-6xl font-bold text-[#89986A] border-l-4 border-[#89986A] pl-4 mb-4">
+            <h1 className={notoSerifTC.className}>{Eventitem.title}</h1>
+          </blockquote>
+          <p className="text-gray-500 text-xl sm:text-2xl">{Eventitem.date}</p>
         </header>
 
         {/* Cover Image */}
-        <div className="relative w-full h-80 mb-8 rounded-xl overflow-hidden shadow">
+        <div className="relative w-full h-96 sm:h-[32rem] mb-8 rounded-xl overflow-hidden shadow">
           <Image
             src={Eventitem.mainImage}
             alt="cover"
@@ -52,11 +58,11 @@ export default function EventContentPage() {
         </div>
 
         {/* Article Content */}
-        <section className="prose prose-lg max-w-none">
+        <section className={`prose prose-xl max-w-none ${notoSansTC.className} font-light`}>
           {/* Description rendered as paragraphs with spacing and bottom padding */}
           <div className="space-y-4 pb-6">
             {descriptionParagraphs.map((paragraph, idx) => (
-              <p key={idx} className="text-gray-700 text-lg leading-relaxed">
+              <p key={idx} className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-relaxed font-light">
                 {paragraph}
               </p>
             ))}
@@ -78,7 +84,7 @@ export default function EventContentPage() {
               buttonText: "載入更多",
             }}
             lightboxMode={{
-              mode:"Image"
+              mode:"zoom"
             }}
           />
 

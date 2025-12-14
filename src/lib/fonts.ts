@@ -19,7 +19,7 @@ export const notoSerifTC = Noto_Serif_TC({
 // 中文字體 - Noto Sans TC (思源黑體)
 export const notoSansTC = Noto_Sans_TC({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['200', '300', '400', '500', '700'],
   variable: '--font-noto-sans-tc',
   display: 'swap',
 });

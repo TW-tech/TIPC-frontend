@@ -6,33 +6,50 @@ import { useRouter } from 'next/navigation';
 import { NineBlockCardProps } from '@/types';
 
 const NineBlockCard = ({ number, title, subtitle, color, iconSrc, categoryId, onClick }: NineBlockCardProps) => {
+  // Format Chinese title: add line break after 2 characters if title has 4 characters
+  const formatTitle = (text: string) => {
+    if (text.length === 4) {
+      return (
+        <>
+          {text.slice(0, 2)}
+          <br />
+          {text.slice(2)}
+        </>
+      );
+    }
+    return text;
+  };
+
   return (
     <div 
       className="flex flex-col items-center justify-center px-10 py-8 rounded-lg shadow-md w-full cursor-pointer hover:opacity-90 transition-opacity gap-4"
       style={{ backgroundColor: color }}
       onClick={() => onClick(categoryId)}
     >
-      <div className="flex items-center gap-6">
+      {/* First Row: Number and English */}
+      <div className="flex items-center gap-6 w-full justify-center">
         <span className="text-7xl font-bold text-white">
           {number}
         </span>
-        <div className="flex flex-col">
-          <span className="text-2xl font-medium text-white">
-            {title}
-          </span>
-          <span className="text-3xl font-bold text-white">
-            {subtitle}
-          </span>
-        </div>
+        <span className="text-4xl font-bold text-white">
+          {subtitle}
+        </span>
       </div>
-      <div className="text-white">
-        <Image 
-          src={iconSrc} 
-          alt={title}
-          width={96}
-          height={96}
-          className="w-24 h-24"
-        />
+      
+      {/* Second Row: Icon and Chinese */}
+      <div className="flex items-center gap-6 w-full justify-center">
+        <div className="text-white">
+          <Image 
+            src={iconSrc} 
+            alt={title}
+            width={96}
+            height={96}
+            className="w-24 h-24"
+          />
+        </div>
+        <span className="text-6xl font-medium text-white text-center leading-tight">
+          {formatTitle(title)}
+        </span>
       </div>
     </div>
   );

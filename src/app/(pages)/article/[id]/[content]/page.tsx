@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { PageLayout } from '@/components';
 import { useParams } from "next/navigation";
 import articlesData  from  '@/data/article.json';
-import { notoSerifTC } from '@/lib/fonts';
+import { notoSerifTC, notoSansTC } from '@/lib/fonts';
 
 export default function ArticleContentPage() {
   const params = useParams();
@@ -17,9 +18,23 @@ export default function ArticleContentPage() {
   if (!article) {
     return <p className="text-center mt-10">Article not found.</p>;
   }
+
+  // Get related articles from the same cake category
+  const relatedArticles = articlesData
+    .filter((item) => 
+      item.id !== article.id && // Exclude current article
+      item.cakeCategory.some((cat) => article.cakeCategory.includes(cat)) // Same cake category
+    )
+    .sort((a, b) => {
+      // Sort by uploadDate (newest first)
+      const dateA = new Date(a.uploadDate);
+      const dateB = new Date(b.uploadDate);
+      return dateB.getTime() - dateA.getTime();
+    })
+    .slice(0, 3); // Get maximum 3 articles
   
   return (
-    <PageLayout title={article.title} subtitle="Article" headerpic="/images/header/article.jpeg">
+    <PageLayout title="觀點文章" subtitle="TIPC Articles" headerpic="/images/header/article.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}
@@ -47,12 +62,12 @@ export default function ArticleContentPage() {
         </header>
 
         {/* Article Content */}
-        <section className="prose prose-xl max-w-none">
+        <section className={`prose prose-xl max-w-none ${notoSansTC.className} font-light`}>
           {article.paragraphs.map((block, index) => {
             switch (block.type) {
               case "text":
                 return (
-                  <p key={index} className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-relaxed mb-4">
+                  <p key={index} className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-relaxed mb-4 font-light">
                     {block.content.map((chunk, i) => {
                       if (chunk.text) return <span key={i}>{chunk.text}</span>;
                       if (chunk.notation) return <sup key={i} className="text-[#833416] font-bold">{chunk.notation}</sup>;
@@ -165,6 +180,52 @@ export default function ArticleContentPage() {
                     className="rounded-lg"
                   ></iframe>
                 </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Related Articles Section */}
+        {relatedArticles.length > 0 && (
+          <section className="mt-12 pt-8 border-t-2 border-gray-300">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">相關文章</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedArticles.map((relatedArticle) => (
+                <Link 
+                  key={relatedArticle.id}
+                  href={`/article/${relatedArticle.id}/${relatedArticle.id}`}
+                  className="group block bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                >
+                  {/* Article Image */}
+                  <div className="relative w-full h-48 overflow-hidden">
+                    <Image
+                      src={relatedArticle.imageMain}
+                      alt={relatedArticle.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Article Info */}
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-[#833416] transition-colors">
+                      {relatedArticle.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {relatedArticle.cakeCategory.map((cat, idx) => (
+                        <span 
+                          key={idx}
+                          className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
+                        >
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-sm text-gray-500">
+                      {relatedArticle.author} · {relatedArticle.uploadDate}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           </section>

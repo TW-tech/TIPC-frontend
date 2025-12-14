@@ -51,11 +51,8 @@ function EventCard({ event }: { event: Event }) {
             <div className="p-4 md:p-6 text-white">
               <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{event.title}</h3>
               <p className="text-xs md:text-sm leading-relaxed text-gray-200 line-clamp-3 md:line-clamp-none">{event.subTitle}</p>
-              <div className="mt-3 md:mt-4 flex items-center justify-between">
-                <span className="text-xs md:text-sm bg-white/20 backdrop-blur-sm px-2 md:px-3 py-1 rounded-full">
-                  {event.type}
-                </span>
-                <span className="absolute right-0 text-xs md:text-sm font-medium mr-3">{event.date}</span>
+              <div className="mt-3 md:mt-4 flex items-center justify-start">
+                <span className="text-xs md:text-sm font-medium">{event.date}</span>
               </div>
               {/* ▼ button */}
               <button
@@ -116,7 +113,7 @@ export default function EventPage() {
       <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Current Events */}
       <div className="">
-        <h2 className="bg-[#CC6915] rounded-xl text-center text-2xl font-bold my-3">當前活動</h2>
+        <h2 className="bg-[#CC6915] rounded-xl text-center text-2xl font-bold my-3">活動預告</h2>
         {currentEvents.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}

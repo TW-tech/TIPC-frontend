@@ -31,15 +31,6 @@ export default function VideoBlock({
             </svg>
           </div>
         </div>
-
-        {/* 影片資訊標籤 */}
-        <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-          {video.cakeCategory.filter(cat => cat).map((category, index) => (
-            <span key={index} className="bg-[#833416] text-white px-3 py-1 rounded-full text-sm font-medium">
-              {category}
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* 詳細描述 */}
