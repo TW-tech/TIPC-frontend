@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PageLayout } from '@/components';
 import { notoSerifTC, notoSansTC } from '@/lib/fonts';
 import { useState } from 'react';
-import type { Article } from '@/types';
+import type { Article } from '@/types/types';
 
 interface ArticleClientProps {
   article: Article;
