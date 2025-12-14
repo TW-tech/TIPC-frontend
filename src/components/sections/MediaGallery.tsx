@@ -2,33 +2,33 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { MediaGalleryProps, GalleryItem } from '@/types';
+import { MediaGalleryProps, VideoItem } from '@/types';
 import { useState, useRef } from 'react';
 import { ImageLightbox } from '@/components';
-import type { storyImage } from '@/types';
+import type { photographImage } from '@/types';
 
 
 const MediaGallery = ({ items = [] }: MediaGalleryProps) => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [selectedImage, setSelectedImage] = useState<VideoItem | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [initialRect, setInitialRect] = useState<DOMRect | null>(null);
 
-  const handleImageClick = (item: GalleryItem, rect: DOMRect) => {
+  const handleImageClick = (item: VideoItem, rect: DOMRect) => {
     setSelectedImage(item);
     setInitialRect(rect);
     setIsOpen(true);
   };
 
-  const handleImageChange = (newImage: storyImage) => {
-    const galleryItem = items.find(item => item.imageUrl === newImage.src);
-    if (galleryItem) {
-      setSelectedImage(galleryItem);
+  const handleImageChange = (newImage: photographImage) => {
+    const videoItem = items.find(item => item.imageUrl === newImage.src);
+    if (videoItem) {
+      setSelectedImage(videoItem);
     }
   };
 
-  // Convert GalleryItem to storyImage format for ImageLightbox
-  const convertToStoryImage = (item: GalleryItem): storyImage => ({
+  // Convert VideoItem to photographImage format for ImageLightbox
+  const convertToPhotographImage = (item: VideoItem): photographImage => ({
     id: parseInt(item.id.replace(/\D/g, '')) || 0,
     src: item.imageUrl,
     title: item.title || item.altText,
@@ -45,7 +45,7 @@ const MediaGallery = ({ items = [] }: MediaGalleryProps) => {
   // Get all images for navigation in lightbox
   const allImages = items
     .filter(item => item.type === 'image')
-    .map(convertToStoryImage);
+    .map(convertToPhotographImage);
 
   return (
     <>
@@ -91,7 +91,7 @@ const MediaGallery = ({ items = [] }: MediaGalleryProps) => {
       {/* Image Lightbox */}
       {selectedImage && (
         <ImageLightbox
-          image={convertToStoryImage(selectedImage)}
+          image={convertToPhotographImage(selectedImage)}
           isOpen={isOpen}
           onClose={() => {
             setIsOpen(false);

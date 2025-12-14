@@ -8,12 +8,12 @@ export interface PageLayoutProps {
   showFooter?: boolean;
 }
 export type ImageLightboxProps = {
-  image: storyImage | null;
+  image: photographImage | null;
   isOpen: boolean;
   onClose: () => void;
   initialRect: DOMRect | null;
-  allImages?: storyImage[];
-  onImageChange?: (image: storyImage) => void;
+  allImages?: photographImage[];
+  onImageChange?: (image: photographImage) => void;
 };
 export type LoadMoreConfig =
   | {
@@ -36,7 +36,7 @@ export type lightboxMode =
     };
 
 export type MasonryGalleryProps = {
-  images: storyImage[];
+  images: photographImage[];
   breakpointColumnsObj: Record<string, number>;
   loadMoreConfig?: LoadMoreConfig;
   lightboxMode?: lightboxMode;
@@ -105,7 +105,7 @@ export interface GalleryItem {
 }
 
 export interface MediaGalleryProps {
-  items?: GalleryItem[];
+  items?: VideoItem[];
 }
 
 export interface VideoBlockProps {
@@ -145,7 +145,7 @@ export interface BookData {
   referencePerson: string[];
 }
 
-export interface storyImage {
+export interface photographImage {
   id: number;
   src: string;
   title: string;
@@ -183,7 +183,7 @@ export interface Event {
   mainImage: string;
   subTitle: string;
   description: string;
-  relatedImages: storyImage[];
+  relatedImages: photographImage[];
   type: "current" | "past"; // column grouping
   alt: string;
 }

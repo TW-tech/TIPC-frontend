@@ -5,7 +5,7 @@ import MediaGallery from "@/components/sections/MediaGallery";
 import PageLayout from "@/components/layout/PageLayout";
 import { GalleryItem } from '@/types';
 import articleData from '@/data/article.json';
-import storyPicturesData from '@/data/storyPictures.json';
+import photographData from '@/data/photograph.json';
 import videoData from '@/data/video.json';
 
 export default function LocalRevitalizationPage() {
@@ -27,21 +27,21 @@ export default function LocalRevitalizationPage() {
       linkHref: `/article/all/${article.id}`,
     }));
 
-  // Filter and transform story pictures
-  const filteredStoryPictures: GalleryItem[] = storyPicturesData
-    .filter((story) => 
-      story.cakeCategory?.includes("地方創生")
+  // Filter and transform photograph pictures
+  const filteredPhotographs: GalleryItem[] = photographData
+    .filter((photograph) => 
+      photograph.cakeCategory?.includes("地方創生")
     )
-    .map((story) => ({
-      id: `story-${story.id}`,
+    .map((photograph) => ({
+      id: `photograph-${photograph.id}`,
       type: 'image' as const,
-      size: story.size as 'wide' | 'tall' | 'normal' | undefined,
-      imageUrl: story.src,
-      altText: story.title,
-      title: story.title,
-      author: story.author,
-      photoDate: story.photoDate,
-      description: story.description,
+      size: photograph.size as 'wide' | 'tall' | 'normal' | undefined,
+      imageUrl: photograph.src,
+      altText: photograph.title,
+      title: photograph.title,
+      author: photograph.author,
+      photoDate: photograph.photoDate,
+      description: photograph.description,
     }));
 
   // Filter and transform videos
@@ -65,7 +65,7 @@ export default function LocalRevitalizationPage() {
   // Combine all filtered media
   const allFilteredMedia = [
     ...filteredArticles,
-    ...filteredStoryPictures,
+    ...filteredPhotographs,
     ...filteredVideos,
   ];
 

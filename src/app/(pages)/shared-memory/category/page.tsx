@@ -6,7 +6,7 @@ import { PageLayout } from '@/components';
 import MediaGallery from '@/components/sections/MediaGallery';
 import { GalleryItem } from '@/types';
 import articleData from '@/data/article.json';
-import storyPicturesData from '@/data/storyPictures.json';
+import photographData from '@/data/photograph.json';
 import videoData from '@/data/video.json';
 
 // Mapping from categoryId to Chinese category name
@@ -47,22 +47,22 @@ function CategoryContent() {
       linkHref: `/article/all/${article.id}`,
     }));
 
-  // Filter and transform story pictures
-  const filteredStoryPictures: GalleryItem[] = storyPicturesData
-    .filter((story) => 
-      story.cakeCategory?.includes("文化記憶") &&
-      story.nineBlocks?.includes(categoryName)
+  // Filter and transform photograph pictures
+  const filteredPhotographs: GalleryItem[] = photographData
+    .filter((photograph) => 
+      photograph.cakeCategory?.includes("文化記憶") &&
+      photograph.nineBlocks?.includes(categoryName)
     )
-    .map((story) => ({
-      id: `story-${story.id}`,
+    .map((photograph) => ({
+      id: `photograph-${photograph.id}`,
       type: 'image' as const,
-      size: story.size as 'wide' | 'tall' | 'normal' | undefined,
-      imageUrl: story.src,
-      altText: story.title,
-      title: story.title,
-      author: story.author,
-      photoDate: story.photoDate,
-      description: story.description,
+      size: photograph.size as 'wide' | 'tall' | 'normal' | undefined,
+      imageUrl: photograph.src,
+      altText: photograph.title,
+      title: photograph.title,
+      author: photograph.author,
+      photoDate: photograph.photoDate,
+      description: photograph.description,
     }));
 
   // Filter and transform videos
@@ -87,7 +87,7 @@ function CategoryContent() {
   // Combine all filtered media
   const allFilteredMedia = [
     ...filteredArticles,
-    ...filteredStoryPictures,
+    ...filteredPhotographs,
     ...filteredVideos,
   ];
 

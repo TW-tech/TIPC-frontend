@@ -3,7 +3,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import type { storyImage } from "@/types";
+import type { photographImage } from "@/types";
 import { ImageLightboxProps } from "@/types";
 
 export default function ImageLightbox({
@@ -19,7 +19,7 @@ export default function ImageLightbox({
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
 
   // Handle related image click
-  const handleRelatedImageClick = (relatedImg: storyImage) => {
+  const handleRelatedImageClick = (relatedImg: photographImage) => {
     if (onImageChange) {
       onImageChange(relatedImg);
     }

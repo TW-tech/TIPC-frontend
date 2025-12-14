@@ -8,7 +8,7 @@ import { VideoRecommendation } from "@/types";
 
 
 
-export default function GalleryPage() {
+export default function VideoPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState<VideoRecommendation | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -93,7 +93,7 @@ export default function GalleryPage() {
     };
 
   return (
-    <PageLayout title="TIPC影音" subtitle="TIPC Videos" headerpic="/images/header/gallery.jpeg">
+    <PageLayout title="TIPC影音" subtitle="TIPC Videos" headerpic="/images/header/video.jpeg">
       <div className="min-h-screen bg-gray-50">
 
         {/* 主要內容區域 */}

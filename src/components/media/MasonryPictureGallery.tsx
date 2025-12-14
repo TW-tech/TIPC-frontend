@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
-import type { storyImage } from "@/types";
+import type { photographImage } from "@/types";
 import { ImageLightbox } from '@/components';
 import bookData from '@/data/book.json';
 import BookLightbox from "../sections/BookCard";
@@ -22,11 +22,11 @@ export default function MasonryGallery({
     loadMoreConfig?.mode === "append" ? loadMoreConfig.batchSize || 6 : images.length
   );
   const [isOpen, setIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState<storyImage>({id:0,title:"initial",src:"/icons/logo_b.png/"});
+  const [currentImage, setCurrentImage] = useState<photographImage>({id:0,title:"initial",src:"/icons/logo_b.png/"});
   const [initialRect, setInitialRect] = useState<DOMRect | null>(null);
-  const [zoomedImage, setZoomedImage] = useState<storyImage | null>(null);
+  const [zoomedImage, setZoomedImage] = useState<photographImage | null>(null);
 
-  const openPanel = (e: React.MouseEvent, image: storyImage) => {
+  const openPanel = (e: React.MouseEvent, image: photographImage) => {
     if (lightboxMode?.mode === "zoom") {
       setZoomedImage(image);
     } else {
@@ -36,7 +36,7 @@ export default function MasonryGallery({
     }
   };
 
-  const handleImageChange = (image: storyImage) => {
+  const handleImageChange = (image: photographImage) => {
     setCurrentImage(image);
   };
 
