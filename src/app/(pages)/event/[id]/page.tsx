@@ -40,7 +40,7 @@ export default function EventContentPage() {
       {/* 主要內容區域 */}
         <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Title + Meta */}
-        <header className="mb-8">
+        <header className="mb-4">
           <blockquote className="text-4xl sm:text-6xl font-bold text-[#89986A] border-l-4 border-[#89986A] pl-4 mb-4">
             <h1 className={notoSerifTC.className}>{Eventitem.title}</h1>
           </blockquote>
@@ -48,12 +48,12 @@ export default function EventContentPage() {
         </header>
 
         {/* Cover Image */}
-        <div className="relative w-full h-96 sm:h-[32rem] mb-8 rounded-xl overflow-hidden shadow">
+        <div className="relative w-full h-65 sm:h-[32rem] mb-4">
           <Image
             src={Eventitem.mainImage}
             alt="cover"
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
 

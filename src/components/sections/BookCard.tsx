@@ -92,7 +92,7 @@ export default function BookLightbox({
       <div ref={backgroundRef} className="fixed inset-0 bg-black/80" />
       <div
         ref={panelRef}
-        className="relative max-h-[95vh] max-w-[90rem] w-full overflow-y-auto bg-white rounded-lg p-6 [&::-webkit-scrollbar]:hidden scrollbar-hide"
+        className="relative max-h-[90vh] max-w-4xl w-full overflow-y-auto bg-white rounded-lg p-6 [&::-webkit-scrollbar]:hidden scrollbar-hide"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -114,7 +114,7 @@ export default function BookLightbox({
 
 function BookCard({ book  }: { book: BookData }) {
   return (
-    <Card className="w-full max-w-[90rem] flex flex-col sm:flex-row items-stretch border-b-0 border-gray-200 relative overflow-hidden">
+    <Card className="w-full max-w-4xl flex flex-col sm:flex-row items-stretch border-b-0 border-gray-200 relative overflow-hidden">
       {/* 多個 label tag：桌面右上，手機右下 */}
       {/* 桌面版 */}
       {book.tags && book.tags.length > 0 && (
@@ -145,20 +145,20 @@ function BookCard({ book  }: { book: BookData }) {
         />
       </CardHeader>
   <CardBody className="w-full flex flex-col">
-        <Typography variant="h2" color="gray" className="mb-6 uppercase text-2xl md:text-5xl font-bold">
+        <Typography variant="h2" color="gray" className="mb-5 uppercase text-xl md:text-4xl font-bold">
           {book.bookName}
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
+        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           作者：{book.author.join(", ")}
         </Typography>
-         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
+         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           出版社：{book.publisher}
         </Typography>
 
-         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
+         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           ISBN:{book.isbn}
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-3xl">
+        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           推薦人:{book.referencePerson}
         </Typography>
 
