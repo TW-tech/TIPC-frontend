@@ -1,3 +1,4 @@
+//client component that handles all the interactive parts (share menu, toast notifications)
 "use client";
 import Image from "next/image";
 import Link from "next/link";

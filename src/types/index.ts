@@ -208,7 +208,7 @@ export interface Article {
   id: number;
   title: string;
   author: string;
-  description: string;
+  description?: string;
   cakeCategory: string[];
   keyWords: string[];
   nineBlocks: string[];

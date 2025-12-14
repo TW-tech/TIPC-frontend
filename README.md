@@ -11,6 +11,9 @@
 - ✅ **主視覺動畫** - 完整的 SVG 動畫生態系統
 - ✅ **效能優化** - 依賴精簡化、動畫效能優化、圖片優化
 - ✅ **模組化架構** - 動畫配置分離、工具函數模組化
+- ✅ **社群分享** - Facebook Open Graph 與 Twitter Card 整合
+- ✅ **SEO 優化** - 動態 metadata 生成，提升搜尋引擎排名
+- ✅ **UX 優化** - 自動滾動復位、Toast 通知系統
 - 🚧 **多語言支援** - 規劃中
 - 🚧 **內容管理系統** - 規劃中
 
@@ -33,6 +36,10 @@
 - 📅 **智能活動管理** - 自動根據日期判定活動狀態（進行中/已結束）
 - ⚡ **流暢動畫** - GSAP 3.13.0 + @gsap/react 2.1.2 現代動畫系統
 - 🎯 **效能優化** - 精簡的依賴包，智能動畫管理，更快的載入速度
+- 📱 **社群分享整合** - 文章分享至 Facebook，包含豐富的 Open Graph metadata
+- 🔗 **一鍵複製連結** - Toast 通知系統，提供流暢的分享體驗
+- 📄 **動態 SEO** - 每篇文章自動生成優化的 metadata，提升社群媒體預覽效果
+- 🔝 **智能滾動管理** - 頁面切換自動滾動至頂部，提升導航體驗
 
 ## 🛠️ 技術架構
 
@@ -80,11 +87,32 @@ Cultural-Website/
 ├── src/
 │   ├── app/              # Next.js App Router 頁面
 │   │   ├── globals.css  # 全域樣式與字型設定
-│   │   ├── layout.tsx   # 根佈局組件
-│   │   └── page.tsx     # 首頁
+│   │   ├── layout.tsx   # 根佈局組件（含 metadata 與 ScrollToTop）
+│   │   ├── page.tsx     # 首頁
+│   │   └── (pages)/     # 路由群組
+│   │       ├── about/      # 關於頁面
+│   │       ├── archive/    # 典藏索引頁面
+│   │       ├── article/    # 文章頁面（含動態 metadata）
+│   │       │   └── [id]/[content]/
+│   │       │       ├── page.tsx         # 伺服器組件（SEO metadata）
+│   │       │       └── ArticleClient.tsx # 客戶端組件（互動功能）
+│   │       ├── book/       # 出版品頁面
+│   │       ├── contact/    # 聯絡頁面
+│   │       ├── culture/    # 文化頁面
+│   │       ├── event/      # 活動頁面
+│   │       ├── gallery/    # 圖片藝廊（已重命名為 video）
+│   │       ├── video/      # 影音頁面（原 gallery）
+│   │       ├── mediaselect/# 媒體選擇頁面
+│   │       ├── partner/    # 合作夥伴頁面
+│   │       ├── photograph/ # 照片頁面（原 story）
+│   │       └── webcollect/ # 網路資源頁面
 │   ├── components/       # React 組件
 │   │   ├── layout/      # 版面佈局組件
-│   │   │   └── Footer.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Header.tsx         # 響應式 header（滾動縮小）
+│   │   │   ├── LoadingScreen.tsx
+│   │   │   ├── PageLayout.tsx
+│   │   │   └── ScrollToTop.tsx    # 自動滾動至頂部
 │   │   ├── navigation/  # 導航組件
 │   │   │   └── Navigation.tsx
 │   │   └── sections/    # 頁面區塊組件
@@ -98,13 +126,18 @@ Cultural-Website/
 │   │       ├── CultureHighlights.tsx # 文化亮點
 │   │       ├── VideoRecommendations.tsx # 影音推薦
 │   │       └── PartnerRecommendations.tsx # 合作夥伴
-│   ├── data/            # 靜態數據與型別定義
+│   ├── data/            # 靜態數據
+│   │   ├── article.json      # 文章數據
+│   │   ├── photograph.json   # 照片數據（原 storyPictures.json）
+│   │   └── index.ts          # 數據匯出
 │   ├── hooks/           # 自定義 React Hooks
 │   ├── lib/             # 工具函數和配置
 │   │   ├── fonts.ts     # 字型設定
 │   │   ├── utils.ts     # 實用工具函數
-│   │   └── eventUtils.ts # 活動類型自動判定工具
+│   │   ├── eventUtils.ts # 活動類型自動判定工具
+│   │   └── prisma.ts    # Prisma 客戶端配置
 │   └── types/           # TypeScript 類型定義
+│       └── index.ts     # 所有類型定義（Article, photographImage 等）
 ├── public/
 │   ├── animation/       # SVG 動畫資源
 │   │   ├── taiwan.svg      # 台灣地圖動畫
@@ -119,15 +152,20 @@ Cultural-Website/
 │   │   ├── blue.svg        # 藍染元素動畫
 │   │   └── mountainBack.svg # 背景山脈動畫
 │   ├── images/          # 圖片資源 (分類整理)
+│   │   ├── article/        # 文章圖片
 │   │   ├── culture/        # 文化相關圖片
-│   │   ├── mainvisual/     # 主視覺圖片
+│   │   ├── gallery/        # 圖片藝廊（書籍等）
+│   │   ├── header/         # 各頁面 header 圖片
 │   │   ├── museums/        # 博物館圖片
-│   │   ├── videorecommendations/ # 影音推薦縮圖
 │   │   ├── partnerrecommendations/ # 合作夥伴圖片
-│   │   └── oldpic/         # 舊照片資源
+│   │   └── videorecommendations/   # 影音推薦縮圖
 │   └── icons/           # 圖標檔案
-├── design/              # 設計文檔和規格
-└── .env.example         # 環境變數範例檔案
+│       ├── logo_tab.png     # 網站 favicon
+│       ├── share.png        # 分享圖標
+│       └── copyLink.png     # 複製連結圖標
+├── prisma/              # Prisma 資料庫設定
+│   └── schema.prisma
+└── .env.local           # 環境變數（需自行建立）
 ```
 
 ## 📱 響應式設計重點
@@ -191,6 +229,85 @@ npm run lint:fix
 - **程式碼分割**: Next.js 自動程式碼分割 + Turbopack 支援
 - **CSS 優化**: Tailwind CSS 4 提供更小的打包體積
 - **智能活動管理**: 自動根據日期判定活動狀態，無需手動維護 JSON 檔案中的 type 欄位
+
+## 🔗 社群分享與 SEO 優化
+
+### Open Graph Metadata
+本專案為每篇文章自動生成 Open Graph metadata，讓分享至 Facebook、Twitter 等社群平台時能顯示豐富的預覽：
+
+#### 功能特色
+- **自動生成**: 使用 Next.js 15 的 `generateMetadata()` API
+- **伺服器端渲染**: metadata 在伺服器端生成，確保爬蟲能正確讀取
+- **動態內容**: 從 `article.json` 讀取文章數據
+- **完整支援**: Open Graph、Twitter Card、基本 SEO tags
+
+#### Metadata 包含內容
+- 文章標題
+- 文章描述（自動擷取前 200 字）
+- 特色圖片（1200x630 最佳化）
+- 作者資訊
+- 發布日期
+- 關鍵字標籤
+- 完整文章 URL
+
+#### 環境變數設定
+在 `.env.local` 或部署平台設定：
+```env
+NEXT_PUBLIC_BASE_URL=https://your-domain.com
+```
+
+若未設定，系統會自動偵測：
+- Vercel: 使用 `VERCEL_URL`
+- 本地開發: 使用 `http://localhost:3000`
+
+### 分享功能
+文章頁面提供完整的分享功能：
+- **複製連結**: 一鍵複製文章 URL
+- **Facebook 分享**: 直接分享至 Facebook
+- **Toast 通知**: 複製成功後顯示友善的提示訊息
+- **下拉選單**: 優雅的分享選項介面
+
+### 架構說明
+```typescript
+// 伺服器組件 - 生成 metadata
+export async function generateMetadata() {
+  // 從 JSON 讀取文章數據
+  // 生成 Open Graph tags
+  // 生成 Twitter Card tags
+}
+
+// 伺服器組件 - 渲染頁面
+export default async function ArticlePage() {
+  // 獲取文章數據
+  // 傳遞給客戶端組件
+}
+
+// 客戶端組件 - 處理互動
+function ArticleClient() {
+  // 分享功能
+  // Toast 通知
+  // UI 互動
+}
+```
+
+## 🔝 滾動管理系統
+
+### ScrollToTop 組件
+使用 `usePathname` hook 監聽路由變化，在頁面切換時自動滾動至頂部：
+
+#### 工作原理
+```typescript
+const pathname = usePathname();
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [pathname]);
+```
+
+#### 使用位置
+- 已整合至根佈局 (`src/app/layout.tsx`)
+- 全域生效，無需額外配置
+- 解決 Next.js App Router 預設不滾動的問題
 
 ## 🎯 智能活動管理系統
 
@@ -276,12 +393,16 @@ npm run lint:fix
 3. 提供詳細的錯誤描述和重現步驟
 4. 附上您的環境資訊（作業系統、Node.js 版本、瀏覽器版本）
 
-## � 專案狀態
+## 📊 專案完成度
 
 - ✅ **響應式設計** - 完成所有斷點適配
 - ✅ **核心組件** - 圖片輪播、影音推薦、合作夥伴展示
 - ✅ **字型系統** - 台灣在地字型整合
 - ✅ **效能優化** - 依賴精簡化、圖片優化
+- ✅ **社群分享** - Facebook Open Graph、Twitter Card
+- ✅ **SEO 優化** - 動態 metadata 生成
+- ✅ **UX 優化** - 滾動管理、Toast 通知
+- ✅ **內容架構** - 文章、照片、影音、活動、出版品
 - 🚧 **多語言支援** - 規劃中
 - 🚧 **內容管理系統** - 規劃中
 

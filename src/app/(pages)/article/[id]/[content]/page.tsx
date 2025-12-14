@@ -1,3 +1,4 @@
+// handle facebook share by setting absolute URL for images
 import articlesData from '@/data/article.json';
 import type { Article } from '@/types';
 import type { Metadata } from 'next';
