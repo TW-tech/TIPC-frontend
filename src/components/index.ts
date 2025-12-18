@@ -22,3 +22,4 @@ export { default as ArchiveCard } from './sections/ArchiveCard';
 export { default as ArchiveFilter } from './sections/ArchiveFilter';
 export { default as PartnerCard } from './sections/PartnerCard';
 export { default as BookCard } from './sections/BookCard';
+export { default as FirstCakeInstruction } from './sections/FirstCakeInstruction';

@@ -1,4 +1,4 @@
-// 合作夥伴
+// 友善夥伴
 "use client";
 import {
   Card,

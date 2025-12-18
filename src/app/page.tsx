@@ -8,6 +8,7 @@ import {
   VideoRecommendations,
   EditorPick,
   Footer,
+  FirstCakeInstruction,
   LoadingScreen
 } from '@/components';
 
@@ -26,7 +27,8 @@ export default function Home() {
         <MainVisual />
         {/* 輪播圖片區塊 - <ImageCarousel /> 在手繪大圖底下 */}
         <ImageCarousel />
-      
+        {/* 初次造訪蛋糕說明區塊*/}
+        <FirstCakeInstruction/>
         
         {/* 蛋糕圖區塊  <CakeDiagram />*/}
         <CakeDiagram />

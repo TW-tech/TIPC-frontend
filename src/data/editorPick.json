@@ -2,22 +2,28 @@
   {
     "id": "1",
     "name": "「台語工藝詞庫」網站啟用 有助傳承台灣工藝與文化記憶",
+    "nation": "台灣",
     "image": "/images/partnerrecommendations/台灣工藝研究發展中心.jpg",
     "description": "國立臺灣工藝研究發展中心的臺語網站，提供臺語文創、工藝知識與教學資源，推廣本土語言與文化傳承。",
-    "website": "https://kanggesu.ntcri.org.tw/NTCRI_TaigiWebSite/"
+    "website": "https://kanggesu.ntcri.org.tw/NTCRI_TaigiWebSite/",
+    "date": "2023-08-01"
   },
   {
     "id": "2",
     "name": "懷舊列車動起來 鐵道博開放搭藍皮火車賞古蹟 可預約",
+    "nation": "台灣",
     "image": "/images/partnerrecommendations/國家鐵道博物館.jpg",
     "description": "國立鐵道博物館官方網站，呈現臺灣鐵道文化脈絡，典藏珍貴文物，提供豐富導覽與教育資源，傳承歷史記憶",
-    "website": "https://www.nrm.gov.tw/"
+    "website": "https://www.nrm.gov.tw/",
+    "date": "2023-08-01"
   },
   {
     "id": "3",
     "name": "百大文化基地計畫 新北黃金山城美學廊帶7月至11月推出「礦事聚作」遊程",
+    "nation": "台灣",
     "image": "/images/partnerrecommendations/新平溪煤礦博物園區.jpg",
     "description": "臺灣煤礦博物館官網，保存煤礦歷史記憶，展現礦業文化風華，結合教育與觀光，深入探索臺灣產業發展的軌跡。",
-    "website": "https://www.taiwancoal.com.tw/web/"
+    "website": "https://www.taiwancoal.com.tw/web/",
+    "date": "2023-08-01"
   }
 ]

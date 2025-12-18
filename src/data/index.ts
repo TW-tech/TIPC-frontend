@@ -9,7 +9,7 @@ export const navItems = [
     { href: '/archive', label: '典藏索引' },
     { href: '/exhibition', label: '線上展覽' },
     { href: '/event', label: '活動探索' },
-    { href: '/partner', label: '合作夥伴' },
+    { href: '/partner', label: '友善夥伴' },
     { href: '/contact', label: '聯絡我們' },
 ];
 
