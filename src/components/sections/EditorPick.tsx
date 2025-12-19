@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -83,9 +84,9 @@ export default function EditorPick() {
     return () => ctx.revert();
   }, [isClient]);
 
-  const handlePartnerClick = (website?: string) => {
-    // 導航到合作夥伴詳細頁面
-    window.open(website, '_blank');
+  const handlePartnerClick = (id: string) => {
+    // 導航到編輯精選詳細頁面
+    window.location.href = `/editorPick/${id}`;
   };
   
   return (
@@ -104,44 +105,49 @@ export default function EditorPick() {
             {editorPickData.map((partner, index) => (
               <div 
                 key={`${partner.id}-${index}`}
-                onClick={() => handlePartnerClick(partner.website)}
+                onClick={() => handlePartnerClick(partner.id)}
                 className="partner-card group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 cursor-pointer overflow-hidden border border-gray-100"
               >
                 {/* 圖片容器 */}
-                <div className="relative h-56 sm:h-64 lg:h-72 overflow-hidden">
-                <Image 
-                  src={partner.image} 
-                  alt={partner.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              
-              {/* 內容區塊 */}
-              <div className="p-6 sm:p-7 lg:p-8 flex-1 flex flex-col">
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-4 line-clamp-2">
-                  {partner.name}
-                </h3>
-                <p className="text-xs sm:text-sm lg:text-base text-gray-600 mb-6 line-clamp-3 flex-1">
-                  {partner.description}
-                </p>
-                
-                {/* 瞭解更多連結 */}
-                <div className="flex justify-center">
-                  <a 
-                    href={partner.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-sm text-gray-800 hover:text-red-600 transition-colors duration-300"
-                  >
-                    了解更多
-                  </a>
+                <div className="relative aspect-square overflow-hidden">
+                  <Image 
+                    src={partner.image} 
+                    alt={partner.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  
+                  {/* 文字覆蓋層 - 透明背景 */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end">
+                    <div className="p-4 sm:p-6 text-white w-full">
+                      {/* 第一行 - 國家 (小字) */}
+                      <p className="text-sm sm:text-base mb-1 text-gray-300">
+                        {partner.nation}
+                      </p>
+                      {/* 第二行 - 標題 (大字) */}
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 line-clamp-2">
+                        {partner.name}
+                      </h3>
+                      {/* 第三行 - 日期 (小字) */}
+                      <p className="text-sm sm:text-base text-gray-300">
+                        {partner.date}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* 點擊看更多按鈕 */}
+          <div className="flex justify-center mt-8">
+            <Link 
+              href="/editorPick"
+              className="px-8 py-3 bg-[#CC6915] text-white rounded-full font-semibold hover:bg-[#B55A12] transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              點擊看更多
+            </Link>
           </div>
         </div>
       </div>

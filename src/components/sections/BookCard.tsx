@@ -115,53 +115,38 @@ export default function BookLightbox({
 function BookCard({ book  }: { book: BookData }) {
   return (
     <Card className="w-full max-w-4xl flex flex-col sm:flex-row items-stretch border-b-0 border-gray-200 relative overflow-hidden">
-      {/* 多個 label tag：桌面右上，手機右下 */}
       {/* 桌面版 */}
-      {book.tags && book.tags.length > 0 && (
-        <>
-          <div className="hidden sm:flex absolute top-4 right-4 flex-wrap gap-2 z-10">
-            {book.tags.map((tag, idx) => (
-              <span
-                key={idx}
-                className="bg-[#CC6915]/10 text-[#CC6915] rounded-lg px-6 py-3 text-xl md:text-2xl font-bold shadow-md "
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </>
-      )}
       <CardHeader
         shadow={false}
         floated={false}
-        className="m-0 w-full sm:w-2/5 shrink-0 rounded-none sm:rounded-r-none border-b-0 border-gray-200 flex justify-center items-center "
+        className="m-0 w-full sm:w-[300px] shrink-0 rounded-none sm:rounded-r-none border-b-0 border-gray-200 flex justify-center items-center h-64 sm:h-[405px]"
       >
         <Image
           src={book.image}
           alt={book.bookName}
-          width={160}
-          height={160}
-          className="object-cover w-40 h-40 sm:w-full sm:h-full"
+          width={300}
+          height={405}
+          className="max-w-full max-h-full object-contain"
+          style={{ objectFit: 'contain' }}
         />
       </CardHeader>
-  <CardBody className="w-full flex flex-col">
+      <CardBody className="w-full flex flex-col">
         <Typography variant="h2" color="gray" className="mb-5 uppercase text-xl md:text-4xl font-bold">
           {book.bookName}
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           作者：{book.author.join(", ")}
         </Typography>
-         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
+        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           出版社：{book.publisher}
         </Typography>
 
-         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
+        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           ISBN:{book.isbn}
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           推薦人:{book.referencePerson}
         </Typography>
-
       </CardBody>
     </Card>
   );

@@ -46,7 +46,6 @@ export default function VideoBlock({
                 </span>
               ))}
             </div>
-            <span className="text-xs md:text-sm font-medium whitespace-nowrap ml-2">{video.duration}</span>
           </div>
         </div>
       </div>

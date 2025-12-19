@@ -89,7 +89,7 @@
 - **Slogan**: 文字敘述區塊
 - **CultureHighlights**: 文化知識區塊
 - **VideoRecommendations**: 影音推薦（橫向滑動）
-- **PartnerRecommendations**: 合作夥伴推薦
+- **EditorPick**: 編輯精選推薦
 - **NineBlockCard**: 九宮格分類卡片
 - **MasonryGallery**: 瀑布流圖片展示
 - **ImageLightbox**: 圖片燈箱查看器

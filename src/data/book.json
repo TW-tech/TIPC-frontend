@@ -1,12 +1,82 @@
 [
     {
         "id": "1",
-        "bookName": "地方創生可以不一樣",
+        "bookName": "地方創生可以不一樣：沒有人完美，但我們可以PERFECT！",
         "author": ["李智仁", "陳德齡","嚴昱如"],
-        "image": "/images/books/book1.png",
+        "image": "/images/books/地方創生可以不一樣.png",
         "uploadDate": "2025/12/10",
         "publisher": "五南",
-        "isbn": "9978-626-423-539-6",
-        "referencePerson": ["李智仁"]
+        "isbn": "99786264235396",
+        "referencePerson": ["嚴昱如"]
+    },
+    {
+        "id": "2",
+        "bookName": "圖解台灣電影史(1895-2017年)",
+        "author": ["葉龍彥"],
+        "image": "/images/books/圖解台灣電影史.jpg",
+        "uploadDate": "2025/12/18",
+        "publisher": "晨星出版有限公司",
+        "isbn": "9789864433629",
+        "referencePerson": ["桂涵"]
+    },
+    {
+        "id": "3",
+        "bookName": "巴黎哲學藝術地圖：推動世界文明前進的創意之都",
+        "author": ["艾列克范德霍斯特"],
+        "image": "/images/books/巴黎哲學藝術地圖.jpeg",
+        "uploadDate": "2025/12/18",
+        "publisher": "出色文化－出色集團",
+        "isbn": "9786267298251",
+        "referencePerson": ["桂涵"]
+    },
+    {
+        "id": "4",
+        "bookName": "Sabau! 好茶: 王有邦影像話魯凱",
+        "author": ["王有邦"],
+        "image": "/images/books/Sabau.jpg",
+        "uploadDate": "2025/12/18",
+        "publisher": "雄獅圖書股份有限公司",
+        "isbn": "9789860501322",
+        "referencePerson": ["陳新"]
+    },
+    {
+        "id": "5",
+        "bookName": "復返：21世紀成為原住民",
+        "author": ["詹姆士・克里弗德"],
+        "image": "/images/books/復返.jpg",
+        "uploadDate": "2025/12/18",
+        "publisher": "左岸文化",
+        "isbn": "9786267462195",
+        "referencePerson": ["陳新"]
+    },
+    {
+        "id": "6",
+        "bookName": "藝術顧問寫給職場工作者的邏輯式藝術鑑賞法",
+        "author": ["堀越啓"],
+        "image": "/images/books/藝術顧問寫給職場工作者的邏輯式藝術鑑賞法.jpg",
+        "uploadDate": "2025/12/18",
+        "publisher": "漫遊者文化事業股份有限公司",
+        "isbn": "9789864894826",
+        "referencePerson": ["桂涵"]
+    },
+    {
+        "id": "7",
+        "bookName": "用頭帶背起一座座山：嚮導背工與巡山員的故事（增訂新版）",
+        "author": ["沙力浪"],
+        "image": "/images/books/用頭帶背起一座座山.jpg",
+        "uploadDate": "2025/12/18",
+        "publisher": "健行出版社",
+        "isbn": "9789869987073",
+        "referencePerson": ["陳新"]
+    },
+    {
+        "id": "8",
+        "bookName": "區判：品味判斷的社會批判",
+        "author": ["皮耶‧布赫迪厄"],
+        "image": "/images/books/區判.jpg",
+        "uploadDate": "2025/12/18",
+        "publisher": "麥田",
+        "isbn": "9786263104402",
+        "referencePerson": ["嚴昱如"]
     }
 ]

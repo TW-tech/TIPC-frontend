@@ -1,48 +1,110 @@
 [
   {
     "id": "1",
-    "name": "財團法人玉溪有容教育基金會",
-    "picture": "/icons/Partner_logo.png",
-    "website": "https://www.garden91.org/zh-TW"
+    "name": "ARTOGO",
+    "picture": "/images/partner/artogo.jpg",
+    "website": "https://artogo.co/zh-TW"
   },
   {
     "id": "2",
-    "name": "國立臺灣歷史博物館",
-    "picture": "/icons/t.png",
-    "website": "https://www.nmth.gov.tw/"
+    "name": "台北金融研究發展基金會",
+    "picture": "/images/partner/台北金融研究發展基金會.png",
+    "website": "https://www.tff.org.tw/"
   },
   {
-    "id": "1",
+    "id": "3",
+    "name": "今周刊",
+    "picture": "/images/partner/今周刊.png",
+    "website": "https://www.businesstoday.com.tw/"
+  },
+  {
+    "id": "4",
+    "name": "新平溪煤礦博物館",
+    "picture": "/images/partner/新平溪煤礦博物園區.png",
+    "website": "https://www.taiwancoal.com.tw/web/"
+  },
+  {
+    "id": "5",
+    "name": "高山森林基地",
+    "picture": "/images/partner/高山森林基地.png",
+    "website": "https://www.gs-forest.com/"
+  },
+  {
+    "id": "6",
+    "name": "再現影像",
+    "picture": "/images/partner/再現影像.png",
+    "website": "https://reno-studios.com/"
+  },
+  {
+    "id": "7",
+    "name": "台灣圖靈鏈股份有限公司",
+    "picture": "/images/partner/台灣圖靈鏈股份有限公司.png",
+    "website": "https://turingcerts.com/zh/home/"
+  },
+  {
+    "id": "8",
     "name": "財團法人玉溪有容教育基金會",
     "picture": "/icons/Partner_logo.png",
     "website": "https://www.garden91.org/zh-TW"
   },
   {
-    "id": "2",
-    "name": "國立臺灣歷史博物館",
-    "picture": "/icons/nike.png",
-    "website": "https://www.nmth.gov.tw/"
-  },{
-    "id": "1",
-    "name": "財團法人玉溪有容教育基金會",
-    "picture": "/icons/Partner_logo.png",
-    "website": "https://www.garden91.org/zh-TW"
+    "id": "9",
+    "name": "台灣影響力投資協會",
+    "picture": "/images/partner/台灣影響力投資協會.png",
+    "website": "https://tiia.tw/"
   },
   {
-    "id": "2",
-    "name": "國立臺灣歷史博物館",
-    "picture": "/icons/t.png",
-    "website": "https://www.nmth.gov.tw/"
+    "id": "10",
+    "name": "人劇團",
+    "picture": "/images/partner/人劇團.png",
+    "website": "https://www.humanity.family/home"
   },
   {
-    "id": "1",
-    "name": "財團法人玉溪有容教育基金會",
-    "picture": "/icons/Partner_logo.png",
-    "website": "https://www.garden91.org/zh-TW"
-  },{
-    "id": "1",
-    "name": "財團法人玉溪有容教育基金會",
-    "picture": "/icons/Partner_logo.png",
-    "website": "https://www.garden91.org/zh-TW"
+    "id": "11",
+    "name": "實踐大學",
+    "picture": "/images/partner/實踐大學.png",
+    "website": "https://www.usc.edu.tw/"
+  },
+  {
+    "id": "12",
+    "name": "銘傳大學",
+    "picture": "/images/partner/銘傳大學.png",
+    "website": "https://web2.mcu.edu.tw/"
+  },
+  {
+    "id": "13",
+    "name": "國立台北教育大學",
+    "picture": "/images/partner/國立台北教育大學.jpg",
+    "website": "https://www.ntue.edu.tw/"
+  },
+  {
+    "id": "14",
+    "name": "視盟",
+    "picture": "/images/partner/視盟.png",
+    "website": "https://avat-art.org/"
+  },
+  {
+    "id": "15",
+    "name": "台灣菁英財富管理學院",
+    "picture": "/images/partner/台灣菁英財富管理學院.png",
+    "website": "https://www.tewm.com.tw/"
+  },
+  {
+    "id": "16",
+    "name": "元照出版社",
+    "picture": "/images/partner/元照出版社.gif",
+    "website": "https://www.angle.com.tw/"
+  },
+  {
+    "id": "17",
+    "name": "五南出版社",
+    "picture": "/images/partner/五南出版社.jpg",
+    "website": "https://www.wunan.com.tw/"
+  },
+  {
+    "id": "18",
+    "name": "暖暖書屋",
+    "picture": "/images/partner/暖暖書屋.jpg",
+    "website": "https://sunny-warm.wixsite.com/sawph-3"
   }
 ]

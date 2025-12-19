@@ -47,8 +47,13 @@ export default function ArticlePage() {
             
             {/* Category Badge */}
             {Article.nineBlocks && (
-              <div className="absolute bottom-0 left-0 bg-orange-600 text-white px-2 py-2 font-bold text-base w text-center">
-                文化影響力平台
+              <div className="absolute bottom-0 left-0 flex">
+                <div className="bg-orange-600 text-white px-2 py-2 font-bold text-base text-center">
+                  文化影響力平台
+                </div>
+                <div className="bg-white text-black px-2 py-2 font-bold text-base text-center">
+                  TIPC
+                </div>
               </div>
             )}
           </div>

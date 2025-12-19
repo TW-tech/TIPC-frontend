@@ -125,7 +125,7 @@ Cultural-Website/
 │   │       ├── Slogan.tsx           # 標語區塊（支援 GSAP 動畫）
 │   │       ├── CultureHighlights.tsx # 文化亮點
 │   │       ├── VideoRecommendations.tsx # 影音推薦
-│   │       └── PartnerRecommendations.tsx # 合作夥伴
+│   │       └── EditorPick.tsx # 編輯精選
 │   ├── data/            # 靜態數據
 │   │   ├── article.json      # 文章數據
 │   │   ├── photograph.json   # 照片數據（原 storyPictures.json）
@@ -157,7 +157,7 @@ Cultural-Website/
 │   │   ├── gallery/        # 圖片藝廊（書籍等）
 │   │   ├── header/         # 各頁面 header 圖片
 │   │   ├── museums/        # 博物館圖片
-│   │   ├── partnerrecommendations/ # 合作夥伴圖片
+│   │   ├── editorPick/ # 編輯精選圖片
 │   │   └── videorecommendations/   # 影音推薦縮圖
 │   └── icons/           # 圖標檔案
 │       ├── logo_tab.png     # 網站 favicon
@@ -179,7 +179,7 @@ Cultural-Website/
 
 ### 組件響應式特色
 - **ImageCarousel**: 手機單圖、桌面三圖佈局，高度自適應
-- **PartnerRecommendations**: 手機1欄→平板2欄→桌面3欄
+- **EditorPick**: 手機1欄→平板2欄→桌面3欄
 - **VideoRecommendations**: 橫向滑動設計，支援觸控和滑鼠滾輪
 - **字型**: 各斷點下的文字大小自動調整
 
