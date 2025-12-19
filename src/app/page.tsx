@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   MainVisual,
   ImageCarousel,
@@ -14,12 +14,27 @@ import {
 } from '@/components';
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Check if user has already seen the loading screen in this session
+    const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
+    
+    if (!hasSeenLoading) {
+      setIsLoading(true);
+    }
+  }, []);
+
+  const handleLoadingComplete = () => {
+    // Mark that the user has seen the loading screen
+    sessionStorage.setItem('hasSeenLoading', 'true');
+    setIsLoading(false);
+  };
 
   return (
     <>
       {isLoading && (
-        <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+        <LoadingScreen onLoadingComplete={handleLoadingComplete} />
       )}
       
       <div className="min-h-screen overflow-x-hidden">

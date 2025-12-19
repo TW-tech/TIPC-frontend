@@ -33,7 +33,7 @@ export default function MainVisual() {
         duration: 1,
         ease: 'power3.out'
       }, '-=0.6'); // Start 0.6s before previous animation ends
-    }, 1500); // Wait 1.5s for loading screen to complete
+    }, 500); // Wait 0.5s for a quicker text appearance
 
     return () => clearTimeout(timer);
   }, []);
