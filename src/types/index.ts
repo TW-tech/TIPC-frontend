@@ -161,10 +161,9 @@ export interface photographImage {
 
 
 export type PartnerCardProps = {
-  id: number;
-  link: string;
+  id: string;
+  website: string;
   picture: string;
-  description: string;
   name: string;
 };
 

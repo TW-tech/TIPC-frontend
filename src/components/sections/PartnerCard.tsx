@@ -8,11 +8,11 @@ import Image from "next/image";
 import { PartnerCardProps } from "@/types";
 
 
-export default function PartnerCard({ id, link, picture, name }: PartnerCardProps) {
+export default function PartnerCard({ id, website, picture, name }: PartnerCardProps) {
   return (
     <Card key={id} className="mt-2 w-full max-w-xs mx-auto shadow-none bg-transparent">
       <CardBody className="flex flex-col items-center p-2">
-        <a href={link} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center mb-2">
+        <a href={website} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center mb-2">
           <Image 
             src={picture} 
             alt={name} 
