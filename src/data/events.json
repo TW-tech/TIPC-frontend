@@ -3,7 +3,7 @@
     "id": "1",
     "title": "地方創生可以不一樣新書發表會",
     "date": "2025-08-16",
-    "mainImage": "/images/event/past/Book/新書發表.png",
+    "mainImage": "/images/event/Book/新書發表.png",
     "description": "脫下鞋子 奔跑\n我原本不知\n最終目的在何方\n直到我遇見心中燃起的光\n才發現\n目的地就在\n往完美的方向",
     "subTitle": "Impromptu142, 臺北市萬華區長沙街二段142號",
     "relatedImages": [
@@ -35,7 +35,7 @@
     "id": "3",
     "title": "彰化地方創生活動",
     "date": "2025-10-14",
-    "mainImage": "/images/event/past/Changhua/彰化芳苑.png",
+    "mainImage": "/images/event/Changhua/彰化芳苑.png",
     "relatedImages": [
       { "id": 1, "title": "彰化地方創生活動", "src": "/images/event/past/Changhua/Changhua_01.jpg" },
       { "id": 2, "title": "彰化地方創生活動", "src": "/images/event/past/Changhua/Changhua_02.jpg" },
