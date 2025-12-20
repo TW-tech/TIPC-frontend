@@ -78,5 +78,85 @@
         "publisher": "麥田",
         "isbn": "9786263104402",
         "referencePerson": ["嚴昱如"]
+    },
+    {
+        "id": "9",
+        "bookName": "世界來過台灣",
+        "author": ["張胤賢"],
+        "image": "/images/books/世界來過台灣.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263107410",
+        "referencePerson": ["葉姿吟"]
+    },
+    {  
+        "id": "10",
+        "bookName": "「帝國在台灣」/殖民帝台灣的時空、知識與情感",
+        "author": ["李承機","李育霖"],
+        "image": "/images/books/帝國在台灣.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "國立臺灣大學出版中心",
+        "isbn": "9789863501206",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "11",
+        "bookName": "草山紅",
+        "author": ["陳志豪"],
+        "image": "/images/books/草山紅.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "衛城出版與陽明山國家公園管理處",
+        "isbn": "9789860651850",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "12",
+        "bookName": "聲音的台灣史",
+        "author": ["李志銘"],
+        "image": "/images/books/聲音的台灣史.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "前衛",
+        "isbn": "9786267463857",
+        "referencePerson": ["陳新"]
+    },
+    {
+        "id": "13",
+        "bookName": "台灣西方文明初體驗",
+        "author": ["陳柔縉"],
+        "image": "/images/books/台灣西方文明初體驗.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263109100",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "14",
+        "bookName": "有風吹過廚房",
+        "author": ["食家飯"],
+        "image": "/images/books/有風吹過廚房.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "時報",
+        "isbn": "9789571371481",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "15",
+        "bookName": "再見·草山",
+        "author": ["吳亮衡"],
+        "image": "/images/books/再見·草山.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": " 時報",
+        "isbn": "9786263357730",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "16",
+        "bookName": "臺灣摩登咖啡屋：日治臺灣飲食消費文化考",
+        "author": ["文可璽"],
+        "image": "/images/books/臺灣摩登咖啡屋.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "前衛",
+        "isbn": "9789578017344",
+        "referencePerson": ["葉姿吟"]
     }
 ]
