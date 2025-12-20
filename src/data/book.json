@@ -78,5 +78,395 @@
         "publisher": "麥田",
         "isbn": "9786263104402",
         "referencePerson": ["嚴昱如"]
+    },
+    {
+        "id": "9",
+        "bookName": "世界來過台灣",
+        "author": ["張胤賢"],
+        "image": "/images/books/世界來過台灣.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263107410",
+        "referencePerson": ["葉姿吟"]
+    },
+    {  
+        "id": "10",
+        "bookName": "「帝國在台灣」/殖民帝台灣的時空、知識與情感",
+        "author": ["李承機","李育霖"],
+        "image": "/images/books/帝國在台灣.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "國立臺灣大學出版中心",
+        "isbn": "9789863501206",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "11",
+        "bookName": "草山紅",
+        "author": ["陳志豪"],
+        "image": "/images/books/草山紅.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "衛城出版與陽明山國家公園管理處",
+        "isbn": "9789860651850",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "12",
+        "bookName": "聲音的台灣史",
+        "author": ["李志銘"],
+        "image": "/images/books/聲音的台灣史.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "前衛",
+        "isbn": "9786267463857",
+        "referencePerson": ["陳新"]
+    },
+    {
+        "id": "13",
+        "bookName": "台灣西方文明初體驗",
+        "author": ["陳柔縉"],
+        "image": "/images/books/台灣西方文明初體驗.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263109100",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "14",
+        "bookName": "有風吹過廚房",
+        "author": ["食家飯"],
+        "image": "/images/books/有風吹過廚房.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "時報",
+        "isbn": "9789571371481",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "15",
+        "bookName": "再見·草山",
+        "author": ["吳亮衡"],
+        "image": "/images/books/再見·草山.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": " 時報",
+        "isbn": "9786263357730",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "16",
+        "bookName": "臺灣摩登咖啡屋：日治臺灣飲食消費文化考",
+        "author": ["文可璽"],
+        "image": "/images/books/臺灣摩登咖啡屋.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "前衛",
+        "isbn": "9789578017344",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "17",
+        "bookName": "宮前町九十番地",
+        "author": ["張超英/ 口述","陳柔縉/ 執筆"],
+        "image": "/images/books/宮前町九十番地.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9789863448211",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "18",
+        "bookName": "看不見的城市",
+        "author": [" 伊塔羅．卡爾維諾"],
+        "image": "/images/books/看不見的城市.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "時報",
+        "isbn": "9786263746473",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "19",
+        "bookName": "建築圖中的臺灣史",
+        "author": ["凌宗魁"],
+        "image": "/images/books/建築圖中的臺灣史.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "玉山社",
+        "isbn": "9789862944295",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "20",
+        "bookName": "歷史是擴充心量之學",
+        "author": [" 王汎森"],
+        "image": "/images/books/歷史是擴充心量之學.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "聯經",
+        "isbn": "9789570873931",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "21",
+        "bookName": "許倬雲問學記：從知識到智慧的追尋",
+        "author": ["許倬雲"],
+        "image": "/images/books/許倬雲問學記.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "九州",
+        "isbn": "9787522524450",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "22",
+        "bookName": "記憶台灣1：從生活文化、教育信仰，看見台灣多元視角的每一幕",
+        "author": ["胡川安"],
+        "image": "/images/books/記憶台灣1.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263108394",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "23",
+        "bookName": "記憶台灣2：從國族政治、人文地景，見證成就台灣歷史的每一步",
+        "author": ["胡川安"],
+        "image": "/images/books/記憶台灣2.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263108721",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "24",
+        "bookName": "何謂文化",
+        "author": ["余秋雨"],
+        "image": "/images/books/何謂文化.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "天下",
+        "isbn": "9789863200833",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "25",
+        "bookName": "間關千里：動盪年代的遷徙記憶，庶民的歷史見證",
+        "author": ["信世昌","彭昭英","霍晉明"],
+        "image": "/images/books/間關千里.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "網路與書",
+        "isbn": "9786267063897",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "26",
+        "bookName": "合作社不是福利社：18家合作社的在地實踐與創新力量",
+        "author": ["陳怡樺","陳郁玲"],
+        "image": "/images/books/合作社不是福利社.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "商周",
+        "isbn": "9786263902329",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "27",
+        "bookName": "餐桌上的臺灣史",
+        "author": ["鞭神老師（李廼澔）"],
+        "image": "/images/books/餐桌上的臺灣史.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "任性",
+        "isbn": "9786267182888",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "28",
+        "bookName": "北投．草山溫泉歷史「再發現」物語：從日治「天狗庵」到民國「中山樓」",
+        "author": ["許陽明"],
+        "image": "/images/books/北投.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "圓神",
+        "isbn": "9789861339474",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "29",
+        "bookName": "如何在歷史中存活",
+        "author": ["柯迪．卡西迪"],
+        "image": "/images/books/如何在歷史中存活.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "平安文化",
+        "isbn": "9786267397923",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "30",
+        "bookName": "安靜的眼火：我的台灣花·樹",
+        "author": ["愛亞"],
+        "image": "/images/books/安靜的眼火.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "群星",
+        "isbn": "9789869029612",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "31",
+        "bookName": "醫樹的人：臺灣第一位女樹醫教你如何看樹、懂樹",
+        "author": ["詹鳳春"],
+        "image": "/images/books/醫樹的人.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "柿子文化",
+        "isbn": "9789869893893",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "32",
+        "bookName": "聆聽樹木的聲音",
+        "author": ["詹鳳春"],
+        "image": "/images/books/聆聽樹木的聲音.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263102699",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "33",
+        "bookName": "牧羊人讀書筆記",
+        "author": ["朱敬一"],
+        "image": "/images/books/牧羊人讀書筆記.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "印刻文學",
+        "isbn": "9789863873396",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "34",
+        "bookName": "給青年知識追求者的十封信",
+        "author": ["朱敬一"],
+        "image": "/images/books/給青年知識追求者的十封信.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "聯經文庫",
+        "isbn": "9789570851229",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "35",
+        "bookName": "余英時回憶錄",
+        "author": ["余英時"],
+        "image": "/images/books/余英時回憶錄.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "允晨文化",
+        "isbn": "9789869677738",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "36",
+        "bookName": "燕食記",
+        "author": ["葛亮"],
+        "image": "/images/books/燕食記.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "麥田",
+        "isbn": "9786263103580",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "37",
+        "bookName": "瓦貓",
+        "author": ["葛亮"],
+        "image": "/images/books/瓦貓.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "印刻文學",
+        "isbn": "9789863875888",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "38",
+        "bookName": "守破離",
+        "author": ["葛維櫻","王丹陽","王鴻諒"],
+        "image": "/images/books/守破離.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "時報文化",
+        "isbn": "9789571383620",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "39",
+        "bookName": "匠人精神：一流人才育成的30條法則",
+        "author": ["秋山利輝"],
+        "image": "/images/books/匠人精神.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "中信",
+        "isbn": "9787508656151",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "39",
+        "bookName": "武士道：讓日本人成為今日的日本人的思想集",
+        "author": ["新渡戶稻造"],
+        "image": "/images/books/武士道.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "不二家",
+        "isbn": "9789869706964",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "40",
+        "bookName": "為什麼讀經典",
+        "author": ["伊塔羅．卡爾維諾"],
+        "image": "/images/books/為什麼讀經典.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "時報",
+        "isbn": "9789571343389",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "41",
+        "bookName": "傳奇不遠，歷史風濤中的文化人",
+        "author": ["魏邦良"],
+        "image": "/images/books/傳奇不遠，歷史風濤中的文化人.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "崧燁文化",
+        "isbn": "9786264160414",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "41",
+        "bookName": "天才的思考：高畑勳與宮崎駿",
+        "author": ["鈴木敏夫"],
+        "image": "/images/books/天才的思考.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "新經典文化",
+        "isbn": "9789860635454",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "42",
+        "bookName": "吉卜力的哲學：改變的事物與不變的事物",
+        "author": ["鈴木敏夫"],
+        "image": "/images/books/吉卜力的哲學.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "台灣東販",
+        "isbn": "9789864759996",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "43",
+        "bookName": "吉卜力：一直做下去",
+        "author": ["鈴木敏夫","柳橋閑"],
+        "image": "/images/books/吉卜力.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "中信",
+        "isbn": "9787521748284",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "44",
+        "bookName": "煙霞丘壑：中國古代畫家和他們的世界",
+        "author": ["尚剛"],
+        "image": "/images/books/煙霞丘壑.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "北京大學",
+        "isbn": "9787301293676",
+        "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "45",
+        "bookName": "小山河",
+        "author": ["葛亮"],
+        "image": "/images/books/小山河.jpg",
+        "uploadDate": "2025/12/20",
+        "publisher": "九歌",
+        "isbn": "9789864501328",
+        "referencePerson": ["葉姿吟"]
     }
 ]

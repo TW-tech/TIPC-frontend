@@ -43,8 +43,8 @@ function EventCard({ event }: { event: Event }) {
             className="absolute inset-0 bg-gradient-to-t to-transparent flex items-end"
             style={{
               backgroundImage: event.type === "current" 
-                ? 'linear-gradient(to top, rgba(204, 105, 21, 0.8), rgba(204, 105, 21, 0.5), transparent)' 
-                : 'linear-gradient(to top, rgba(131, 52, 22, 0.8), rgba(131, 52, 22, 0.5), transparent)'
+                ? 'linear-gradient(to top, rgba(204, 105, 21, 0.8) 0%, rgba(204, 105, 21, 0.8) 1%, transparent 100%)' 
+                : 'linear-gradient(to top, rgba(131, 52, 22, 0.8) 0%, rgba(131, 52, 22, 0.8) 1%, transparent 50%)'
             }}
           >
             <div className="p-4 md:p-6 text-white">
