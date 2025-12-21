@@ -61,7 +61,12 @@ export default function ArticlePage() {
           {/* Content */}
           <div className="p-4 flex flex-col h-full">
             <h2 className="text-gray-900 text-lg sm:text-2xl font-bold mb-2 line-clamp-2">
-              {Article.title}
+              {Article.title.split('\n').map((line, index) => (
+                <span key={index}>
+                  {line}
+                  {index < Article.title.split('\n').length - 1 && <br />}
+                </span>
+              ))}
             </h2>
 
             {/* Tags */}

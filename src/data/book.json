@@ -390,7 +390,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "39",
+        "id": "40",
         "bookName": "武士道：讓日本人成為今日的日本人的思想集",
         "author": ["新渡戶稻造"],
         "image": "/images/books/武士道.jpg",
@@ -400,7 +400,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "40",
+        "id": "41",
         "bookName": "為什麼讀經典",
         "author": ["伊塔羅．卡爾維諾"],
         "image": "/images/books/為什麼讀經典.jpg",
@@ -410,7 +410,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "41",
+        "id": "42",
         "bookName": "傳奇不遠，歷史風濤中的文化人",
         "author": ["魏邦良"],
         "image": "/images/books/傳奇不遠，歷史風濤中的文化人.jpg",
@@ -420,7 +420,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "41",
+        "id": "43",
         "bookName": "天才的思考：高畑勳與宮崎駿",
         "author": ["鈴木敏夫"],
         "image": "/images/books/天才的思考.jpg",
@@ -430,7 +430,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "42",
+        "id": "44",
         "bookName": "吉卜力的哲學：改變的事物與不變的事物",
         "author": ["鈴木敏夫"],
         "image": "/images/books/吉卜力的哲學.jpg",
@@ -440,7 +440,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "43",
+        "id": "45",
         "bookName": "吉卜力：一直做下去",
         "author": ["鈴木敏夫","柳橋閑"],
         "image": "/images/books/吉卜力.jpg",
@@ -450,7 +450,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "44",
+        "id": "46",
         "bookName": "煙霞丘壑：中國古代畫家和他們的世界",
         "author": ["尚剛"],
         "image": "/images/books/煙霞丘壑.jpg",
@@ -460,7 +460,7 @@
         "referencePerson": ["葉姿吟"]
     },
     {
-        "id": "45",
+        "id": "47",
         "bookName": "小山河",
         "author": ["葛亮"],
         "image": "/images/books/小山河.jpg",
@@ -468,5 +468,135 @@
         "publisher": "九歌",
         "isbn": "9789864501328",
         "referencePerson": ["葉姿吟"]
+    },
+    {
+        "id": "48",
+        "bookName": "就係香港: 珍重香港 2 (復刻珍藏版)",
+        "author": ["就係媒體編輯部"],
+        "image": "/images/books/就係香港.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "就係媒體",
+        "isbn": "9789887481850",
+        "referencePerson": ["陳德齡"]
+    },
+    {
+        "id": "49",
+        "bookName": "我們的島：臺灣三十年環境變遷全紀錄",
+        "author": ["柯金源"],
+        "image": "/images/books/我們的島.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "衛城出版",
+        "isbn": "9789869533492",
+        "referencePerson": ["陳德齡"]
+    },
+    {
+        "id": "50",
+        "bookName": "誰的博物館？：揭開頂尖博物館避而不談的暗黑故事&觀看思辨",
+        "author": ["艾莉絲•普洛特"],
+        "image": "/images/books/誰的博物館.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "原點",
+        "isbn": "9786267669877",
+        "referencePerson": ["陳德齡"]
+    },
+    {
+        "id": "51",
+        "bookName": "臺灣市街電車夢",
+        "author": ["楊啟正"],
+        "image": "/images/books/臺灣市街電車夢.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "玉山社",
+        "isbn": "9789862941645",
+        "referencePerson": ["陳德齡"]
+    },
+    {
+        "id": "52",
+        "bookName": "瀨戶內國際藝術祭與地方創生",
+        "author": ["狹間惠三子"],
+        "image": "/images/books/瀨戶內國際藝術祭與地方創生.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "馬可孛羅",
+        "isbn": "9786267520772",
+        "referencePerson": ["陳德齡"]
+    },
+    {
+        "id": "53",
+        "bookName": "從北齋到吉卜力：走進博物館看見日本動漫歷史！",
+        "author": ["李政亮"],
+        "image": "/images/books/北齋到吉卜力.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "蔚藍文化書版社",
+        "isbn": "9789869773119",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "54",
+        "bookName": "2030永續企業革命：全方位ESG永續實戰攻略",
+        "author": ["田瀨和夫","永續發展夥伴有限公司"],
+        "image": "/images/books/2030永續企業革命.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "商業週刊",
+        "isbn": "9786267099100",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "55",
+        "bookName": "大旅遊時代的攻客祕訣：解析訪日人數如何突破三千萬",
+        "author": ["中村好明"],
+        "image": "/images/books/大旅遊時代的攻客祕訣.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "行人出版社",
+        "isbn": "9789868319561",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "56",
+        "bookName": "東川Style(NLX0018)──北海道8000人小鎮的創生故事",
+        "author": ["玉村雅敏","小島敏明"],
+        "image": "/images/books/東川.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "時報出版",
+        "isbn": "9789571380025",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "57",
+        "bookName": "打造所有人的理想歸宿：在地整體照顧的社區設計",
+        "author": ["山崎亮"],
+        "image": "/images/books/打造所有人的理想歸宿.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "行人出版社",
+        "isbn": "9789869782333",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "58",
+        "bookName": "地方設計：萃取土地魅力、挖掘地方價值，日本頂尖設計團隊公開操作秘訣，打造全新感動經濟！",
+        "author": ["蔡奕屏"],
+        "image": "/images/books/地方設計：萃取土地魅力、挖掘地方價值，日本頂尖設計團隊公開操作秘訣，打造全新感動經濟！.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "果力文化出版社",
+        "isbn": "9789869759076",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "59",
+        "bookName": "人文學，翻轉企業未來！：Google、Apple、Intel正在找的人才",
+        "author": ["牟起龍"],
+        "image": "/images/books/人文學.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "本事出版",
+        "isbn": "9789869493970",
+        "referencePerson": ["李智仁"]
+    },
+    {
+        "id": "60",
+        "bookName": "韓國：撼動世界的嗆泡菜",
+        "author": ["丹尼爾‧圖德"],
+        "image": "/images/books/韓國：撼動世界的嗆泡菜.jpg",
+        "uploadDate": "2025/12/21",
+        "publisher": "聯經出版公司",
+        "isbn": "9789570843118",
+        "referencePerson": ["李智仁"]
     }
 ]

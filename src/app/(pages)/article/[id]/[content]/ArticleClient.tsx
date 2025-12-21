@@ -49,7 +49,14 @@ export default function ArticleClient({ article, relatedArticles }: ArticleClien
           {/* Title + Meta */}
           <header className="mb-8">
             <blockquote className="text-4xl sm:text-6xl font-bold text-[#833416] border-l-4 border-[#833416] pl-4 mb-4">
-              <h1 className={`article-title ${notoSerifTC.className}`}>{article.title}</h1>
+              <h1 className={`article-title ${notoSerifTC.className}`}>
+                {article.title.split('\n').map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    {index < article.title.split('\n').length - 1 && <br />}
+                  </span>
+                ))}
+              </h1>
             </blockquote>
             <hr className="border-t border-gray-300 mb-4" />
             <div className="flex items-center justify-between gap-2">
