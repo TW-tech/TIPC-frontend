@@ -136,7 +136,7 @@ export default function Navigation({ variant = 'main', className = '' }: Navigat
 
       {/* (三)側功能欄 */}
       <div
-        className={`fixed top-0 right-0 h-full w-[100%] lg:w-[20%] bg-[rgba(196,80,12,0.7)] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-[100%] lg:w-[20%] bg-[rgba(196,80,12,0.7)] shadow-lg z-50 p-6 transform transition-transform duration-300 overflow-y-auto ${
           showPanel ? '-translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -149,7 +149,7 @@ export default function Navigation({ variant = 'main', className = '' }: Navigat
         </button>
 
         {/* 頁面跳轉選項 */}
-        <div className="flex flex-col mt-10 space-y-10 sm:space-y-12 lg:space-y-6">
+        <div className="flex flex-col mt-10 mb-[180px] sm:mb-[280px] lg:mb-[140px] space-y-10 sm:space-y-12 lg:space-y-6">
           {navItems.map((item) => (
           <button
             key={item.href}
@@ -165,9 +165,13 @@ export default function Navigation({ variant = 'main', className = '' }: Navigat
         ))}
         </div>
         
+      </div>
+
+      {/* 熊 Logo - 固定在側邊欄右下方 */}
+      {showPanel && (
         <button
           onClick={() => handleClick("/")}
-          className="absolute bottom-0 right-0">
+          className="fixed bottom-4 right-4 z-50">
           <Image
             src="/icons/logo_w3.png"
             alt="Cultural Website Logo"
@@ -176,8 +180,7 @@ export default function Navigation({ variant = 'main', className = '' }: Navigat
             className="w-[150px] sm:w-[250px] lg:w-[110px] h-auto filter opacity-70 hover:brightness-0"
           />
         </button>
-        
-      </div>
+      )}
         
         
       
@@ -226,7 +229,7 @@ export default function Navigation({ variant = 'main', className = '' }: Navigat
 
               {/* (三)側功能欄 */}
               <div
-                className={`fixed  top-0 right-0 h-full w-[100%] lg:w-[20%] bg-[rgba(196,80,12,0.7)] shadow-lg z-50 p-6 transform transition-transform duration-300 ${
+                className={`fixed  top-0 right-0 h-full w-[100%] lg:w-[20%] bg-[rgba(196,80,12,0.7)] shadow-lg z-50 p-6 transform transition-transform duration-300 overflow-y-auto ${
                   showPanel ? '-translate-x-0' : 'translate-x-full'
                 }`}
               >
@@ -239,7 +242,7 @@ export default function Navigation({ variant = 'main', className = '' }: Navigat
                 </button>
 
                 {/* 頁面跳轉選項 */}
-                <div className="flex flex-col space-y-4 lg:space-y-6">
+                <div className="flex flex-col mb-8 space-y-4 lg:space-y-6">
                   {navItems.map((item) => (
                   <button
                     key={item.href}
