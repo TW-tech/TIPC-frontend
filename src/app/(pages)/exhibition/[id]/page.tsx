@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PageLayout, MasonryGallery, UnityEmbed } from '@/components';
 import { useParams } from "next/navigation";
 import  exhibitionData  from "@/data/exhibition.json";
-
+import { notoSerifTC, notoSansTC } from '@/lib/fonts';
 
 export default function ExhibitionContentPage() {
   const params = useParams();
@@ -27,58 +27,6 @@ export default function ExhibitionContentPage() {
     .map((p) => p.trim())
     .filter(Boolean);
 
-  // masonry breakpoints are configured inline where used
-
-  //unity
-  /*useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "/exhibitionBuild/AD3/Build/AD3.loader.js"
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  },[])
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-
-    const loaderUrl = "/exhibitionBuild/AD3/Build/AD3.loader.js";
-
-    const config = {
-      dataUrl: "/exhibitionBuild/AD3/Build/AD3.data",
-      frameworkUrl: "/exhibitionBuild/AD3/Build/AD3.framework.js",
-      codeUrl: "//exhibitionBuild/AD3/Build/AD3.wasm",
-      streamingAssetsUrl: "/exhibitionBuild/AD3/Build/StreamingAssets",
-      companyName: "DefaultCompany",
-      productName: "YourGame",
-      productVersion: "0.1.0",
-    };
-
-    const script = document.createElement("script");
-    script.src = loaderUrl;
-    script.async = true;
-
-    script.onload = () => {
-      // @ts-ignore
-      createUnityInstance(canvasRef.current, config, (p: number) => {
-        setProgress(p);
-      }).then((unityInstance: any) => {
-        console.log("Unity loaded", unityInstance);
-      });
-    };
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);*/
-
   
   return (
     <PageLayout title={"線上展覽"} subtitle="Exhibition" headerpic="/images/header/exhibition.jpeg">
@@ -88,7 +36,7 @@ export default function ExhibitionContentPage() {
         <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Title + Meta */}
         <header className="mb-8">
-          <h1 className="border-l-4 border-[#833416] pl-4 text-3xl sm:text-4xl text-[#833416] font-bold mb-8">
+          <h1 className={`border-l-4 border-[#833416] pl-4 text-4xl sm:text-6xl font-bold text-[#833416] mb-8 article-title ${notoSerifTC.className}`}>
             {Exhibitionitem.title}
           </h1>
           <span className="text-white text-lg bg-[#833416] backdrop-blur-sm px-2 py-2 rounded-full">{Exhibitionitem.exhibitor}</span>
@@ -105,12 +53,12 @@ export default function ExhibitionContentPage() {
         </div>
 
         {/* Article Content */}
-        <section className="prose prose-lg max-w-none">
+        <section className={`prose prose-xl max-w-none ${notoSansTC.className} font-light`}>
     
           {/* Description rendered as paragraphs with spacing and bottom padding */}
           <div className="space-y-4 pb-6">
             {descriptionParagraphs.map((paragraph, idx) => (
-              <p key={idx} className="text-gray-700 text-lg leading-relaxed">
+              <p key={idx} className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-relaxed font-light">
                 {paragraph}
               </p>
             ))}
@@ -150,7 +98,7 @@ export default function ExhibitionContentPage() {
           {/* Tutorial Description rendered as paragraphs with spacing and bottom padding */}
           <div className="space-y-4 pb-6">
             {TutorialParagraphs.map((paragraph, idx) => (
-              <p key={idx} className="text-gray-700 text-lg leading-none">
+              <p key={idx} className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-none font-light">
                 {paragraph}
               </p>
             ))}

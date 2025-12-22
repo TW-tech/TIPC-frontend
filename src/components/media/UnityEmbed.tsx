@@ -1,10 +1,8 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
+import type { UnityEmbedProps } from '@/types';
 
-interface UnityEmbedProps {
-  buildname: string;
-}
 
 export default function UnityEmbed({ buildname }: UnityEmbedProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -157,7 +155,7 @@ export default function UnityEmbed({ buildname }: UnityEmbedProps) {
                 <div className="w-24 h-24 mb-6 relative">
                 <Image src="/icons/logo_w2.png" alt="Logo" fill className="object-contain" />
                 </div>
-                <h2 className="text-white text-xl md:text-2xl mb-8 font-light">Ready to Experience the Exhibit?</h2>
+                <h2 className="text-white text-xl md:text-2xl mb-8 font-light">點擊下方按鈕，進入虛擬展間!</h2>
                 <button 
                 onClick={handleStart}
                 className="px-8 py-3 bg-[#833416] hover:bg-[#CC6915] text-white font-bold rounded-lg shadow-lg transition-transform transform hover:scale-105 active:scale-95"
@@ -169,7 +167,7 @@ export default function UnityEmbed({ buildname }: UnityEmbedProps) {
 
       {/* 🟢 LOADING SCREEN (Controlled by isGameReady, NOT isEngineLoaded) */}
       {isStarted && !isGameReady && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 z-2">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 z-2 ">
             <div className="w-16 h-16 mb-4 relative animate-pulse">
                 <Image src="/icons/logo_w2.png" alt="Logo" fill className="object-contain" />
             </div>
