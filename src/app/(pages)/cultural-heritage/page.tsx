@@ -58,7 +58,6 @@ export default function CulturalHeritagePage() {
       linkHref: video.src,
       description: video.description,
       keywords: video.keywords,
-      duration: video.duration,
       cakeCategory: video.cakeCategory,
     }));
 
@@ -72,7 +71,7 @@ export default function CulturalHeritagePage() {
   return (
     <PageLayout 
       title="文化資產與文化活動" 
-      subtitle="Cultural Assets/Cultural Activities "
+      subtitle="Cultural Heritage/Cultural Activities "
       headerpic="/images/header/NineBlock.jpg"
     >
       <div className="min-h-screen bg-gray-50">

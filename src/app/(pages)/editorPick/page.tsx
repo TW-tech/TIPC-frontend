@@ -8,7 +8,7 @@ import editorPickData from '@/data/editorPick.json';
 export default function EditorPickAllPage() {
 
   return (
-    <PageLayout title="影響力精選" subtitle="Editor's Pick" headerpic="/images/header/article.jpeg">
+    <PageLayout title="影響力精選" subtitle="TIPC Selections" headerpic="/images/header/article.jpeg">
       <div className="min-h-screen bg-gray-50">
 
       {/* 主要內容區域 */}

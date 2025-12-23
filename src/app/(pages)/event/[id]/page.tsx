@@ -42,7 +42,7 @@ export default function EventContentPage() {
         {/* Title + Meta */}
         <header className="mb-4">
           <blockquote className="text-4xl sm:text-6xl font-bold text-[#89986A] border-l-4 border-[#89986A] pl-4 mb-4">
-            <h1 className={notoSerifTC.className}>{Eventitem.title}</h1>
+            <h1 className={`leading-relaxed ${notoSerifTC.className}`}>{Eventitem.title}</h1>
           </blockquote>
         </header>
 
