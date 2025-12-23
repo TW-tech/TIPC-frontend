@@ -45,40 +45,25 @@ export default function MainVisual() {
         {/* Navigation */}
         <Navigation/>
 
-        {/* Responsive Background Images */}
-        <div className="absolute inset-0 z-0 w-full h-full">
-          {/* Desktop Background - default for all large screens >= 1024px */}
-          <Image
-            src="/mainVisual/PC_main.jpg"
-            alt="Main visual background for desktop"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
-            sizes="100vw"
-          />
-          
-          {/* Tablet Background - visible on screens 768px to 1023px */}
-          <Image
-            src="/mainVisual/ipad_main.jpg"
-            alt="Main visual background for tablet"
-            fill
-            className="object-cover md:block lg:hidden"
-            priority
-            quality={90}
-            sizes="100vw"
-          />
-          
-          {/* Mobile Background - visible on screens < 768px */}
-          <Image
-            src="/mainVisual/phone_main.jpg"
-            alt="Main visual background for mobile"
-            fill
-            className="object-cover md:hidden"
-            priority
-            quality={90}
-            sizes="100vw"
-          />
+        {/* Responsive Background Images using CSS */}
+        <div 
+          className="absolute inset-0 z-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/mainVisual/phone_main.jpg)',
+          }}
+        >
+          <style jsx>{`
+            @media (min-width: 768px) and (max-width: 1023px) {
+              div {
+                background-image: url(/mainVisual/ipad_main.jpg) !important;
+              }
+            }
+            @media (min-width: 1024px) {
+              div {
+                background-image: url(/mainVisual/PC_main.jpg) !important;
+              }
+            }
+          `}</style>
         </div>
         
         {/* Content Layer */}
