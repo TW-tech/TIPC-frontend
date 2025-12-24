@@ -142,7 +142,6 @@ export interface BookData {
   uploadDate: string;
   publisher: string;
   isbn: string;
-  referencePerson: string[];
 }
 
 export interface photographImage {

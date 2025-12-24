@@ -70,8 +70,7 @@ for book in rows:
         "image": f"/images/books/{book_name}.jpg",
         "uploadDate": today,
         "publisher": book.get("出版社", ""),
-        "isbn": str(book.get("ISBN ")).replace(".0", "") if book.get("ISBN ") else "",
-        "referencePerson": clean_people_field(book.get("推薦人"))
+        "isbn": str(book.get("ISBN ")).replace(".0", "") if book.get("ISBN ") else ""
     })
 
     current_id += 1

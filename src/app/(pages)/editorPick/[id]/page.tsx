@@ -63,7 +63,7 @@ export default function EditorPickContentPage() {
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-[#CC6915] text-white rounded-full font-semibold hover:bg-[#B55A12] transition-colors duration-300 shadow-lg hover:shadow-xl"
               >
-                前往原始網站
+                see more
               </a>
             </div>
           )}

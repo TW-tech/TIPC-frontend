@@ -144,9 +144,6 @@ function BookCard({ book  }: { book: BookData }) {
         <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
           ISBN:{book.isbn}
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-3 text-base md:text-2xl">
-          推薦人:{book.referencePerson}
-        </Typography>
       </CardBody>
     </Card>
   );

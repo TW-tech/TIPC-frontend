@@ -10,10 +10,7 @@
     "image": "/images/books/地方創生可以不一樣.png",
     "uploadDate": "2025/12/10",
     "publisher": "五南",
-    "isbn": "99786264235396",
-    "referencePerson": [
-      "嚴昱如"
-    ]
+    "isbn": "99786264235396"
   },
   {
     "id": "2",
@@ -24,10 +21,7 @@
     "image": "/images/books/圖解台灣電影史.jpg",
     "uploadDate": "2025/12/18",
     "publisher": "晨星出版有限公司",
-    "isbn": "9789864433629",
-    "referencePerson": [
-      "桂涵"
-    ]
+    "isbn": "9789864433629"
   },
   {
     "id": "3",
@@ -38,10 +32,7 @@
     "image": "/images/books/巴黎哲學藝術地圖.jpeg",
     "uploadDate": "2025/12/18",
     "publisher": "出色文化－出色集團",
-    "isbn": "9786267298251",
-    "referencePerson": [
-      "桂涵"
-    ]
+    "isbn": "9786267298251"
   },
   {
     "id": "4",
@@ -52,10 +43,7 @@
     "image": "/images/books/Sabau.jpg",
     "uploadDate": "2025/12/18",
     "publisher": "雄獅圖書股份有限公司",
-    "isbn": "9789860501322",
-    "referencePerson": [
-      "陳新"
-    ]
+    "isbn": "9789860501322"
   },
   {
     "id": "5",
@@ -66,10 +54,7 @@
     "image": "/images/books/復返.jpg",
     "uploadDate": "2025/12/18",
     "publisher": "左岸文化",
-    "isbn": "9786267462195",
-    "referencePerson": [
-      "陳新"
-    ]
+    "isbn": "9786267462195"
   },
   {
     "id": "6",
@@ -80,10 +65,7 @@
     "image": "/images/books/藝術顧問寫給職場工作者的邏輯式藝術鑑賞法.jpg",
     "uploadDate": "2025/12/18",
     "publisher": "漫遊者文化事業股份有限公司",
-    "isbn": "9789864894826",
-    "referencePerson": [
-      "桂涵"
-    ]
+    "isbn": "9789864894826"
   },
   {
     "id": "7",
@@ -94,10 +76,7 @@
     "image": "/images/books/用頭帶背起一座座山.jpg",
     "uploadDate": "2025/12/18",
     "publisher": "健行出版社",
-    "isbn": "9789869987073",
-    "referencePerson": [
-      "陳新"
-    ]
+    "isbn": "9789869987073"
   },
   {
     "id": "8",
@@ -108,10 +87,7 @@
     "image": "/images/books/區判.jpg",
     "uploadDate": "2025/12/18",
     "publisher": "麥田",
-    "isbn": "9786263104402",
-    "referencePerson": [
-      "嚴昱如"
-    ]
+    "isbn": "9786263104402"
   },
   {
     "id": "9",
@@ -122,10 +98,7 @@
     "image": "/images/books/世界來過台灣.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9786263107410",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263107410"
   },
   {
     "id": "10",
@@ -137,10 +110,7 @@
     "image": "/images/books/帝國在台灣.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "國立臺灣大學出版中心",
-    "isbn": "9789863501206",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863501206"
   },
   {
     "id": "11",
@@ -151,10 +121,7 @@
     "image": "/images/books/草山紅.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "衛城出版與陽明山國家公園管理處",
-    "isbn": "9789860651850",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789860651850"
   },
   {
     "id": "12",
@@ -165,10 +132,7 @@
     "image": "/images/books/聲音的台灣史.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "前衛",
-    "isbn": "9786267463857",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267463857"
   },
   {
     "id": "13",
@@ -179,10 +143,7 @@
     "image": "/images/books/台灣西方文明初體驗.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9786263109100",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263109100"
   },
   {
     "id": "14",
@@ -193,10 +154,7 @@
     "image": "/images/books/有風吹過廚房.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "時報",
-    "isbn": "9789571371481",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571371481"
   },
   {
     "id": "15",
@@ -207,10 +165,7 @@
     "image": "/images/books/再見·草山.jpg",
     "uploadDate": "2025/12/20",
     "publisher": " 時報",
-    "isbn": "9786263357730",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263357730"
   },
   {
     "id": "16",
@@ -221,10 +176,7 @@
     "image": "/images/books/臺灣摩登咖啡屋.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "前衛",
-    "isbn": "9789578017344",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789578017344"
   },
   {
     "id": "17",
@@ -236,10 +188,7 @@
     "image": "/images/books/宮前町九十番地.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9789863448211",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863448211"
   },
   {
     "id": "18",
@@ -250,10 +199,7 @@
     "image": "/images/books/看不見的城市.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "時報",
-    "isbn": "9786263746473",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263746473"
   },
   {
     "id": "19",
@@ -264,10 +210,7 @@
     "image": "/images/books/建築圖中的臺灣史.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "玉山社",
-    "isbn": "9789862944295",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789862944295"
   },
   {
     "id": "20",
@@ -278,10 +221,7 @@
     "image": "/images/books/歷史是擴充心量之學.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "聯經",
-    "isbn": "9789570873931",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789570873931"
   },
   {
     "id": "21",
@@ -292,10 +232,7 @@
     "image": "/images/books/許倬雲問學記.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "九州",
-    "isbn": "9787522524450",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787522524450"
   },
   {
     "id": "22",
@@ -306,10 +243,7 @@
     "image": "/images/books/記憶台灣1.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9786263108394",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263108394"
   },
   {
     "id": "23",
@@ -320,10 +254,7 @@
     "image": "/images/books/記憶台灣2.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9786263108721",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263108721"
   },
   {
     "id": "24",
@@ -334,10 +265,7 @@
     "image": "/images/books/何謂文化.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "天下",
-    "isbn": "9789863200833",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863200833"
   },
   {
     "id": "25",
@@ -350,10 +278,7 @@
     "image": "/images/books/間關千里.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "網路與書",
-    "isbn": "9786267063897",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267063897"
   },
   {
     "id": "26",
@@ -365,10 +290,7 @@
     "image": "/images/books/合作社不是福利社.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "商周",
-    "isbn": "9786263902329",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263902329"
   },
   {
     "id": "27",
@@ -379,10 +301,7 @@
     "image": "/images/books/餐桌上的臺灣史.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "任性",
-    "isbn": "9786267182888",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267182888"
   },
   {
     "id": "28",
@@ -393,10 +312,7 @@
     "image": "/images/books/北投.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "圓神",
-    "isbn": "9789861339474",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789861339474"
   },
   {
     "id": "29",
@@ -407,10 +323,7 @@
     "image": "/images/books/如何在歷史中存活.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "平安文化",
-    "isbn": "9786267397923",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267397923"
   },
   {
     "id": "30",
@@ -421,10 +334,7 @@
     "image": "/images/books/安靜的眼火.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "群星",
-    "isbn": "9789869029612",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869029612"
   },
   {
     "id": "31",
@@ -435,10 +345,7 @@
     "image": "/images/books/醫樹的人.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "柿子文化",
-    "isbn": "9789869893893",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869893893"
   },
   {
     "id": "32",
@@ -449,10 +356,7 @@
     "image": "/images/books/聆聽樹木的聲音.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9786263102699",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263102699"
   },
   {
     "id": "33",
@@ -463,10 +367,7 @@
     "image": "/images/books/牧羊人讀書筆記.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "印刻文學",
-    "isbn": "9789863873396",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863873396"
   },
   {
     "id": "34",
@@ -477,10 +378,7 @@
     "image": "/images/books/給青年知識追求者的十封信.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "聯經文庫",
-    "isbn": "9789570851229",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789570851229"
   },
   {
     "id": "35",
@@ -491,10 +389,7 @@
     "image": "/images/books/余英時回憶錄.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "允晨文化",
-    "isbn": "9789869677738",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869677738"
   },
   {
     "id": "36",
@@ -505,10 +400,7 @@
     "image": "/images/books/燕食記.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "麥田",
-    "isbn": "9786263103580",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263103580"
   },
   {
     "id": "37",
@@ -519,10 +411,7 @@
     "image": "/images/books/瓦貓.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "印刻文學",
-    "isbn": "9789863875888",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863875888"
   },
   {
     "id": "38",
@@ -535,10 +424,7 @@
     "image": "/images/books/守破離.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "時報文化",
-    "isbn": "9789571383620",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571383620"
   },
   {
     "id": "39",
@@ -549,10 +435,7 @@
     "image": "/images/books/匠人精神.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "中信",
-    "isbn": "9787508656151",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787508656151"
   },
   {
     "id": "40",
@@ -563,10 +446,7 @@
     "image": "/images/books/武士道.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "不二家",
-    "isbn": "9789869706964",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869706964"
   },
   {
     "id": "41",
@@ -577,10 +457,7 @@
     "image": "/images/books/為什麼讀經典.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "時報",
-    "isbn": "9789571343389",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571343389"
   },
   {
     "id": "42",
@@ -591,10 +468,7 @@
     "image": "/images/books/傳奇不遠，歷史風濤中的文化人.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "崧燁文化",
-    "isbn": "9786264160414",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786264160414"
   },
   {
     "id": "43",
@@ -605,10 +479,7 @@
     "image": "/images/books/天才的思考.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "新經典文化",
-    "isbn": "9789860635454",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789860635454"
   },
   {
     "id": "44",
@@ -619,10 +490,7 @@
     "image": "/images/books/吉卜力的哲學.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "台灣東販",
-    "isbn": "9789864759996",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789864759996"
   },
   {
     "id": "45",
@@ -634,10 +502,7 @@
     "image": "/images/books/吉卜力.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "中信",
-    "isbn": "9787521748284",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787521748284"
   },
   {
     "id": "46",
@@ -648,10 +513,7 @@
     "image": "/images/books/煙霞丘壑.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "北京大學",
-    "isbn": "9787301293676",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787301293676"
   },
   {
     "id": "47",
@@ -662,10 +524,7 @@
     "image": "/images/books/小山河.jpg",
     "uploadDate": "2025/12/20",
     "publisher": "九歌",
-    "isbn": "9789864501328",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789864501328"
   },
   {
     "id": "48",
@@ -676,10 +535,7 @@
     "image": "/images/books/就係香港.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "就係媒體",
-    "isbn": "9789887481850",
-    "referencePerson": [
-      "陳德齡"
-    ]
+    "isbn": "9789887481850"
   },
   {
     "id": "49",
@@ -690,10 +546,7 @@
     "image": "/images/books/我們的島.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "衛城出版",
-    "isbn": "9789869533492",
-    "referencePerson": [
-      "陳德齡"
-    ]
+    "isbn": "9789869533492"
   },
   {
     "id": "50",
@@ -704,10 +557,7 @@
     "image": "/images/books/誰的博物館.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "原點",
-    "isbn": "9786267669877",
-    "referencePerson": [
-      "陳德齡"
-    ]
+    "isbn": "9786267669877"
   },
   {
     "id": "51",
@@ -718,10 +568,7 @@
     "image": "/images/books/臺灣市街電車夢.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "玉山社",
-    "isbn": "9789862941645",
-    "referencePerson": [
-      "陳德齡"
-    ]
+    "isbn": "9789862941645"
   },
   {
     "id": "52",
@@ -732,10 +579,7 @@
     "image": "/images/books/瀨戶內國際藝術祭與地方創生.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "馬可孛羅",
-    "isbn": "9786267520772",
-    "referencePerson": [
-      "陳德齡"
-    ]
+    "isbn": "9786267520772"
   },
   {
     "id": "53",
@@ -746,10 +590,7 @@
     "image": "/images/books/北齋到吉卜力.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "蔚藍文化書版社",
-    "isbn": "9789869773119",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789869773119"
   },
   {
     "id": "54",
@@ -761,10 +602,7 @@
     "image": "/images/books/2030永續企業革命.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "商業週刊",
-    "isbn": "9786267099100",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9786267099100"
   },
   {
     "id": "55",
@@ -775,10 +613,7 @@
     "image": "/images/books/大旅遊時代的攻客祕訣.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "行人出版社",
-    "isbn": "9789868319561",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789868319561"
   },
   {
     "id": "56",
@@ -790,10 +625,7 @@
     "image": "/images/books/東川.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "時報出版",
-    "isbn": "9789571380025",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789571380025"
   },
   {
     "id": "57",
@@ -804,10 +636,7 @@
     "image": "/images/books/打造所有人的理想歸宿.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "行人出版社",
-    "isbn": "9789869782333",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789869782333"
   },
   {
     "id": "58",
@@ -818,10 +647,7 @@
     "image": "/images/books/地方設計：萃取土地魅力、挖掘地方價值，日本頂尖設計團隊公開操作秘訣，打造全新感動經濟！.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "果力文化出版社",
-    "isbn": "9789869759076",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789869759076"
   },
   {
     "id": "59",
@@ -832,10 +658,7 @@
     "image": "/images/books/人文學.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "本事出版",
-    "isbn": "9789869493970",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789869493970"
   },
   {
     "id": "60",
@@ -846,10 +669,7 @@
     "image": "/images/books/韓國：撼動世界的嗆泡菜.jpg",
     "uploadDate": "2025/12/21",
     "publisher": "聯經出版公司",
-    "isbn": "9789570843118",
-    "referencePerson": [
-      "李智仁"
-    ]
+    "isbn": "9789570843118"
   },
   {
     "id": "61",
@@ -860,10 +680,7 @@
     "image": "/images/books/圖像思維.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "五南出版",
-    "isbn": "9786263178946",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263178946"
   },
   {
     "id": "62",
@@ -874,10 +691,7 @@
     "image": "/images/books/鎏金舞台：你不可不知道的歌劇發展社會史.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "華滋出版",
-    "isbn": "9789869354899",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869354899"
   },
   {
     "id": "63",
@@ -888,10 +702,7 @@
     "image": "/images/books/清明上河圖，被遮蔽的真相： 白描圖像、臨摹全卷，一寸一寸放大細節，發現史官沒寫的歷史真相。.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "任性出版 ",
-    "isbn": "9786267182086",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267182086"
   },
   {
     "id": "64",
@@ -902,10 +713,7 @@
     "image": "/images/books/拆哪，中國的大片時代：大銀幕裡外的中國野心與崛起.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "蔚藍文化",
-    "isbn": "9789869440370",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869440370"
   },
   {
     "id": "65",
@@ -916,10 +724,7 @@
     "image": "/images/books/創造力的修行：打開一切可能.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "大塊文化",
-    "isbn": "9786267317556",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267317556"
   },
   {
     "id": "66",
@@ -930,10 +735,7 @@
     "image": "/images/books/療癒羅浮宮：從羅浮宮經典名畫看人生百態，學會活著的姿態.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "時報出版",
-    "isbn": "9789571382111",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571382111"
   },
   {
     "id": "67",
@@ -944,10 +746,7 @@
     "image": "/images/books/回望手藝.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "廣西師範大學出版社",
-    "isbn": "9787559837059",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787559837059"
   },
   {
     "id": "68",
@@ -958,10 +757,7 @@
     "image": "/images/books/伸出蘭花指：對一個男旦的陳述.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "時報出版",
-    "isbn": "9789571376950",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571376950"
   },
   {
     "id": "69",
@@ -974,10 +770,7 @@
     "image": "/images/books/人生關鍵字：僧侶、醫師與哲學家的智慧探索.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "究竟出版",
-    "isbn": "9789861373331",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789861373331"
   },
   {
     "id": "70",
@@ -988,10 +781,7 @@
     "image": "/images/books/為什麼孩子要上學.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "時報出版",
-    "isbn": "9789571337265",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571337265"
   },
   {
     "id": "71",
@@ -1002,10 +792,7 @@
     "image": "/images/books/舌尖上的香料史：走過5000年，主宰政治、貿易、飲食的風味.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "麥浩斯出版",
-    "isbn": "9786267558676",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267558676"
   },
   {
     "id": "72",
@@ -1016,10 +803,7 @@
     "image": "/images/books/圖像：從文藝復興到社交媒體.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "貴州人民出版社",
-    "isbn": "9787221176257",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787221176257"
   },
   {
     "id": "73",
@@ -1030,10 +814,7 @@
     "image": "/images/books/香：文學、歷史、生活.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "五南出版",
-    "isbn": "9789571177403",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571177403"
   },
   {
     "id": "74",
@@ -1044,10 +825,7 @@
     "image": "/images/books/創造的勇氣.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "立緒",
-    "isbn": "9789863601661",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863601661"
   },
   {
     "id": "75",
@@ -1058,10 +836,7 @@
     "image": "/images/books/我還能再看到幾次滿月？.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "麥田出版",
-    "isbn": "9786263104747",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263104747"
   },
   {
     "id": "76",
@@ -1072,10 +847,7 @@
     "image": "/images/books/披頭士：歌曲背後的故事1962-1970.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "上海譯文出版社",
-    "isbn": "9787532774142",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787532774142"
   },
   {
     "id": "77",
@@ -1086,10 +858,7 @@
     "image": "/images/books/人間詞話七講.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "大塊文化  ",
-    "isbn": "9789862135716",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789862135716"
   },
   {
     "id": "78",
@@ -1100,10 +869,7 @@
     "image": "/images/books/巴黎左岸.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "創意市集出版",
-    "isbn": "9789579199797",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789579199797"
   },
   {
     "id": "79",
@@ -1114,10 +880,7 @@
     "image": "/images/books/嘉年華的誕生：慶典、舞會、演唱會、運動會如何翻轉全世界.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "左岸文化",
-    "isbn": "9789865727161",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865727161"
   },
   {
     "id": "80",
@@ -1130,10 +893,7 @@
     "image": "/images/books/人類的故事.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "聯經出版",
-    "isbn": "9789570847802",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789570847802"
   },
   {
     "id": "81",
@@ -1144,10 +904,7 @@
     "image": "/images/books/觀光人類學：旅行對在地文化的深遠影響.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "游擊文化",
-    "isbn": "9786269952298",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786269952298"
   },
   {
     "id": "82",
@@ -1160,10 +917,7 @@
     "image": "/images/books/島都之河：匯流與共生，淡水河與臺北的百年互動.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "春山出版",
-    "isbn": "9786267478783",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267478783"
   },
   {
     "id": "83",
@@ -1174,10 +928,7 @@
     "image": "/images/books/島嶼歷史超展開：十七世紀東亞海域的人們與臺灣.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "春山出版",
-    "isbn": "9786267236420",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267236420"
   },
   {
     "id": "84",
@@ -1188,10 +939,7 @@
     "image": "/images/books/國宴與家宴.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "新經典文化",
-    "isbn": "9789865824556",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865824556"
   },
   {
     "id": "85",
@@ -1202,10 +950,7 @@
     "image": "/images/books/末代女礦工：海山煤礦，與一位社會學者對礦工阿嬤的生命考掘.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "春山出版",
-    "isbn": "9786267236871",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267236871"
   },
   {
     "id": "86",
@@ -1216,10 +961,7 @@
     "image": "/images/books/鐵道家族.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "春山出版",
-    "isbn": "9786267478578",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267478578"
   },
   {
     "id": "87",
@@ -1230,10 +972,7 @@
     "image": "/images/books/南渡北歸三部曲：南渡‧北歸‧離別.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "時報出版",
-    "isbn": "9789571385402",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789571385402"
   },
   {
     "id": "88",
@@ -1244,10 +983,7 @@
     "image": "/images/books/疼痛是一道我穿越了的牆：瑪莉娜・阿布拉莫維奇自傳.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "網路與書出版",
-    "isbn": "9789866841828",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789866841828"
   },
   {
     "id": "89",
@@ -1258,10 +994,7 @@
     "image": "/images/books/百家姓.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "印刻",
-    "isbn": "9789866135910",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789866135910"
   },
   {
     "id": "90",
@@ -1273,10 +1006,7 @@
     "image": "/images/books/故宮裡的色彩美學與配色事典.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "\n悅知文化",
-    "isbn": "9789865102685",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865102685"
   },
   {
     "id": "91",
@@ -1287,10 +1017,7 @@
     "image": "/images/books/一色一生.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "上海人民出版社",
-    "isbn": "9787208166196",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787208166196"
   },
   {
     "id": "92",
@@ -1301,10 +1028,7 @@
     "image": "/images/books/生徒年代：茶金歲月前傳.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "聯經出版",
-    "isbn": "9789570874907",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789570874907"
   },
   {
     "id": "93",
@@ -1315,10 +1039,7 @@
     "image": "/images/books/通往世界的植物：臺灣高山植物的時空旅史.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "春山出版",
-    "isbn": "9789869866255",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789869866255"
   },
   {
     "id": "94",
@@ -1329,10 +1050,7 @@
     "image": "/images/books/茶知錄：台灣茶葉拼圖.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "經典雜誌出版",
-    "isbn": "9789866292989",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789866292989"
   },
   {
     "id": "95",
@@ -1343,10 +1061,7 @@
     "image": "/images/books/臺灣史上最有梗的臺灣史.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "究竟出版",
-    "isbn": "9789861372242",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789861372242"
   },
   {
     "id": "96",
@@ -1357,10 +1072,7 @@
     "image": "/images/books/巴黎墓園的祕密生活.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "積木文化",
-    "isbn": "9789864595884",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789864595884"
   },
   {
     "id": "97",
@@ -1371,10 +1083,7 @@
     "image": "/images/books/呼蘭河傳.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "前景文化",
-    "isbn": "9789866536649",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789866536649"
   },
   {
     "id": "98",
@@ -1385,10 +1094,7 @@
     "image": "/images/books/被誤解的臺灣老地名1：空間篇.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "遠足文化",
-    "isbn": "9789865082635",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865082635"
   },
   {
     "id": "99",
@@ -1399,10 +1105,7 @@
     "image": "/images/books/被誤解的臺灣老地名2：時間篇.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "遠足文化",
-    "isbn": "9789865082642",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865082642"
   },
   {
     "id": "100",
@@ -1413,10 +1116,7 @@
     "image": "/images/books/酷的起源（全二冊）.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "浙江大學出版社",
-    "isbn": "9787308218368",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787308218368"
   },
   {
     "id": "101",
@@ -1427,10 +1127,7 @@
     "image": "/images/books/自然契約.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "無境文化",
-    "isbn": "9786269786220",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786269786220"
   },
   {
     "id": "102",
@@ -1441,10 +1138,7 @@
     "image": "/images/books/孤獨的博學者：賽荷，船夫之子.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "群學",
-    "isbn": "9786269778966",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786269778966"
   },
   {
     "id": "103",
@@ -1455,10 +1149,7 @@
     "image": "/images/books/哥倫比亞的倒影.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "印刻",
-    "isbn": "9789865933210",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865933210"
   },
   {
     "id": "104",
@@ -1469,10 +1160,7 @@
     "image": "/images/books/厄運之地（新版）：給未來世代的最後備忘錄.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "左岸文化",
-    "isbn": "9786267462775",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267462775"
   },
   {
     "id": "105",
@@ -1483,10 +1171,7 @@
     "image": "/images/books/山屋憶往：一個歷史學家的臨終自述.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "左岸文化",
-    "isbn": "9786267462317",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267462317"
   },
   {
     "id": "106",
@@ -1497,10 +1182,7 @@
     "image": "/images/books/游牧的歷史：塑造我們世界的流浪者.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "時報出版",
-    "isbn": "9786263530072",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263530072"
   },
   {
     "id": "107",
@@ -1511,10 +1193,7 @@
     "image": "/images/books/台灣火車傳奇.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "時報出版",
-    "isbn": "9786264440431",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786264440431"
   },
   {
     "id": "108",
@@ -1525,10 +1204,7 @@
     "image": "/images/books/香港談食錄：中餐百味.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "三聯",
-    "isbn": "9789620449550",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789620449550"
   },
   {
     "id": "109",
@@ -1540,10 +1216,7 @@
     "image": "/images/books/朝鮮神話：神祇鬼怪、金氏家族、韓流奇蹟.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "臉譜  \n",
-    "isbn": "9786263156791",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786263156791"
   },
   {
     "id": "110",
@@ -1554,10 +1227,7 @@
     "image": "/images/books/走進中世紀的世界：一本寫給過去、現在、未來旅人的歷史指南.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "馬可孛羅",
-    "isbn": "9786267520093",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267520093"
   },
   {
     "id": "111",
@@ -1568,10 +1238,7 @@
     "image": "/images/books/一個人的記憶.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "上海人民出版社",
-    "isbn": "9787208120082",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787208120082"
   },
   {
     "id": "112",
@@ -1582,10 +1249,7 @@
     "image": "/images/books/一個人的「文藝復興」.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "廣西師範大學出版社",
-    "isbn": "9787559813671",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9787559813671"
   },
   {
     "id": "113",
@@ -1598,10 +1262,7 @@
     "image": "/images/books/黑潮島航：一群海人的藍色曠野巡禮.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "網路與書出版",
-    "isbn": "9789865406028",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789865406028"
   },
   {
     "id": "114",
@@ -1612,10 +1273,7 @@
     "image": "/images/books/船上的人：越南大時代小說集.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "釀出版",
-    "isbn": "9789864451067",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789864451067"
   },
   {
     "id": "115",
@@ -1626,10 +1284,7 @@
     "image": "/images/books/雅舍談吃.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "九歌",
-    "isbn": "9789864502684",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789864502684"
   },
   {
     "id": "116",
@@ -1640,10 +1295,7 @@
     "image": "/images/books/窮中談吃（新版）.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "聯合文學",
-    "isbn": "9789863236597",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789863236597"
   },
   {
     "id": "117",
@@ -1654,10 +1306,7 @@
     "image": "/images/books/我與吃飯.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "有鹿文化",
-    "isbn": "9786267603079",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9786267603079"
   },
   {
     "id": "118",
@@ -1668,9 +1317,6 @@
     "image": "/images/books/書頁中的永恆：書籍的歷史與流轉之路.jpg",
     "uploadDate": "2025/12/22",
     "publisher": "究竟",
-    "isbn": "9789861373447",
-    "referencePerson": [
-      "葉姿吟"
-    ]
+    "isbn": "9789861373447"
   }
 ]
