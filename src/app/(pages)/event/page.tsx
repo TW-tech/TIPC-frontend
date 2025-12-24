@@ -82,8 +82,21 @@ function EventCard({ event }: { event: Event }) {
 }
 
 export default function EventPage() {
-  const currentEvents = eventData.filter((e) => e.type === "current");
-  const pastEvents = eventData.filter((e) => e.type === "past");
+  // Sort events by date - nearest first
+  const sortByDate = (events: Event[]) => {
+    return [...events].sort((a, b) => {
+      // Extract start date (handle range dates like "2025-03-15 ~ 2025-04-01")
+      const dateA = new Date(a.date.split('~')[0].trim());
+      const dateB = new Date(b.date.split('~')[0].trim());
+      
+      // For current events: ascending (nearest first)
+      // For past events: descending (most recent first)
+      return a.type === "current" ? dateA.getTime() - dateB.getTime() : dateB.getTime() - dateA.getTime();
+    });
+  };
+
+  const currentEvents = sortByDate(eventData.filter((e) => e.type === "current"));
+  const pastEvents = sortByDate(eventData.filter((e) => e.type === "past"));
   
 
   return (
