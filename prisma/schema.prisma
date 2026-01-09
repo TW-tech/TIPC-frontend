@@ -11,16 +11,5 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
-}
-
-
-model archiveIndex {
-  id        Int      @id @default(autoincrement())
-  Class     String
-  WebName   String
-  OrgName   String
-  OrgWebLink    String
 }
 

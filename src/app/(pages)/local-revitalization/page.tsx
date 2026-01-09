@@ -35,7 +35,7 @@ export default function LocalRevitalizationPage() {
     .map((photograph) => ({
       id: `photograph-${photograph.id}`,
       type: 'image' as const,
-      size: photograph.size as 'wide' | 'tall' | 'normal' | undefined,
+      size: photograph.size || 'wide' as 'wide' | 'tall' | 'normal' | undefined,
       imageUrl: photograph.src,
       altText: photograph.title,
       title: photograph.title,

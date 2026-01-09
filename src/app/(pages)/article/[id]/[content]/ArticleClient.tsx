@@ -5,6 +5,7 @@ import Link from "next/link";
 import { PageLayout } from '@/components';
 import { notoSerifTC, notoSansTC } from '@/lib/fonts';
 import { useState } from 'react';
+import { toast } from 'sonner';
 import type { Article } from '@/types/types';
 
 interface ArticleClientProps {
@@ -14,13 +15,11 @@ interface ArticleClientProps {
 
 export default function ArticleClient({ article, relatedArticles }: ArticleClientProps) {
   const [showShareMenu, setShowShareMenu] = useState(false);
-  const [showToast, setShowToast] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
     setShowShareMenu(false);
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 3000);
+    toast.success('已複製文章連結');
   };
 
   const handleShareFacebook = () => {
@@ -31,18 +30,6 @@ export default function ArticleClient({ article, relatedArticles }: ArticleClien
 
   return (
     <PageLayout title="觀點文章" subtitle="TIPC Articles" headerpic="/images/header/article.jpeg">
-      {/* Toast Notification - Outside scrollable content */}
-      {showToast && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[9999] animate-slide-down pointer-events-none">
-          <div className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 whitespace-nowrap">
-            <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span className="font-medium">已複製文章連結</span>
-          </div>
-        </div>
-      )}
-
       <div className="min-h-screen bg-gray-50">
         {/* 主要內容區域 */}
         <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

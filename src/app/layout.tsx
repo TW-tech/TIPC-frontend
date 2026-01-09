@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: "文化影響力平台",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <body>
+        <Toaster position="top-center" richColors />
         <ScrollToTop />
         {children}
       </body>

@@ -38,7 +38,7 @@ const MediaGallery = ({ items = [] }: MediaGalleryProps) => {
     cakeCategory: [],
     nineBlocks: [],
     subID: '',
-    size: item.size || 'normal',
+    size: item.size || 'wide',
     uploadDate: '',
   });
 
