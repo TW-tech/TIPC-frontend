@@ -254,3 +254,89 @@ model PhotographNineBlock {
   @@map("photograph_nine_blocks")
 }
 
+// ============================================================================
+// Event
+// ============================================================================
+
+model Event {
+  id          String       @id @default(cuid())
+  title       String
+  eventDate   DateTime     // date field from JSON
+  mainImage   String       // Main image URL
+  description String?      @db.Text // Optional description
+  subTitle    String?      // Optional subtitle/location
+  type        String?      // Event type (past/upcoming)
+  alt         String?      // Alt text for image
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relations
+  images EventImage[]
+
+  @@index([eventDate])
+  @@map("events")
+}
+
+model EventImage {
+  id       String  @id @default(cuid())
+  eventId  String
+  title    String?
+  src      String // Image URL
+  position Int // Display order
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, position])
+  @@index([eventId, position])
+  @@map("event_images")
+}
+
+// ============================================================================
+// Book
+// ============================================================================
+
+model Book {
+  id         String   @id @default(cuid())
+  bookname   String // bookName from JSON
+  authors    String[] // Array of author names
+  image      String // Book cover image URL
+  publisher  String
+  isbn       String
+  uploadDate DateTime? // Optional upload date
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@map("books")
+}
+
+// ============================================================================
+// Partner
+// ============================================================================
+
+model Partner {
+  id        String   @id @default(cuid())
+  name      String
+  logo      String // picture from JSON
+  webUrl    String? // website from JSON
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("partners")
+}
+
+// ============================================================================
+// ArchiveIndex
+// ============================================================================
+
+model ArchiveIndex {
+  id         String   @id @default(cuid())
+  Class      String // Classification
+  WebName    String
+  OrgName    String
+  OrgWebLink String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("archive_indexes")
+}
+
