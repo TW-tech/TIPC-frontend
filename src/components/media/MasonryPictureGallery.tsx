@@ -5,9 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
-import type { photographImage } from "@/types";
+import type { photographImage, BookData } from "@/types";
 import { ImageLightbox } from '@/components';
-import bookData from '@/data/book.json';
 import BookLightbox from "../sections/BookCard";
 import type { MasonryGalleryProps } from '@/types';
 
@@ -17,7 +16,8 @@ export default function MasonryGallery({
   loadMoreConfig,
   lightboxMode,
   gap,
-}: MasonryGalleryProps) {
+  books,
+}: MasonryGalleryProps & { books?: BookData[] }) {
   const [visibleCount, setVisibleCount] = useState(
     loadMoreConfig?.mode === "append" ? loadMoreConfig.batchSize || 6 : images.length
   );
@@ -108,10 +108,10 @@ export default function MasonryGallery({
       {/* Lightbox */}
       {lightboxMode && lightboxMode.mode !== "zoom" && (
         <div className="flex justify-center mt-6">
-          {lightboxMode.mode === "Book" ? (
+          {lightboxMode.mode === "Book" && books ? (
             <div className="grid grid-cols-1 gap-6 place-items-center">
               <BookLightbox 
-                book={bookData[currentImage.id]} 
+                book={books.find(b => b.id === currentImage.subID) || books[currentImage.id]} 
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
                 initialRect={initialRect}

@@ -15,14 +15,29 @@ datasource db {
 }
 
 // ============================================================================
+// USER AUTHENTICATION
+// ============================================================================
+
+model Users {
+  id        String   @id @default(cuid())
+  account   String   @unique
+  password  String // Store hashed password only
+  title     String // Role/permission title (e.g., "admin", "editor", "viewer")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([account])
+  @@map("users")
+}
+// ============================================================================
 // KeyWords and NineBlocks
 // ============================================================================
 
 model KeyWords {
-  id       String           @id @default(cuid())
-  name     String
-  articles ArticleKeyWord[]
-  videos   VideoKeyWord[]
+  id          String              @id @default(cuid())
+  name        String              @unique
+  articles    ArticleKeyWord[]
+  videos      VideoKeyWord[]
 }
 
 model CakeCategory {
@@ -40,7 +55,6 @@ model NineBlocks {
   photographs PhotographNineBlock[]
   videos      VideoNineBlock[]
 }
-
 // ============================================================================
 // Many-to-many junction tables for Article
 // ============================================================================
@@ -75,22 +89,81 @@ model ArticleNineBlock {
 }
 
 // ============================================================================
+// Many-to-many junction tables for Photograph
+// ============================================================================
+
+
+model PhotographNineBlock {
+  photographId String
+  nineBlockId  String
+  photograph   Photograph @relation(fields: [photographId], references: [id], onDelete: Cascade)
+  nineBlock    NineBlocks @relation(fields: [nineBlockId], references: [id], onDelete: Cascade)
+
+  @@id([photographId, nineBlockId])
+  @@map("photograph_nine_blocks")
+}
+
+model PhotographCakeCategory {
+  photographId   String
+  cakeCategoryId String
+  photograph     Photograph   @relation(fields: [photographId], references: [id], onDelete: Cascade)
+  cakeCategory   CakeCategory @relation(fields: [cakeCategoryId], references: [id], onDelete: Cascade)
+
+  @@id([photographId, cakeCategoryId])
+  @@map("photograph_cake_categories")
+}
+
+// ============================================================================
+// Many-to-many junction tables for Video
+// ============================================================================
+
+model VideoKeyWord {
+  videoId   String
+  keyWordId String
+  video     Video    @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  keyWord   KeyWords @relation(fields: [keyWordId], references: [id], onDelete: Cascade)
+
+  @@id([videoId, keyWordId])
+  @@map("video_keywords")
+}
+
+model VideoNineBlock {
+  videoId     String
+  nineBlockId String
+  video       Video      @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  nineBlock   NineBlocks @relation(fields: [nineBlockId], references: [id], onDelete: Cascade)
+
+  @@id([videoId, nineBlockId])
+  @@map("video_nine_blocks")
+}
+
+model VideoCakeCategory {
+  videoId        String
+  cakeCategoryId String
+  video          Video        @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  cakeCategory   CakeCategory @relation(fields: [cakeCategoryId], references: [id], onDelete: Cascade)
+
+  @@id([videoId, cakeCategoryId])
+  @@map("video_cake_categories")
+}
+
+// ============================================================================
 // Article
 // ============================================================================
 
 model Article {
-  id           String                @id @default(cuid())
-  englishTitle String?
-  title        String
-  author       String
-  coverImage   String // 封面照片 URL (required)
-  keyWords     ArticleKeyWord[]
-  nineBlocks   ArticleNineBlock[]
+  id          String             @id @default(cuid())
+  englishTitle  String?
+  title       String
+  author      String
+  coverImage  String             // 封面照片 URL (required)
+  keyWords    ArticleKeyWord[]
+  nineBlocks  ArticleNineBlock[]
   cakeCategory ArticleCakeCategory[]
-  slug         String                @unique
-  publishedAt  DateTime?
-  createdAt    DateTime              @default(now())
-  updatedAt    DateTime              @updatedAt
+  slug        String             @unique
+  publishedAt DateTime?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
 
   // Relations
   blocks      ArticleBlock[]
@@ -182,75 +255,136 @@ model ArticlePodcast {
   @@map("article_podcasts")
 }
 
-// Placeholder models for Video and Photograph (to be defined later)
-model VideoKeyWord {
-  videoId   String
-  keyWordId String
-  keyWord   KeyWords @relation(fields: [keyWordId], references: [id], onDelete: Cascade)
-
-  @@id([videoId, keyWordId])
-  @@map("video_keywords")
-}
-
-model VideoCakeCategory {
-  videoId        String
-  cakeCategoryId String
-  cakeCategory   CakeCategory @relation(fields: [cakeCategoryId], references: [id], onDelete: Cascade)
-
-  @@id([videoId, cakeCategoryId])
-  @@map("video_cake_categories")
-}
-
-model VideoNineBlock {
-  videoId     String
-  nineBlockId String
-  nineBlock   NineBlocks @relation(fields: [nineBlockId], references: [id], onDelete: Cascade)
-
-  @@id([videoId, nineBlockId])
-  @@map("video_nine_blocks")
-}
-
 // ============================================================================
 // TIPC Photograph
 // ============================================================================
 
 model Photograph {
-  id           String                   @id @default(cuid())
-  url          String
-  title        String
-  description  String
-  nineBlocks   PhotographNineBlock[]
+  id          String                @id @default(cuid())
+  url         String
+  title       String
+  description String
+  nineBlocks  PhotographNineBlock[]
   cakeCategory PhotographCakeCategory[]
-  author       String
-  photoDate    DateTime
-  createdAt    DateTime                 @default(now())
-  updatedAt    DateTime                 @updatedAt
+  author      String
+  photoDate   DateTime
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
 
   @@index([photoDate])
   @@map("photographs")
 }
 
 // ============================================================================
-// Many-to-many junction tables for Photograph
+// TIPC Video
 // ============================================================================
 
-model PhotographCakeCategory {
-  photographId   String
-  cakeCategoryId String
-  photograph     Photograph   @relation(fields: [photographId], references: [id], onDelete: Cascade)
-  cakeCategory   CakeCategory @relation(fields: [cakeCategoryId], references: [id], onDelete: Cascade)
+model Video {
+  id          String            @id @default(cuid())
+  url         String
+  title       String
+  mainImg     String
+  description String
+  keyWords    VideoKeyWord[]
+  nineBlocks  VideoNineBlock[]
+  cakeCategory VideoCakeCategory[]
+  author      String
+  videoDate   DateTime
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
 
-  @@id([photographId, cakeCategoryId])
-  @@map("photograph_cake_categories")
+  @@index([videoDate])
+  @@map("videos")
 }
 
-model PhotographNineBlock {
-  photographId String
-  nineBlockId  String
-  photograph   Photograph @relation(fields: [photographId], references: [id], onDelete: Cascade)
-  nineBlock    NineBlocks @relation(fields: [nineBlockId], references: [id], onDelete: Cascade)
+model archiveIndex {
+  id        Int      @id @default(autoincrement())
+  Class     String
+  WebName   String
+  OrgName   String
+  OrgWebLink    String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
 
-  @@id([photographId, nineBlockId])
-  @@map("photograph_nine_blocks")
+model Partner {
+  id    Int    @id @default(autoincrement())
+  name  String
+  logo  String
+  webUrl  String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+model Book {
+  id        Int      @id @default(autoincrement())
+  authors   String[] 
+  bookname  String
+  publisher String
+  isbn      String
+  image     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ============================================================================
+// Event
+// ============================================================================
+
+model Event {
+  id          String       @id @default(cuid())
+  title       String
+  eventDate   DateTime     // The date of the event
+  mainImage   String       // Cover image URL
+  alt         String       // Alt text for main image
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relations
+  blocks      EventBlock[]
+  images      EventImage[]
+
+  @@index([eventDate])
+  @@map("events")
+}
+
+// ============================================================================
+// Event block (for description content)
+// ============================================================================
+
+model EventBlock {
+  id        String    @id @default(cuid())
+  eventId   String
+  position  Int       // 0-indexed, determines display order
+  type      BlockType
+  data      Json      // Type-specific data (TextBlockData | ImageBlockData | QuoteBlockData)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  // Composite unique constraint: one position per event
+  @@unique([eventId, position])
+  @@index([eventId, position]) // Fast ordered retrieval
+  @@map("event_blocks")
+}
+
+// ============================================================================
+// Event related images
+// ============================================================================
+
+model EventImage {
+  id        String   @id @default(cuid())
+  eventId   String
+  src       String   // Image URL
+  position  Int      // Display order
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, position])
+  @@index([eventId, position]) // Fast ordered retrieval
+  @@map("event_images")
 }
 

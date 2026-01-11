@@ -1,32 +1,88 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PageLayout, MasonryGallery } from '@/components';
 import { useParams } from "next/navigation";
-import eventDataRaw from "@/data/events.json";
-import { processEvents, type EventRaw } from "@/lib/eventUtils";
 import { notoSerifTC, notoSansTC } from '@/lib/fonts';
-
-// Automatically update event types based on dates
-const eventData = processEvents(eventDataRaw as EventRaw[]);
+import type { Event } from "@/types";
 
 export default function EventContentPage() {
   const params = useParams();
   const id = params?.id as string;
+  const [eventItem, setEventItem] = useState<Event | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    
+    async function fetchEvent() {
+      if (!id) return;
+      
+      try {
+        const response = await fetch(`/api/events/${id}`);
+        const result = await response.json();
+        if (result.success) {
+          // Transform API data to match Event type
+          const event = result.data;
+          const transformedEvent: Event = {
+            id: event.id,
+            title: event.title,
+            date: new Date(event.eventDate).toLocaleDateString('zh-TW'),
+            mainImage: event.mainImage,
+            alt: event.alt,
+            description: event.blocks
+              .filter((block: any) => block.type === 'text')
+              .map((block: any) => block.data.content)
+              .join('\n\n'),
+            relatedImages: event.images.map((img: any) => ({
+              id: img.id,
+              src: img.src,
+              title: event.title,
+              description: '',
+              author: '',
+              uploadDate: img.createdAt,
+              photoDate: img.createdAt,
+              cakeCategory: [],
+              nineBlocks: [],
+              subID: img.id,
+              size: '',
+            })),
+            type: new Date(event.eventDate) > new Date() ? 'current' : 'past',
+          };
+          setEventItem(transformedEvent);
+        }
+      } catch (error) {
+        console.error('Failed to fetch event:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchEvent();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <PageLayout title="活動探索" subtitle="Events" headerpic="/images/header/event.jpeg">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <p className="text-gray-500">載入中...</p>
+        </div>
+      </PageLayout>
+    );
+  }
 
   if (!id) return null;
-  const Eventitem = eventData.find((item) => item.id === id);
 
-  if (!Eventitem) {
-    return <p className="text-center mt-10">Articledata not found.</p>;
+  if (!eventItem) {
+    return (
+      <PageLayout title="活動探索" subtitle="Events" headerpic="/images/header/event.jpeg">
+        <p className="text-center mt-10">找不到此活動</p>
+      </PageLayout>
+    );
   }
 
   // Split description into paragraphs on newline(s) so each line becomes a separate paragraph
-  const descriptionParagraphs = (Eventitem.description || '')
+  const descriptionParagraphs = (eventItem.description || '')
     .split(/\n+/)
     .map((p) => p.trim())
     .filter(Boolean);
@@ -43,10 +99,10 @@ export default function EventContentPage() {
         <header className="mb-4">
           <blockquote className="text-4xl sm:text-6xl font-bold text-[#89986A] border-l-4 border-[#89986A] pl-4 mb-4">
             <h1 className={`leading-relaxed ${notoSerifTC.className}`}>
-              {Eventitem.title.split('\n').map((line, index) => (
+              {eventItem.title.split('\n').map((line, index) => (
                 <span key={index}>
                   {line}
-                  {index < Eventitem.title.split('\n').length - 1 && <br />}
+                  {index < eventItem.title.split('\n').length - 1 && <br />}
                 </span>
               ))}
             </h1>
@@ -56,7 +112,7 @@ export default function EventContentPage() {
         {/* Cover Image */}
         <div className="relative w-full h-65 sm:h-[32rem] mb-4">
           <Image
-            src={Eventitem.mainImage}
+            src={eventItem.mainImage}
             alt="cover"
             fill
             className="object-contain"
@@ -76,7 +132,7 @@ export default function EventContentPage() {
 
           {/* Inline Image */}
           <MasonryGallery
-            images={Eventitem.relatedImages}
+            images={eventItem.relatedImages}
             breakpointColumnsObj={{
               default: 3, // 4 columns desktop
               1280: 3,

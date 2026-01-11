@@ -1,11 +1,33 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { PageLayout, PartnerCard } from '@/components';
-import partnerData from '@/data/partner.json';
-
-
 
 export default function PartnersPage() {
+  const [partnerData, setPartnerData] = useState<any[]>([]);
+
+  // Fetch partners from API
+  useEffect(() => {
+    async function fetchPartners() {
+      try {
+        const response = await fetch('/api/partners');
+        const result = await response.json();
+        if (result.success) {
+          // Transform API data to match PartnerCard props
+          const transformedPartners = result.data.map((partner: any) => ({
+            id: partner.id.toString(),
+            name: partner.name,
+            picture: partner.logo,
+            website: partner.webUrl,
+          }));
+          setPartnerData(transformedPartners);
+        }
+      } catch (error) {
+        console.error('Failed to fetch partners:', error);
+      }
+    }
+    fetchPartners();
+  }, []);
   return (
     <PageLayout title="友善夥伴" subtitle="Our Partners" headerpic="/images/header/partner.jpeg">
       <div className="min-h-screen bg-gray-50">

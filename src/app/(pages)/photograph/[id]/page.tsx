@@ -10,6 +10,9 @@ function transformToGalleryImage(photo: Photograph, index: number) {
     id: index,
     src: photo.url,
     title: photo.title,
+    author: photo.author,
+    photoDate: photo.photoDate,
+    description: photo.description,
   };
 }
 

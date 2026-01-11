@@ -4,7 +4,6 @@
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import  videosData  from "@/data/video.json";
 import { VideoRecommendation } from "@/types";
 import { VideoBlock } from "@/components";
 
@@ -13,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function VideoRecommendations() {
   const [isClient, setIsClient] = useState(false);
+  const [videosData, setVideosData] = useState<VideoRecommendation[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   
   // Animation refs
@@ -34,6 +34,34 @@ export default function VideoRecommendations() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Fetch videos from API
+  useEffect(() => {
+    async function fetchVideos() {
+      try {
+        const response = await fetch('/api/videos');
+        const result = await response.json();
+        if (result.success) {
+          // Transform the database structure to match VideoRecommendation type
+          const transformedVideos = result.data.map((video: any) => ({
+            id: video.id,
+            src: video.url,
+            thumbnail: video.mainImg,
+            title: video.title,
+            description: video.description,
+            keywords: video.keyWords?.map((kw: any) => kw.keyWord.name) || [],
+            author: video.author,
+            videoDate: video.videoDate,
+          }));
+          setVideosData(transformedVideos);
+        }
+      } catch (error) {
+        console.error('Failed to fetch videos:', error);
+      }
+    }
+    fetchVideos();
+  }, []);
+  
   const backgroundref = useRef<HTMLDivElement>(null);
 
   // GSAP Animations

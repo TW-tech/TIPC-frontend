@@ -159,7 +159,13 @@ export default function ImageLightbox({
                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
                   攝影日期 photoDate
                 </h3>
-                <p className="text-lg text-gray-800">{image.photoDate}</p>
+                <p className="text-lg text-gray-800">
+                  {new Date(image.photoDate).toLocaleDateString('zh-TW', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                  })}
+                </p>
               </div>
             )}
 

@@ -4,9 +4,8 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, Suspense, useState } from 'react';
 import { PageLayout } from '@/components';
 import MediaGallery from '@/components/sections/MediaGallery';
-import { GalleryItem, Article } from '@/types';
+import { GalleryItem, Article, Video } from '@/types';
 import photographData from '@/data/photograph.json';
-import videoData from '@/data/video.json';
 
 // Mapping from categoryId to Chinese category name
 const categoryMap: { [key: string]: string } = {
@@ -26,19 +25,20 @@ function CategoryContent() {
   const categoryId = searchParams.get('id') || '';
   const categoryName = categoryMap[categoryId] || categoryId;
   const [filteredArticles, setFilteredArticles] = useState<GalleryItem[]>([]);
+  const [filteredVideos, setFilteredVideos] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    async function fetchArticles() {
+    async function fetchData() {
       try {
-        const res = await fetch('/api/articles?limit=100');
-        const data = await res.json();
+        // Fetch articles
+        const articlesRes = await fetch('/api/articles?limit=100');
+        const articlesData = await articlesRes.json();
         
-        if (data.success) {
-          // Filter and transform articles
-          const articles: GalleryItem[] = data.data
+        if (articlesData.success) {
+          const articles: GalleryItem[] = articlesData.data
             .filter((article: Article) => 
               article.cakeCategory?.some(cc => cc.cakeCategory.name === "文化記憶") &&
               article.nineBlocks?.some(nb => nb.nineBlock.name === categoryName)
@@ -54,14 +54,37 @@ function CategoryContent() {
             }));
           setFilteredArticles(articles);
         }
+
+        // Fetch videos
+        const videosRes = await fetch('/api/videos');
+        const videosData = await videosRes.json();
+        
+        if (videosData.success) {
+          const videos: GalleryItem[] = videosData.data
+            .filter((video: Video) => 
+              video.cakeCategory?.some(cc => cc.cakeCategory.name === "文化記憶") &&
+              video.nineBlocks?.some(nb => nb.nineBlock.name === categoryName)
+            )
+            .map((video: Video) => ({
+              id: `video-${video.id}`,
+              type: 'video' as const,
+              imageUrl: video.mainImg,
+              altText: video.title,
+              title: video.title,
+              linkHref: video.url,
+              description: video.description,
+              keywords: video.keyWords?.map(kw => kw.keyWord.name) || [],
+            }));
+          setFilteredVideos(videos);
+        }
       } catch (error) {
-        console.error('Error fetching articles:', error);
+        console.error('Error fetching data:', error);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchArticles();
+    fetchData();
   }, [categoryName]);
 
   // Filter and transform photograph pictures
@@ -80,25 +103,6 @@ function CategoryContent() {
       author: photograph.author,
       photoDate: photograph.photoDate,
       description: photograph.description,
-    }));
-
-  // Filter and transform videos
-  const filteredVideos: GalleryItem[] = videoData
-    .filter((video) => 
-      video.cakeCategory?.includes("文化記憶") &&
-      video.nineBlocks?.includes(categoryName)
-    )
-    .map((video) => ({
-      id: `video-${video.id}`,
-      type: 'video' as const,
-      imageUrl: video.thumbnail,
-      altText: video.title,
-      title: video.title,
-      linkHref: video.src,
-      description: video.description,
-      keywords: video.keywords,
-      duration: video.duration,
-      cakeCategory: video.cakeCategory,
     }));
 
   // Combine all filtered media

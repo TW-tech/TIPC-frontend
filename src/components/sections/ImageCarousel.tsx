@@ -6,33 +6,52 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import eventDataRaw from "@/data/events.json";
-import { processEvents, type EventRaw } from "@/lib/eventUtils";
-
-// Automatically update event types based on dates
-const eventData = processEvents(eventDataRaw as EventRaw[]);
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ImageCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [eventData, setEventData] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Animation refs
   const sectionRef = useRef<HTMLElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Fetch events from API
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const response = await fetch('/api/events');
+        const result = await response.json();
+        if (result.success) {
+          // Filter for current events only
+          const currentEvents = result.data.filter((event: any) => 
+            new Date(event.eventDate) > new Date()
+          );
+          setEventData(currentEvents);
+        }
+      } catch (error) {
+        console.error('Failed to fetch events:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchEvents();
+  }, []);
+
   // 自動輪播
   useEffect(() => {
-    // Only run on client-side
-    if (typeof window === 'undefined') return;
+    // Only run on client-side and when we have events
+    if (typeof window === 'undefined' || eventData.length === 0) return;
     
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % eventData.length);
     }, 4000); // 4秒切換一次
 
     return () => clearInterval(timer);
-  }, []);
+  }, [eventData.length]);
 
   // GSAP Animations
   useEffect(() => {
@@ -67,6 +86,28 @@ export default function ImageCarousel() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
+        <div className="relative w-full h-[14rem] sm:h-[18rem] lg:h-[26rem] xl:h-[30rem] 2xl:h-[44rem] flex items-center justify-center">
+          <p className="text-gray-500">載入中...</p>
+        </div>
+      </section>
+    );
+  }
+
+  // No events state
+  if (eventData.length === 0) {
+    return (
+      <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">
+        <div className="relative w-full h-[14rem] sm:h-[18rem] lg:h-[26rem] xl:h-[30rem] 2xl:h-[44rem] flex items-center justify-center">
+          <p className="text-gray-500">目前沒有進行中的活動</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={sectionRef} className="py-8 sm:py-10 lg:py-12 bg-[#FAF9EB]">

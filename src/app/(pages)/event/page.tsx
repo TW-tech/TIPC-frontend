@@ -1,16 +1,10 @@
 // 活動探索
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PageLayout, MasonryGallery } from '@/components';
 import type { Event } from "@/types";
-import eventDataRaw from "@/data/events.json";
-import { processEvents, type EventRaw } from "@/lib/eventUtils";
-
-// Automatically update event types based on dates
-const eventData = processEvents(eventDataRaw as EventRaw[]);
-
 
 function EventCard({ event }: { event: Event }) {
   const [expanded, setExpanded] = useState(false);
@@ -82,6 +76,53 @@ function EventCard({ event }: { event: Event }) {
 }
 
 export default function EventPage() {
+  const [eventData, setEventData] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch events from API
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const response = await fetch('/api/events');
+        const result = await response.json();
+        if (result.success) {
+          // Transform API data to match Event type
+          const transformedEvents = result.data.map((event: any) => ({
+            id: event.id,
+            title: event.title,
+            date: new Date(event.eventDate).toLocaleDateString('zh-TW'),
+            mainImage: event.mainImage,
+            alt: event.alt,
+            description: event.blocks
+              .filter((block: any) => block.type === 'text')
+              .map((block: any) => block.data.content)
+              .join('\n\n'),
+            relatedImages: event.images.map((img: any) => ({
+              id: img.id,
+              src: img.src,
+              title: event.title,
+              description: '',
+              author: '',
+              uploadDate: img.createdAt,
+              photoDate: img.createdAt,
+              cakeCategory: [],
+              nineBlocks: [],
+              subID: img.id,
+              size: '',
+            })),
+            type: new Date(event.eventDate) > new Date() ? 'current' : 'past',
+          }));
+          setEventData(transformedEvents);
+        }
+      } catch (error) {
+        console.error('Failed to fetch events:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchEvents();
+  }, []);
+
   // Sort events by date - nearest first
   const sortByDate = (events: Event[]) => {
     return [...events].sort((a, b) => {
@@ -97,6 +138,16 @@ export default function EventPage() {
 
   const currentEvents = sortByDate(eventData.filter((e) => e.type === "current"));
   const pastEvents = sortByDate(eventData.filter((e) => e.type === "past"));
+
+  if (loading) {
+    return (
+      <PageLayout title="活動探索" subtitle="Events" headerpic="/images/header/event.jpeg">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <p className="text-gray-500">載入中...</p>
+        </div>
+      </PageLayout>
+    );
+  }
   
 
   return (

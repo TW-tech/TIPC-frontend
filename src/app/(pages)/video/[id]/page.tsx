@@ -3,17 +3,44 @@
 
 import { useRef, useState, useEffect } from "react";
 import { PageLayout, VideoBlock } from '@/components';
-import  videosData  from "@/data/video.json"
 import { VideoRecommendation } from "@/types";
 
 
 
 export default function VideoPage() {
+  const [videosData, setVideosData] = useState<VideoRecommendation[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState<VideoRecommendation | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const [initialRect, setInitialRect] = useState<DOMRect | null>(null);
   const backgroundref = useRef<HTMLDivElement>(null);
+
+  // Fetch videos from API
+  useEffect(() => {
+    async function fetchVideos() {
+      try {
+        const response = await fetch('/api/videos');
+        const result = await response.json();
+        if (result.success) {
+          // Transform the database structure to match VideoRecommendation type
+          const transformedVideos = result.data.map((video: any) => ({
+            id: video.id,
+            src: video.url,
+            thumbnail: video.mainImg,
+            title: video.title,
+            description: video.description,
+            keywords: video.keyWords?.map((kw: any) => kw.keyWord.name) || [],
+            author: video.author,
+            videoDate: video.videoDate,
+          }));
+          setVideosData(transformedVideos);
+        }
+      } catch (error) {
+        console.error('Failed to fetch videos:', error);
+      }
+    }
+    fetchVideos();
+  }, []);
 
   // 影片欄開關
     const openPanel = (e: React.MouseEvent, video: VideoRecommendation) => {

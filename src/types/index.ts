@@ -235,6 +235,49 @@ export interface VideoRecommendation {
   src: string;
 }
 
+// Video with database relations
+export interface VideoKeyWordRelation {
+  videoId: string;
+  keyWordId: string;
+  keyWord: {
+    id: string;
+    name: string;
+  };
+}
+
+export interface VideoNineBlockRelation {
+  videoId: string;
+  nineBlockId: string;
+  nineBlock: {
+    id: string;
+    name: string;
+  };
+}
+
+export interface VideoCakeCategoryRelation {
+  videoId: string;
+  cakeCategoryId: string;
+  cakeCategory: {
+    id: string;
+    name: string;
+  };
+}
+
+export interface Video {
+  id: string;
+  url: string;
+  title: string;
+  mainImg: string;
+  description: string;
+  keyWords: VideoKeyWordRelation[];
+  nineBlocks: VideoNineBlockRelation[];
+  cakeCategory: VideoCakeCategoryRelation[];
+  author: string;
+  videoDate: string | Date;
+  createdAt: string | Date;
+  updatedAt: string | Date;
+}
+
 export interface Article {
   id: string; // Changed from number to string (cuid)
   englishTitle?: string;
