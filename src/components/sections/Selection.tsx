@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function selection() {
   const [isClient, setIsClient] = useState(false);
-  
+
   // Animation refs
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -22,25 +22,24 @@ export default function selection() {
 
   // Fetch events from API
   useEffect(() => {
-    async function fetchEvents() {
+    async function fetchSelections() {
       try {
         const response = await fetch('/api/selections');
         const result = await response.json();
         if (result.success) {
           // and limit to maximum 3 events
-          // const carouselEvents = result.data
-          //   .filter((event: any) => event.showInImgCarousel === true)
-          //   .slice(0, 4);
-          // setEventData(carouselEvents);
-          setSelectionDate(result.data)
+          const limitThreeSelections = result.data
+            .filter((selection: any) => selection.setUpSelection === true)
+            .slice(0, 3);
+          setSelectionDate(limitThreeSelections)
         }
       } catch (error) {
-        console.error('Failed to fetch events:', error);
+        console.error('Failed to fetch selections:', error);
       } finally {
         setIsLoading(false);
       }
     }
-    fetchEvents();
+    fetchSelections();
   }, []);
 
   // Client-side detection
@@ -53,11 +52,11 @@ export default function selection() {
     if (!isClient) {
       return;
     }
-    
+
     const ctx = gsap.context(() => {
       // Title animation
       if (titleRef.current) {
-        gsap.fromTo(titleRef.current, 
+        gsap.fromTo(titleRef.current,
           {
             opacity: 0,
             y: 30
@@ -80,7 +79,7 @@ export default function selection() {
       // selection cards animation with stagger effect
       if (gridRef.current) {
         const cards = gridRef.current.querySelectorAll('.selection-card');
-        
+
         gsap.fromTo(cards,
           {
             opacity: 0,
@@ -112,7 +111,28 @@ export default function selection() {
     // 導航到編輯精選詳細頁面
     window.location.href = `/selection/${slug}`;
   };
-  
+
+  // No events state
+  if (selectionData.length === 0) {
+    return (
+      <section ref={sectionRef} className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-[#FAF9EB]">
+        <div className="w-full flex justify-center px-4 sm:px-6 lg:px-8">
+          <div className="w-full sm:w-[82%]">
+            {/* 標題區塊 */}
+            <div ref={titleRef} className="text-center mb-2 sm:mb-2">
+              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-800 max-w-3xl mx-auto leading-relaxed">
+                影響力精選
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="relative w-full h-[14rem] sm:h-[18rem] lg:h-[26rem] xl:h-[30rem] 2xl:h-[44rem] flex items-center justify-center">
+          <p className="text-gray-500">目前沒有進行中的影響力精選</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section ref={sectionRef} className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-[#FAF9EB]">
       <div className="w-full flex justify-center px-4 sm:px-6 lg:px-8">
@@ -123,25 +143,25 @@ export default function selection() {
               影響力精選
             </p>
           </div>
-          
+
           {/* 3個一排對齊Slogan */}
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {selectionData.map((selection, index) => (
-              <div 
+              <div
                 key={`${selection.id}-${index}`}
                 onClick={() => handleSelectionClick(selection.slug)}
                 className="selection-card group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 cursor-pointer overflow-hidden border border-gray-100"
               >
                 {/* 圖片容器 */}
                 <div className="relative aspect-square overflow-hidden">
-                  <Image 
-                    src={selection.coverImage} 
+                  <Image
+                    src={selection.coverImage}
                     alt={selection.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  
+
                   {/* 文字覆蓋層 - 透明背景 */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex items-end">
                     <div className="p-4 sm:p-6 text-white w-full">
@@ -166,7 +186,7 @@ export default function selection() {
 
           {/* 點擊看更多按鈕 */}
           <div className="flex justify-center mt-8">
-            <Link 
+            <Link
               href="/selection"
               className="px-8 py-3 bg-[#CC6915] text-white rounded-full font-semibold hover:bg-[#B55A12] transition-colors duration-300 shadow-lg hover:shadow-xl"
             >
