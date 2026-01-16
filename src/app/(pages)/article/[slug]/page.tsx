@@ -6,7 +6,7 @@ import ArticleClient from './ArticleClient';
 async function getArticle(slug: string): Promise<Article | null> {
   try {
     // Use relative URL for server-side fetch (works both locally and in production)
-    const res = await fetch(`/api/articles/slug/${slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/articles/${slug}`, {
       cache: 'no-store', // Always fetch fresh data
     });
 
