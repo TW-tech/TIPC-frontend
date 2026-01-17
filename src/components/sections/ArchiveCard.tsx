@@ -12,11 +12,11 @@ import { ArchiveCardProps } from "@/types";
 function getclassColor(tag: string) {
   switch (tag.toLowerCase()) {
     case "照片":
-      return "bg-[#833416] text-white";
+      return "bg-[#422816] text-white";
     case "影音":
-      return "bg-[#CC6915] text-white";
+      return "bg-[#843416] text-white";
     case "地圖":
-      return "bg-[#FAF9EB] text-gray-800";
+      return "bg-[#CC6915] text-white";
   }
 }
 
