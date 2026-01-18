@@ -22,3 +22,5 @@ out/
 # Ignore video folder
 public/videos
 /src/generated/prisma
+
+.vscode/
