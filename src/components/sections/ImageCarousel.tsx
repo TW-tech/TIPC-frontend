@@ -138,7 +138,7 @@ export default function ImageCarousel() {
             </div>
 
             {/* 中間主圖 */}
-            <div className="carousel-slide relative w-full sm:w-[64%] h-full">
+            <div className="carousel-slide relative w-full sm:w-[64%] aspect-[16/9] max-h-[45rem]">
               <Link href={`/event/${eventData[currentSlide].id}`} className="block relative w-full h-full rounded-2xl shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <Image
                   src={eventData[currentSlide].mainImage}
